@@ -18,12 +18,15 @@ export default function TikTokMp3Page() {
             onResult={(data) => setDownloadResult(data)}
             title="TikTok to MP3 Converter (Download Audio in 320kbps)"
             subtitle="Extract background music, sound bites, dialogue, and trending audio tracks from any TikTok video in high-quality MP3 format for free."
-            defaultType="audio"
+            placeholder="Paste TikTok video link to extract 320kbps MP3 audio..."
+            buttonText="Convert to MP3"
+            badge="Studio Audio Extractor"
           />
         ) : (
           <ResultCard
             result={downloadResult}
             onReset={() => setDownloadResult(null)}
+            mode="mp3"
           />
         )}
       </section>
@@ -84,18 +87,8 @@ export default function TikTokMp3Page() {
           <ol className="space-y-3 list-decimal list-inside text-slate-600 text-sm sm:text-base">
             <li><strong className="text-slate-900">Copy Link:</strong> In the TikTok app, tap Share on any video with music you love and select <em>Copy Link</em>.</li>
             <li><strong className="text-slate-900">Paste URL:</strong> Open TikFlow MP3 Downloader in your web browser and paste the link into the field.</li>
-            <li><strong className="text-slate-900">Extract MP3:</strong> Click <em>Download</em>, then tap the pink <em>Download MP3 Audio</em> button. The sound track will immediately save to your device.</li>
+            <li><strong className="text-slate-900">Extract MP3:</strong> Click <em>Convert to MP3</em>, then tap the green <em>Download MP3 Audio (320kbps)</em> button. The sound track will immediately save to your device.</li>
           </ol>
-        </div>
-
-        <div className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200">
-          <h3 className="text-lg font-bold text-slate-900 mb-3">How to Use Downloaded TikTok Sounds as Your Phone Ringtone</h3>
-          <p className="text-sm text-slate-600 leading-relaxed mb-3">
-            On Android, once you download the MP3 from TikFlow, navigate to <em>Settings &gt; Sound &amp; Vibration &gt; Phone Ringtone &gt; Custom Ringtone</em> and select your newly saved TikTok MP3 file.
-          </p>
-          <p className="text-sm text-slate-600 leading-relaxed">
-            On iPhone, you can import the downloaded MP3 into Apple&apos;s free <strong>GarageBand</strong> app, export it as a Ringtone, and immediately set it as your default call or alarm sound without needing a computer.
-          </p>
         </div>
       </section>
 

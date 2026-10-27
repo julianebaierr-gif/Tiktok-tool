@@ -18,12 +18,15 @@ export default function TikTokStoryPage() {
             onResult={(data) => setDownloadResult(data)}
             title="TikTok Story Downloader (Save Stories Before They Expire)"
             subtitle="Archive temporary 24-hour TikTok stories in high definition without watermarks before they automatically disappear."
-            defaultType="video"
+            placeholder="Paste temporary TikTok story link..."
+            buttonText="Save Story"
+            badge="24-Hour Story Archiver"
           />
         ) : (
           <ResultCard
             result={downloadResult}
             onReset={() => setDownloadResult(null)}
+            mode="story"
           />
         )}
       </section>
@@ -84,7 +87,7 @@ export default function TikTokStoryPage() {
           <ol className="space-y-3 list-decimal list-inside text-slate-600 text-sm sm:text-base">
             <li><strong className="text-slate-900">Copy the Story Link:</strong> While viewing a public TikTok story, tap the Share icon and click <em>Copy Link</em>.</li>
             <li><strong className="text-slate-900">Paste URL:</strong> Open TikFlow Story Saver in your browser and paste the link into the box above.</li>
-            <li><strong className="text-slate-900">Save Instantly:</strong> Click <em>Download</em> and choose <em>Download MP4 (Without Watermark)</em> to save the story straight to your phone or computer.</li>
+            <li><strong className="text-slate-900">Save Instantly:</strong> Click <em>Save Story</em> and choose <em>Download MP4 (Without Watermark)</em> to save the story straight to your phone or computer.</li>
           </ol>
         </div>
       </section>

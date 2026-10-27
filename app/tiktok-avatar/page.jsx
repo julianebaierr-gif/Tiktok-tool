@@ -18,37 +18,16 @@ export default function TikTokAvatarPage() {
             onResult={(data) => setDownloadResult(data)}
             title="TikTok Profile Picture Downloader (Download Full HD Avatar & PFP)"
             subtitle="View and download full-size, uncompressed TikTok profile pictures (PFP) in high resolution from any public account or video link."
-            defaultType="photo"
+            placeholder="Paste creator video link or username URL to view HD avatar..."
+            buttonText="Get HD Avatar"
+            badge="Full HD Profile Picture (PFP)"
           />
         ) : (
-          <div className="space-y-6">
-            <ResultCard
-              result={downloadResult}
-              onReset={() => setDownloadResult(null)}
-            />
-            
-            {/* Dedicated Avatar Card if author avatar exists */}
-            {downloadResult.author?.avatar && (
-              <div className="max-w-md mx-auto p-6 rounded-3xl bg-white border border-slate-200 shadow-xl text-center">
-                <h3 className="text-lg font-black text-slate-900 mb-2">Original Full-Size Avatar</h3>
-                <img
-                  src={downloadResult.author.avatar}
-                  alt={downloadResult.author.nickname}
-                  className="w-36 h-36 mx-auto rounded-full border-4 border-rose-100 shadow-md object-cover my-4"
-                />
-                <p className="font-bold text-slate-900">{downloadResult.author.nickname}</p>
-                <p className="text-xs text-slate-500 mb-4">@{downloadResult.author.username}</p>
-                <a
-                  href={`/api/proxy?url=${encodeURIComponent(downloadResult.author.avatar)}&filename=pfp_${downloadResult.author.username}.jpg&type=image`}
-                  download={`pfp_${downloadResult.author.username}.jpg`}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-600 text-white font-bold text-sm shadow-md shadow-rose-500/20 hover:scale-105 active:scale-95 transition-all"
-                >
-                  <Download className="w-4 h-4" />
-                  <span>Save Full HD Avatar</span>
-                </a>
-              </div>
-            )}
-          </div>
+          <ResultCard
+            result={downloadResult}
+            onReset={() => setDownloadResult(null)}
+            mode="avatar"
+          />
         )}
       </section>
 

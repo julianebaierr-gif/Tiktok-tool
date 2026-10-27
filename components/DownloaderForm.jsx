@@ -1,13 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Clipboard, X, Loader2, Sparkles, AlertCircle, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Clipboard, X, Loader2, AlertCircle, ArrowRight } from 'lucide-react';
 
 export default function DownloaderForm({ 
   onResult, 
   title = "Save TikTok Videos Without Watermark",
   subtitle = "Paste a TikTok link below to download the clean original video in HD or save the audio as an MP3 file directly to your device.",
-  defaultType = "video"
+  placeholder = "Paste your TikTok link here (e.g., https://vt.tiktok.com/...)",
+  buttonText = "Download",
+  sampleUrl = "https://www.tiktok.com/@scout2015/video/6718335390845095173",
+  badge = "Fast, Free & Private"
 }) {
   const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
@@ -36,12 +39,12 @@ export default function DownloaderForm({
 
     const trimmedUrl = url.trim();
     if (!trimmedUrl) {
-      setError('Please paste a TikTok link into the box above.');
+      setError('Please paste a link into the box above.');
       return;
     }
 
     if (!trimmedUrl.includes('tiktok.com') && !trimmedUrl.includes('douyin.com')) {
-      setError('Please enter a valid TikTok link (e.g., https://www.tiktok.com/@user/video/... or https://vt.tiktok.com/...)');
+      setError('Please enter a valid TikTok or Douyin link (e.g., https://www.tiktok.com/@user/video/... or https://vt.tiktok.com/...)');
       return;
     }
 
@@ -57,7 +60,7 @@ export default function DownloaderForm({
       const data = await res.json();
 
       if (!res.ok || !data.success) {
-        throw new Error(data.error || 'Could not fetch this video. Please make sure the video is public and try again.');
+        throw new Error(data.error || 'Could not fetch this media. Please ensure the link is public and try again.');
       }
 
       if (onResult) {
@@ -71,7 +74,7 @@ export default function DownloaderForm({
   };
 
   const loadSampleUrl = () => {
-    setUrl('https://www.tiktok.com/@scout2015/video/6718335390845095173');
+    setUrl(sampleUrl);
     setError(null);
   };
 
@@ -81,18 +84,23 @@ export default function DownloaderForm({
       {/* Light pill badge */}
       <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 text-xs sm:text-sm font-semibold text-slate-700 mb-6 shadow-sm">
         <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span className="text-slate-600">Fast, Free & Private</span>
+        <span className="text-slate-600">{badge}</span>
         <span className="text-slate-300">•</span>
         <span className="text-rose-600 font-bold">No Watermarks</span>
       </div>
 
       {/* Main Heading */}
       <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-4 leading-[1.15]">
-        {title.split('Without Watermark')[0]}
-        {title.includes('Without Watermark') && (
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-pink-600 to-indigo-600">
-            Without Watermark
-          </span>
+        {title.includes('Without Watermark') ? (
+          <>
+            {title.split('Without Watermark')[0]}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-pink-600 to-indigo-600">
+              Without Watermark
+            </span>
+            {title.split('Without Watermark')[1]}
+          </>
+        ) : (
+          title
         )}
       </h1>
 
@@ -113,7 +121,7 @@ export default function DownloaderForm({
                 setUrl(e.target.value);
                 if (error) setError(null);
               }}
-              placeholder="Paste your TikTok link here (e.g., https://vt.tiktok.com/...)"
+              placeholder={placeholder}
               className="w-full px-4 sm:px-6 py-3.5 sm:py-4 bg-transparent text-slate-900 placeholder-slate-400 text-sm sm:text-base focus:outline-none pr-20"
               disabled={loading}
               autoComplete="off"
@@ -156,7 +164,7 @@ export default function DownloaderForm({
               </>
             ) : (
               <>
-                <span>Download</span>
+                <span>{buttonText}</span>
                 <ArrowRight className="w-4 h-4 text-white" />
               </>
             )}
@@ -165,7 +173,7 @@ export default function DownloaderForm({
 
         {/* Quick sample link helper */}
         <div className="mt-3.5 flex items-center justify-center gap-2 text-xs text-slate-500">
-          <span>Want to test it first?</span>
+          <span>Need a test URL?</span>
           <button
             type="button"
             onClick={loadSampleUrl}

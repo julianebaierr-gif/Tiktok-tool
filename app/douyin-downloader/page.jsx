@@ -18,12 +18,15 @@ export default function DouyinDownloaderPage() {
             onResult={(data) => setDownloadResult(data)}
             title="Douyin Video Downloader (Download Chinese TikTok Without Watermark)"
             subtitle="Save original Full HD videos, audio tracks, and slideshows from Douyin (抖音) directly to your device without logos or Chinese watermarks."
-            defaultType="video"
+            placeholder="Paste Douyin video link or copied Chinese share text (v.douyin.com)..."
+            buttonText="Download Douyin Video"
+            badge="Douyin (抖音) HD Video Downloader"
           />
         ) : (
           <ResultCard
             result={downloadResult}
             onReset={() => setDownloadResult(null)}
+            mode="douyin"
           />
         )}
       </section>

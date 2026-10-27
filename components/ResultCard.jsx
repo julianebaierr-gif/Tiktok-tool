@@ -12,17 +12,21 @@ import {
   Eye, 
   RotateCcw, 
   CheckCircle2, 
-  Sparkles,
+  Sparkles, 
   ExternalLink,
   Copy,
   Check,
   QrCode,
   X,
   Play,
-  Pause
+  Bell,
+  UserCheck,
+  Disc,
+  Globe2,
+  Clock
 } from 'lucide-react';
 
-export default function ResultCard({ result, onReset }) {
+export default function ResultCard({ result, onReset, mode = "video" }) {
   const [copied, setCopied] = useState(false);
   const [showQr, setShowQr] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -66,19 +70,41 @@ export default function ResultCard({ result, onReset }) {
     });
   };
 
+  // Mode-specific badge
+  const getModeBadge = () => {
+    switch (mode) {
+      case 'mp3':
+        return { text: 'MP3 Audio Extracted (320kbps)', icon: Disc, color: 'text-rose-600 bg-rose-50 border-rose-200' };
+      case 'ringtone':
+        return { text: 'Custom Ringtone Ready', icon: Bell, color: 'text-emerald-600 bg-emerald-50 border-emerald-200' };
+      case 'avatar':
+        return { text: 'Profile Avatar HD Extracted', icon: UserCheck, color: 'text-indigo-600 bg-indigo-50 border-indigo-200' };
+      case 'douyin':
+        return { text: 'Douyin (抖音) Watermark Removed', icon: Globe2, color: 'text-rose-600 bg-rose-50 border-rose-200' };
+      case 'story':
+        return { text: 'Story Video (Saved Before 24h Expiry)', icon: Clock, color: 'text-amber-600 bg-amber-50 border-amber-200' };
+      case 'photo':
+        return { text: 'Photo Slideshow Gallery', icon: ImageIcon, color: 'text-indigo-600 bg-indigo-50 border-indigo-200' };
+      default:
+        return { text: 'Watermark-Free 1080p Stream Ready', icon: CheckCircle2, color: 'text-emerald-600 bg-emerald-50 border-emerald-200' };
+    }
+  };
+
+  const badgeInfo = getModeBadge();
+  const BadgeIcon = badgeInfo.icon;
+
   return (
     <div className="w-full max-w-4xl mx-auto px-4 py-6 animate-in fade-in zoom-in-95 duration-200">
       <div className="rounded-3xl bg-white border border-slate-200 shadow-xl shadow-slate-200/60 p-6 sm:p-8 relative">
         
-        {/* Header / Success Indicator & Tools Bar */}
+        {/* Top Header Bar */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-5 mb-6">
-          <div className="flex items-center space-x-2 text-emerald-600 text-sm font-bold">
-            <CheckCircle2 className="w-5 h-5" />
-            <span>Ready for Download (1080p Source Available)</span>
+          <div className={`inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs sm:text-sm font-bold border ${badgeInfo.color}`}>
+            <BadgeIcon className="w-4 h-4 shrink-0" />
+            <span>{badgeInfo.text}</span>
           </div>
 
           <div className="flex items-center gap-2">
-            {/* Copy Link Button */}
             <button
               onClick={handleCopyLink}
               className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200 transition-all"
@@ -88,7 +114,6 @@ export default function ResultCard({ result, onReset }) {
               <span>{copied ? 'Link Copied!' : 'Copy Link'}</span>
             </button>
 
-            {/* QR Code for Mobile */}
             <button
               onClick={() => setShowQr(true)}
               className="hidden sm:flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200 transition-all"
@@ -98,7 +123,6 @@ export default function ResultCard({ result, onReset }) {
               <span>Scan QR</span>
             </button>
 
-            {/* Download Another */}
             <button
               onClick={onReset}
               className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition-all"
@@ -109,214 +133,347 @@ export default function ResultCard({ result, onReset }) {
           </div>
         </div>
 
-        {/* Content Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-          
-          {/* Media Thumbnail & Player */}
-          <div className="md:col-span-5 space-y-4">
-            <div className="relative aspect-[9/16] max-h-[390px] w-full mx-auto rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md group">
-              {isPlaying && video?.noWatermark ? (
-                <video
-                  src={video.noWatermark}
-                  controls
-                  autoPlay
-                  className="w-full h-full object-contain bg-black"
-                />
-              ) : cover ? (
-                <>
-                  <img
-                    src={cover}
-                    alt={title || 'TikTok Preview'}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
-                  
-                  {/* Play preview button */}
-                  {video?.noWatermark && (
-                    <button
-                      onClick={() => setIsPlaying(true)}
-                      className="absolute inset-0 flex items-center justify-center m-auto w-14 h-14 rounded-full bg-white/90 text-rose-600 shadow-lg hover:scale-110 active:scale-95 transition-all group-hover:bg-white"
-                      title="Play preview video"
-                    >
-                      <Play className="w-6 h-6 fill-rose-600 ml-0.5" />
-                    </button>
-                  )}
-                </>
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-slate-400">
-                  <Video className="w-16 h-16" />
-                </div>
-              )}
-              
-              {/* Badge overlay */}
-              <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 border border-white/80 text-[11px] font-bold text-rose-600 shadow-sm flex items-center gap-1.5 pointer-events-none">
-                <Sparkles className="w-3 h-3 text-rose-500" />
-                <span>No Watermark</span>
-              </div>
-            </div>
-
-            {/* Author Profile Bar */}
-            <div className="flex items-center space-x-3 p-3 rounded-2xl bg-slate-50 border border-slate-200/80">
+        {/* ------------------------------------------------------------- */}
+        {/* SPECIALIZED MODE 1: AVATAR / PROFILE PICTURE HD MODE         */}
+        {/* ------------------------------------------------------------- */}
+        {mode === 'avatar' && (
+          <div className="text-center py-4 space-y-6">
+            <div className="relative inline-block group">
               {author?.avatar ? (
                 <img
                   src={author.avatar}
                   alt={author.nickname}
-                  className="w-10 h-10 rounded-full border border-slate-200 object-cover"
+                  className="w-40 h-40 sm:w-48 sm:h-48 rounded-full border-4 border-rose-100 shadow-xl object-cover mx-auto group-hover:scale-105 transition-transform"
                 />
               ) : (
-                <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-700">
+                <div className="w-40 h-40 rounded-full bg-slate-200 flex items-center justify-center font-bold text-4xl text-slate-700 mx-auto">
                   {author?.username?.charAt(0) || 'U'}
                 </div>
               )}
-              <div className="flex-1 min-w-0">
-                <h4 className="text-slate-900 font-bold text-sm truncate">{author?.nickname || 'TikTok Creator'}</h4>
-                <p className="text-slate-500 text-xs truncate">@{author?.username || 'user'}</p>
+              <div className="absolute bottom-2 right-2 p-2 bg-emerald-500 text-white rounded-full shadow-md">
+                <Check className="w-4 h-4" />
               </div>
             </div>
-          </div>
 
-          {/* Details & Download Actions */}
-          <div className="md:col-span-7 space-y-6">
-            
-            {/* Title / Caption */}
             <div>
-              <h3 className="text-slate-900 text-base sm:text-lg font-semibold leading-relaxed line-clamp-3">
-                {title || 'TikTok video description'}
-              </h3>
+              <h3 className="text-2xl font-black text-slate-900">{author?.nickname || 'TikTok User'}</h3>
+              <p className="text-sm font-semibold text-rose-600">@{author?.username || 'user'}</p>
+              {title && <p className="text-xs text-slate-500 mt-2 max-w-md mx-auto line-clamp-2">{title}</p>}
             </div>
 
-            {/* Statistics */}
-            <div className="grid grid-cols-4 gap-2 py-3 px-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-center">
-              <div>
-                <p className="text-xs text-slate-500 flex items-center justify-center gap-1 mb-1">
-                  <Heart className="w-3 h-3 text-rose-500" /> Likes
-                </p>
-                <p className="text-sm font-bold text-slate-900">{formatNumber(stats?.likes)}</p>
-              </div>
-              <div>
-                <p className="text-xs text-slate-500 flex items-center justify-center gap-1 mb-1">
-                  <MessageCircle className="w-3 h-3 text-indigo-500" /> Comments
-                </p>
-                <p className="text-sm font-bold text-slate-900">{formatNumber(stats?.comments)}</p>
-              </div>
-              <div>
-                <p className="text-xs text-slate-500 flex items-center justify-center gap-1 mb-1">
-                  <Share2 className="w-3 h-3 text-amber-500" /> Shares
-                </p>
-                <p className="text-sm font-bold text-slate-900">{formatNumber(stats?.shares)}</p>
-              </div>
-              <div>
-                <p className="text-xs text-slate-500 flex items-center justify-center gap-1 mb-1">
-                  <Eye className="w-3 h-3 text-emerald-500" /> Plays
-                </p>
-                <p className="text-sm font-bold text-slate-900">{formatNumber(stats?.views)}</p>
-              </div>
-            </div>
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+              {author?.avatar && (
+                <a
+                  href={getProxyUrl(author.avatar, `avatar_${author.username || id}.jpg`, 'image')}
+                  download={`avatar_${author.username || id}.jpg`}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 text-white font-bold text-base shadow-lg shadow-rose-500/25 hover:scale-105 active:scale-95 transition-all"
+                >
+                  <Download className="w-5 h-5" />
+                  <span>Download Full HD Avatar (.jpg)</span>
+                </a>
+              )}
 
-            {/* Download Buttons Section */}
-            <div className="space-y-3 pt-2">
-              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Choose Download Option</h4>
-
-              {/* MP4 No Watermark Primary */}
               {video?.noWatermark && (
                 <a
-                  href={getProxyUrl(video.noWatermark, `tikflow_video_nowm_${id}.mp4`, 'video')}
-                  download={`tikflow_video_nowm_${id}.mp4`}
-                  className="w-full flex items-center justify-between px-5 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-sm shadow-md shadow-emerald-500/20 active:scale-[0.99] transition-all group"
+                  href={getProxyUrl(video.noWatermark, `tikflow_video_${id}.mp4`, 'video')}
+                  download={`tikflow_video_${id}.mp4`}
+                  className="inline-flex items-center gap-2 px-6 py-4 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm border border-slate-200 transition-all"
                 >
-                  <div className="flex items-center space-x-3">
-                    <Download className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
-                    <span>Download MP4 (Without Watermark)</span>
-                  </div>
-                  <span className="text-[11px] px-2 py-0.5 rounded bg-white/20 font-semibold uppercase">Server 1</span>
+                  <Video className="w-4 h-4 text-slate-600" />
+                  <span>Download Video As Well</span>
                 </a>
               )}
+            </div>
+          </div>
+        )}
 
-              {/* MP4 HD Server 2 */}
-              {video?.noWatermarkHd && (
-                <a
-                  href={getProxyUrl(video.noWatermarkHd, `tikflow_video_hd_${id}.mp4`, 'video')}
-                  download={`tikflow_video_hd_${id}.mp4`}
-                  className="w-full flex items-center justify-between px-5 py-3.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-sm border border-slate-200 active:scale-[0.99] transition-all group"
-                >
-                  <div className="flex items-center space-x-3">
-                    <Video className="w-5 h-5 text-indigo-600" />
-                    <span>Download MP4 (HD Server 2)</span>
+        {/* ------------------------------------------------------------- */}
+        {/* SPECIALIZED MODE 2: MP3 AUDIO CONVERTER & RINGTONE MODE       */}
+        {/* ------------------------------------------------------------- */}
+        {(mode === 'mp3' || mode === 'ringtone') && (
+          <div className="space-y-8 py-2">
+            <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-rose-50 via-slate-50 to-indigo-50 border border-rose-100 flex flex-col sm:flex-row items-center gap-6">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden bg-slate-900 shadow-lg shrink-0 relative group">
+                {cover ? (
+                  <img src={cover} alt="Track cover" className="w-full h-full object-cover" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-white">
+                    <Disc className="w-12 h-12" />
                   </div>
-                  <span className="text-[11px] text-slate-500">Source HD</span>
-                </a>
-              )}
+                )}
+                <div className="absolute inset-0 bg-slate-950/40 flex items-center justify-center">
+                  <Music className="w-8 h-8 text-rose-300 animate-pulse" />
+                </div>
+              </div>
 
-              {/* MP3 Audio Track */}
+              <div className="flex-1 text-center sm:text-left min-w-0">
+                <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-rose-500 text-white uppercase tracking-wider">
+                  320kbps Studio Audio
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black text-slate-900 mt-2 truncate">
+                  {music?.title || 'TikTok Original Soundtrack'}
+                </h3>
+                <p className="text-sm font-semibold text-slate-600 truncate mt-0.5">
+                  Artist / Creator: {music?.author || author?.nickname || 'TikTok Audio'}
+                </p>
+
+                {/* Built-in HTML5 Audio Player */}
+                {music?.url && (
+                  <div className="mt-4">
+                    <audio controls className="w-full h-10 rounded-xl" src={music.url}>
+                      Your browser does not support audio playback.
+                    </audio>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Audio Download Action Buttons */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {music?.url && (
                 <a
                   href={getProxyUrl(music.url, `tikflow_audio_${id}.mp3`, 'audio')}
                   download={`tikflow_audio_${id}.mp3`}
-                  className="w-full flex items-center justify-between px-5 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-semibold text-sm shadow-md shadow-rose-500/20 active:scale-[0.99] transition-all group"
+                  className="flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-base shadow-lg shadow-emerald-500/25 active:scale-[0.99] transition-all"
                 >
-                  <div className="flex items-center space-x-3">
-                    <Music className="w-5 h-5 text-rose-100" />
-                    <span className="truncate max-w-[240px]">
-                      Download MP3 Audio ({music.title || 'Soundtrack'})
-                    </span>
-                  </div>
-                  <span className="text-[11px] px-2 py-0.5 rounded bg-white/20 font-semibold uppercase">320kbps</span>
+                  <Download className="w-5 h-5" />
+                  <span>Download MP3 Audio (320kbps)</span>
                 </a>
               )}
 
-              {/* Direct fallback link */}
-              {video?.noWatermark && (
-                <div className="pt-2 text-center">
-                  <a
-                    href={video.noWatermark}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-rose-600 transition-colors"
-                  >
-                    <span>Having trouble downloading? Click here to view source stream</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
+              {music?.url && (
+                <a
+                  href={getProxyUrl(music.url, `tikflow_ringtone_${id}.m4a`, 'audio')}
+                  download={`tikflow_ringtone_${id}.m4a`}
+                  className="flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold text-base shadow-lg shadow-rose-500/25 active:scale-[0.99] transition-all"
+                >
+                  <Bell className="w-5 h-5" />
+                  <span>Download Ringtone (.M4A / iPhone)</span>
+                </a>
               )}
             </div>
 
-            {/* Photo Slideshow Gallery */}
-            {isImagePost && images && images.length > 0 && (
-              <div className="mt-8 pt-6 border-t border-slate-100 space-y-4">
-                <div className="flex items-center justify-between">
-                  <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                    <ImageIcon className="w-4 h-4 text-rose-500" />
-                    <span>Photo Slideshow ({images.length} High-Res Photos)</span>
-                  </h4>
-                </div>
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                  {images.map((imgUrl, index) => (
-                    <div key={index} className="relative group rounded-xl overflow-hidden bg-slate-100 border border-slate-200 aspect-[9/16]">
-                      <img
-                        src={imgUrl}
-                        alt={`Photo slide ${index + 1}`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                      />
-                      <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-2">
-                        <a
-                          href={getProxyUrl(imgUrl, `tikflow_photo_${id}_${index + 1}.jpg`, 'image')}
-                          download={`tikflow_photo_${id}_${index + 1}.jpg`}
-                          className="px-3 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold flex items-center gap-1 shadow-md"
-                        >
-                          <Download className="w-3.5 h-3.5" />
-                          <span>Save #{index + 1}</span>
-                        </a>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+            {/* Video Fallback Option */}
+            {video?.noWatermark && (
+              <div className="pt-2 text-center border-t border-slate-100 flex flex-wrap items-center justify-center gap-4 text-xs">
+                <span className="text-slate-500">Need the full video as well?</span>
+                <a
+                  href={getProxyUrl(video.noWatermark, `tikflow_video_${id}.mp4`, 'video')}
+                  download={`tikflow_video_${id}.mp4`}
+                  className="font-bold text-rose-600 hover:underline flex items-center gap-1"
+                >
+                  <Video className="w-3.5 h-3.5" />
+                  <span>Download MP4 Without Watermark</span>
+                </a>
               </div>
             )}
+          </div>
+        )}
+
+        {/* ------------------------------------------------------------- */}
+        {/* STANDARD MODE / PHOTO / DOUYIN / STORY / VIDEO LAYOUT         */}
+        {/* ------------------------------------------------------------- */}
+        {mode !== 'avatar' && mode !== 'mp3' && mode !== 'ringtone' && (
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            
+            {/* Media Thumbnail & Player */}
+            <div className="md:col-span-5 space-y-4">
+              <div className="relative aspect-[9/16] max-h-[390px] w-full mx-auto rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md group">
+                {isPlaying && video?.noWatermark ? (
+                  <video
+                    src={video.noWatermark}
+                    controls
+                    autoPlay
+                    className="w-full h-full object-contain bg-black"
+                  />
+                ) : cover ? (
+                  <>
+                    <img
+                      src={cover}
+                      alt={title || 'TikTok Preview'}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                    
+                    {video?.noWatermark && (
+                      <button
+                        onClick={() => setIsPlaying(true)}
+                        className="absolute inset-0 flex items-center justify-center m-auto w-14 h-14 rounded-full bg-white/90 text-rose-600 shadow-lg hover:scale-110 active:scale-95 transition-all group-hover:bg-white"
+                        title="Play preview video"
+                      >
+                        <Play className="w-6 h-6 fill-rose-600 ml-0.5" />
+                      </button>
+                    )}
+                  </>
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-slate-400">
+                    <Video className="w-16 h-16" />
+                  </div>
+                )}
+                
+                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 border border-white/80 text-[11px] font-bold text-rose-600 shadow-sm flex items-center gap-1.5 pointer-events-none">
+                  <Sparkles className="w-3 h-3 text-rose-500" />
+                  <span>No Watermark</span>
+                </div>
+              </div>
+
+              {/* Author Profile Bar */}
+              <div className="flex items-center space-x-3 p-3 rounded-2xl bg-slate-50 border border-slate-200/80">
+                {author?.avatar ? (
+                  <img
+                    src={author.avatar}
+                    alt={author.nickname}
+                    className="w-10 h-10 rounded-full border border-slate-200 object-cover"
+                  />
+                ) : (
+                  <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-700">
+                    {author?.username?.charAt(0) || 'U'}
+                  </div>
+                )}
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-slate-900 font-bold text-sm truncate">{author?.nickname || 'TikTok Creator'}</h4>
+                  <p className="text-slate-500 text-xs truncate">@{author?.username || 'user'}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Details & Download Actions */}
+            <div className="md:col-span-7 space-y-6">
+              <div>
+                <h3 className="text-slate-900 text-base sm:text-lg font-semibold leading-relaxed line-clamp-3">
+                  {title || 'TikTok video description'}
+                </h3>
+              </div>
+
+              {/* Statistics */}
+              <div className="grid grid-cols-4 gap-2 py-3 px-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-center">
+                <div>
+                  <p className="text-xs text-slate-500 flex items-center justify-center gap-1 mb-1">
+                    <Heart className="w-3 h-3 text-rose-500" /> Likes
+                  </p>
+                  <p className="text-sm font-bold text-slate-900">{formatNumber(stats?.likes)}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-slate-500 flex items-center justify-center gap-1 mb-1">
+                    <MessageCircle className="w-3 h-3 text-indigo-500" /> Comments
+                  </p>
+                  <p className="text-sm font-bold text-slate-900">{formatNumber(stats?.comments)}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-slate-500 flex items-center justify-center gap-1 mb-1">
+                    <Share2 className="w-3 h-3 text-amber-500" /> Shares
+                  </p>
+                  <p className="text-sm font-bold text-slate-900">{formatNumber(stats?.shares)}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-slate-500 flex items-center justify-center gap-1 mb-1">
+                    <Eye className="w-3 h-3 text-emerald-500" /> Plays
+                  </p>
+                  <p className="text-sm font-bold text-slate-900">{formatNumber(stats?.views)}</p>
+                </div>
+              </div>
+
+              {/* Download Buttons Section */}
+              <div className="space-y-3 pt-2">
+                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Choose Download Option</h4>
+
+                {video?.noWatermark && (
+                  <a
+                    href={getProxyUrl(video.noWatermark, `tikflow_video_nowm_${id}.mp4`, 'video')}
+                    download={`tikflow_video_nowm_${id}.mp4`}
+                    className="w-full flex items-center justify-between px-5 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-sm shadow-md shadow-emerald-500/20 active:scale-[0.99] transition-all group"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <Download className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
+                      <span>Download MP4 (Without Watermark)</span>
+                    </div>
+                    <span className="text-[11px] px-2 py-0.5 rounded bg-white/20 font-semibold uppercase">Server 1</span>
+                  </a>
+                )}
+
+                {video?.noWatermarkHd && (
+                  <a
+                    href={getProxyUrl(video.noWatermarkHd, `tikflow_video_hd_${id}.mp4`, 'video')}
+                    download={`tikflow_video_hd_${id}.mp4`}
+                    className="w-full flex items-center justify-between px-5 py-3.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-sm border border-slate-200 active:scale-[0.99] transition-all group"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <Video className="w-5 h-5 text-indigo-600" />
+                      <span>Download MP4 (HD Server 2)</span>
+                    </div>
+                    <span className="text-[11px] text-slate-500">Source HD</span>
+                  </a>
+                )}
+
+                {music?.url && (
+                  <a
+                    href={getProxyUrl(music.url, `tikflow_audio_${id}.mp3`, 'audio')}
+                    download={`tikflow_audio_${id}.mp3`}
+                    className="w-full flex items-center justify-between px-5 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-semibold text-sm shadow-md shadow-rose-500/20 active:scale-[0.99] transition-all group"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <Music className="w-5 h-5 text-rose-100" />
+                      <span className="truncate max-w-[240px]">
+                        Download MP3 Audio ({music.title || 'Soundtrack'})
+                      </span>
+                    </div>
+                    <span className="text-[11px] px-2 py-0.5 rounded bg-white/20 font-semibold uppercase">320kbps</span>
+                  </a>
+                )}
+
+                {video?.noWatermark && (
+                  <div className="pt-2 text-center">
+                    <a
+                      href={video.noWatermark}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-rose-600 transition-colors"
+                    >
+                      <span>Having trouble downloading? Click here to view source stream</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                )}
+              </div>
+
+              {/* Photo Slideshow Gallery */}
+              {isImagePost && images && images.length > 0 && (
+                <div className="mt-8 pt-6 border-t border-slate-100 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                      <ImageIcon className="w-4 h-4 text-rose-500" />
+                      <span>Photo Slideshow ({images.length} High-Res Photos)</span>
+                    </h4>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {images.map((imgUrl, index) => (
+                      <div key={index} className="relative group rounded-xl overflow-hidden bg-slate-100 border border-slate-200 aspect-[9/16]">
+                        <img
+                          src={imgUrl}
+                          alt={`Photo slide ${index + 1}`}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                        />
+                        <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-2">
+                          <a
+                            href={getProxyUrl(imgUrl, `tikflow_photo_${id}_${index + 1}.jpg`, 'image')}
+                            download={`tikflow_photo_${id}_${index + 1}.jpg`}
+                            className="px-3 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold flex items-center gap-1 shadow-md"
+                          >
+                            <Download className="w-3.5 h-3.5" />
+                            <span>Save #{index + 1}</span>
+                          </a>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            </div>
 
           </div>
-
-        </div>
+        )}
 
       </div>
 

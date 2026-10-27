@@ -3,12 +3,13 @@ import Tiktok from '@tobyg74/tiktok-api-dl';
 
 export const dynamic = 'force-dynamic';
 
-// Clean and extract valid TikTok URL
+// Clean and extract valid TikTok or Douyin URL from user input or mobile share text
 function cleanTikTokUrl(rawUrl) {
   if (!rawUrl || typeof rawUrl !== 'string') return null;
   const trimmed = rawUrl.trim();
-  const match = trimmed.match(/https?:\/\/(?:[a-zA-Z0-9_-]+\.)?(?:tiktok\.com|douyin\.com)\/[^\s]+/i);
-  return match ? match[0] : null;
+  // Extract standard URL from raw input or text containing tiktok.com or douyin.com
+  const match = trimmed.match(/https?:\/\/(?:[a-zA-Z0-9_-]+\.)?(?:tiktok\.com|douyin\.com)\/[a-zA-Z0-9_\-\/?&=#%._~]+/i);
+  return match ? match[0].replace(/[.,;:!?]+$/, '') : null;
 }
 
 export async function POST(request) {

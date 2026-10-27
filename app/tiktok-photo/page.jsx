@@ -18,12 +18,15 @@ export default function TikTokPhotoPage() {
             onResult={(data) => setDownloadResult(data)}
             title="TikTok Photo Slideshow Downloader (Save Carousels in HD)"
             subtitle="Download every photo slide, image carousel, and wallpaper from TikTok posts in full original resolution without watermarks."
-            defaultType="photo"
+            placeholder="Paste TikTok photo slideshow or carousel link..."
+            buttonText="Get Photos HD"
+            badge="Full-Resolution Photo Gallery"
           />
         ) : (
           <ResultCard
             result={downloadResult}
             onReset={() => setDownloadResult(null)}
+            mode="photo"
           />
         )}
       </section>
@@ -84,7 +87,7 @@ export default function TikTokPhotoPage() {
           <ol className="space-y-3 list-decimal list-inside text-slate-600 text-sm sm:text-base">
             <li><strong className="text-slate-900">Copy Slideshow Link:</strong> In the TikTok app, navigate to any photo post, tap Share, and select <em>Copy Link</em>.</li>
             <li><strong className="text-slate-900">Paste URL:</strong> Open TikFlow Photo Downloader and paste the link into the search box.</li>
-            <li><strong className="text-slate-900">Choose Photos:</strong> Click <em>Download</em>. You will see a preview grid containing all high-resolution pictures. Click <em>Save</em> on any photo to download it to your gallery.</li>
+            <li><strong className="text-slate-900">Choose Photos:</strong> Click <em>Get Photos HD</em>. You will see a preview gallery containing all high-resolution pictures. Click <em>Save</em> on any photo to download it to your gallery.</li>
           </ol>
         </div>
       </section>

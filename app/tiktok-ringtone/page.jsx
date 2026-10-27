@@ -18,12 +18,15 @@ export default function TikTokRingtonePage() {
             onResult={(data) => setDownloadResult(data)}
             title="TikTok Ringtone Maker (Download Viral Sounds for Phone Ringtones)"
             subtitle="Convert any trending TikTok video soundtrack or sound bite into a custom ringtone or alarm for iPhone (iOS) and Android."
-            defaultType="audio"
+            placeholder="Paste TikTok video link to extract ringtone / alarm audio..."
+            buttonText="Make Phone Ringtone"
+            badge="Custom Ringtone & Alarm Creator"
           />
         ) : (
           <ResultCard
             result={downloadResult}
             onReset={() => setDownloadResult(null)}
+            mode="ringtone"
           />
         )}
       </section>
