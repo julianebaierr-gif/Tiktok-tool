@@ -1,8 +1,7 @@
-'use client';
+import ToolHero from '../../components/ToolHero';
+import SiteSchema from '../../components/SiteSchema';
 
-import React, { useState } from 'react';
-import DownloaderForm from '../../components/DownloaderForm';
-import ResultCard from '../../components/ResultCard';
+import React from 'react';
 import { 
   Image as ImageIcon, 
   Sparkles, 
@@ -24,8 +23,22 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'TikTok Photo Downloader - Save Photo Slideshows & Carousels HD',
+  description: 'Download TikTok photo slideshows and carousel images in original high resolution without watermarks. Free batch image saver for TikTok slides.',
+  alternates: {
+    canonical: 'https://quktik.com/tiktok-photo',
+  },
+  openGraph: {
+    title: 'TikTok Photo Downloader - Save Photo Slideshows & Carousels HD',
+    description: 'Download TikTok photo slideshows and carousel images in original high resolution without watermarks. Free batch image saver for TikTok slides.',
+    url: 'https://quktik.com/tiktok-photo',
+    type: 'website',
+  },
+};
+
 export default function TikTokPhotoPage() {
-  const [downloadResult, setDownloadResult] = useState(null);
+  
 
   const faqData = [
     {
@@ -93,24 +106,14 @@ export default function TikTokPhotoPage() {
       />
 
       {/* Top Downloader Hero */}
-      <section className="pt-4 pb-8 sm:pb-12">
-        {!downloadResult ? (
-          <DownloaderForm
-            onResult={(data) => setDownloadResult(data)}
-            title="TikTok Photo Slideshow Downloader (Save All Pictures in HD)"
-            subtitle="Download every high-resolution photo from TikTok carousels and slideshows without watermarks, compression, or black bars."
-            placeholder="Paste TikTok photo slideshow link here..."
-            buttonText="Extract All Photos"
-            badge="Multi-Image Carousel Extractor"
-          />
-        ) : (
-          <ResultCard
-            result={downloadResult}
-            onReset={() => setDownloadResult(null)}
-            mode="photo"
-          />
-        )}
-      </section>
+      <SiteSchema />
+      <ToolHero 
+        title="TikTok Photo Slideshow Downloader (Save All Pictures in HD)"
+        subtitle="Download every high-resolution photo from TikTok carousels and slideshows without watermarks, compression, or black bars."
+        placeholder="Paste TikTok photo slideshow link here..."
+        buttonText="Extract All Photos"
+        badge="Multi-Image Carousel Extractor"
+      />
 
       {/* Feature Highlights */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -206,9 +209,9 @@ export default function TikTokPhotoPage() {
             <Layers className="w-3.5 h-3.5 text-indigo-600" />
             <span>Part 2: Quality Benchmarks</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             2. Screenshots vs. QukTik Direct Extraction: The Resolution Dilemma
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             When users see a travel guide or wallpaper they want to keep, their immediate instinct is often to capture a smartphone screenshot. Here is why taking screenshots produces inferior results compared to extracting master assets through QukTik:
           </p>
@@ -259,9 +262,9 @@ export default function TikTokPhotoPage() {
             <Compass className="w-3.5 h-3.5 text-emerald-600" />
             <span>Part 3: Practical Use Cases</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             3. Valuable Real-World Applications for Saved Photo Carousels
-          </h3>
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
@@ -320,9 +323,9 @@ export default function TikTokPhotoPage() {
             <Smartphone className="w-3.5 h-3.5 text-indigo-600" />
             <span>Part 4: Device Workflows</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             4. Step-by-Step Guide to Saving Photo Slideshows on Any Device
-          </h3>
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
             {/* iOS Box */}
@@ -371,9 +374,9 @@ export default function TikTokPhotoPage() {
             <Sliders className="w-3.5 h-3.5 text-purple-600" />
             <span>Part 5: Image Compression &amp; Color Science</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             5. WebP vs. JPEG: How TikTok Stores and Decodes Carousel Images
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             When creators upload still photography to TikTok, ByteDance&apos;s media processing backend automatically converts source imagery into modern Google WebP and optimized JPEG formats. WebP offers approximately 25% to 34% smaller file sizes than standard JPEG at equivalent structural similarity (SSIM) quality scores, allowing multi-slide carousels to swipe effortlessly on mobile connections.
           </p>
@@ -399,9 +402,9 @@ export default function TikTokPhotoPage() {
             <FolderArchive className="w-3.5 h-3.5 text-indigo-600" />
             <span>Part 6: Visual Storytelling Dynamics</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             6. The Rise of Micro-Documentaries and Slide-by-Slide Visual Journalism
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             TikTok photo carousels have quickly developed into a primary medium for digital journalism, infographic explainers, and micro-documentaries. Studies indicate that photo carousels frequently achieve up to three times higher comment engagement than short videos because viewers control their own reading pace:
           </p>
@@ -418,9 +421,9 @@ export default function TikTokPhotoPage() {
             <Smartphone className="w-3.5 h-3.5 text-rose-600" />
             <span>Part 7: Mobile Display Optimization</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             7. Crafting High-DPI Wallpapers for OLED, Super Retina &amp; Dynamic Island Screens
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Modern flagship smartphones feature ultra-high pixel density displays (often exceeding 460 pixels per inch) equipped with HDR10+ and OLED technology. When users attempt to set mobile screenshots as wallpapers, the digital zoom required to hide phone UI icons introduces noticeable blurring around text, anime character line art, and architectural geometry.
           </p>
@@ -435,9 +438,9 @@ export default function TikTokPhotoPage() {
             <FolderArchive className="w-3.5 h-3.5 text-emerald-600" />
             <span>Part 8: Multi-Asset Archiving Architecture</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             8. Batch Indexing: Keeping Complete Photographic Sets Intact
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Unlike individual video posts, photo carousels represent cohesive photographic collections. When saving a 20-image educational guide or wedding photo shoot, losing the chronological sequence ruins the creator&apos;s narrative structure. QukTik preserves the original upload index in the filename metadata (e.g., <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">quktik_photo_01.jpg</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">quktik_photo_02.jpg</code>), ensuring your photo gallery sorts the collection in its exact intended viewing order.
           </p>
@@ -460,9 +463,9 @@ export default function TikTokPhotoPage() {
         {/* Section 6: FAQ Accordion */}
         <section className="space-y-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h3 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
               Frequently Asked Questions About TikTok Photo Slideshows
-            </h3>
+            </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600">
               Clear answers regarding carousel sizes, photo formats, and music downloads.
             </p>

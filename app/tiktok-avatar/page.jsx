@@ -1,8 +1,7 @@
-'use client';
+import ToolHero from '../../components/ToolHero';
+import SiteSchema from '../../components/SiteSchema';
 
-import React, { useState } from 'react';
-import DownloaderForm from '../../components/DownloaderForm';
-import ResultCard from '../../components/ResultCard';
+import React from 'react';
 import { 
   UserCheck, 
   Sparkles, 
@@ -24,8 +23,22 @@ import {
   Monitor
 } from 'lucide-react';
 
+export const metadata = {
+  title: 'TikTok Avatar Downloader - View & Save Profile Pictures in Full HD',
+  description: 'View and download uncropped, full-resolution TikTok profile pictures and avatars (1080x1080 HD). 100% free online PFP viewer.',
+  alternates: {
+    canonical: 'https://quktik.com/tiktok-avatar',
+  },
+  openGraph: {
+    title: 'TikTok Avatar Downloader - View & Save Profile Pictures in Full HD',
+    description: 'View and download uncropped, full-resolution TikTok profile pictures and avatars (1080x1080 HD). 100% free online PFP viewer.',
+    url: 'https://quktik.com/tiktok-avatar',
+    type: 'website',
+  },
+};
+
 export default function TikTokAvatarPage() {
-  const [downloadResult, setDownloadResult] = useState(null);
+  
 
   const faqData = [
     {
@@ -93,24 +106,14 @@ export default function TikTokAvatarPage() {
       />
 
       {/* Top Downloader Hero Section */}
-      <section className="pt-4 pb-8 sm:pb-12">
-        {!downloadResult ? (
-          <DownloaderForm
-            onResult={(data) => setDownloadResult(data)}
-            title="TikTok Avatar HD Downloader (Full Size PFP Viewer)"
-            subtitle="View, zoom, and download uncropped high-resolution profile pictures from any TikTok user in 1080p Full HD for free."
-            placeholder="Paste TikTok profile link or @username (e.g., https://www.tiktok.com/@creator or @username)..."
-            buttonText="View Full HD Avatar"
-            badge="1080p Profile Photo Extractor"
-          />
-        ) : (
-          <ResultCard
-            result={downloadResult}
-            onReset={() => setDownloadResult(null)}
-            mode="photo"
-          />
-        )}
-      </section>
+      <SiteSchema />
+      <ToolHero 
+        title="TikTok Avatar HD Downloader (Full Size PFP Viewer)"
+        subtitle="View, zoom, and download uncropped high-resolution profile pictures from any TikTok user in 1080p Full HD for free."
+        placeholder="Paste TikTok profile link or @username (e.g., https://www.tiktok.com/@creator or @username)..."
+        buttonText="View Full HD Avatar"
+        badge="1080p Profile Photo Extractor"
+      />
 
       {/* Feature Highlights Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -203,9 +206,9 @@ export default function TikTokAvatarPage() {
             <Layers className="w-4 h-4 text-indigo-600" />
             <span>Under The Hood: ByteDance Image Storage Pipeline</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             The Geometry of Avatar Compression: Why App Displays Hide 21.4% of Every Photo
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             To understand why third-party profile viewers are indispensable, it is helpful to examine the digital asset pipeline ByteDance employs when a user updates their profile picture:
           </p>
@@ -251,9 +254,9 @@ export default function TikTokAvatarPage() {
 
         {/* Section 3: Technical Comparison Table */}
         <section className="space-y-6">
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             Technical Comparison: In-App Display vs. Smartphone Screenshot vs. QukTik Master Extraction
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             The table below demonstrates the vast technical gap between taking a manual screenshot on a mobile device versus extracting the original media asset directly from the cloud CDN:
           </p>
@@ -316,9 +319,9 @@ export default function TikTokAvatarPage() {
             <ShieldAlert className="w-4 h-4 text-rose-600" />
             <span>Cybersecurity &amp; Account Authentication</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             How High-Resolution Avatar Inspection Exposes Impersonator Bots and Scams
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             One of the most vital practical applications of QukTik Avatar HD Downloader is cybersecurity and fraud prevention. With the explosive growth of TikTok commerce, cryptocurrency discussions, and brand influencer marketing, impersonator networks have become increasingly sophisticated:
           </p>
@@ -362,9 +365,9 @@ export default function TikTokAvatarPage() {
             <Palette className="w-4 h-4 text-teal-600" />
             <span>Cross-Platform Media Compatibility</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             Repurposing TikTok Avatars Across Discord, Steam, Twitter (X), and Phone Contacts
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             TikTok has evolved into a global hub for visual subcultures, digital illustrators, VTubers, 3D blender animators, and esports franchises. Users frequently discover striking aesthetic profile pictures on TikTok that they wish to synchronize across their entire digital presence:
           </p>
@@ -402,9 +405,9 @@ export default function TikTokAvatarPage() {
 
         {/* Section 6: Step-by-Step Instructions across Devices */}
         <section className="space-y-6">
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             Step-by-Step Guide: How to Save Full-Resolution TikTok Avatars on Any Device
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             QukTik is entirely browser-based and works seamlessly across iOS, Android, Windows, and macOS without demanding any third-party software installations:
           </p>
@@ -475,9 +478,9 @@ export default function TikTokAvatarPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-teal-600 bg-teal-50 px-3.5 py-1 rounded-full border border-teal-200">
               Clear Technical Answers
             </span>
-            <h3 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
               Frequently Asked Questions About TikTok Avatar Downloading
-            </h3>
+            </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600">
               Clear technical answers regarding profile picture resolutions, privacy rules, device compatibility, and username handle lookups.
             </p>

@@ -1,8 +1,17 @@
 import React from 'react';
 
 export const metadata = {
-  title: 'Terms of Service | QukTik',
+  title: 'Terms of Service',
   description: 'QukTik Terms of Service governing the use of our online media downloader, intellectual property guidelines, and fair-use limitations.',
+  alternates: {
+    canonical: 'https://quktik.com/terms-of-service',
+  },
+  openGraph: {
+    title: 'Terms of Service',
+    description: 'QukTik Terms of Service governing the use of our online media downloader.',
+    url: 'https://quktik.com/terms-of-service',
+    type: 'website',
+  },
 };
 
 export default function TermsOfServicePage() {

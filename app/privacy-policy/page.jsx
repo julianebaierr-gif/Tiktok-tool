@@ -1,8 +1,17 @@
 import React from 'react';
 
 export const metadata = {
-  title: 'Privacy Policy | QukTik (AdSense, GDPR & CCPA Compliant)',
-  description: 'QukTik Privacy Policy detailing our cookie policy, Google AdSense disclosures, log files, user privacy rights under GDPR and CCPA.',
+  title: 'Privacy Policy',
+  description: 'QukTik Privacy Policy detailing our cookie policy, log files, user privacy rights under GDPR and CCPA, and data protection practices.',
+  alternates: {
+    canonical: 'https://quktik.com/privacy-policy',
+  },
+  openGraph: {
+    title: 'Privacy Policy',
+    description: 'QukTik Privacy Policy detailing our cookie policy and user privacy rights under GDPR and CCPA.',
+    url: 'https://quktik.com/privacy-policy',
+    type: 'website',
+  },
 };
 
 export default function PrivacyPolicyPage() {
@@ -31,7 +40,7 @@ export default function PrivacyPolicyPage() {
             At <strong>QukTik</strong> (accessible at <code className="text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded text-xs">https://quktik.com</code>), your privacy is one of our top priorities. This Privacy Policy explains what information we receive when you visit our website and how it is handled.
           </p>
           <p>
-            If you have questions about this policy, feel free to reach out to us at <a href="mailto:privacy@quktik.app" className="text-rose-600 underline">privacy@quktik.app</a>.
+            If you have questions about this policy, feel free to reach out to us at <a href="mailto:privacy@quktik.com" className="text-rose-600 underline">privacy@quktik.com</a>.
           </p>
         </section>
 

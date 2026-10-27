@@ -2,8 +2,17 @@ import React from 'react';
 import { Shield, Sparkles, Users } from 'lucide-react';
 
 export const metadata = {
-  title: 'About Us | QukTik Team',
+  title: 'About Us',
   description: 'Learn about QukTik, our mission to provide clean video archiving tools, and our commitment to user privacy and streaming technology.',
+  alternates: {
+    canonical: 'https://quktik.com/about',
+  },
+  openGraph: {
+    title: 'About QukTik',
+    description: 'Learn about QukTik and our clean video archiving tools.',
+    url: 'https://quktik.com/about',
+    type: 'website',
+  },
 };
 
 export default function AboutPage() {

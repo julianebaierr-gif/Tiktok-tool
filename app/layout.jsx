@@ -59,51 +59,15 @@ export const metadata = {
     description: 'Save TikTok and Douyin videos without watermark in HD MP4 and MP3 audio instantly.',
     images: ['https://quktik.com/og-image.png'],
   },
-  alternates: {
-    canonical: 'https://quktik.com',
+  verification: {
+    google: 'google-site-verification-quktik',
   },
 };
 
 export default function RootLayout({ children }) {
-  const schemaGraph = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'Organization',
-        '@id': 'https://quktik.com/#organization',
-        'name': 'QukTik',
-        'url': 'https://quktik.com',
-        'logo': {
-          '@type': 'ImageObject',
-          'url': 'https://quktik.com/logo.png',
-          'caption': 'QukTik Logo'
-        },
-        'image': 'https://quktik.com/og-image.png'
-      },
-      {
-        '@type': 'WebApplication',
-        '@id': 'https://quktik.com/#webapp',
-        'name': 'QukTik - TikTok & Douyin Video Downloader',
-        'url': 'https://quktik.com',
-        'applicationCategory': 'MultimediaApplication',
-        'operatingSystem': 'All',
-        'browserRequirements': 'Requires modern web browser with HTML5 and JavaScript support',
-        'description': 'Free online web tool to download TikTok and Douyin videos without watermark in HD and convert TikTok audio to MP3.',
-        'offers': {
-          '@type': 'Offer',
-          'price': '0',
-          'priceCurrency': 'USD',
-        },
-      }
-    ]
-  };
-
   return (
     <html lang="en">
       <head>
-        {/* Google AdSense Script Placeholder (Ready for user pub ID) */}
-        {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossOrigin="anonymous"></script> */}
-        
         {/* Google Search Favicon Guidelines (Multiples of 48px square) */}
         <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
@@ -114,11 +78,9 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         
+        {/* Google Search Console HTML Verification Tag */}
+        <meta name="google-site-verification" content="google-site-verification-quktik" />
         <meta name="theme-color" content="#0F172A" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
-        />
       </head>
       <body className="bg-[#fcfcfd] text-slate-900 flex flex-col min-h-screen antialiased selection:bg-rose-500 selection:text-white">
         <Navbar />

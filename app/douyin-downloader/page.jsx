@@ -1,8 +1,7 @@
-'use client';
+import ToolHero from '../../components/ToolHero';
+import SiteSchema from '../../components/SiteSchema';
 
-import React, { useState } from 'react';
-import DownloaderForm from '../../components/DownloaderForm';
-import ResultCard from '../../components/ResultCard';
+import React from 'react';
 import { 
   Globe2, 
   Sparkles, 
@@ -23,8 +22,22 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'Douyin Downloader (抖音视频下载) - No Watermark HD Video Saver',
+  description: 'Download Chinese Douyin (抖音) videos without watermark in 1080p Full HD MP4. Works with all Douyin share links directly online for free.',
+  alternates: {
+    canonical: 'https://quktik.com/douyin-downloader',
+  },
+  openGraph: {
+    title: 'Douyin Downloader (抖音视频下载) - No Watermark HD Video Saver',
+    description: 'Download Chinese Douyin (抖音) videos without watermark in 1080p Full HD MP4. Works with all Douyin share links directly online for free.',
+    url: 'https://quktik.com/douyin-downloader',
+    type: 'website',
+  },
+};
+
 export default function DouyinDownloaderPage() {
-  const [downloadResult, setDownloadResult] = useState(null);
+  
 
   const faqData = [
     {
@@ -92,24 +105,14 @@ export default function DouyinDownloaderPage() {
       />
 
       {/* Top Downloader Hero */}
-      <section className="pt-4 pb-8 sm:pb-12">
-        {!downloadResult ? (
-          <DownloaderForm
-            onResult={(data) => setDownloadResult(data)}
-            title="Douyin Downloader (抖音视频无水印下载 - Chinese TikTok HD)"
-            subtitle="Download Chinese TikTok (Douyin 抖音) videos and audio without watermark in 1080p Full HD. Paste full Chinese share text or short links."
-            placeholder="Paste Douyin link or Chinese share text (e.g., https://v.douyin.com/...)"
-            buttonText="Download Douyin Video"
-            badge="ByteDance China CDN Gateway"
-          />
-        ) : (
-          <ResultCard
-            result={downloadResult}
-            onReset={() => setDownloadResult(null)}
-            mode="video"
-          />
-        )}
-      </section>
+      <SiteSchema />
+      <ToolHero 
+        title="Douyin Downloader (抖音视频无水印下载 - Chinese TikTok HD)"
+        subtitle="Download Chinese TikTok (Douyin 抖音) videos and audio without watermark in 1080p Full HD. Paste full Chinese share text or short links."
+        placeholder="Paste Douyin link or Chinese share text (e.g., https://v.douyin.com/...)"
+        buttonText="Download Douyin Video"
+        badge="ByteDance China CDN Gateway"
+      />
 
       {/* Feature Highlights */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -205,9 +208,9 @@ export default function DouyinDownloaderPage() {
             <Layers className="w-3.5 h-3.5 text-indigo-600" />
             <span>Part 2: Technical Architecture</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             2. Why Western Downloaders Fail on Douyin Links
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Standard video downloaders on the internet are configured strictly for international TikTok domains (<code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok.com</code>). When presented with a Douyin link, they fail for three main reasons:
           </p>
@@ -253,9 +256,9 @@ export default function DouyinDownloaderPage() {
             <Compass className="w-3.5 h-3.5 text-emerald-600" />
             <span>Part 3: Creative Applications</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             3. Creative Applications for Douyin Video &amp; Audio
-          </h3>
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
@@ -314,9 +317,9 @@ export default function DouyinDownloaderPage() {
             <Smartphone className="w-3.5 h-3.5 text-indigo-600" />
             <span>Part 4: Device Workflows</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             4. Step-by-Step Instructions to Download Douyin Videos
-          </h3>
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
             {/* Mobile Box */}
@@ -367,9 +370,9 @@ export default function DouyinDownloaderPage() {
             <Globe2 className="w-3.5 h-3.5 text-rose-600" />
             <span>Part 5: Digital Media Geography</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             5. The Douyin-TikTok Innovation Pipeline: Why Global Trends Originate in China
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             ByteDance maintains two separate development tracks for its short-form video empire. Douyin serves the domestic Chinese internet ecosystem, boasting hundreds of millions of daily active users and integrating hyper-advanced live e-commerce, local services, and augmented reality visual filters. International TikTok, meanwhile, is calibrated for Western and global audiences.
           </p>
@@ -387,9 +390,9 @@ export default function DouyinDownloaderPage() {
             <Sliders className="w-3.5 h-3.5 text-indigo-600" />
             <span>Part 6: Natural Language &amp; URL Parsing</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             6. Decoding Chinese Clipboard Snippets: Behind the QukTik Regex Parser
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Unlike Western social apps that simply copy a clean hyperlink to your clipboard, the Douyin app packages the share action with a colloquial conversational text snippet. A typical clipboard payload looks like this:
           </p>
@@ -407,9 +410,9 @@ export default function DouyinDownloaderPage() {
             <Film className="w-3.5 h-3.5 text-emerald-600" />
             <span>Part 7: Video Compression Standards</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             7. Advanced Video Codecs: HEVC (H.265) Encoding on Chinese Media Servers
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Due to the immense volume of mobile streaming traffic in China, ByteDance aggressively employs High-Efficiency Video Coding (HEVC / H.265) across Douyin&apos;s infrastructure. Compared to the older H.264 (AVC) standard widely used on Western social networks, HEVC provides superior compression efficiency, delivering crystal-clear 1080p60 fidelity and vibrant color contrast at nearly 40% lower data rates.
           </p>
@@ -424,9 +427,9 @@ export default function DouyinDownloaderPage() {
             <Compass className="w-3.5 h-3.5 text-purple-600" />
             <span>Part 8: Educational &amp; Linguistic Research</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             8. Language Immersion: Utilizing Authentic Chinese Content for Mandarin Study
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             University linguistics departments and independent Mandarin Chinese learners frequently turn to Douyin for real-world language immersion. Unlike standardized textbook audio recordings, Douyin presents authentic vernacular dialects, rapid everyday conversational idioms, regional accents, and modern internet slang (网络热词) across all provinces of China.
           </p>
@@ -452,9 +455,9 @@ export default function DouyinDownloaderPage() {
         {/* Section 6: FAQ Accordion */}
         <section className="space-y-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h3 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
               Frequently Asked Questions About Douyin Downloading
-            </h3>
+            </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600">
               Clear answers regarding Chinese share formats, video codecs, and regional accessibility.
             </p>

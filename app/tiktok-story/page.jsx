@@ -1,8 +1,7 @@
-'use client';
+import ToolHero from '../../components/ToolHero';
+import SiteSchema from '../../components/SiteSchema';
 
-import React, { useState } from 'react';
-import DownloaderForm from '../../components/DownloaderForm';
-import ResultCard from '../../components/ResultCard';
+import React from 'react';
 import { 
   History, 
   Sparkles, 
@@ -25,8 +24,22 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'TikTok Story Saver - Download TikTok Stories Anonymously in HD',
+  description: 'Save and download 24-hour TikTok stories anonymously before they expire in HD MP4. 100% free online story viewer and downloader.',
+  alternates: {
+    canonical: 'https://quktik.com/tiktok-story',
+  },
+  openGraph: {
+    title: 'TikTok Story Saver - Download TikTok Stories Anonymously in HD',
+    description: 'Save and download 24-hour TikTok stories anonymously before they expire in HD MP4. 100% free online story viewer and downloader.',
+    url: 'https://quktik.com/tiktok-story',
+    type: 'website',
+  },
+};
+
 export default function TikTokStoryPage() {
-  const [downloadResult, setDownloadResult] = useState(null);
+  
 
   const faqData = [
     {
@@ -94,24 +107,14 @@ export default function TikTokStoryPage() {
       />
 
       {/* Top Downloader Hero */}
-      <section className="pt-4 pb-8 sm:pb-12">
-        {!downloadResult ? (
-          <DownloaderForm
-            onResult={(data) => setDownloadResult(data)}
-            title="TikTok Story Saver & Downloader (Save 24h Stories in HD)"
-            subtitle="Save disappearing TikTok stories before they vanish forever. Download clean, watermark-free 1080p MP4 videos 100% anonymously."
-            placeholder="Paste TikTok story link here..."
-            buttonText="Save Story in HD"
-            badge="Anonymous 24-Hour Story Archiver"
-          />
-        ) : (
-          <ResultCard
-            result={downloadResult}
-            onReset={() => setDownloadResult(null)}
-            mode="video"
-          />
-        )}
-      </section>
+      <SiteSchema />
+      <ToolHero 
+        title="TikTok Story Saver & Downloader (Save 24h Stories in HD)"
+        subtitle="Save disappearing TikTok stories before they vanish forever. Download clean, watermark-free 1080p MP4 videos 100% anonymously."
+        placeholder="Paste TikTok story link here..."
+        buttonText="Save Story in HD"
+        badge="Anonymous 24-Hour Story Archiver"
+      />
 
       {/* Feature Highlights */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -204,9 +207,9 @@ export default function TikTokStoryPage() {
             <Layers className="w-3.5 h-3.5 text-purple-600" />
             <span>Part 2: API Architecture</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             2. Why 90% of Competitor Downloaders Throw Errors on Story Links
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             If you have tried using generic TikTok downloaders, you have likely encountered the frustrating message: <em>&ldquo;Invalid URL or Video Not Found&rdquo;</em> when pasting a story link. Here is the technical reason why this happens and how QukTik solves it:
           </p>
@@ -257,9 +260,9 @@ export default function TikTokStoryPage() {
             <Compass className="w-3.5 h-3.5 text-purple-600" />
             <span>Part 3: Archiving Scenarios</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             3. Valuable Scenarios for Archiving TikTok Stories
-          </h3>
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
@@ -318,9 +321,9 @@ export default function TikTokStoryPage() {
             <Smartphone className="w-3.5 h-3.5 text-indigo-600" />
             <span>Part 4: Device Workflows</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             4. Step-by-Step Instructions to Save TikTok Stories
-          </h3>
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
             {/* iOS Box */}
@@ -369,9 +372,9 @@ export default function TikTokStoryPage() {
             <Archive className="w-3.5 h-3.5 text-purple-600" />
             <span>Part 5: Ephemeral Media Sociology</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             5. The Ephemeral Dilemma: Why 24-Hour Stories Carry Unmatched Cultural Value
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             The invention of 24-hour disappearing content fundamentally transformed user behavior on social platforms. On their permanent profile grids, creators maintain polished, heavily edited, sponsor-compliant videos tailored to please algorithmic distribution engines. In contrast, ephemeral story feeds represent raw, unvarnished communication—unscripted reactions to world events, emergency announcements, personal vulnerability, and candid behind-the-scenes moments.
           </p>
@@ -386,9 +389,9 @@ export default function TikTokStoryPage() {
             <Eye className="w-3.5 h-3.5 text-indigo-600" />
             <span>Part 6: Anonymity Engineering</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             6. How QukTik Delivers 100% Anonymous Story Viewing Without Digital Footprints
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             When you watch a story inside the native TikTok mobile app, the client software immediately dispatches an authenticated telemetry telemetry packet (<code className="bg-slate-100 px-1 py-0.5 rounded text-xs">story_view_ping</code>) to analytics servers. This packet contains your unique account UID, timestamp, device identifier, and session tokens, placing your name directly onto the creator&apos;s real-time &ldquo;Viewers List&rdquo;.
           </p>
@@ -414,9 +417,9 @@ export default function TikTokStoryPage() {
             <Clock className="w-3.5 h-3.5 text-rose-600" />
             <span>Part 7: Technical Lifecycle</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             7. Understanding Server-Side TTL &amp; Edge Cache Purging
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Unlike regular feed videos whose CDN addresses remain stable indefinitely, story media manifests are governed by strict Time-to-Live (TTL) tokens. Each token includes an epoch timestamp expiration signature. When a link exceeds its 24-hour lifecycle, ByteDance&apos;s edge routers return HTTP 404 or 410 Gone errors. This is why attempting to save a story 25 hours after posting is technically impossible on any web downloader. Always execute your download while the colorful story ring remains active on the user&apos;s profile.
           </p>
@@ -428,9 +431,9 @@ export default function TikTokStoryPage() {
             <Archive className="w-3.5 h-3.5 text-emerald-600" />
             <span>Part 8: Personal Cloud Storage &amp; Organization</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             8. Organizing Ephemeral Archives: Cloud Synchronization and Metadata Tagging
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Because stories vanish so quickly, users who archive multiple stories per week can easily end up with a disorganized smartphone camera roll. Professional social media archivists and digital curators implement structured storage pipelines to ensure saved stories remain easily searchable:
           </p>
@@ -447,9 +450,9 @@ export default function TikTokStoryPage() {
             <PlaySquare className="w-3.5 h-3.5 text-indigo-600" />
             <span>Part 9: Creative Repurposing</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             9. Compiling Daily Stories into Annual Recaps and YouTube Documentary B-Roll
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Content creators who post frequently to stories often find themselves wanting to assemble year-end recaps, anniversary videos, or behind-the-scenes documentaries for YouTube. Attempting to stitch together stories that were saved in-app results in a chaotic, amateurish montage with multiple bouncing watermarks and black end cards appearing every 15 seconds.
           </p>
@@ -475,9 +478,9 @@ export default function TikTokStoryPage() {
         {/* Section 6: FAQ Accordion */}
         <section className="space-y-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h3 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
               Frequently Asked Questions About TikTok Story Downloading
-            </h3>
+            </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600">
               Clear answers regarding story expiration, anonymity, and device compatibility.
             </p>

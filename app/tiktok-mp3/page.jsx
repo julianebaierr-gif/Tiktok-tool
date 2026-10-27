@@ -1,8 +1,7 @@
-'use client';
+import ToolHero from '../../components/ToolHero';
+import SiteSchema from '../../components/SiteSchema';
 
-import React, { useState } from 'react';
-import DownloaderForm from '../../components/DownloaderForm';
-import ResultCard from '../../components/ResultCard';
+import React from 'react';
 import { 
   Radio, 
   Disc, 
@@ -25,8 +24,22 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'TikTok to MP3 Converter - Download TikTok Audio & Songs (320kbps)',
+  description: 'Convert and extract high-bitrate 320kbps MP3 audio tracks and trending songs from TikTok videos. Free online TikTok MP3 converter with no app required.',
+  alternates: {
+    canonical: 'https://quktik.com/tiktok-mp3',
+  },
+  openGraph: {
+    title: 'TikTok to MP3 Converter - Download TikTok Audio & Songs (320kbps)',
+    description: 'Convert and extract high-bitrate 320kbps MP3 audio tracks and trending songs from TikTok videos. Free online TikTok MP3 converter with no app required.',
+    url: 'https://quktik.com/tiktok-mp3',
+    type: 'website',
+  },
+};
+
 export default function TikTokMp3Page() {
-  const [downloadResult, setDownloadResult] = useState(null);
+  
 
   const faqData = [
     {
@@ -93,25 +106,12 @@ export default function TikTokMp3Page() {
         }}
       />
 
-      {/* Downloader Section */}
-      <section className="pt-4 pb-8 sm:pb-12">
-        {!downloadResult ? (
-          <DownloaderForm
-            onResult={(data) => setDownloadResult(data)}
-            title="TikTok to MP3 Converter (Download Audio in 320kbps)"
-            subtitle="Extract background music, sound bites, dialogue, and trending audio tracks from any TikTok video in high-quality MP3 format for free."
-            placeholder="Paste TikTok video link to extract 320kbps MP3 audio..."
-            buttonText="Convert to MP3"
-            badge="Studio Audio Extractor"
-          />
-        ) : (
-          <ResultCard
-            result={downloadResult}
-            onReset={() => setDownloadResult(null)}
-            mode="mp3"
-          />
-        )}
-      </section>
+      <SiteSchema />
+      <ToolHero 
+        title="TikTok to MP3 Converter & Sound Ripper"
+        subtitle="Extract crystal-clear 320kbps MP3 music tracks, audio hooks, and viral dialogue from any TikTok video instantly."
+        placeholder="Paste TikTok video link to extract MP3 audio..."
+      />
 
       {/* Audio Engine Feature Cards */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -207,9 +207,9 @@ export default function TikTokMp3Page() {
             <Cpu className="w-3.5 h-3.5 text-rose-600" />
             <span>Part 2: Technical Demuxing</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             2. Demuxing vs. Transcoding: How QukTik Preserves Pristine Acoustic Dynamics
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Most generic online audio converters operate on an inefficient, lossy pipeline: they download the full video file to a temporary server, decode the video and audio frames simultaneously, and then run a secondary compression encoder to produce an MP3 file. This process introduces generational audio loss, flattens dynamic range, and introduces quantization distortion.
           </p>
@@ -229,9 +229,9 @@ export default function TikTokMp3Page() {
             <Sliders className="w-3.5 h-3.5 text-purple-600" />
             <span>Part 3: Bitrate Transparency</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             3. Bitrate Matters: Why Competitors Deliver Muddy, Distorted Sound
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Have you ever downloaded an audio file from a web converter, plugged in quality headphones or connected your phone to car speakers, only to hear muffled vocals and hollow bass? This occurs because budget conversion tools compress sound to 64kbps or 128kbps mono to minimize their hosting bandwidth costs. High frequencies above 12 kHz are aggressively filtered out, depriving the track of brightness, clarity, and spatial resonance.
           </p>
@@ -285,9 +285,9 @@ export default function TikTokMp3Page() {
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
             <span>Part 4: Creative Applications</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             4. Practical Ways Creators and Music Lovers Use Extracted MP3s
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Extracting clean audio files unlocks an expansive range of creative, academic, and personal productivity workflows:
           </p>
@@ -352,9 +352,9 @@ export default function TikTokMp3Page() {
             <FolderDown className="w-3.5 h-3.5 text-emerald-600" />
             <span>Part 5: Music Integration</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             5. Step-by-Step Guide: Importing TikTok MP3s into Spotify Playlists
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Many viral TikTok audio clips and remixes are never officially released on streaming platforms due to licensing delays. You can easily listen to them inside Spotify using Local Files:
           </p>
@@ -377,9 +377,9 @@ export default function TikTokMp3Page() {
             <Sliders className="w-3.5 h-3.5 text-indigo-600" />
             <span>Part 6: Acoustic Waveform &amp; Spectrum Engineering</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             6. Preserving Full Dynamic Range: Sub-Bass, Vocal Presences &amp; High-Frequency Air
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             When audio is compressed repeatedly through informal web ripping tools or device screen recorders, the lossiest elements cut by psychoacoustic compression algorithms are the high frequencies and sub-bass transients. This causes muddy vocals and flat, lifeless percussion. QukTik&apos;s direct demuxing architecture preserves three crucial frequency zones:
           </p>
@@ -412,9 +412,9 @@ export default function TikTokMp3Page() {
             <Smartphone className="w-3.5 h-3.5 text-purple-600" />
             <span>Part 7: Mobile Workflows &amp; Educational Study</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             7. Offline Language Learning, Speech Drills &amp; Acoustic Practice
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Millions of students and educators utilize TikTok as a micro-learning classroom for foreign language pronunciation, voice training, musical scales, and public speaking techniques. Relying on streaming video consumes high mobile data packets and forces the smartphone screen to remain powered on, draining battery life.
           </p>
@@ -440,9 +440,9 @@ export default function TikTokMp3Page() {
         {/* Section 7: FAQ Accordion */}
         <section className="space-y-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h3 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
               Frequently Asked Questions About TikTok to MP3 Conversion
-            </h3>
+            </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600">
               Clear answers regarding sound bitrates, iPhone compatibility, and file formats.
             </p>

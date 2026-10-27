@@ -1,0 +1,3 @@
+# QukTik Official ads.txt
+# Ready for Ad Networks (Monetag, Adsterra, PropellerAds, Google AdSense)
+# Contact: support@quktik.com

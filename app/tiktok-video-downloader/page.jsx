@@ -1,8 +1,7 @@
-'use client';
+import ToolHero from '../../components/ToolHero';
+import SiteSchema from '../../components/SiteSchema';
 
-import React, { useState } from 'react';
-import DownloaderForm from '../../components/DownloaderForm';
-import ResultCard from '../../components/ResultCard';
+import React from 'react';
 import HowToSection from '../../components/HowToSection';
 import { 
   Video, 
@@ -30,8 +29,22 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'TikTok Video Downloader Without Watermark in HD (1080p MP4)',
+  description: 'Download TikTok videos without watermark in Full HD 1080p MP4 quality. Fast, free online video downloader with no apps or registration needed.',
+  alternates: {
+    canonical: 'https://quktik.com/tiktok-video-downloader',
+  },
+  openGraph: {
+    title: 'TikTok Video Downloader Without Watermark in HD (1080p MP4)',
+    description: 'Download TikTok videos without watermark in Full HD 1080p MP4 quality. Fast, free online video downloader with no apps or registration needed.',
+    url: 'https://quktik.com/tiktok-video-downloader',
+    type: 'website',
+  },
+};
+
 export default function TikTokVideoDownloaderPage() {
-  const [downloadResult, setDownloadResult] = useState(null);
+  
 
   const faqData = [
     {
@@ -99,24 +112,14 @@ export default function TikTokVideoDownloaderPage() {
       />
 
       {/* Top Downloader Hero */}
-      <section className="pt-4 pb-8 sm:pb-12">
-        {!downloadResult ? (
-          <DownloaderForm
-            onResult={(data) => setDownloadResult(data)}
-            title="TikTok Video Downloader Without Watermark HD"
-            subtitle="Save original 1080p MP4 videos from TikTok without logos, stamps, or usernames. Fast, free, and unlimited for all devices."
-            placeholder="Paste TikTok video link here (e.g., https://www.tiktok.com/@user/video/...)"
-            buttonText="Download HD Video"
-            badge="100% Free Online Video Downloader"
-          />
-        ) : (
-          <ResultCard
-            result={downloadResult}
-            onReset={() => setDownloadResult(null)}
-            mode="video"
-          />
-        )}
-      </section>
+      <SiteSchema />
+      <ToolHero 
+        title="TikTok Video Downloader Without Watermark HD"
+        subtitle="Save original 1080p MP4 videos from TikTok without logos, stamps, or usernames. Fast, free, and unlimited for all devices."
+        placeholder="Paste TikTok video link here (e.g., https://www.tiktok.com/@user/video/...)"
+        buttonText="Download HD Video"
+        badge="100% Free Online Video Downloader"
+      />
 
       {/* Visual Step-by-Step Tutorial with Mobile / Desktop Tab Toggle */}
       <HowToSection />
@@ -168,9 +171,9 @@ export default function TikTokVideoDownloaderPage() {
             <Layers className="w-3.5 h-3.5 text-indigo-600" />
             <span>Part 2: Watermark Mechanics</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             2. Why Does TikTok Add a Watermark &amp; Why Does Cropping Fail?
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             TikTok intentionally burns an animated logo into videos saved through its native app for brand marketing. They want users on Instagram, Facebook, and Twitter to instantly recognize that the clip originated on TikTok. To prevent simple static cropping, ByteDance programmed the watermark to bounce: it starts in the top-left corner and then jumps to the bottom-right corner every few seconds, layered directly over the creator&apos;s username.
           </p>
@@ -193,9 +196,9 @@ export default function TikTokVideoDownloaderPage() {
             <Compass className="w-3.5 h-3.5 text-emerald-600" />
             <span>Part 3: Creator Repurposing Strategy</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             3. The Multi-Platform Repurposing Funnel for Content Creators
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             For professional digital creators, brand managers, and small business owners, producing engaging video content requires substantial time and creative effort. To maximize return on investment, successful creators never post their work to just one social network. They cross-post across YouTube Shorts, Instagram Reels, Facebook Reels, Snapchat Spotlight, and Pinterest Idea Pins.
           </p>
@@ -242,9 +245,9 @@ export default function TikTokVideoDownloaderPage() {
             <Sliders className="w-3.5 h-3.5 text-purple-600" />
             <span>Part 4: Benchmark Comparison</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             4. Technical Benchmark: QukTik vs. Competing Video Downloaders
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             The web is flooded with unreliable download sites loaded with deceptive banner ads, forced app installations, and slow conversion servers. Here is how QukTik compares across critical performance criteria:
           </p>
@@ -307,9 +310,9 @@ export default function TikTokVideoDownloaderPage() {
             <Smartphone className="w-3.5 h-3.5 text-indigo-600" />
             <span>Part 5: Device Walkthrough</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             5. Complete Device Walkthrough for Mobile and Desktop Systems
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             QukTik is engineered to work flawlessly on any operating system without installing extra software. Follow these tailored instructions:
           </p>
@@ -376,9 +379,9 @@ export default function TikTokVideoDownloaderPage() {
             <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
             <span>Part 6: Troubleshooting Guide</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             6. Troubleshooting Common Video Link &amp; Download Issues
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             If you encounter an issue when attempting to download a TikTok video, review these common causes and verified solutions:
           </p>
@@ -422,9 +425,9 @@ export default function TikTokVideoDownloaderPage() {
             <Sliders className="w-3.5 h-3.5 text-indigo-600" />
             <span>Part 7: Downloader Evolution &amp; Architectural Comparison</span>
           </div>
-          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             7. The Evolution of Web Downloaders: QukTik vs. Legacy Tools (SnapTik, SSSTikTok, TikSnap &amp; TikFlow)
-          </h3>
+          </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             The online ecosystem for saving social media clips has evolved dramatically over the last several years. Early web utilities—frequently searched by users under names like SnapTik (snap tik, snaptic, snaptikapp, snaptiks, snaptik video downloader, snaptik tiktok downloader, snaptik apl, snaptik spp, snaptik tik tok video download, snaptik watermark remover, tiksnap download), SSSTikTok (sss tiktok, ssstiktok app, sss tik, sss tiktoj, sss tok tok, ssstik tik tok), and legacy downloaders like TikFlow—were pioneers in demonstrating that users could obtain videos without an embedded bouncing badge.
           </p>
@@ -493,9 +496,9 @@ export default function TikTokVideoDownloaderPage() {
         {/* Section 8: Comprehensive FAQ Accordion */}
         <section className="space-y-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h3 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
               Frequently Asked Questions About TikTok Video Downloading
-            </h3>
+            </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600">
               Clear, definitive answers regarding video resolutions, device security, formats, and download speeds.
             </p>
