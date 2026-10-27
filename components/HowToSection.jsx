@@ -31,7 +31,7 @@ export default function HowToSection() {
     <section id="how-to-use" className="py-16 sm:py-20 bg-slate-50/80 border-y border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 px-3.5 py-1 rounded-full border border-indigo-200">
             Simple 3-Step Guide
           </span>
@@ -66,6 +66,32 @@ export default function HowToSection() {
               <Laptop className="w-4 h-4" />
               <span>Computer (PC & Mac)</span>
             </button>
+          </div>
+        </div>
+
+        {/* 3D Visual Step-by-Step Illustration (Child-Friendly & Understandable Without Reading) */}
+        <div className="max-w-4xl mx-auto mb-12 overflow-hidden rounded-3xl border border-slate-200/90 shadow-xl bg-white">
+          <img
+            src="/images/how-to-download-3d.png"
+            alt="3D visual illustration showing how to copy TikTok link and download video"
+            className="w-full h-auto object-cover max-h-[380px]"
+            loading="lazy"
+          />
+          <div className="p-4 bg-white border-t border-slate-100 flex flex-wrap items-center justify-around gap-2 text-xs sm:text-sm font-bold text-slate-700">
+            <span className="flex items-center gap-1.5 text-rose-600">
+              <span className="w-5 h-5 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs">1</span>
+              <span>Tap Share &gt; Copy Link</span>
+            </span>
+            <span className="text-slate-300">➔</span>
+            <span className="flex items-center gap-1.5 text-indigo-600">
+              <span className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs">2</span>
+              <span>Paste on TikFlow</span>
+            </span>
+            <span className="text-slate-300">➔</span>
+            <span className="flex items-center gap-1.5 text-emerald-600">
+              <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">3</span>
+              <span>Save HD Video to Gallery!</span>
+            </span>
           </div>
         </div>
 

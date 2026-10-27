@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Video, Music, Smartphone, ShieldCheck, CheckCircle2, HelpCircle, AlertCircle, Compass, Layers, Globe2, FileText, Check, Cpu, HardDrive, RefreshCw, KeyRound, EyeOff } from 'lucide-react';
+import { Sparkles, Video, Music, Smartphone, ShieldCheck, CheckCircle2, HelpCircle, AlertCircle, Compass, Layers, Globe2, FileText, Check, Cpu, HardDrive, RefreshCw, KeyRound, EyeOff, FolderDown, Image as ImageIcon } from 'lucide-react';
 
 export default function SemanticContent() {
   return (
@@ -21,13 +21,34 @@ export default function SemanticContent() {
       <div className="space-y-14 text-slate-700">
 
         {/* Section 1: Watermark Mechanism */}
-        <section className="space-y-4">
+        <section className="space-y-5">
           <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
             Why Does TikTok Put a Watermark on Videos in the First Place?
           </h3>
           <p>
             When you watch a video inside TikTok and tap the native &ldquo;Save Video&rdquo; button, the app does not hand you the original video file. Instead, it takes the video, slaps an animated TikTok logo in the top-left corner, and then bounces that same logo down to the bottom-right corner every few seconds, right over the creator&apos;s username.
           </p>
+
+          {/* Visual 3D Side-by-Side Comparison (Understood at a glance without reading) */}
+          <div className="my-6 rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white">
+            <img
+              src="/images/watermark-vs-clean-3d.png"
+              alt="Visual 3D comparison showing video with red X watermark versus green checkmark clean unwatermarked video"
+              className="w-full h-auto object-cover max-h-[420px]"
+              loading="lazy"
+            />
+            <div className="p-4 bg-slate-50 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-bold">
+              <span className="flex items-center gap-1.5 text-rose-600">
+                <span className="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                <span>❌ Default App Save (Annoying Bouncing Logo)</span>
+              </span>
+              <span className="flex items-center gap-1.5 text-emerald-600">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>✅ TikFlow Download (100% Clean Full HD)</span>
+              </span>
+            </div>
+          </div>
+
           <p>
             TikTok does this on purpose for brand marketing. They want everyone on Instagram, Facebook, and Twitter to instantly recognize that the clip came from their platform. While that makes sense for TikTok&apos;s advertising, it creates huge headaches for regular people and creators:
           </p>
@@ -97,13 +118,27 @@ export default function SemanticContent() {
         </section>
 
         {/* Section 4: Creator Repurposing Playbook */}
-        <section className="space-y-4 bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/90">
+        <section className="space-y-5 bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/90">
           <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
             The Content Creator&apos;s Playbook: Repurposing Clips to Reels and Shorts
           </h3>
           <p>
             If you create short-form content, you already know how time-consuming it is to shoot, edit, add music, and record voiceovers. Many creators record directly inside the TikTok app because of its built-in filters, sound effects, and text tools. But once you post, you want to share that same clip to <strong>Instagram Reels</strong>, <strong>YouTube Shorts</strong>, and <strong>Snapchat Spotlight</strong> without re-shooting everything from scratch.
           </p>
+
+          {/* Visual 3D Repurposing Infographic */}
+          <div className="my-6 rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white">
+            <img
+              src="/images/repurpose-reels-shorts-3d.png"
+              alt="Visual 3D illustration showing one clean video being repurposed to Instagram Reels, YouTube Shorts, and Snapchat without watermark penalties"
+              className="w-full h-auto object-cover max-h-[400px]"
+              loading="lazy"
+            />
+            <div className="p-3.5 bg-white border-t border-slate-100 text-center text-xs sm:text-sm font-bold text-slate-700">
+              🚀 Save once on TikFlow ➔ Re-upload to Reels &amp; Shorts with 100% full algorithm reach!
+            </div>
+          </div>
+
           <p>
             Here is the problem: Instagram explicitly stated in their creator guidelines that their recommendation system avoids promoting videos that carry visible logos or watermarks from other platforms. If you upload a video with a TikTok watermark to Reels, Instagram will quietly limit your reach to your existing followers rather than pushing it to the Explore page.
           </p>
@@ -248,13 +283,27 @@ export default function SemanticContent() {
         </section>
 
         {/* Section 8: Audio & Sound Mastery */}
-        <section className="space-y-4">
+        <section className="space-y-5">
           <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
             How to Extract Just the MP3 Audio Track in 320kbps Quality
           </h3>
           <p>
             TikTok is arguably the biggest music discovery platform in the world today. Hundreds of songs, lo-fi beats, comedy soundbites, and acoustic covers go viral every single week. Often, you don&apos;t need the whole video file taking up storage space on your phone; you just want the music track to listen to while working out, add to your editing timeline in Premiere Pro or CapCut, or set as a custom phone ringtone.
           </p>
+
+          {/* Visual 3D Audio & Ringtone Infographic */}
+          <div className="my-6 rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white">
+            <img
+              src="/images/audio-ringtone-3d.png"
+              alt="Visual 3D illustration of studio audio extraction, vinyl record, soundwaves, and custom smartphone ringtone"
+              className="w-full h-auto object-cover max-h-[400px]"
+              loading="lazy"
+            />
+            <div className="p-3.5 bg-slate-50 border-t border-slate-100 text-center text-xs sm:text-sm font-bold text-slate-700">
+              🎵 Extract crystal-clear 320kbps MP3 tracks or create custom iPhone and Android phone ringtones!
+            </div>
+          </div>
+
           <p>
             Most screen-recording methods capture phone notifications, background static, and compress the audio down to muddy 96kbps. TikFlow isolates the audio channel directly from the stream, giving you a clean, standalone <strong>MP3 file at up to 320kbps</strong>.
           </p>
@@ -283,13 +332,27 @@ export default function SemanticContent() {
         </section>
 
         {/* Section 9: Photo Slideshows */}
-        <section className="space-y-4">
+        <section className="space-y-5">
           <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
             Saving TikTok Photo Slideshows &amp; Picture Carousels
           </h3>
           <p>
             Photo posts have exploded in popularity across TikTok. Creators use them for travel itineraries, photo dumps, meme galleries, and step-by-step cooking recipes. When you view a slideshow on TikTok, the app scrolls through images like a slideshow while music plays in the background.
           </p>
+
+          {/* Visual 3D Photo Slideshow Infographic */}
+          <div className="my-6 rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white">
+            <img
+              src="/images/photo-slideshow-3d.png"
+              alt="Visual 3D illustration of a TikTok photo carousel expanding into individual high-definition photos"
+              className="w-full h-auto object-cover max-h-[400px]"
+              loading="lazy"
+            />
+            <div className="p-3.5 bg-white border-t border-slate-100 text-center text-xs sm:text-sm font-bold text-slate-700">
+              📸 Grab all photo carousel slides in original high-resolution JPG format with zero watermarks!
+            </div>
+          </div>
+
           <p>
             If you try to take screenshots of each photo, you end up with phone status bars, TikTok comment buttons, like hearts, and low-resolution images. TikFlow recognizes when a link contains a photo carousel. Instead of a single video, it extracts every single picture in original high-resolution JPG format so you can save individual photos or grab the whole set without losing image clarity.
           </p>
@@ -305,31 +368,28 @@ export default function SemanticContent() {
             Because TikFlow runs directly inside your web browser, file saving is handled securely by your device operating system:
           </p>
 
-          <div className="space-y-4 pt-2">
-            <div className="p-4 rounded-2xl bg-white border border-slate-200">
-              <h4 className="font-bold text-slate-900 text-base mb-1">
-                iPhone and iPad (iOS &amp; iPadOS Safari)
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-5 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-2">
+              <div className="w-10 h-10 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 font-black">
+                📱
+              </div>
+              <h4 className="font-bold text-slate-900 text-base">
+                iPhone &amp; iPad (Apple Safari)
               </h4>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                When you tap Download in Safari, tap the <strong>blue downward arrow icon</strong> in your browser address bar to view active downloads. To move the video to your camera roll: open Apple&apos;s <strong>Files app</strong> &gt; go to <strong>Downloads</strong> &gt; tap your video &gt; tap the <strong>Share</strong> icon &gt; tap <strong>Save Video</strong>. It will immediately appear in your standard <strong>Photos</strong> app.
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Tap the <strong>blue downward arrow icon</strong> in your Safari address bar. Open Apple&apos;s <strong>Files app &gt; Downloads</strong>, tap your video, tap <strong>Share</strong>, and tap <strong>Save Video</strong>. It will immediately appear in your standard <strong>Photos</strong> camera roll.
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white border border-slate-200">
-              <h4 className="font-bold text-slate-900 text-base mb-1">
-                Android Devices (Google Chrome, Samsung Internet, Firefox)
+            <div className="p-5 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-2">
+              <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 font-black">
+                🤖
+              </div>
+              <h4 className="font-bold text-slate-900 text-base">
+                Android (Chrome &amp; Samsung Internet)
               </h4>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Android saves files directly into your primary <strong>Download</strong> directory. You can find them instantly in the <strong>Files by Google</strong> app, <strong>Samsung My Files</strong>, or directly inside your <strong>Gallery</strong> app under the &ldquo;Downloads&rdquo; album. You can also view recent downloads inside Chrome by typing <code className="text-xs bg-slate-100 text-slate-800 px-1 py-0.5 rounded">chrome://downloads</code>.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-2xl bg-white border border-slate-200">
-              <h4 className="font-bold text-slate-900 text-base mb-1">
-                Windows, Mac, Linux &amp; Chromebook
-              </h4>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Desktop browsers save downloaded media to your user <strong>Downloads</strong> folder. Use quick keyboard shortcuts to reveal your downloads list instantly: press <kbd className="px-1.5 py-0.5 bg-slate-100 border border-slate-300 rounded text-xs font-mono font-bold text-slate-800">Ctrl + J</kbd> on Windows/Linux or <kbd className="px-1.5 py-0.5 bg-slate-100 border border-slate-300 rounded text-xs font-mono font-bold text-slate-800">Cmd + Option + L</kbd> on macOS.
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Android saves files directly into your primary <strong>/Download</strong> directory. Open your <strong>Gallery app</strong> or <strong>Files by Google</strong> to view your saved video instantly without manual moving.
               </p>
             </div>
           </div>
