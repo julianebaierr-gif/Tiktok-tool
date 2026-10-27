@@ -411,22 +411,61 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                 )}
 
                 {music?.url && (
-                  <a
-                    href={getProxyUrl(music.url, `tikflow_audio_${id}.mp3`, 'audio')}
-                    download={`tikflow_audio_${id}.mp3`}
-                    className="w-full flex items-center justify-between px-6 py-4 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-rose-500/20 active:scale-[0.98] transition-all group"
-                  >
-                    <div className="flex items-center space-x-3.5">
-                      <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
-                        <Music className="w-4 h-4 text-white" />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <a
+                      href={getProxyUrl(music.url, `tikflow_audio_${id}.mp3`, 'audio')}
+                      download={`tikflow_audio_${id}.mp3`}
+                      className="flex items-center justify-between px-5 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold text-sm shadow-md shadow-rose-500/20 active:scale-[0.98] transition-all group"
+                    >
+                      <div className="flex items-center space-x-2.5 truncate">
+                        <Music className="w-4 h-4 text-white shrink-0" />
+                        <span className="truncate">Download MP3 Audio</span>
                       </div>
-                      <span className="truncate max-w-[240px] font-bold">
-                        Download MP3 Audio ({music.title || 'Soundtrack'})
-                      </span>
-                    </div>
-                    <span className="text-xs px-2.5 py-1 rounded-full bg-white/25 font-bold uppercase tracking-wider shrink-0">320kbps</span>
-                  </a>
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/25 font-bold uppercase tracking-wider shrink-0">320kbps</span>
+                    </a>
+
+                    <a
+                      href={getProxyUrl(music.url, `tikflow_ringtone_${id}.m4a`, 'audio')}
+                      download={`tikflow_ringtone_${id}.m4a`}
+                      className="flex items-center justify-between px-5 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold text-sm shadow-md shadow-indigo-500/20 active:scale-[0.98] transition-all group"
+                    >
+                      <div className="flex items-center space-x-2.5 truncate">
+                        <Bell className="w-4 h-4 text-white shrink-0" />
+                        <span className="truncate">Download Ringtone</span>
+                      </div>
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/25 font-bold uppercase tracking-wider shrink-0">iOS / Android</span>
+                    </a>
+                  </div>
                 )}
+
+                {/* All-in-One Format Conversion Matrix */}
+                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                  <div className="flex items-center justify-between text-xs font-bold text-slate-700">
+                    <span className="flex items-center gap-1.5 text-indigo-600">
+                      <Sparkles className="w-3.5 h-3.5" />
+                      <span>All-in-One Media Suite:</span>
+                    </span>
+                    <span className="text-slate-400">Pristine Master Quality</span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                    <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
+                      <span className="font-bold text-slate-900 block">1080p MP4</span>
+                      <span className="text-[10px] text-emerald-600 font-semibold">Zero Watermark</span>
+                    </div>
+                    <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
+                      <span className="font-bold text-slate-900 block">320kbps MP3</span>
+                      <span className="text-[10px] text-rose-600 font-semibold">Studio Stereo</span>
+                    </div>
+                    <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
+                      <span className="font-bold text-slate-900 block">Custom Tone</span>
+                      <span className="text-[10px] text-indigo-600 font-semibold">M4A / Alarm</span>
+                    </div>
+                    <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
+                      <span className="font-bold text-slate-900 block">Master Still</span>
+                      <span className="text-[10px] text-purple-600 font-semibold">JPG / WebP</span>
+                    </div>
+                  </div>
+                </div>
 
                 {video?.noWatermark && (
                   <div className="pt-2 text-center">

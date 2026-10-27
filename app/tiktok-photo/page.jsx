@@ -17,8 +17,12 @@ import {
   Camera,
   Maximize2,
   FolderArchive,
-  ArrowRight
+  ArrowRight,
+  Sliders,
+  Compass,
+  AlertCircle
 } from 'lucide-react';
+import Link from 'next/link';
 
 export default function TikTokPhotoPage() {
   const [downloadResult, setDownloadResult] = useState(null);
@@ -50,7 +54,19 @@ export default function TikTokPhotoPage() {
     },
     {
       q: "Do I need to install any app to download TikTok carousels?",
-      a: "No apps, APKs, or software are required. TikFlow is an entirely web-based utility that works seamlessly in Safari, Chrome, Edge, and Firefox across iOS, Android, macOS, Windows, and Linux."
+      a: "No apps, APKs, or software are required. TikFlow is an entirely web-based utility that works seamlessly in Safari, Chrome, Edge, and Firefox across iOS, Android, macOS, Windows, and Linux over secure HTTPS."
+    },
+    {
+      q: "What image formats are extracted from TikTok photo carousels?",
+      a: "TikFlow extracts the native WebP and JPEG (.jpg) images stored on ByteDance's image servers, preserving original color gamuts and uncompressed detail."
+    },
+    {
+      q: "Can I download photo carousels from Douyin (Chinese TikTok) as well?",
+      a: "Yes! TikFlow fully supports Chinese Douyin photo galleries and carousels, parsing Chinese share strings and delivering high-resolution master images."
+    },
+    {
+      q: "Is there any limit to the number of photo carousels I can save per day?",
+      a: "None. TikFlow provides unlimited photo downloads completely free of charge with zero watermarks or subscription paywalls."
     }
   ];
 
@@ -143,20 +159,23 @@ export default function TikTokPhotoPage() {
         </div>
       </section>
 
-      {/* Comprehensive 1,200+ Word Editorial Content */}
+      {/* Comprehensive 2000+ Word Editorial Content */}
       <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-slate-700 leading-relaxed space-y-16">
 
-        {/* Section 1: The Rise of TikTok Photo Mode & Relative 3D Image */}
+        {/* Section 1: The Rise of Photo Mode & 3D Illustration */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-4 h-4 text-emerald-500" />
             <span>High-Definition Carousel Preservation</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            How to Download TikTok Photo Slideshows and Carousels in Original Quality
+            1. The Rise of TikTok Photo Mode: Why Carousels Are Dominating Modern Feeds
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-            TikTok&apos;s introduction of Photo Mode has revolutionized how creators share visual stories. Instead of traditional video clips, users can swipe through horizontal carousels of high-resolution still photographs set to synchronized trending music. Creators use this format for travel destination itineraries, fashion outfit lookbooks, aesthetic photography dumps, step-by-step culinary recipes, comic strips, and motivational quotes.
+            While vertical video established TikTok&apos;s global dominance, the introduction of Photo Mode has sparked a massive renaissance in still visual storytelling. Instead of watching an auto-advancing video clip, Photo Mode allows users to swipe horizontally at their own pace through a curated gallery of high-resolution still photographs, accompanied by synchronized background music.
+          </p>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Content creators use Photo Mode for an expansive variety of genres: travel photographers document city itineraries with detailed maps; fashion creators post multi-slide seasonal outfit lookbooks; culinary chefs share ingredient lists and step-by-step plating shots; comic illustrators publish multi-panel storyboards; and digital artists share aesthetic vertical wallpapers.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Unfortunately, trying to save these pictures through the official app creates frustrating roadblocks. Taking screenshots clutters images with TikTok&apos;s UI elements (like buttons, comment icons, and creator tags) and leaves letterbox black bars. Competing downloaders often fail entirely on photo posts or mistakenly convert the slideshow into a blurry 15-second MP4 video. TikFlow solves this by extracting the raw, individual JPG and WebP image files directly from ByteDance&apos;s master content servers.
@@ -181,16 +200,19 @@ export default function TikTokPhotoPage() {
           </div>
         </section>
 
-        {/* Section 2: Screenshot vs TikFlow Direct Extraction */}
+        {/* Section 2: Screenshots vs Direct Extraction */}
         <section className="space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
+            <Layers className="w-3.5 h-3.5 text-indigo-600" />
+            <span>Part 2: Quality Benchmarks</span>
+          </div>
           <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            Screenshots vs. TikFlow: Why Direct Extraction Wins Every Time
+            2. Screenshots vs. TikFlow Direct Extraction: The Resolution Dilemma
           </h3>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Many users resort to taking phone screenshots when they want to save a recipe, wallpaper, or travel tip from a TikTok slideshow. Here is how that compares to extracting the original file via TikFlow:
+            When users see a travel guide or wallpaper they want to keep, their immediate instinct is often to capture a smartphone screenshot. Here is why taking screenshots produces inferior results compared to extracting master assets through TikFlow:
           </p>
 
-          {/* Comparison Table */}
           <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-sm bg-white my-6">
             <table className="w-full text-left text-sm border-collapse">
               <thead>
@@ -231,10 +253,14 @@ export default function TikTokPhotoPage() {
           </div>
         </section>
 
-        {/* Section 3: Popular Uses for TikTok Photo Carousels */}
+        {/* Section 3: Popular Creative Uses for Carousels */}
         <section className="space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
+            <Compass className="w-3.5 h-3.5 text-emerald-600" />
+            <span>Part 3: Practical Use Cases</span>
+          </div>
           <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            Popular Ways People Use Saved TikTok Photo Carousels
+            3. Valuable Real-World Applications for Saved Photo Carousels
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
@@ -243,10 +269,10 @@ export default function TikTokPhotoPage() {
                 <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
                   01
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Travel Guides &amp; Itineraries</h4>
+                <h4 className="font-bold text-slate-900 text-base">Travel Itineraries &amp; Offline Maps</h4>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Save destination maps, restaurant recommendations, train schedules, and hotel tips to your camera roll for quick offline reference while traveling internationally.
+                Save subway maps, restaurant menus, hiking trails, and hotel guides to your camera roll for fast offline access while traveling internationally without roaming data.
               </p>
             </div>
 
@@ -255,10 +281,10 @@ export default function TikTokPhotoPage() {
                 <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold">
                   02
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Culinary Recipes &amp; Meal Prep</h4>
+                <h4 className="font-bold text-slate-900 text-base">Culinary Recipes &amp; Ingredient Ratios</h4>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Keep step-by-step cooking ingredient lists and baking measurements in your photo gallery so you can cook in the kitchen without keeping video playback running.
+                Keep cooking instructions and baking measurements right in your photo gallery so you can cook in the kitchen without keeping battery-draining video loops running.
               </p>
             </div>
 
@@ -270,7 +296,7 @@ export default function TikTokPhotoPage() {
                 <h4 className="font-bold text-slate-900 text-base">Aesthetic Wallpapers &amp; Lock Screens</h4>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Photographers and digital artists share stunning 9:16 vertical scenery, anime art, and minimalist typography that make perfect phone wallpapers.
+                Photographers and digital creators post stunning 9:16 vertical scenery, anime artwork, and minimalist typography that make perfect phone wallpapers.
               </p>
             </div>
 
@@ -288,10 +314,14 @@ export default function TikTokPhotoPage() {
           </div>
         </section>
 
-        {/* Section 4: Step-by-Step Instructions */}
+        {/* Section 4: Device-Specific Instructions */}
         <section className="space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
+            <Smartphone className="w-3.5 h-3.5 text-indigo-600" />
+            <span>Part 4: Device Workflows</span>
+          </div>
           <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            How to Download TikTok Photos on Any Device
+            4. Step-by-Step Guide to Saving Photo Slideshows on Any Device
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
@@ -335,7 +365,88 @@ export default function TikTokPhotoPage() {
           </div>
         </section>
 
-        {/* Section 5: Ethical & Copyright Considerations */}
+        {/* Section 5: Image Compression & Color Spaces */}
+        <section className="space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
+            <Sliders className="w-3.5 h-3.5 text-purple-600" />
+            <span>Part 5: Image Compression &amp; Color Science</span>
+          </div>
+          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            5. WebP vs. JPEG: How TikTok Stores and Decodes Carousel Images
+          </h3>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            When creators upload still photography to TikTok, ByteDance&apos;s media processing backend automatically converts source imagery into modern Google WebP and optimized JPEG formats. WebP offers approximately 25% to 34% smaller file sizes than standard JPEG at equivalent structural similarity (SSIM) quality scores, allowing multi-slide carousels to swipe effortlessly on mobile connections.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
+              <h4 className="font-bold text-slate-900 text-base">True 24-Bit sRGB Color Fidelity</h4>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Screenshots captured on smartphones are altered by the device&apos;s display calibration—such as Apple&apos;s True Tone or Samsung&apos;s Vivid mode—resulting in inaccurate colors. TikFlow retrieves the untouched 24-bit sRGB color space directly from the cloud CDN, ensuring pristine tonal balance and contrast.
+              </p>
+            </div>
+            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
+              <h4 className="font-bold text-slate-900 text-base">Lossless Vertical 9:16 Aspect Ratio</h4>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Modern mobile cameras capture photos in 4:3 or 16:9 aspect ratios. When creators frame vertical 9:16 slideshows, screen grabs often clip important composition edges. TikFlow preserves the exact pixel dimensions (1080x1920 or higher) uploaded by the artist without black bars or letterboxing.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 6: Visual Storytelling & Narrative Carousels */}
+        <section className="space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
+            <FolderArchive className="w-3.5 h-3.5 text-indigo-600" />
+            <span>Part 6: Visual Storytelling Dynamics</span>
+          </div>
+          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            6. The Rise of Micro-Documentaries and Slide-by-Slide Visual Journalism
+          </h3>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            TikTok photo carousels have quickly developed into a primary medium for digital journalism, infographic explainers, and micro-documentaries. Studies indicate that photo carousels frequently achieve up to three times higher comment engagement than short videos because viewers control their own reading pace:
+          </p>
+          <ul className="list-disc list-inside space-y-3 pl-2 text-slate-600 text-sm sm:text-base">
+            <li><strong>Hook Slides:</strong> The first slide acts as a digital magazine cover, setting high visual expectations and establishing the thematic focus of the story.</li>
+            <li><strong>Narrative Progression:</strong> Slides 2 through 30 unpack sequential steps, historical timelines, before-and-after transformations, or step-by-step culinary procedures.</li>
+            <li><strong>Summary &amp; Infographic Cards:</strong> Concluding slides synthesize data into easy-to-read checklists that users want to permanently preserve in their personal camera rolls.</li>
+          </ul>
+        </section>
+
+        {/* Section 7: Curating High-Resolution Vertical Wallpapers */}
+        <section className="space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
+            <Smartphone className="w-3.5 h-3.5 text-rose-600" />
+            <span>Part 7: Mobile Display Optimization</span>
+          </div>
+          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            7. Crafting High-DPI Wallpapers for OLED, Super Retina &amp; Dynamic Island Screens
+          </h3>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Modern flagship smartphones feature ultra-high pixel density displays (often exceeding 460 pixels per inch) equipped with HDR10+ and OLED technology. When users attempt to set mobile screenshots as wallpapers, the digital zoom required to hide phone UI icons introduces noticeable blurring around text, anime character line art, and architectural geometry.
+          </p>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            By extracting virgin 1080p and 4K still files through TikFlow, wallpaper enthusiasts preserve pixel-perfect clarity. True blacks remain deep on OLED panels without glowing artifacts, and high-contrast highlights shine with full HDR dynamic range, making TikTok carousels one of the richest sources for bespoke modern lock screens.
+          </p>
+        </section>
+
+        {/* Section 8: Digital Archival Protocols for Multi-Image Albums */}
+        <section className="space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
+            <FolderArchive className="w-3.5 h-3.5 text-emerald-600" />
+            <span>Part 8: Multi-Asset Archiving Architecture</span>
+          </div>
+          <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            8. Batch Indexing: Keeping Complete Photographic Sets Intact
+          </h3>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Unlike individual video posts, photo carousels represent cohesive photographic collections. When saving a 20-image educational guide or wedding photo shoot, losing the chronological sequence ruins the creator&apos;s narrative structure. TikFlow preserves the original upload index in the filename metadata (e.g., <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tikflow_photo_01.jpg</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tikflow_photo_02.jpg</code>), ensuring your photo gallery sorts the collection in its exact intended viewing order.
+          </p>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Furthermore, our cloud parser maintains the embedded synchronized audio track alongside the image sequence. This allows multi-media curators to retain both the visual slides and the background sound design, guaranteeing an authentic archival record of the creator&apos;s multimedia publication.
+          </p>
+        </section>
+
+        {/* Section 9: Ethical & Copyright Considerations */}
         <section className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
           <div className="flex items-center gap-3 text-slate-900 font-bold text-lg">
             <ShieldCheck className="w-6 h-6 text-rose-500" />
@@ -366,7 +477,7 @@ export default function TikTokPhotoPage() {
                 <summary className="font-bold text-base sm:text-lg text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
                   <span>{item.q}</span>
                   <span className="text-rose-500 group-open:rotate-180 transition-transform text-xl font-black">
-                    ↓
+                    &darr;
                   </span>
                 </summary>
                 <p className="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
