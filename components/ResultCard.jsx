@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Download, 
   Music, 
@@ -13,10 +13,20 @@ import {
   RotateCcw, 
   CheckCircle2, 
   Sparkles,
-  ExternalLink
+  ExternalLink,
+  Copy,
+  Check,
+  QrCode,
+  X,
+  Play,
+  Pause
 } from 'lucide-react';
 
 export default function ResultCard({ result, onReset }) {
+  const [copied, setCopied] = useState(false);
+  const [showQr, setShowQr] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
   if (!result) return null;
 
   const {
@@ -44,46 +54,102 @@ export default function ResultCard({ result, onReset }) {
     return `/api/proxy?url=${encodeURIComponent(mediaUrl)}&filename=${encodeURIComponent(filename)}&type=${mediaType}`;
   };
 
+  const directDownloadUrl = video?.noWatermark 
+    ? (typeof window !== 'undefined' ? `${window.location.origin}${getProxyUrl(video.noWatermark, `tikflow_${id}.mp4`)}` : video.noWatermark)
+    : '';
+
+  const handleCopyLink = () => {
+    if (!directDownloadUrl) return;
+    navigator.clipboard.writeText(directDownloadUrl).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    });
+  };
+
   return (
     <div className="w-full max-w-4xl mx-auto px-4 py-6 animate-in fade-in zoom-in-95 duration-200">
-      <div className="rounded-3xl bg-white border border-slate-200 shadow-xl shadow-slate-200/60 p-6 sm:p-8">
+      <div className="rounded-3xl bg-white border border-slate-200 shadow-xl shadow-slate-200/60 p-6 sm:p-8 relative">
         
-        {/* Header / Success Indicator */}
-        <div className="flex items-center justify-between border-b border-slate-100 pb-5 mb-6">
+        {/* Header / Success Indicator & Tools Bar */}
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-5 mb-6">
           <div className="flex items-center space-x-2 text-emerald-600 text-sm font-bold">
             <CheckCircle2 className="w-5 h-5" />
-            <span>Video Ready for Download</span>
+            <span>Ready for Download (1080p Source Available)</span>
           </div>
-          <button
-            onClick={onReset}
-            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-900 text-xs font-semibold border border-slate-200 transition-all"
-          >
-            <RotateCcw className="w-3.5 h-3.5" />
-            <span>Download Another</span>
-          </button>
+
+          <div className="flex items-center gap-2">
+            {/* Copy Link Button */}
+            <button
+              onClick={handleCopyLink}
+              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200 transition-all"
+              title="Copy direct download link"
+            >
+              {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
+              <span>{copied ? 'Link Copied!' : 'Copy Link'}</span>
+            </button>
+
+            {/* QR Code for Mobile */}
+            <button
+              onClick={() => setShowQr(true)}
+              className="hidden sm:flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200 transition-all"
+              title="Download to phone via QR code"
+            >
+              <QrCode className="w-3.5 h-3.5 text-rose-500" />
+              <span>Scan QR</span>
+            </button>
+
+            {/* Download Another */}
+            <button
+              onClick={onReset}
+              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition-all"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              <span>New Search</span>
+            </button>
+          </div>
         </div>
 
         {/* Content Layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           
-          {/* Media Thumbnail & Author Profile */}
+          {/* Media Thumbnail & Player */}
           <div className="md:col-span-5 space-y-4">
-            <div className="relative aspect-[9/16] max-h-[380px] w-full mx-auto rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm group">
-              {cover ? (
-                <img
-                  src={cover}
-                  alt={title || 'TikTok Preview'}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            <div className="relative aspect-[9/16] max-h-[390px] w-full mx-auto rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md group">
+              {isPlaying && video?.noWatermark ? (
+                <video
+                  src={video.noWatermark}
+                  controls
+                  autoPlay
+                  className="w-full h-full object-contain bg-black"
                 />
+              ) : cover ? (
+                <>
+                  <img
+                    src={cover}
+                    alt={title || 'TikTok Preview'}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                  
+                  {/* Play preview button */}
+                  {video?.noWatermark && (
+                    <button
+                      onClick={() => setIsPlaying(true)}
+                      className="absolute inset-0 flex items-center justify-center m-auto w-14 h-14 rounded-full bg-white/90 text-rose-600 shadow-lg hover:scale-110 active:scale-95 transition-all group-hover:bg-white"
+                      title="Play preview video"
+                    >
+                      <Play className="w-6 h-6 fill-rose-600 ml-0.5" />
+                    </button>
+                  )}
+                </>
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-slate-400">
                   <Video className="w-16 h-16" />
                 </div>
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
               
               {/* Badge overlay */}
-              <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 border border-white/80 text-[11px] font-bold text-rose-600 shadow-sm flex items-center gap-1.5">
+              <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 border border-white/80 text-[11px] font-bold text-rose-600 shadow-sm flex items-center gap-1.5 pointer-events-none">
                 <Sparkles className="w-3 h-3 text-rose-500" />
                 <span>No Watermark</span>
               </div>
@@ -149,9 +215,9 @@ export default function ResultCard({ result, onReset }) {
 
             {/* Download Buttons Section */}
             <div className="space-y-3 pt-2">
-              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Save Your File</h4>
+              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Choose Download Option</h4>
 
-              {/* MP4 No Watermark */}
+              {/* MP4 No Watermark Primary */}
               {video?.noWatermark && (
                 <a
                   href={getProxyUrl(video.noWatermark, `tikflow_video_nowm_${id}.mp4`, 'video')}
@@ -162,11 +228,11 @@ export default function ResultCard({ result, onReset }) {
                     <Download className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
                     <span>Download MP4 (Without Watermark)</span>
                   </div>
-                  <span className="text-[11px] px-2 py-0.5 rounded bg-white/20 font-semibold uppercase">HD Fast</span>
+                  <span className="text-[11px] px-2 py-0.5 rounded bg-white/20 font-semibold uppercase">Server 1</span>
                 </a>
               )}
 
-              {/* MP4 HD Option */}
+              {/* MP4 HD Server 2 */}
               {video?.noWatermarkHd && (
                 <a
                   href={getProxyUrl(video.noWatermarkHd, `tikflow_video_hd_${id}.mp4`, 'video')}
@@ -175,9 +241,9 @@ export default function ResultCard({ result, onReset }) {
                 >
                   <div className="flex items-center space-x-3">
                     <Video className="w-5 h-5 text-indigo-600" />
-                    <span>Download MP4 [HD Server 2]</span>
+                    <span>Download MP4 (HD Server 2)</span>
                   </div>
-                  <span className="text-[11px] text-slate-500">Backup</span>
+                  <span className="text-[11px] text-slate-500">Source HD</span>
                 </a>
               )}
 
@@ -207,7 +273,7 @@ export default function ResultCard({ result, onReset }) {
                     rel="noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-rose-600 transition-colors"
                   >
-                    <span>Having trouble? Click here to open video in new tab</span>
+                    <span>Having trouble downloading? Click here to view source stream</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
@@ -253,6 +319,36 @@ export default function ResultCard({ result, onReset }) {
         </div>
 
       </div>
+
+      {/* QR Code Modal for Mobile Quick Download */}
+      {showQr && (
+        <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-sm w-full shadow-2xl border border-slate-200 text-center relative animate-in fade-in zoom-in-95">
+            <button
+              onClick={() => setShowQr(false)}
+              className="absolute top-4 right-4 p-1.5 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mx-auto mb-3">
+              <QrCode className="w-6 h-6" />
+            </div>
+            <h3 className="text-lg font-bold text-slate-900 mb-1">Scan to Download on Phone</h3>
+            <p className="text-xs text-slate-500 mb-4">
+              Open your iPhone or Android camera app and point it at the QR code below to download this video directly to your phone.
+            </p>
+            <div className="p-3 bg-slate-50 rounded-2xl border border-slate-200 inline-block mb-3">
+              <img
+                src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(directDownloadUrl || '')}`}
+                alt="Download QR Code"
+                className="w-44 h-44 mx-auto rounded-lg"
+              />
+            </div>
+            <p className="text-[11px] text-slate-400">Fast, instant direct file save</p>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
