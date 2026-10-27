@@ -1,3 +1,4 @@
+import Breadcrumbs from '../../components/Breadcrumbs';
 import React from 'react';
 import { ShieldAlert, Mail } from 'lucide-react';
 
@@ -18,6 +19,7 @@ export const metadata = {
 export default function DisclaimerPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 text-slate-700 leading-relaxed text-sm sm:text-base">
+      <Breadcrumbs items={[{ name: 'DMCA Disclaimer', url: '/disclaimer' }]} />
       
       <div className="border-b border-slate-200 pb-8 mb-10">
         <span className="text-xs font-bold uppercase tracking-widest text-rose-600 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">

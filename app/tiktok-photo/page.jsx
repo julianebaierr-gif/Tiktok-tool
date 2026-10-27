@@ -1,3 +1,5 @@
+import Breadcrumbs from '../../components/Breadcrumbs';
+import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
 import SiteSchema from '../../components/SiteSchema';
 
@@ -107,6 +109,7 @@ export default function TikTokPhotoPage() {
 
       {/* Top Downloader Hero */}
       <SiteSchema />
+      <Breadcrumbs items={[{ name: 'TikTok Photo Downloader', url: '/tiktok-photo' }]} />
       <ToolHero 
         title="TikTok Photo Slideshow Downloader (Save All Pictures in HD)"
         subtitle="Download every high-resolution photo from TikTok carousels and slideshows without watermarks, compression, or black bars."
@@ -492,6 +495,8 @@ export default function TikTokPhotoPage() {
         </section>
 
       </article>
+
+      <RelatedTools currentSlug="/tiktok-photo" />
 
     </div>
   );

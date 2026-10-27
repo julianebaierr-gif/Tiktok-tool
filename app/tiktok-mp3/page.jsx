@@ -1,3 +1,5 @@
+import Breadcrumbs from '../../components/Breadcrumbs';
+import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
 import SiteSchema from '../../components/SiteSchema';
 
@@ -107,6 +109,7 @@ export default function TikTokMp3Page() {
       />
 
       <SiteSchema />
+      <Breadcrumbs items={[{ name: 'TikTok to MP3 Converter', url: '/tiktok-mp3' }]} />
       <ToolHero 
         title="TikTok to MP3 Converter & Sound Ripper"
         subtitle="Extract crystal-clear 320kbps MP3 music tracks, audio hooks, and viral dialogue from any TikTok video instantly."
@@ -469,6 +472,8 @@ export default function TikTokMp3Page() {
         </section>
 
       </article>
+
+      <RelatedTools currentSlug="/tiktok-mp3" />
 
     </div>
   );

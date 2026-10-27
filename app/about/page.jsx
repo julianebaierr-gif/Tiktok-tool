@@ -1,3 +1,4 @@
+import Breadcrumbs from '../../components/Breadcrumbs';
 import React from 'react';
 import { Shield, Sparkles, Users } from 'lucide-react';
 
@@ -18,6 +19,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 text-slate-700">
+      <Breadcrumbs items={[{ name: 'About Us', url: '/about' }]} />
       
       <div className="text-center max-w-2xl mx-auto mb-14">
         <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 px-3.5 py-1 rounded-full border border-indigo-200">

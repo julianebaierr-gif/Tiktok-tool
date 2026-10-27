@@ -1,3 +1,5 @@
+import Breadcrumbs from '../../components/Breadcrumbs';
+import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
 import SiteSchema from '../../components/SiteSchema';
 
@@ -108,6 +110,7 @@ export default function TikTokStoryPage() {
 
       {/* Top Downloader Hero */}
       <SiteSchema />
+      <Breadcrumbs items={[{ name: 'TikTok Story Saver', url: '/tiktok-story' }]} />
       <ToolHero 
         title="TikTok Story Saver & Downloader (Save 24h Stories in HD)"
         subtitle="Save disappearing TikTok stories before they vanish forever. Download clean, watermark-free 1080p MP4 videos 100% anonymously."
@@ -507,6 +510,8 @@ export default function TikTokStoryPage() {
         </section>
 
       </article>
+
+      <RelatedTools currentSlug="/tiktok-story" />
 
     </div>
   );

@@ -1,3 +1,5 @@
+import Breadcrumbs from '../../components/Breadcrumbs';
+import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
 import SiteSchema from '../../components/SiteSchema';
 
@@ -106,6 +108,7 @@ export default function DouyinDownloaderPage() {
 
       {/* Top Downloader Hero */}
       <SiteSchema />
+      <Breadcrumbs items={[{ name: 'Douyin Downloader', url: '/douyin-downloader' }]} />
       <ToolHero 
         title="Douyin Downloader (抖音视频无水印下载 - Chinese TikTok HD)"
         subtitle="Download Chinese TikTok (Douyin 抖音) videos and audio without watermark in 1080p Full HD. Paste full Chinese share text or short links."
@@ -484,6 +487,8 @@ export default function DouyinDownloaderPage() {
         </section>
 
       </article>
+
+      <RelatedTools currentSlug="/douyin-downloader" />
 
     </div>
   );

@@ -1,0 +1,33 @@
+# QukTik
+
+> QukTik is a free, high-speed web utility designed to download TikTok and Douyin media without watermarks in pristine 1080p MP4 quality, extract 320kbps MP3 audio tracks, and save full-resolution photo carousels.
+
+## Core Capabilities
+- **TikTok Video Downloader Without Watermark**: Strips dynamic TikTok logos, author badges, and ending bounce cards, returning clean 1080p Full HD MP4 files.
+- **TikTok to MP3 Converter**: Demuxes original high-fidelity audio streams into 320kbps MP3 sound files for offline listening, sound design, and phone ringtones.
+- **TikTok Photo & Carousel Downloader**: Extracts all individual slides from TikTok image slideshows in lossless JPG format with original accompanying music.
+- **TikTok Story Saver**: Archives 24-hour disappearing ephemeral TikTok stories anonymously without alerting the creator.
+- **Douyin Video Downloader (抖音下载)**: Built-in Chinese text regex parser that isolates short URLs from Chinese clipboard shares and downloads unwatermarked Douyin videos.
+- **TikTok Ringtone Maker**: Converts viral soundbites and dialogue into iOS (.m4r) and Android (.mp3) ringtones and alarms.
+- **TikTok Avatar Downloader**: Bypasses client-side circular masks to reveal and download 1080p square profile pictures (PFPs).
+
+## Tools & URLs
+- Home: https://quktik.com
+- TikTok Video Downloader: https://quktik.com/tiktok-video-downloader
+- TikTok to MP3 Converter: https://quktik.com/tiktok-mp3
+- TikTok Photo Downloader: https://quktik.com/tiktok-photo
+- TikTok Story Saver: https://quktik.com/tiktok-story
+- Douyin Downloader: https://quktik.com/douyin-downloader
+- TikTok Ringtone Maker: https://quktik.com/tiktok-ringtone
+- TikTok Avatar Downloader: https://quktik.com/tiktok-avatar
+- About Us: https://quktik.com/about
+- Contact & Support: https://quktik.com/contact
+- Privacy Policy: https://quktik.com/privacy-policy
+- Terms of Service: https://quktik.com/terms-of-service
+- DMCA & Fair Use: https://quktik.com/disclaimer
+
+## Technical & Privacy Architecture
+- No Registration: No account, login, or personal credentials required.
+- Zero Digital Footprint: Video URLs are processed in memory and never indexed against user IP addresses.
+- Multi-CDN Failover: Automatic mirror switching (Server 1 Fast CDN, Server 2 HD Mirror) ensures 99.9% uptime.
+- Client Independence: 100% web-based; works across iOS Safari, Android Chrome, Windows, macOS, and Linux without apps or extensions.

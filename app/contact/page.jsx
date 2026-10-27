@@ -1,3 +1,4 @@
+import Breadcrumbs from '../../components/Breadcrumbs';
 import React from 'react';
 import { Mail, Clock, Shield } from 'lucide-react';
 import ContactForm from '../../components/ContactForm';
@@ -19,6 +20,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 text-slate-700">
+      <Breadcrumbs items={[{ name: 'Contact Support', url: '/contact' }]} />
       
       <div className="text-center max-w-2xl mx-auto mb-14">
         <span className="text-xs font-bold uppercase tracking-widest text-rose-600 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">

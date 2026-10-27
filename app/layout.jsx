@@ -23,7 +23,6 @@ export const metadata = {
     'ssstik alternative',
     'tikflow alternative'
   ],
-  authors: [{ name: 'QukTik Team' }],
   creator: 'QukTik',
   publisher: 'QukTik',
   robots: {
