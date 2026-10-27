@@ -31,43 +31,43 @@ export default function TikTokStoryPage() {
   const faqData = [
     {
       q: "Can I download TikTok stories without the creator knowing?",
-      a: "Yes! When you view or download a TikTok story through TikFlow, our cloud server requests the public media stream directly. You never log into your TikTok account, meaning your profile never appears on the creator's 'Viewers' or 'Seen' analytics list. It is 100% anonymous."
+      a: "Yes! When you view or download a TikTok story through QukTik, our cloud server requests the public media stream directly. You never log into your TikTok account, meaning your profile never appears on the creator's 'Viewers' or 'Seen' analytics list. It is 100% anonymous."
     },
     {
       q: "What happens after the 24-hour story expiration window?",
-      a: "TikTok stories automatically disappear from public profiles and feeds after exactly 24 hours (86,400 seconds). Once expired, TikTok's servers permanently delete the public access tokens. You must download the story through TikFlow before the 24-hour countdown finishes."
+      a: "TikTok stories automatically disappear from public profiles and feeds after exactly 24 hours (86,400 seconds). Once expired, TikTok's servers permanently delete the public access tokens. You must download the story through QukTik before the 24-hour countdown finishes."
     },
     {
-      q: "Can TikFlow download stories from private TikTok profiles?",
-      a: "No. TikFlow only processes public stories. If a creator has configured their account as private or has set the story visibility to 'Friends Only', TikTok restricts server access. We respect user privacy boundaries."
+      q: "Can QukTik download stories from private TikTok profiles?",
+      a: "No. QukTik only processes public stories. If a creator has configured their account as private or has set the story visibility to 'Friends Only', TikTok restricts server access. We respect user privacy boundaries."
     },
     {
-      q: "Does TikFlow remove the watermark on TikTok story videos?",
+      q: "Does QukTik remove the watermark on TikTok story videos?",
       a: "Yes. Our extractor accesses the clean source stream directly from ByteDance's content delivery network, stripping the moving watermark logo and giving you the original, unblemished 1080p MP4 video file."
     },
     {
       q: "Can I download photo stories as well as video stories?",
-      a: "Yes! Creators often post still images or graphics to their TikTok stories. TikFlow automatically detects whether the story contains an MP4 video or a high-resolution JPG image and provides the appropriate one-click download option."
+      a: "Yes! Creators often post still images or graphics to their TikTok stories. QukTik automatically detects whether the story contains an MP4 video or a high-resolution JPG image and provides the appropriate one-click download option."
     },
     {
       q: "How do I get the link to a TikTok story?",
-      a: "Open the TikTok app, tap on the creator's avatar with the colorful glowing story ring, tap the Share arrow icon on the story, and tap 'Copy Link'. Then paste that exact link into TikFlow."
+      a: "Open the TikTok app, tap on the creator's avatar with the colorful glowing story ring, tap the Share arrow icon on the story, and tap 'Copy Link'. Then paste that exact link into QukTik."
     },
     {
       q: "Is there any limit on how many stories I can save each day?",
-      a: "None at all. TikFlow is completely free and provides unlimited daily story downloads without registration, subscriptions, or watermarks."
+      a: "None at all. QukTik is completely free and provides unlimited daily story downloads without registration, subscriptions, or watermarks."
     },
     {
       q: "Can I download stories from Douyin (Chinese TikTok) as well?",
-      a: "Yes! TikFlow supports Chinese Douyin daily stories and ephemeral status updates, retrieving the clean source stream before deletion."
+      a: "Yes! QukTik supports Chinese Douyin daily stories and ephemeral status updates, retrieving the clean source stream before deletion."
     },
     {
       q: "What video quality is preserved when saving TikTok stories?",
-      a: "TikFlow extracts the original 1080x1920 Full HD video stream at native frame rates with untouched stereo audio."
+      a: "QukTik extracts the original 1080x1920 Full HD video stream at native frame rates with untouched stereo audio."
     },
     {
       q: "Do I need to install any app or browser extension?",
-      a: "No. TikFlow works entirely in your web browser (Safari, Chrome, Edge, Firefox) across iOS, Android, macOS, and Windows."
+      a: "No. QukTik works entirely in your web browser (Safari, Chrome, Edge, Firefox) across iOS, Android, macOS, and Windows."
     }
   ];
 
@@ -120,10 +120,10 @@ export default function TikTokStoryPage() {
             Ephemeral Media Preservation
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
-            Why Use TikFlow TikTok Story Saver?
+            Why Use QukTik TikTok Story Saver?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            TikTok stories disappear after 24 hours. TikFlow lets you save personal memories, creator announcements, and daily vlogs before they vanish into thin air.
+            TikTok stories disappear after 24 hours. QukTik lets you save personal memories, creator announcements, and daily vlogs before they vanish into thin air.
           </p>
         </div>
 
@@ -208,7 +208,7 @@ export default function TikTokStoryPage() {
             2. Why 90% of Competitor Downloaders Throw Errors on Story Links
           </h3>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            If you have tried using generic TikTok downloaders, you have likely encountered the frustrating message: <em>&ldquo;Invalid URL or Video Not Found&rdquo;</em> when pasting a story link. Here is the technical reason why this happens and how TikFlow solves it:
+            If you have tried using generic TikTok downloaders, you have likely encountered the frustrating message: <em>&ldquo;Invalid URL or Video Not Found&rdquo;</em> when pasting a story link. Here is the technical reason why this happens and how QukTik solves it:
           </p>
 
           <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-sm bg-white my-6">
@@ -216,7 +216,7 @@ export default function TikTokStoryPage() {
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
                   <th className="p-4 sm:p-5">Technical Capability</th>
-                  <th className="p-4 sm:p-5 text-purple-600">TikFlow Story Saver</th>
+                  <th className="p-4 sm:p-5 text-purple-600">QukTik Story Saver</th>
                   <th className="p-4 sm:p-5 text-slate-500">Generic Downloaders</th>
                   <th className="p-4 sm:p-5 text-slate-500">In-App Screen Recording</th>
                 </tr>
@@ -337,7 +337,7 @@ export default function TikTokStoryPage() {
               <ol className="space-y-3 text-xs sm:text-sm text-slate-600 list-decimal list-inside">
                 <li>Tap the creator&apos;s story avatar (with the glowing circular ring).</li>
                 <li>Tap the <strong>Share</strong> icon on the story and tap <strong>Copy Link</strong>.</li>
-                <li>Open <strong>Safari</strong>, navigate to TikFlow, paste the link, and tap <strong>Save Story in HD</strong>.</li>
+                <li>Open <strong>Safari</strong>, navigate to QukTik, paste the link, and tap <strong>Save Story in HD</strong>.</li>
                 <li>Tap <strong>Download</strong> on Safari&apos;s prompt, open the video, tap <strong>Share &gt; Save Video</strong>.</li>
               </ol>
             </div>
@@ -355,7 +355,7 @@ export default function TikTokStoryPage() {
               </div>
               <ol className="space-y-3 text-xs sm:text-sm text-slate-600 list-decimal list-inside">
                 <li>Copy the TikTok story link from your phone or browser address bar.</li>
-                <li>Head to TikFlow in Chrome, Edge, or Firefox.</li>
+                <li>Head to QukTik in Chrome, Edge, or Firefox.</li>
                 <li>Paste the URL and click <strong>Save Story in HD</strong>.</li>
                 <li>Click <strong>Download MP4 (Without Watermark)</strong> to store the video permanently in your <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">/Download</code> folder.</li>
               </ol>
@@ -387,7 +387,7 @@ export default function TikTokStoryPage() {
             <span>Part 6: Anonymity Engineering</span>
           </div>
           <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            6. How TikFlow Delivers 100% Anonymous Story Viewing Without Digital Footprints
+            6. How QukTik Delivers 100% Anonymous Story Viewing Without Digital Footprints
           </h3>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             When you watch a story inside the native TikTok mobile app, the client software immediately dispatches an authenticated telemetry telemetry packet (<code className="bg-slate-100 px-1 py-0.5 rounded text-xs">story_view_ping</code>) to analytics servers. This packet contains your unique account UID, timestamp, device identifier, and session tokens, placing your name directly onto the creator&apos;s real-time &ldquo;Viewers List&rdquo;.
@@ -400,9 +400,9 @@ export default function TikTokStoryPage() {
               </p>
             </div>
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <h4 className="font-bold text-slate-900 text-base">TikFlow Cloud Proxy Isolation</h4>
+              <h4 className="font-bold text-slate-900 text-base">QukTik Cloud Proxy Isolation</h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                TikFlow decouples your device from the media request. Our cloud cluster queries public edge servers anonymously over TLS 1.3 without forwarding any user cookies, authentication headers, or personal identifiers. The creator&apos;s analytics interface registers zero viewer entries.
+                QukTik decouples your device from the media request. Our cloud cluster queries public edge servers anonymously over TLS 1.3 without forwarding any user cookies, authentication headers, or personal identifiers. The creator&apos;s analytics interface registers zero viewer entries.
               </p>
             </div>
           </div>
@@ -437,7 +437,7 @@ export default function TikTokStoryPage() {
           <ul className="list-disc list-inside space-y-3 pl-2 text-slate-600 text-sm sm:text-base">
             <li><strong>Automated Cloud Backups:</strong> Configure your phone&apos;s Downloads folder to automatically sync with secure cloud repositories such as Google Drive, OneDrive, or iCloud Drive. This frees up phone internal flash memory while ensuring your collection is protected against physical device damage.</li>
             <li><strong>Chronological Folder Structures:</strong> Create dedicated folders categorized by year, creator handle, and topic (e.g., <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">/TikTok_Stories/2026/TechNews/</code>). This taxonomic structure makes retrieving specific announcements effortless years later.</li>
-            <li><strong>Preserving Original Creation Timestamps:</strong> When saving with TikFlow, the server preserves the video&apos;s internal container metadata, maintaining the exact creation epoch so desktop media managers sort files in accurate chronological order.</li>
+            <li><strong>Preserving Original Creation Timestamps:</strong> When saving with QukTik, the server preserves the video&apos;s internal container metadata, maintaining the exact creation epoch so desktop media managers sort files in accurate chronological order.</li>
           </ul>
         </section>
 
@@ -454,7 +454,7 @@ export default function TikTokStoryPage() {
             Content creators who post frequently to stories often find themselves wanting to assemble year-end recaps, anniversary videos, or behind-the-scenes documentaries for YouTube. Attempting to stitch together stories that were saved in-app results in a chaotic, amateurish montage with multiple bouncing watermarks and black end cards appearing every 15 seconds.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            By downloading pristine, watermark-free story files through TikFlow, video editors can drop dozens of consecutive clips into Adobe Premiere Pro, Final Cut Pro, or DaVinci Resolve. The clips merge smoothly on a 1080x1920 timeline with clean cross-dissolves, unified audio leveling, and professional title cards, transforming transient 24-hour snippets into a timeless cinematic narrative.
+            By downloading pristine, watermark-free story files through QukTik, video editors can drop dozens of consecutive clips into Adobe Premiere Pro, Final Cut Pro, or DaVinci Resolve. The clips merge smoothly on a 1080x1920 timeline with clean cross-dissolves, unified audio leveling, and professional title cards, transforming transient 24-hour snippets into a timeless cinematic narrative.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Additionally, educators and digital workshop leaders utilize these archived story montages to demonstrate real-time case studies, community management strategies, and product launch sequences during live seminars and educational presentations.
@@ -468,7 +468,7 @@ export default function TikTokStoryPage() {
             <h4>Privacy Ethics &amp; Creator Respect</h4>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            TikFlow Story Saver is engineered for personal, non-commercial archiving and fair-use research. Stories often contain candid personal moments; please treat creators with respect. Do not use downloaded story footage to harass, defame, impersonate, or infringe upon the privacy rights of creators. Always uphold ethical digital citizenship.
+            QukTik Story Saver is engineered for personal, non-commercial archiving and fair-use research. Stories often contain candid personal moments; please treat creators with respect. Do not use downloaded story footage to harass, defame, impersonate, or infringe upon the privacy rights of creators. Always uphold ethical digital citizenship.
           </p>
         </section>
 

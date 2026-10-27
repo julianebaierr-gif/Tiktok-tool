@@ -1,4 +1,4 @@
-# TikFlow - Professional TikTok Video & Audio Downloader (Without Watermark)
+# QukTik - Professional TikTok Video & Audio Downloader (Without Watermark)
 
 > **High-speed, 100% working, modern web utility tool built with Next.js 14, Tailwind CSS, and Serverless API proxy architecture.**
 > Ready for seamless 1-click deployment on **Vercel** via **GitHub**.
@@ -29,7 +29,7 @@
 
 * **Google AdSense 2026 Compliance:**
   * **Zero Prohibited Terms:** Completely free of policy-violating words (NO "APK", "Mod", "Hack", "Cracked", "Rip", or "Bypass DRM").
-  * **Strict Trademark Separation:** Independent generic branding ("TikFlow") with prominent nominative fair-use disclaimers.
+  * **Strict Trademark Separation:** Independent generic branding ("QukTik") with prominent nominative fair-use disclaimers.
   * **High Text-to-Code Ratio:** Deep educational articles, technical architecture explanations, and device troubleshooting guides that meet Google's Helpful Content standards.
   * **Legal Transparency:** Designated DMCA agent contact email with guaranteed 24-48 hour takedown turnaround.
 
@@ -64,7 +64,7 @@
 
 ### Step 1: Create a GitHub Repository
 1. Open [GitHub](https://github.com/) and click **New Repository**.
-2. Name your repository (e.g., `tikflow-downloader`).
+2. Name your repository (e.g., `quktik-downloader`).
 3. Keep it Public or Private and click **Create repository**.
 
 ### Step 2: Push Your Project to GitHub
@@ -72,16 +72,16 @@ In your project directory terminal, run:
 ```bash
 git init
 git add .
-git commit -m "Initial commit: 100% working TikFlow Downloader"
+git commit -m "Initial commit: 100% working QukTik Downloader"
 git branch -M main
-git remote add origin https://github.com/<YOUR_USERNAME>/tikflow-downloader.git
+git remote add origin https://github.com/<YOUR_USERNAME>/quktik-downloader.git
 git push -u origin main
 ```
 
 ### Step 3: Deploy on Vercel
 1. Go to [Vercel](https://vercel.com/) and log in with your GitHub account.
 2. Click **Add New... > Project**.
-3. Select your `tikflow-downloader` repository and click **Import**.
+3. Select your `quktik-downloader` repository and click **Import**.
 4. Leave all build settings at their defaults (Vercel automatically detects Next.js).
 5. Click **Deploy**.
 6. Within 60 seconds, your site will be live with a free SSL certificate!
@@ -105,4 +105,4 @@ git push -u origin main
 ---
 
 ## ⚖️ Legal Notice
-*TikFlow is an independent open-source utility tool designed for educational study, fair-use personal archiving, and content creators backing up their own creative work. TikFlow does not host or store copyrighted media files on its servers.*
+*QukTik is an independent open-source utility tool designed for educational study, fair-use personal archiving, and content creators backing up their own creative work. QukTik does not host or store copyrighted media files on its servers.*

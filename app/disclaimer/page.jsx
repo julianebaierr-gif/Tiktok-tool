@@ -2,8 +2,8 @@ import React from 'react';
 import { ShieldAlert, Mail } from 'lucide-react';
 
 export const metadata = {
-  title: 'DMCA & Copyright Disclaimer | TikFlow',
-  description: 'TikFlow DMCA Copyright Takedown Policy and Disclaimer regarding third-party platforms and content ownership.',
+  title: 'DMCA & Copyright Disclaimer | QukTik',
+  description: 'QukTik DMCA Copyright Takedown Policy and Disclaimer regarding third-party platforms and content ownership.',
 };
 
 export default function DisclaimerPage() {
@@ -18,7 +18,7 @@ export default function DisclaimerPage() {
           DMCA Policy &amp; Disclaimer
         </h1>
         <p className="mt-2 text-xs sm:text-sm text-slate-500">
-          TikFlow respects creator intellectual property and complies with the Digital Millennium Copyright Act.
+          QukTik respects creator intellectual property and complies with the Digital Millennium Copyright Act.
         </p>
       </div>
 
@@ -31,7 +31,7 @@ export default function DisclaimerPage() {
             <span>Trademark &amp; Non-Affiliation Notice</span>
           </h2>
           <p className="text-amber-900 text-sm leading-relaxed">
-            <strong>TikFlow is an independent web utility. TikFlow is NOT affiliated, associated, authorized, endorsed by, or in any way officially connected with TikTok, ByteDance Ltd., Musical.ly, or any of their subsidiaries.</strong>
+            <strong>QukTik is an independent web utility. QukTik is NOT affiliated, associated, authorized, endorsed by, or in any way officially connected with TikTok, ByteDance Ltd., Musical.ly, or any of their subsidiaries.</strong>
           </p>
           <p className="text-amber-800 text-xs">
             The name &quot;TikTok&quot; and related marks are registered trademarks of ByteDance Ltd. References to TikTok are strictly nominative and for descriptive purposes.
@@ -42,7 +42,7 @@ export default function DisclaimerPage() {
         <section className="space-y-3">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">Zero Copyrighted Media Hosting</h2>
           <p>
-            TikFlow does <strong>NOT store, archive, or host</strong> any copyrighted video or audio content on its servers. When a user pastes a link, our server acts purely as a stream forwarder from public content delivery networks directly to the user&apos;s browser. Once the download finishes, zero digital copies remain on our servers.
+            QukTik does <strong>NOT store, archive, or host</strong> any copyrighted video or audio content on its servers. When a user pastes a link, our server acts purely as a stream forwarder from public content delivery networks directly to the user&apos;s browser. Once the download finishes, zero digital copies remain on our servers.
           </p>
         </section>
 
@@ -69,7 +69,7 @@ export default function DisclaimerPage() {
             <span>DMCA Compliance Contact</span>
           </h3>
           <p className="text-sm text-slate-600">
-            Send all takedown notices directly to: <a href="mailto:dmca@tikflow.app" className="text-rose-600 underline font-bold">dmca@tikflow.app</a>
+            Send all takedown notices directly to: <a href="mailto:dmca@quktik.app" className="text-rose-600 underline font-bold">dmca@quktik.app</a>
           </p>
           <p className="text-xs text-slate-500">
             Valid takedown requests are typically handled and permanently blacklisted from our tool within 24 to 48 business hours.

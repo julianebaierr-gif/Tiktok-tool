@@ -59,7 +59,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
   };
 
   const directDownloadUrl = video?.noWatermark 
-    ? (typeof window !== 'undefined' ? `${window.location.origin}${getProxyUrl(video.noWatermark, `tikflow_${id}.mp4`)}` : video.noWatermark)
+    ? (typeof window !== 'undefined' ? `${window.location.origin}${getProxyUrl(video.noWatermark, `quktik_${id}.mp4`)}` : video.noWatermark)
     : '';
 
   const handleCopyLink = () => {
@@ -175,8 +175,8 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
 
               {video?.noWatermark && (
                 <a
-                  href={getProxyUrl(video.noWatermark, `tikflow_video_${id}.mp4`, 'video')}
-                  download={`tikflow_video_${id}.mp4`}
+                  href={getProxyUrl(video.noWatermark, `quktik_video_${id}.mp4`, 'video')}
+                  download={`quktik_video_${id}.mp4`}
                   className="inline-flex items-center gap-2 px-6 py-4 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm border border-slate-200 transition-all"
                 >
                   <Video className="w-4 h-4 text-slate-600" />
@@ -232,8 +232,8 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {music?.url && (
                 <a
-                  href={getProxyUrl(music.url, `tikflow_audio_${id}.mp3`, 'audio')}
-                  download={`tikflow_audio_${id}.mp3`}
+                  href={getProxyUrl(music.url, `quktik_audio_${id}.mp3`, 'audio')}
+                  download={`quktik_audio_${id}.mp3`}
                   className="flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-base shadow-lg shadow-emerald-500/25 active:scale-[0.99] transition-all"
                 >
                   <Download className="w-5 h-5" />
@@ -243,8 +243,8 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
 
               {music?.url && (
                 <a
-                  href={getProxyUrl(music.url, `tikflow_ringtone_${id}.m4a`, 'audio')}
-                  download={`tikflow_ringtone_${id}.m4a`}
+                  href={getProxyUrl(music.url, `quktik_ringtone_${id}.m4a`, 'audio')}
+                  download={`quktik_ringtone_${id}.m4a`}
                   className="flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold text-base shadow-lg shadow-rose-500/25 active:scale-[0.99] transition-all"
                 >
                   <Bell className="w-5 h-5" />
@@ -258,8 +258,8 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
               <div className="pt-2 text-center border-t border-slate-100 flex flex-wrap items-center justify-center gap-4 text-xs">
                 <span className="text-slate-500">Need the full video as well?</span>
                 <a
-                  href={getProxyUrl(video.noWatermark, `tikflow_video_${id}.mp4`, 'video')}
-                  download={`tikflow_video_${id}.mp4`}
+                  href={getProxyUrl(video.noWatermark, `quktik_video_${id}.mp4`, 'video')}
+                  download={`quktik_video_${id}.mp4`}
                   className="font-bold text-rose-600 hover:underline flex items-center gap-1"
                 >
                   <Video className="w-3.5 h-3.5" />
@@ -382,8 +382,8 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
 
                 {video?.noWatermark && (
                   <a
-                    href={getProxyUrl(video.noWatermark, `tikflow_video_nowm_${id}.mp4`, 'video')}
-                    download={`tikflow_video_nowm_${id}.mp4`}
+                    href={getProxyUrl(video.noWatermark, `quktik_video_nowm_${id}.mp4`, 'video')}
+                    download={`quktik_video_nowm_${id}.mp4`}
                     className="w-full flex items-center justify-between px-6 py-4.5 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-base shadow-xl shadow-emerald-500/25 active:scale-[0.98] transition-all group"
                   >
                     <div className="flex items-center space-x-3.5">
@@ -398,8 +398,8 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
 
                 {video?.noWatermarkHd && (
                   <a
-                    href={getProxyUrl(video.noWatermarkHd, `tikflow_video_hd_${id}.mp4`, 'video')}
-                    download={`tikflow_video_hd_${id}.mp4`}
+                    href={getProxyUrl(video.noWatermarkHd, `quktik_video_hd_${id}.mp4`, 'video')}
+                    download={`quktik_video_hd_${id}.mp4`}
                     className="w-full flex items-center justify-between px-6 py-3.5 rounded-2xl sm:rounded-3xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm border border-slate-200 active:scale-[0.98] transition-all group"
                   >
                     <div className="flex items-center space-x-3.5">
@@ -413,8 +413,8 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                 {music?.url && (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <a
-                      href={getProxyUrl(music.url, `tikflow_audio_${id}.mp3`, 'audio')}
-                      download={`tikflow_audio_${id}.mp3`}
+                      href={getProxyUrl(music.url, `quktik_audio_${id}.mp3`, 'audio')}
+                      download={`quktik_audio_${id}.mp3`}
                       className="flex items-center justify-between px-5 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold text-sm shadow-md shadow-rose-500/20 active:scale-[0.98] transition-all group"
                     >
                       <div className="flex items-center space-x-2.5 truncate">
@@ -425,8 +425,8 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                     </a>
 
                     <a
-                      href={getProxyUrl(music.url, `tikflow_ringtone_${id}.m4a`, 'audio')}
-                      download={`tikflow_ringtone_${id}.m4a`}
+                      href={getProxyUrl(music.url, `quktik_ringtone_${id}.m4a`, 'audio')}
+                      download={`quktik_ringtone_${id}.m4a`}
                       className="flex items-center justify-between px-5 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold text-sm shadow-md shadow-indigo-500/20 active:scale-[0.98] transition-all group"
                     >
                       <div className="flex items-center space-x-2.5 truncate">
@@ -502,8 +502,8 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                         />
                         <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-2">
                           <a
-                            href={getProxyUrl(imgUrl, `tikflow_photo_${id}_${index + 1}.jpg`, 'image')}
-                            download={`tikflow_photo_${id}_${index + 1}.jpg`}
+                            href={getProxyUrl(imgUrl, `quktik_photo_${id}_${index + 1}.jpg`, 'image')}
+                            download={`quktik_photo_${id}_${index + 1}.jpg`}
                             className="px-3 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold flex items-center gap-1 shadow-md"
                           >
                             <Download className="w-3.5 h-3.5" />

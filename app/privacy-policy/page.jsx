@@ -1,8 +1,8 @@
 import React from 'react';
 
 export const metadata = {
-  title: 'Privacy Policy | TikFlow (AdSense, GDPR & CCPA Compliant)',
-  description: 'TikFlow Privacy Policy detailing our cookie policy, Google AdSense disclosures, log files, user privacy rights under GDPR and CCPA.',
+  title: 'Privacy Policy | QukTik (AdSense, GDPR & CCPA Compliant)',
+  description: 'QukTik Privacy Policy detailing our cookie policy, Google AdSense disclosures, log files, user privacy rights under GDPR and CCPA.',
 };
 
 export default function PrivacyPolicyPage() {
@@ -28,17 +28,17 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-3">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">1. Introduction</h2>
           <p>
-            At <strong>TikFlow</strong> (accessible at <code className="text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded text-xs">https://tikflow-downloader.vercel.app</code>), your privacy is one of our top priorities. This Privacy Policy explains what information we receive when you visit our website and how it is handled.
+            At <strong>QukTik</strong> (accessible at <code className="text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded text-xs">https://quktik.com</code>), your privacy is one of our top priorities. This Privacy Policy explains what information we receive when you visit our website and how it is handled.
           </p>
           <p>
-            If you have questions about this policy, feel free to reach out to us at <a href="mailto:privacy@tikflow.app" className="text-rose-600 underline">privacy@tikflow.app</a>.
+            If you have questions about this policy, feel free to reach out to us at <a href="mailto:privacy@quktik.app" className="text-rose-600 underline">privacy@quktik.app</a>.
           </p>
         </section>
 
         <section className="space-y-3">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">2. No Personal Video Storage</h2>
           <p>
-            TikFlow does not require user accounts, passwords, email addresses, or payment cards. When you paste a TikTok link, our system retrieves the public file directly from the content delivery network and delivers it to your browser. We do not store, archive, or keep copies of the media files on our web servers.
+            QukTik does not require user accounts, passwords, email addresses, or payment cards. When you paste a TikTok link, our system retrieves the public file directly from the content delivery network and delivers it to your browser. We do not store, archive, or keep copies of the media files on our web servers.
           </p>
         </section>
 
@@ -57,7 +57,7 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-3">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">4. Server Log Files</h2>
           <p>
-            Like almost all websites, TikFlow collects standard, anonymous server log files. This data includes IP addresses, browser types, Internet Service Providers (ISPs), date and time stamps, and referring/exit pages. None of this information is linked to personally identifiable details. It is used strictly for server health, preventing abuse, and ensuring website uptime.
+            Like almost all websites, QukTik collects standard, anonymous server log files. This data includes IP addresses, browser types, Internet Service Providers (ISPs), date and time stamps, and referring/exit pages. None of this information is linked to personally identifiable details. It is used strictly for server health, preventing abuse, and ensuring website uptime.
           </p>
         </section>
 
@@ -71,14 +71,14 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-3">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">6. CCPA Rights (California Residents)</h2>
           <p>
-            Under the California Consumer Privacy Act, consumers have the right to request disclosure or deletion of personal information. <strong>TikFlow does not sell personal user information under any circumstances.</strong>
+            Under the California Consumer Privacy Act, consumers have the right to request disclosure or deletion of personal information. <strong>QukTik does not sell personal user information under any circumstances.</strong>
           </p>
         </section>
 
         <section className="space-y-3">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">7. Children&apos;s Privacy (COPPA)</h2>
           <p>
-            TikFlow does not knowingly collect personal information from children under 13. If you believe your child submitted personal information, please contact us immediately, and we will remove it from our server logs.
+            QukTik does not knowingly collect personal information from children under 13. If you believe your child submitted personal information, please contact us immediately, and we will remove it from our server logs.
           </p>
         </section>
 

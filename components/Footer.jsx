@@ -20,11 +20,11 @@ export default function Footer() {
                 </div>
               </div>
               <span className="text-xl font-black text-slate-900">
-                Tik<span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-indigo-600">Flow</span>
+                Quk<span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-indigo-600">Tik</span>
               </span>
             </Link>
             <p className="text-slate-600 text-sm leading-relaxed max-w-sm">
-              TikFlow is a free, web-based tool designed to help you save short-form videos, MP3 audio tracks, and photo slideshows from TikTok and Douyin for personal archiving and offline viewing without watermarks.
+              QukTik is a free, web-based tool designed to help you save short-form videos, MP3 audio tracks, and photo slideshows from TikTok and Douyin for personal archiving and offline viewing without watermarks.
             </p>
           </div>
 
@@ -95,12 +95,12 @@ export default function Footer() {
         {/* Official DMCA Disclaimer */}
         <div className="mt-12 p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-500 leading-relaxed shadow-sm">
           <p>
-            <strong className="text-slate-800">Disclaimer &amp; Trademark Notice:</strong> TikFlow is an independent web tool designed for personal, non-commercial, and fair-use archiving. TikFlow does not host or store copyrighted media files on its servers; all content streams directly from official content delivery network (CDN) endpoints. TikFlow is not affiliated with, endorsed by, or sponsored by TikTok, Douyin, ByteDance Ltd., Musical.ly, or any of their subsidiaries. All trademarks belong to their respective owners.
+            <strong className="text-slate-800">Disclaimer &amp; Trademark Notice:</strong> QukTik is an independent web tool designed for personal, non-commercial, and fair-use archiving. QukTik does not host or store copyrighted media files on its servers; all content streams directly from official content delivery network (CDN) endpoints. QukTik is not affiliated with, endorsed by, or sponsored by TikTok, Douyin, ByteDance Ltd., Musical.ly, or any of their subsidiaries. All trademarks belong to their respective owners.
           </p>
         </div>
 
         <div className="mt-6 text-center sm:text-left text-xs text-slate-500">
-          <p>© {currentYear} TikFlow. All rights reserved.</p>
+          <p>© {currentYear} QukTik. All rights reserved.</p>
         </div>
 
       </div>

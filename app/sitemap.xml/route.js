@@ -1,5 +1,5 @@
 export async function GET() {
-  const baseUrl = 'https://tikflow-downloader.vercel.app';
+  const baseUrl = 'https://quktik.com';
   const currentDate = new Date().toISOString();
 
   const routes = [

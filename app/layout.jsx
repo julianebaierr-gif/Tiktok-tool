@@ -3,10 +3,10 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 export const metadata = {
-  metadataBase: new URL('https://tikflow-downloader.vercel.app'),
+  metadataBase: new URL('https://quktik.com'),
   title: {
-    default: 'TikFlow - Save TikTok Videos Without Watermark in HD (Free Online)',
-    template: '%s | TikFlow'
+    default: 'QukTik - Save TikTok Videos Without Watermark in HD (Free Online)',
+    template: '%s | QukTik'
   },
   description: 'Clean, fast online tool to download TikTok videos without watermark in HD MP4 quality and extract MP3 audio. 100% free with no registration or apps required.',
   keywords: [
@@ -22,9 +22,9 @@ export const metadata = {
     'fasttik alternative',
     'ssstik alternative'
   ],
-  authors: [{ name: 'TikFlow Team' }],
-  creator: 'TikFlow',
-  publisher: 'TikFlow',
+  authors: [{ name: 'QukTik Team' }],
+  creator: 'QukTik',
+  publisher: 'QukTik',
   robots: {
     index: true,
     follow: true,
@@ -39,18 +39,18 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://tikflow-downloader.vercel.app',
-    siteName: 'TikFlow',
-    title: 'TikFlow - Download TikTok Videos Without Watermark in HD',
+    url: 'https://quktik.com',
+    siteName: 'QukTik',
+    title: 'QukTik - Download TikTok Videos Without Watermark in HD',
     description: 'Fastest online tool to save TikTok videos without watermark in 1080p Full HD and convert to MP3 audio for free.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TikFlow - Free TikTok Video Downloader Without Watermark',
+    title: 'QukTik - Free TikTok Video Downloader Without Watermark',
     description: 'Save TikTok videos without watermark in HD MP4 and MP3 audio instantly.',
   },
   alternates: {
-    canonical: 'https://tikflow-downloader.vercel.app',
+    canonical: 'https://quktik.com',
   },
 };
 
@@ -58,8 +58,8 @@ export default function RootLayout({ children }) {
   const webAppSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    'name': 'TikFlow',
-    'url': 'https://tikflow-downloader.vercel.app',
+    'name': 'QukTik',
+    'url': 'https://quktik.com',
     'applicationCategory': 'MultimediaApplication',
     'operatingSystem': 'All',
     'browserRequirements': 'Requires modern web browser with HTML5 and JavaScript support',

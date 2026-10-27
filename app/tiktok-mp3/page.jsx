@@ -30,8 +30,8 @@ export default function TikTokMp3Page() {
 
   const faqData = [
     {
-      q: "What audio bitrate does TikFlow MP3 Downloader provide?",
-      a: "TikFlow extracts the original audio stream at up to 320kbps bitrate (44.1 kHz / 48 kHz stereo sampling). Unlike competing web converters that compress audio to low-fidelity 64kbps or 128kbps mono, TikFlow preserves the full acoustic spectrum, punchy bass, and crisp vocal frequencies."
+      q: "What audio bitrate does QukTik MP3 Downloader provide?",
+      a: "QukTik extracts the original audio stream at up to 320kbps bitrate (44.1 kHz / 48 kHz stereo sampling). Unlike competing web converters that compress audio to low-fidelity 64kbps or 128kbps mono, QukTik preserves the full acoustic spectrum, punchy bass, and crisp vocal frequencies."
     },
     {
       q: "Can I convert TikTok sounds to ringtones on an iPhone?",
@@ -43,31 +43,31 @@ export default function TikTokMp3Page() {
     },
     {
       q: "Do I need to download the full video just to get the audio?",
-      a: "No! TikFlow's dedicated audio engine performs demuxing directly on our cloud servers. Only the isolated audio track is delivered to your browser, saving your mobile data allowance and completing the download in under two seconds."
+      a: "No! QukTik's dedicated audio engine performs demuxing directly on our cloud servers. Only the isolated audio track is delivered to your browser, saving your mobile data allowance and completing the download in under two seconds."
     },
     {
       q: "Are downloaded TikTok MP3 tracks compatible with Spotify Local Files?",
-      a: "Yes. All audio files saved via TikFlow use standard MPEG Audio Layer III (.mp3) encoding with clean ID3 tags. You can enable 'Show Local Audio Files' in Spotify desktop or mobile settings, and your downloaded TikTok songs will play seamlessly alongside your regular playlists."
+      a: "Yes. All audio files saved via QukTik use standard MPEG Audio Layer III (.mp3) encoding with clean ID3 tags. You can enable 'Show Local Audio Files' in Spotify desktop or mobile settings, and your downloaded TikTok songs will play seamlessly alongside your regular playlists."
     },
     {
       q: "Is it legal to download audio tracks and music from TikTok?",
       a: "Extracting audio for personal offline listening, academic analysis, voiceover practice, or personal ringtones falls under fair use in most jurisdictions. However, using copyrighted music in commercial advertisements or redistributing it without authorization is prohibited. Always honor artist copyrights."
     },
     {
-      q: "Does TikFlow work on private video links or deleted sounds?",
-      a: "TikFlow can only extract audio from publicly available TikTok videos. If a sound has been removed by TikTok for copyright strikes or the creator's account is private, the audio stream cannot be retrieved."
+      q: "Does QukTik work on private video links or deleted sounds?",
+      a: "QukTik can only extract audio from publicly available TikTok videos. If a sound has been removed by TikTok for copyright strikes or the creator's account is private, the audio stream cannot be retrieved."
     },
     {
       q: "What is the difference between MP3 and M4A audio files?",
-      a: "MP3 (MPEG-1 Audio Layer III) is the universal legacy audio standard supported by virtually every media player on earth. M4A (MPEG-4 Audio / AAC) offers slightly higher audio efficiency at equivalent bitrates and is native to Apple iOS and iTunes ecosystems. TikFlow provides instant downloads in universal 320kbps MP3 format."
+      a: "MP3 (MPEG-1 Audio Layer III) is the universal legacy audio standard supported by virtually every media player on earth. M4A (MPEG-4 Audio / AAC) offers slightly higher audio efficiency at equivalent bitrates and is native to Apple iOS and iTunes ecosystems. QukTik provides instant downloads in universal 320kbps MP3 format."
     },
     {
       q: "Can I extract voiceovers and speech dialogue without background music?",
-      a: "TikFlow extracts the soundtrack as mixed and uploaded by the creator. If the creator published isolated dialogue or speech, you receive pristine vocal clarity. If music and voice are mixed, you receive the full stereo master mix."
+      a: "QukTik extracts the soundtrack as mixed and uploaded by the creator. If the creator published isolated dialogue or speech, you receive pristine vocal clarity. If music and voice are mixed, you receive the full stereo master mix."
     },
     {
       q: "Can I convert Douyin (Chinese TikTok) audio tracks to MP3 as well?",
-      a: "Yes! TikFlow fully supports Chinese Douyin (抖音) links. You can extract high-bitrate oriental instrumental BGM, traditional Guzheng melodies, and viral Chinese pop directly using our dedicated audio extraction pipeline."
+      a: "Yes! QukTik fully supports Chinese Douyin (抖音) links. You can extract high-bitrate oriental instrumental BGM, traditional Guzheng melodies, and viral Chinese pop directly using our dedicated audio extraction pipeline."
     }
   ];
 
@@ -120,7 +120,7 @@ export default function TikTokMp3Page() {
             Dedicated Audio Engine
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
-            Why Use TikFlow TikTok to MP3 Converter?
+            Why Use QukTik TikTok to MP3 Converter?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
             Easily isolate and download high-quality audio files for offline listening, podcast research, ringtones, or audio production.
@@ -179,7 +179,7 @@ export default function TikTokMp3Page() {
             Record labels, independent music producers, and sound designers now tailor audio releases specifically for TikTok&apos;s 15-to-60-second attention window. Historically, the phrase &ldquo;tik tok&rdquo; first entered mainstream pop music lexicon through Kesha&apos;s 2009 party anthem (&ldquo;Kesha Tik Tok&rdquo;), but today the platform itself represents the undisputed epicenter of music discovery. Unreleased demos, nostalgic 1980s sample chops, energetic drill beats, and philosophical speech excerpts routinely find their global audience on TikTok before achieving mainstream radio charting.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            However, when you only want the music track for offline listening during a workout, to use as a custom smartphone ringtone, or to analyze narration cadence for a voiceover project, downloading a 50MB video file is wasteful, slow, and inconvenient. Users searching for a reliable <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok to mp3</code> converter require lossless extraction that preserves pristine sound dynamics. TikFlow&apos;s dedicated TikTok to MP3 Converter strips away the heavy video payload entirely and delivers the pure, high-fidelity audio stream in universal 320kbps MP3 format.
+            However, when you only want the music track for offline listening during a workout, to use as a custom smartphone ringtone, or to analyze narration cadence for a voiceover project, downloading a 50MB video file is wasteful, slow, and inconvenient. Users searching for a reliable <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok to mp3</code> converter require lossless extraction that preserves pristine sound dynamics. QukTik&apos;s dedicated TikTok to MP3 Converter strips away the heavy video payload entirely and delivers the pure, high-fidelity audio stream in universal 320kbps MP3 format.
           </p>
 
           {/* Embedded 3D Illustration: Audio & Ringtone Workflow */}
@@ -208,13 +208,13 @@ export default function TikTokMp3Page() {
             <span>Part 2: Technical Demuxing</span>
           </div>
           <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            2. Demuxing vs. Transcoding: How TikFlow Preserves Pristine Acoustic Dynamics
+            2. Demuxing vs. Transcoding: How QukTik Preserves Pristine Acoustic Dynamics
           </h3>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Most generic online audio converters operate on an inefficient, lossy pipeline: they download the full video file to a temporary server, decode the video and audio frames simultaneously, and then run a secondary compression encoder to produce an MP3 file. This process introduces generational audio loss, flattens dynamic range, and introduces quantization distortion.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            TikFlow uses a direct stream demultiplexing (demuxing) architecture:
+            QukTik uses a direct stream demultiplexing (demuxing) architecture:
           </p>
           <ul className="list-disc list-inside space-y-3 pl-2 text-slate-600 text-sm sm:text-base">
             <li><strong>Packet Extraction:</strong> Rather than downloading the entire video track, our cloud parser isolates the specific audio elementary stream (<code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">audio_stream_url</code>) from ByteDance&apos;s media manifest.</li>
@@ -236,7 +236,7 @@ export default function TikTokMp3Page() {
             Have you ever downloaded an audio file from a web converter, plugged in quality headphones or connected your phone to car speakers, only to hear muffled vocals and hollow bass? This occurs because budget conversion tools compress sound to 64kbps or 128kbps mono to minimize their hosting bandwidth costs. High frequencies above 12 kHz are aggressively filtered out, depriving the track of brightness, clarity, and spatial resonance.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            By contrast, TikFlow operates dedicated transcoding nodes capable of preserving high-bitrate stereo encoding at 320kbps CBR. Whether you are listening on high-end studio monitor headphones, multi-driver in-ear monitors (IEMs), or a home theater acoustic system, the sound reproduction remains transparent and indistinguishable from the creator&apos;s source audio.
+            By contrast, QukTik operates dedicated transcoding nodes capable of preserving high-bitrate stereo encoding at 320kbps CBR. Whether you are listening on high-end studio monitor headphones, multi-driver in-ear monitors (IEMs), or a home theater acoustic system, the sound reproduction remains transparent and indistinguishable from the creator&apos;s source audio.
           </p>
 
           <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-sm bg-white my-6">
@@ -244,7 +244,7 @@ export default function TikTokMp3Page() {
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
                   <th className="p-4 sm:p-5">Acoustic Specification</th>
-                  <th className="p-4 sm:p-5 text-rose-600">TikFlow MP3 Converter</th>
+                  <th className="p-4 sm:p-5 text-rose-600">QukTik MP3 Converter</th>
                   <th className="p-4 sm:p-5 text-slate-500">Standard Web Converters</th>
                   <th className="p-4 sm:p-5 text-slate-500">Screen Recording Audio</th>
                 </tr>
@@ -362,7 +362,7 @@ export default function TikTokMp3Page() {
           <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
             <h4 className="font-bold text-slate-900 text-base">Spotify Local Files Setup Walkthrough:</h4>
             <ol className="space-y-3 text-xs sm:text-sm text-slate-600 list-decimal list-inside">
-              <li>Convert and download your desired sound in 320kbps MP3 format using TikFlow.</li>
+              <li>Convert and download your desired sound in 320kbps MP3 format using QukTik.</li>
               <li>Open the <strong>Spotify</strong> desktop app (or mobile app) and navigate to <strong>Settings</strong>.</li>
               <li>Scroll down to the <strong>Local Files</strong> section and toggle on <strong>&ldquo;Show Local Files&rdquo;</strong>.</li>
               <li>Under &ldquo;Show songs from&rdquo;, ensure your <strong>Downloads</strong> folder is enabled.</li>
@@ -381,7 +381,7 @@ export default function TikTokMp3Page() {
             6. Preserving Full Dynamic Range: Sub-Bass, Vocal Presences &amp; High-Frequency Air
           </h3>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            When audio is compressed repeatedly through informal web ripping tools or device screen recorders, the lossiest elements cut by psychoacoustic compression algorithms are the high frequencies and sub-bass transients. This causes muddy vocals and flat, lifeless percussion. TikFlow&apos;s direct demuxing architecture preserves three crucial frequency zones:
+            When audio is compressed repeatedly through informal web ripping tools or device screen recorders, the lossiest elements cut by psychoacoustic compression algorithms are the high frequencies and sub-bass transients. This causes muddy vocals and flat, lifeless percussion. QukTik&apos;s direct demuxing architecture preserves three crucial frequency zones:
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
@@ -419,7 +419,7 @@ export default function TikTokMp3Page() {
             Millions of students and educators utilize TikTok as a micro-learning classroom for foreign language pronunciation, voice training, musical scales, and public speaking techniques. Relying on streaming video consumes high mobile data packets and forces the smartphone screen to remain powered on, draining battery life.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            By extracting pristine 320kbps MP3 audio clips with TikFlow, learners can build structured offline study decks inside audio apps or Anki flashcards. Audio tracks play with the screen locked in pocket mode, conserving over 85% battery life compared to video playback.
+            By extracting pristine 320kbps MP3 audio clips with QukTik, learners can build structured offline study decks inside audio apps or Anki flashcards. Audio tracks play with the screen locked in pocket mode, conserving over 85% battery life compared to video playback.
           </p>
         </section>
 
@@ -430,10 +430,10 @@ export default function TikTokMp3Page() {
             <h4>Audio Copyright Law, Fair Use &amp; Music Licensing Ethics</h4>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            TikFlow MP3 Converter is designed for personal offline study, sound backup, educational linguistic research, and non-commercial ringtone customization. Audio assets hosted on TikTok are the intellectual property of their respective creators, record labels, and licensing partners.
+            QukTik MP3 Converter is designed for personal offline study, sound backup, educational linguistic research, and non-commercial ringtone customization. Audio assets hosted on TikTok are the intellectual property of their respective creators, record labels, and licensing partners.
           </p>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Extracting audio does not grant commercial synchronization rights or permission to re-distribute copyrighted musical tracks on commercial streaming channels. Please respect musical artists by streaming their official releases on authorized music platforms. TikFlow does not host or store music files on its servers.
+            Extracting audio does not grant commercial synchronization rights or permission to re-distribute copyrighted musical tracks on commercial streaming channels. Please respect musical artists by streaming their official releases on authorized music platforms. QukTik does not host or store music files on its servers.
           </p>
         </section>
 

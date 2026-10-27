@@ -30,43 +30,43 @@ export default function TikTokRingtonePage() {
   const faqData = [
     {
       q: "How long can a TikTok ringtone be on an iPhone?",
-      a: "Apple iOS enforces a strict maximum length of 30 seconds for custom ringtones and 40 seconds for alert tones. If an exported audio clip exceeds 30 seconds, iOS will either automatically truncate it or fail to display it under Settings > Sounds & Haptics. TikFlow delivers the exact hook of the TikTok sound, which you can easily trim inside GarageBand."
+      a: "Apple iOS enforces a strict maximum length of 30 seconds for custom ringtones and 40 seconds for alert tones. If an exported audio clip exceeds 30 seconds, iOS will either automatically truncate it or fail to display it under Settings > Sounds & Haptics. QukTik delivers the exact hook of the TikTok sound, which you can easily trim inside GarageBand."
     },
     {
       q: "Do I need a Mac or iTunes on PC to set an iPhone ringtone?",
-      a: "No! You can set custom ringtones entirely on your iPhone using the free Apple GarageBand app. You download the MP3 sound from TikFlow via Safari, open GarageBand, drag the sound into an audio track, and tap 'Share > Ringtone'. It takes under two minutes with no computer needed."
+      a: "No! You can set custom ringtones entirely on your iPhone using the free Apple GarageBand app. You download the MP3 sound from QukTik via Safari, open GarageBand, drag the sound into an audio track, and tap 'Share > Ringtone'. It takes under two minutes with no computer needed."
     },
     {
       q: "How do I set a TikTok sound as a ringtone on Android?",
-      a: "On Android, the process is even simpler. Download the MP3 file from TikFlow via Chrome. Open your Files app, move the file into your phone's 'Ringtones' or 'Notifications' folder, then open Android Settings > Sound & Vibration > Phone Ringtone and select your downloaded TikTok sound."
+      a: "On Android, the process is even simpler. Download the MP3 file from QukTik via Chrome. Open your Files app, move the file into your phone's 'Ringtones' or 'Notifications' folder, then open Android Settings > Sound & Vibration > Phone Ringtone and select your downloaded TikTok sound."
     },
     {
       q: "Can I use downloaded TikTok sounds as my morning alarm?",
       a: "Yes! On both iPhone (Clock app > Alarm > Sound > Pick a song/ringtone) and Android (Clock app > Alarm sound), you can assign your downloaded TikTok audio as your morning wake-up alarm."
     },
     {
-      q: "Does TikFlow compress or degrade the ringtone audio quality?",
-      a: "Never. TikFlow extracts the original audio stream in high-bitrate 320kbps MP3 format with clear vocal definition and balanced bass. Your phone speakers will play the ringtone with punchy, distortion-free clarity."
+      q: "Does QukTik compress or degrade the ringtone audio quality?",
+      a: "Never. QukTik extracts the original audio stream in high-bitrate 320kbps MP3 format with clear vocal definition and balanced bass. Your phone speakers will play the ringtone with punchy, distortion-free clarity."
     },
     {
       q: "Can I set custom ringtones for specific contacts on WhatsApp or Phone?",
       a: "Yes. In your phone's Contacts app, open any contact, tap 'Edit', tap 'Ringtone' (or 'Text Tone'), and choose your custom TikTok sound. You can also assign custom notification sounds for specific WhatsApp contacts under Contact Info > Custom Notifications."
     },
     {
-      q: "Is TikFlow Ringtone Maker free to use?",
-      a: "Yes! TikFlow is 100% free with unlimited ringtone conversions and no sign-up or app download required."
+      q: "Is QukTik Ringtone Maker free to use?",
+      a: "Yes! QukTik is 100% free with unlimited ringtone conversions and no sign-up or app download required."
     },
     {
       q: "How do I trim audio to prevent speaker distortion on phone calls?",
-      a: "Smartphone speakers perform best when extreme sub-bass frequencies below 80 Hz are rolled off. TikFlow extracts clean master sound, and you can adjust the volume curve inside GarageBand to ensure distortion-free acoustic playback."
+      a: "Smartphone speakers perform best when extreme sub-bass frequencies below 80 Hz are rolled off. QukTik extracts clean master sound, and you can adjust the volume curve inside GarageBand to ensure distortion-free acoustic playback."
     },
     {
       q: "Can I convert TikTok sounds into SMS text message alert tones?",
       a: "Yes! Shorter 2-to-5-second sound bites make excellent text notification alerts for iMessage, SMS, and WhatsApp."
     },
     {
-      q: "Does TikFlow support ringtones from Douyin (Chinese TikTok)?",
-      a: "Yes! You can paste any Douyin video or audio link into TikFlow Ringtone Maker to extract viral oriental BGM and sound effects."
+      q: "Does QukTik support ringtones from Douyin (Chinese TikTok)?",
+      a: "Yes! You can paste any Douyin video or audio link into QukTik Ringtone Maker to extract viral oriental BGM and sound effects."
     }
   ];
 
@@ -119,7 +119,7 @@ export default function TikTokRingtonePage() {
             Acoustic Tone Customization
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
-            Why Use TikFlow TikTok Ringtone Maker?
+            Why Use QukTik TikTok Ringtone Maker?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
             Default phone ringtones are boring. Transform catchy hooks, hilarious comedy lines, and trending beats into your phone&apos;s personal soundtrack.
@@ -175,7 +175,7 @@ export default function TikTokRingtonePage() {
             In an era where millions of smartphones share the same generic factory ringtones (like Apple&apos;s &ldquo;Reflection&rdquo; or Samsung&apos;s &ldquo;Over the Horizon&rdquo;), hearing a phone ring in a crowded room often causes half a dozen people to reach into their pockets simultaneously. Setting a custom ringtone is the ultimate way to personalize your device and instantly know when someone is actually calling you.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            TikTok has become the premier catalog for catchy audio hooks, iconic dialogue lines, viral soundboard effects, and acoustic remixes that make perfect ringtones and alarm sounds. TikFlow simplifies the ringtone creation pipeline by isolating the pure 320kbps MP3 audio stream directly from any TikTok video, ready for instant setup on iOS and Android without paid subscriptions or third-party computer utilities.
+            TikTok has become the premier catalog for catchy audio hooks, iconic dialogue lines, viral soundboard effects, and acoustic remixes that make perfect ringtones and alarm sounds. QukTik simplifies the ringtone creation pipeline by isolating the pure 320kbps MP3 audio stream directly from any TikTok video, ready for instant setup on iOS and Android without paid subscriptions or third-party computer utilities.
           </p>
 
           {/* Embedded 3D Illustration: Ringtone Maker */}
@@ -329,7 +329,7 @@ export default function TikTokRingtonePage() {
                 </div>
               </div>
               <ol className="space-y-3 text-xs sm:text-sm text-slate-600 list-decimal list-inside">
-                <li>Extract and download your TikTok MP3 sound via Safari on TikFlow.</li>
+                <li>Extract and download your TikTok MP3 sound via Safari on QukTik.</li>
                 <li>Launch <strong>GarageBand</strong> on your iPhone and tap <strong>Audio Recorder</strong>.</li>
                 <li>Tap the <strong>Tracks</strong> icon (three horizontal bars, top left).</li>
                 <li>Tap the <strong>Loop</strong> icon (top right), choose <strong>Files</strong>, tap &ldquo;Browse items from the Files app&rdquo;, and select your downloaded MP3.</li>
@@ -352,7 +352,7 @@ export default function TikTokRingtonePage() {
                 </div>
               </div>
               <ol className="space-y-3 text-xs sm:text-sm text-slate-600 list-decimal list-inside">
-                <li>Download your MP3 sound using Chrome on TikFlow.</li>
+                <li>Download your MP3 sound using Chrome on QukTik.</li>
                 <li>Open your Android device&apos;s <strong>Settings</strong> app.</li>
                 <li>Navigate to <strong>Sound &amp; Vibration &gt; Phone Ringtone</strong>.</li>
                 <li>Scroll down and tap <strong>Custom Ringtone</strong> (or <strong>Add Ringtone &lsquo;+&rsquo;</strong>).</li>
@@ -422,7 +422,7 @@ export default function TikTokRingtonePage() {
             Sleep researchers note that conventional digital alarm chimes trigger sudden spikes in cortisol and heart rate by activating the brain&apos;s fight-or-flight mechanism. This abrupt awakening often leads to prolonged sleep inertia, leaving you feeling groggy and fatigued for hours after getting out of bed.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            By downloading soothing TikTok acoustic guitar covers, gentle birdsong ambient loops, or gradual orchestral swells with TikFlow, you can construct melodic wake-up sequences. Progressive crescendo audio eases the brain out of deep REM sleep cycles naturally, promoting calm alertness and improved morning productivity.
+            By downloading soothing TikTok acoustic guitar covers, gentle birdsong ambient loops, or gradual orchestral swells with QukTik, you can construct melodic wake-up sequences. Progressive crescendo audio eases the brain out of deep REM sleep cycles naturally, promoting calm alertness and improved morning productivity.
           </p>
         </section>
 
@@ -453,7 +453,7 @@ export default function TikTokRingtonePage() {
             <h4>Fair Use Notice &amp; Respect for Sound Creators</h4>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            TikFlow Ringtone Maker is provided solely for personal, non-commercial phone customization. Sound assets on TikTok belong to their original musical artists, voice actors, and copyright holders. Converting a clip into a personal phone ringtone or alarm falls under private fair use. Do not resell, distribute, or commercially exploit copyrighted sound clips. Support original artists on Spotify, Apple Music, and authorized streaming channels.
+            QukTik Ringtone Maker is provided solely for personal, non-commercial phone customization. Sound assets on TikTok belong to their original musical artists, voice actors, and copyright holders. Converting a clip into a personal phone ringtone or alarm falls under private fair use. Do not resell, distribute, or commercially exploit copyrighted sound clips. Support original artists on Spotify, Apple Music, and authorized streaming channels.
           </p>
         </section>
 

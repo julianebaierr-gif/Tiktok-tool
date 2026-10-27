@@ -1,8 +1,8 @@
 import React from 'react';
 
 export const metadata = {
-  title: 'Terms of Service | TikFlow',
-  description: 'TikFlow Terms of Service governing the use of our online media downloader, intellectual property guidelines, and fair-use limitations.',
+  title: 'Terms of Service | QukTik',
+  description: 'QukTik Terms of Service governing the use of our online media downloader, intellectual property guidelines, and fair-use limitations.',
 };
 
 export default function TermsOfServicePage() {
@@ -28,14 +28,14 @@ export default function TermsOfServicePage() {
         <section className="space-y-3">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">1. Acceptance of Terms</h2>
           <p>
-            By visiting or using TikFlow (the &quot;Service&quot;), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please discontinue using the website.
+            By visiting or using QukTik (the &quot;Service&quot;), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please discontinue using the website.
           </p>
         </section>
 
         <section className="space-y-3">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">2. Permitted Fair-Use Purpose</h2>
           <p>
-            TikFlow is provided as a technical web utility for personal offline archiving, research, and creators backing up their own original content. You agree to use the service in compliance with all copyright laws and platform terms.
+            QukTik is provided as a technical web utility for personal offline archiving, research, and creators backing up their own original content. You agree to use the service in compliance with all copyright laws and platform terms.
           </p>
           <ul className="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
             <li>You should only download files for personal, non-commercial use, or content for which you hold copyright permission.</li>
@@ -46,10 +46,10 @@ export default function TermsOfServicePage() {
         <section className="space-y-3">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">3. Intellectual Property</h2>
           <p>
-            TikFlow does not claim ownership of any videos, audios, or photos processed through the tool. All copyrights and trademarks belong exclusively to their respective creators and ByteDance Ltd.
+            QukTik does not claim ownership of any videos, audios, or photos processed through the tool. All copyrights and trademarks belong exclusively to their respective creators and ByteDance Ltd.
           </p>
           <p>
-            The software, design, branding, and code of the TikFlow website belong to TikFlow.
+            The software, design, branding, and code of the QukTik website belong to QukTik.
           </p>
         </section>
 
@@ -66,7 +66,7 @@ export default function TermsOfServicePage() {
         <section className="space-y-3">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">5. Disclaimer</h2>
           <p>
-            TikFlow is provided on an &quot;as is&quot; basis without warranties of any kind. We do not guarantee uninterrupted availability and are not liable for any third-party misuse of downloaded media.
+            QukTik is provided on an &quot;as is&quot; basis without warranties of any kind. We do not guarantee uninterrupted availability and are not liable for any third-party misuse of downloaded media.
           </p>
         </section>
 

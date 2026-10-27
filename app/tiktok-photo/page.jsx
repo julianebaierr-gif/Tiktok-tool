@@ -29,20 +29,20 @@ export default function TikTokPhotoPage() {
 
   const faqData = [
     {
-      q: "Does TikFlow download individual photos or a video slideshow?",
-      a: "TikFlow extracts the original, high-resolution individual image files (JPG/WebP) directly from the TikTok photo mode post. You can download each photo one-by-one or save them all without being forced into a blurry, compressed 15-second video recording."
+      q: "Does QukTik download individual photos or a video slideshow?",
+      a: "QukTik extracts the original, high-resolution individual image files (JPG/WebP) directly from the TikTok photo mode post. You can download each photo one-by-one or save them all without being forced into a blurry, compressed 15-second video recording."
     },
     {
       q: "Are the downloaded photos full resolution without black borders?",
-      a: "Yes! When taking screenshots on a smartphone, you get ugly UI overlays, like buttons, comment icons, and letterbox black bars. TikFlow fetches the original master image uploaded by the creator with 100% of its native pixels and zero UI clutter."
+      a: "Yes! When taking screenshots on a smartphone, you get ugly UI overlays, like buttons, comment icons, and letterbox black bars. QukTik fetches the original master image uploaded by the creator with 100% of its native pixels and zero UI clutter."
     },
     {
       q: "Can I also download the background music playing on the photo slideshow?",
-      a: "Absolutely! TikTok photo mode posts almost always feature a viral soundtrack. TikFlow detects both the full array of high-resolution images AND the accompanying 320kbps MP3 audio track, allowing you to save both with one click."
+      a: "Absolutely! TikTok photo mode posts almost always feature a viral soundtrack. QukTik detects both the full array of high-resolution images AND the accompanying 320kbps MP3 audio track, allowing you to save both with one click."
     },
     {
       q: "How many pictures can be in a TikTok photo carousel?",
-      a: "TikTok allows creators to post photo carousels containing anywhere from 2 to 35 high-resolution images per post. TikFlow automatically indexes every single image in the carousel sequence and provides high-speed download buttons for all of them."
+      a: "TikTok allows creators to post photo carousels containing anywhere from 2 to 35 high-resolution images per post. QukTik automatically indexes every single image in the carousel sequence and provides high-speed download buttons for all of them."
     },
     {
       q: "Where do saved TikTok slideshow photos go on iPhone and Android?",
@@ -54,19 +54,19 @@ export default function TikTokPhotoPage() {
     },
     {
       q: "Do I need to install any app to download TikTok carousels?",
-      a: "No apps, APKs, or software are required. TikFlow is an entirely web-based utility that works seamlessly in Safari, Chrome, Edge, and Firefox across iOS, Android, macOS, Windows, and Linux over secure HTTPS."
+      a: "No apps, APKs, or software are required. QukTik is an entirely web-based utility that works seamlessly in Safari, Chrome, Edge, and Firefox across iOS, Android, macOS, Windows, and Linux over secure HTTPS."
     },
     {
       q: "What image formats are extracted from TikTok photo carousels?",
-      a: "TikFlow extracts the native WebP and JPEG (.jpg) images stored on ByteDance's image servers, preserving original color gamuts and uncompressed detail."
+      a: "QukTik extracts the native WebP and JPEG (.jpg) images stored on ByteDance's image servers, preserving original color gamuts and uncompressed detail."
     },
     {
       q: "Can I download photo carousels from Douyin (Chinese TikTok) as well?",
-      a: "Yes! TikFlow fully supports Chinese Douyin photo galleries and carousels, parsing Chinese share strings and delivering high-resolution master images."
+      a: "Yes! QukTik fully supports Chinese Douyin photo galleries and carousels, parsing Chinese share strings and delivering high-resolution master images."
     },
     {
       q: "Is there any limit to the number of photo carousels I can save per day?",
-      a: "None. TikFlow provides unlimited photo downloads completely free of charge with zero watermarks or subscription paywalls."
+      a: "None. QukTik provides unlimited photo downloads completely free of charge with zero watermarks or subscription paywalls."
     }
   ];
 
@@ -119,7 +119,7 @@ export default function TikTokPhotoPage() {
             Pristine Still Image Processing
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
-            Why Use TikFlow Photo Slideshow Downloader?
+            Why Use QukTik Photo Slideshow Downloader?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
             Say goodbye to low-resolution phone screenshots and UI clutter. Get the exact master photo files uploaded by creators.
@@ -143,7 +143,7 @@ export default function TikTokPhotoPage() {
             </div>
             <h3 className="text-lg font-bold text-slate-900">Complete Carousel Extraction</h3>
             <p className="text-sm text-slate-600 leading-relaxed">
-              Whether a creator posted 3 photos or 35 slides, TikFlow indexes every single image in sequence and offers one-click download buttons for each.
+              Whether a creator posted 3 photos or 35 slides, QukTik indexes every single image in sequence and offers one-click download buttons for each.
             </p>
           </div>
 
@@ -178,7 +178,7 @@ export default function TikTokPhotoPage() {
             Content creators use Photo Mode for an expansive variety of genres: travel photographers document city itineraries with detailed maps; fashion creators post multi-slide seasonal outfit lookbooks; culinary chefs share ingredient lists and step-by-step plating shots; comic illustrators publish multi-panel storyboards; and digital artists share aesthetic vertical wallpapers.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Unfortunately, trying to save these pictures through the official app creates frustrating roadblocks. Taking screenshots clutters images with TikTok&apos;s UI elements (like buttons, comment icons, and creator tags) and leaves letterbox black bars. Competing downloaders often fail entirely on photo posts or mistakenly convert the slideshow into a blurry 15-second MP4 video. TikFlow solves this by extracting the raw, individual JPG and WebP image files directly from ByteDance&apos;s master content servers.
+            Unfortunately, trying to save these pictures through the official app creates frustrating roadblocks. Taking screenshots clutters images with TikTok&apos;s UI elements (like buttons, comment icons, and creator tags) and leaves letterbox black bars. Competing downloaders often fail entirely on photo posts or mistakenly convert the slideshow into a blurry 15-second MP4 video. QukTik solves this by extracting the raw, individual JPG and WebP image files directly from ByteDance&apos;s master content servers.
           </p>
 
           {/* Embedded 3D Illustration: Photo Carousel Extraction */}
@@ -207,10 +207,10 @@ export default function TikTokPhotoPage() {
             <span>Part 2: Quality Benchmarks</span>
           </div>
           <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            2. Screenshots vs. TikFlow Direct Extraction: The Resolution Dilemma
+            2. Screenshots vs. QukTik Direct Extraction: The Resolution Dilemma
           </h3>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            When users see a travel guide or wallpaper they want to keep, their immediate instinct is often to capture a smartphone screenshot. Here is why taking screenshots produces inferior results compared to extracting master assets through TikFlow:
+            When users see a travel guide or wallpaper they want to keep, their immediate instinct is often to capture a smartphone screenshot. Here is why taking screenshots produces inferior results compared to extracting master assets through QukTik:
           </p>
 
           <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-sm bg-white my-6">
@@ -218,7 +218,7 @@ export default function TikTokPhotoPage() {
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
                   <th className="p-4 sm:p-5">Comparison Metric</th>
-                  <th className="p-4 sm:p-5 text-rose-600">TikFlow Carousel Downloader</th>
+                  <th className="p-4 sm:p-5 text-rose-600">QukTik Carousel Downloader</th>
                   <th className="p-4 sm:p-5 text-slate-500">Phone Screenshot</th>
                   <th className="p-4 sm:p-5 text-slate-500">Legacy Video Downloaders</th>
                 </tr>
@@ -338,7 +338,7 @@ export default function TikTokPhotoPage() {
               </div>
               <ol className="space-y-3 text-xs sm:text-sm text-slate-600 list-decimal list-inside">
                 <li>In TikTok, tap <strong>Share</strong> on the photo carousel and select <strong>Copy Link</strong>.</li>
-                <li>Open <strong>Safari</strong>, go to TikFlow, paste the link, and tap <strong>Extract All Photos</strong>.</li>
+                <li>Open <strong>Safari</strong>, go to QukTik, paste the link, and tap <strong>Extract All Photos</strong>.</li>
                 <li>Preview each image on screen. Tap <strong>Download Photo</strong> on the pictures you want.</li>
                 <li>When the image opens, long-press it and choose <strong>Save to Photos</strong> (or tap Share &gt; Save Image).</li>
               </ol>
@@ -357,7 +357,7 @@ export default function TikTokPhotoPage() {
               </div>
               <ol className="space-y-3 text-xs sm:text-sm text-slate-600 list-decimal list-inside">
                 <li>Copy the TikTok photo slideshow URL from your browser or app.</li>
-                <li>Paste the URL into TikFlow and click <strong>Extract All Photos</strong>.</li>
+                <li>Paste the URL into QukTik and click <strong>Extract All Photos</strong>.</li>
                 <li>Click the green <strong>Download Image</strong> button under each photo.</li>
                 <li>Images will save immediately to your local <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">Downloads</code> folder in pristine JPG format.</li>
               </ol>
@@ -381,13 +381,13 @@ export default function TikTokPhotoPage() {
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <h4 className="font-bold text-slate-900 text-base">True 24-Bit sRGB Color Fidelity</h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Screenshots captured on smartphones are altered by the device&apos;s display calibration—such as Apple&apos;s True Tone or Samsung&apos;s Vivid mode—resulting in inaccurate colors. TikFlow retrieves the untouched 24-bit sRGB color space directly from the cloud CDN, ensuring pristine tonal balance and contrast.
+                Screenshots captured on smartphones are altered by the device&apos;s display calibration—such as Apple&apos;s True Tone or Samsung&apos;s Vivid mode—resulting in inaccurate colors. QukTik retrieves the untouched 24-bit sRGB color space directly from the cloud CDN, ensuring pristine tonal balance and contrast.
               </p>
             </div>
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <h4 className="font-bold text-slate-900 text-base">Lossless Vertical 9:16 Aspect Ratio</h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Modern mobile cameras capture photos in 4:3 or 16:9 aspect ratios. When creators frame vertical 9:16 slideshows, screen grabs often clip important composition edges. TikFlow preserves the exact pixel dimensions (1080x1920 or higher) uploaded by the artist without black bars or letterboxing.
+                Modern mobile cameras capture photos in 4:3 or 16:9 aspect ratios. When creators frame vertical 9:16 slideshows, screen grabs often clip important composition edges. QukTik preserves the exact pixel dimensions (1080x1920 or higher) uploaded by the artist without black bars or letterboxing.
               </p>
             </div>
           </div>
@@ -425,7 +425,7 @@ export default function TikTokPhotoPage() {
             Modern flagship smartphones feature ultra-high pixel density displays (often exceeding 460 pixels per inch) equipped with HDR10+ and OLED technology. When users attempt to set mobile screenshots as wallpapers, the digital zoom required to hide phone UI icons introduces noticeable blurring around text, anime character line art, and architectural geometry.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            By extracting virgin 1080p and 4K still files through TikFlow, wallpaper enthusiasts preserve pixel-perfect clarity. True blacks remain deep on OLED panels without glowing artifacts, and high-contrast highlights shine with full HDR dynamic range, making TikTok carousels one of the richest sources for bespoke modern lock screens.
+            By extracting virgin 1080p and 4K still files through QukTik, wallpaper enthusiasts preserve pixel-perfect clarity. True blacks remain deep on OLED panels without glowing artifacts, and high-contrast highlights shine with full HDR dynamic range, making TikTok carousels one of the richest sources for bespoke modern lock screens.
           </p>
         </section>
 
@@ -439,7 +439,7 @@ export default function TikTokPhotoPage() {
             8. Batch Indexing: Keeping Complete Photographic Sets Intact
           </h3>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Unlike individual video posts, photo carousels represent cohesive photographic collections. When saving a 20-image educational guide or wedding photo shoot, losing the chronological sequence ruins the creator&apos;s narrative structure. TikFlow preserves the original upload index in the filename metadata (e.g., <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tikflow_photo_01.jpg</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tikflow_photo_02.jpg</code>), ensuring your photo gallery sorts the collection in its exact intended viewing order.
+            Unlike individual video posts, photo carousels represent cohesive photographic collections. When saving a 20-image educational guide or wedding photo shoot, losing the chronological sequence ruins the creator&apos;s narrative structure. QukTik preserves the original upload index in the filename metadata (e.g., <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">quktik_photo_01.jpg</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">quktik_photo_02.jpg</code>), ensuring your photo gallery sorts the collection in its exact intended viewing order.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Furthermore, our cloud parser maintains the embedded synchronized audio track alongside the image sequence. This allows multi-media curators to retain both the visual slides and the background sound design, guaranteeing an authentic archival record of the creator&apos;s multimedia publication.
@@ -453,7 +453,7 @@ export default function TikTokPhotoPage() {
             <h4>Photographer Copyright &amp; Ethical Re-use</h4>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            TikFlow Photo Slideshow Downloader is intended strictly for personal archiving, educational research, and offline reference. Visual photography and artwork posted on TikTok remain the exclusive intellectual property of their original creators. Please do not re-upload, sell, or commercially utilize these photographs without obtaining explicit permission or a license from the copyright holder.
+            QukTik Photo Slideshow Downloader is intended strictly for personal archiving, educational research, and offline reference. Visual photography and artwork posted on TikTok remain the exclusive intellectual property of their original creators. Please do not re-upload, sell, or commercially utilize these photographs without obtaining explicit permission or a license from the copyright holder.
           </p>
         </section>
 

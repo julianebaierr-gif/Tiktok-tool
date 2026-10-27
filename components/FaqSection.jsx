@@ -9,31 +9,31 @@ export default function FaqSection() {
   const faqs = [
     {
       q: 'How do I download TikTok videos without watermark for free?',
-      a: 'Open the TikTok app or website, find your desired video, tap "Share", and choose "Copy Link". Paste the URL into the search box on TikFlow above and click "Download". Once the result appears, click "Download MP4 (Without Watermark)" to save the clean video file directly to your device.',
+      a: 'Open the TikTok app or website, find your desired video, tap "Share", and choose "Copy Link". Paste the URL into the search box on QukTik above and click "Download". Once the result appears, click "Download MP4 (Without Watermark)" to save the clean video file directly to your device.',
     },
     {
-      q: 'Does TikFlow need my TikTok login or password?',
-      a: 'No, absolutely not. TikFlow never asks for your TikTok account password, username, phone number, or verification code. The entire process runs by parsing public post URLs directly. You should never enter your social media passwords on any third-party downloader website.',
+      q: 'Does QukTik need my TikTok login or password?',
+      a: 'No, absolutely not. QukTik never asks for your TikTok account password, username, phone number, or verification code. The entire process runs by parsing public post URLs directly. You should never enter your social media passwords on any third-party downloader website.',
     },
     {
       q: 'Where will the downloaded file be saved on iPhone, Android, or PC?',
       a: 'On Windows and Mac, files save to your default "Downloads" folder (press Ctrl+J on Windows or Cmd+Option+L on Mac to view them). On Android, files go into your "Downloads" folder, accessible in Files by Google or your Gallery app. On iPhone and iPad, Safari saves files to the Downloads section of Apple\'s "Files" app; open the video in Files, tap Share, and select "Save Video" to add it directly to your Photos Camera Roll.',
     },
     {
-      q: 'Can TikFlow access private videos, friends-only posts, or drafts?',
-      a: 'No. TikFlow operates exclusively on publicly accessible web posts. Private accounts, friends-only clips, and drafts remain restricted by TikTok\'s authentication servers and cannot be downloaded without creator account credentials. TikFlow does not bypass user privacy controls.',
+      q: 'Can QukTik access private videos, friends-only posts, or drafts?',
+      a: 'No. QukTik operates exclusively on publicly accessible web posts. Private accounts, friends-only clips, and drafts remain restricted by TikTok\'s authentication servers and cannot be downloaded without creator account credentials. QukTik does not bypass user privacy controls.',
     },
     {
       q: 'Will a downloaded video without watermark always be 1080p Full HD?',
-      a: 'TikFlow delivers the exact highest-resolution stream stored on TikTok\'s content delivery servers (typically 1080x1920 or 720x1280). If the creator recorded in high definition, you get full 1080p clarity with zero re-encoding loss. However, a video originally recorded in low lighting or low resolution cannot be artificially upscaled.',
+      a: 'QukTik delivers the exact highest-resolution stream stored on TikTok\'s content delivery servers (typically 1080x1920 or 720x1280). If the creator recorded in high definition, you get full 1080p clarity with zero re-encoding loss. However, a video originally recorded in low lighting or low resolution cannot be artificially upscaled.',
     },
     {
       q: 'How do I save only the background music or audio in 320kbps MP3 format?',
-      a: 'Paste your TikTok link into TikFlow and, on the result card, click the green "Download MP3 Audio (320kbps)" button. This extracts the audio channel into a standalone MP3 file that you can listen to offline, import into video editing software, or set as a custom phone ringtone.',
+      a: 'Paste your TikTok link into QukTik and, on the result card, click the green "Download MP3 Audio (320kbps)" button. This extracts the audio channel into a standalone MP3 file that you can listen to offline, import into video editing software, or set as a custom phone ringtone.',
     },
     {
       q: 'Can I download TikTok photo slideshows and image carousels?',
-      a: 'Yes! When you paste a link to a TikTok photo post, TikFlow automatically detects the image carousel and displays high-resolution thumbnails for every slide. You can download individual pictures in original JPG format or save the accompanying background audio.',
+      a: 'Yes! When you paste a link to a TikTok photo post, QukTik automatically detects the image carousel and displays high-resolution thumbnails for every slide. You can download individual pictures in original JPG format or save the accompanying background audio.',
     },
     {
       q: 'Why did my download stop or show "Unable to retrieve media"?',
@@ -41,19 +41,19 @@ export default function FaqSection() {
     },
     {
       q: 'Does downloading a video remove every logo or give me commercial reuse rights?',
-      a: 'TikFlow removes the dynamic TikTok platform watermark and username overlay. However, any text, stickers, or creator watermarks manually edited into the footage by the author remain. Additionally, downloading does not transfer copyright; always ask for permission before using someone else\'s video in commercial or monetized projects.',
+      a: 'QukTik removes the dynamic TikTok platform watermark and username overlay. However, any text, stickers, or creator watermarks manually edited into the footage by the author remain. Additionally, downloading does not transfer copyright; always ask for permission before using someone else\'s video in commercial or monetized projects.',
     },
     {
       q: 'Do I need to install any app or browser extension?',
-      a: 'No applications, APKs, or browser extensions are required. TikFlow functions entirely within your standard browser (Safari, Chrome, Firefox, Edge, Samsung Internet, Brave). This keeps your phone or computer completely safe from malware and bloated apps.',
+      a: 'No applications, APKs, or browser extensions are required. QukTik functions entirely within your standard browser (Safari, Chrome, Firefox, Edge, Samsung Internet, Brave). This keeps your phone or computer completely safe from malware and bloated apps.',
     },
     {
       q: 'Does downloading alert the creator that I saved their video?',
       a: 'No. TikTok does not notify creators or accounts when their public video is downloaded through an external browser utility. All downloads are 100% anonymous and private.',
     },
     {
-      q: 'Is TikFlow completely free with no download limits?',
-      a: 'Yes, TikFlow is 100% free with unlimited daily downloads. There is no subscription, paywall, or credit system. You can archive as many videos, audio tracks, and photo carousels as you need.',
+      q: 'Is QukTik completely free with no download limits?',
+      a: 'Yes, QukTik is 100% free with unlimited daily downloads. There is no subscription, paywall, or credit system. You can archive as many videos, audio tracks, and photo carousels as you need.',
     },
   ];
 
@@ -68,7 +68,7 @@ export default function FaqSection() {
           Frequently Asked Questions
         </h2>
         <p className="mt-3 text-sm sm:text-base text-slate-600">
-          Everything you need to know about downloading videos, audio, and photos with TikFlow.
+          Everything you need to know about downloading videos, audio, and photos with QukTik.
         </p>
       </div>
 

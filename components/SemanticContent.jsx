@@ -163,7 +163,7 @@ export default function SemanticContent() {
           </span>
           <span className="flex items-center gap-1.5 text-emerald-600">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>TikFlow Direct Extraction (100% Clean Master MP4 • Zero Logos)</span>
+            <span>QukTik Direct Extraction (100% Clean Master MP4 • Zero Logos)</span>
           </span>
         </div>
       </div>
@@ -186,7 +186,7 @@ export default function SemanticContent() {
           <li><strong>Dynamic Demuxing Stream:</strong> Audio tracks are separated from video frames into independent MPEG-4 audio (<code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">.m4a</code> / <code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">.mp3</code>) representations to facilitate instant synchronization, multi-track audio mixing, and duet recording.</li>
         </ul>
         <p>
-          <strong>Why Legacy Downloaders Fail:</strong> Many older web tools attempt to remove watermarks through destructive image processing—either by cropping the outer 15% of the video canvas (cutting off heads, subtitles, and logos) or applying a localized Gaussian blur filter that leaves a distracting smudge. TikFlow operates on an entirely different architectural paradigm: our cloud routing engine accesses the authenticated source stream (<code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">play_addr</code>) directly before the watermark overlay pipeline executes. This ensures you receive the pristine 1080p source video with 100% frame integrity and color fidelity.
+          <strong>Why Legacy Downloaders Fail:</strong> Many older web tools attempt to remove watermarks through destructive image processing—either by cropping the outer 15% of the video canvas (cutting off heads, subtitles, and logos) or applying a localized Gaussian blur filter that leaves a distracting smudge. QukTik operates on an entirely different architectural paradigm: our cloud routing engine accesses the authenticated source stream (<code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">play_addr</code>) directly before the watermark overlay pipeline executes. This ensures you receive the pristine 1080p source video with 100% frame integrity and color fidelity.
         </p>
       </section>
 
@@ -203,7 +203,7 @@ export default function SemanticContent() {
           Sound design on TikTok represents half the emotional impact of any viral post. Whether it is an original ambient field recording, a spoken-word commentary track, or a masterfully produced 15-second acoustic hook, audio files are encoded with high dynamic range. However, when users rely on smartphone screen recording to capture sounds, the resulting file suffers from dual compression: first through the phone&apos;s internal audio mixer, and second through the screen recorder&apos;s lossy AAC codec.
         </p>
         <p>
-          TikFlow&apos;s media extraction pipeline demuxes the original audio bitstream directly from the media container:
+          QukTik&apos;s media extraction pipeline demuxes the original audio bitstream directly from the media container:
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
@@ -332,7 +332,7 @@ export default function SemanticContent() {
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
             <h4 className="font-bold text-slate-900 text-base">Step 1: Save Clean Master</h4>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Paste your public TikTok link into TikFlow and download the watermark-free 1080p MP4 directly to your device storage.
+              Paste your public TikTok link into QukTik and download the watermark-free 1080p MP4 directly to your device storage.
             </p>
           </div>
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
@@ -364,7 +364,7 @@ export default function SemanticContent() {
         </p>
         <ul className="list-disc list-inside space-y-3 pl-2 text-slate-600">
           <li><strong>Bypassing Destructive Cropping:</strong> In the past, editors had to scale up 1080x1920 footage by 125% to push bouncing watermark badges beyond the action-safe broadcast margins. This reduced visual clarity by 35% and created noticeable softness on 4K monitors.</li>
-          <li><strong>Timeline Frame Rate Conformity:</strong> TikFlow downloads files in standard 30fps or 60fps progressive scan streams, preventing dropped frames or stuttering playback when dropped into a 24fps cinema timeline or 29.97fps broadcast sequence.</li>
+          <li><strong>Timeline Frame Rate Conformity:</strong> QukTik downloads files in standard 30fps or 60fps progressive scan streams, preventing dropped frames or stuttering playback when dropped into a 24fps cinema timeline or 29.97fps broadcast sequence.</li>
           <li><strong>Color Grading Cleanliness:</strong> Because the clean MP4 contains virgin pixels untouched by translucent white watermark overlays, color grading tools like DaVinci Resolve can apply LUTs, contrast curves, and skin tone adjustments without creating halos around branding logos.</li>
         </ul>
       </section>
@@ -382,7 +382,7 @@ export default function SemanticContent() {
           Many mobile app stores are crowded with third-party &quot;video saver&quot; applications that demand invasive phone permissions, access to user contact books, background GPS location tracking, or even TikTok login credentials. Security researchers have repeatedly discovered that numerous sketchy utility apps secretly inject adware or harvest telemetry data.
         </p>
         <p>
-          TikFlow provides a secure, progressive web architecture that eliminates these security vulnerabilities entirely:
+          QukTik provides a secure, progressive web architecture that eliminates these security vulnerabilities entirely:
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
@@ -391,7 +391,7 @@ export default function SemanticContent() {
               100% Client-Side Sandboxing
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              TikFlow runs directly inside your standard web browser (Chrome, Safari, Firefox, Edge). It operates within modern browser security sandboxes, with zero access to your device filesystem, camera, microphone, or private contacts.
+              QukTik runs directly inside your standard web browser (Chrome, Safari, Firefox, Edge). It operates within modern browser security sandboxes, with zero access to your device filesystem, camera, microphone, or private contacts.
             </p>
           </div>
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
@@ -416,7 +416,7 @@ export default function SemanticContent() {
           8. Universal Device Guides: iOS Safari, Android Chrome, Windows &amp; macOS
         </h3>
         <p>
-          Because TikFlow operates as a progressive, zero-install web utility over secure HTTPS, it functions smoothly across all major operating systems. Here are the precise platform steps:
+          Because QukTik operates as a progressive, zero-install web utility over secure HTTPS, it functions smoothly across all major operating systems. Here are the precise platform steps:
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
@@ -433,7 +433,7 @@ export default function SemanticContent() {
             </div>
             <ol className="space-y-3 text-xs sm:text-sm text-slate-600 list-decimal list-inside">
               <li>In TikTok, tap the <strong>Share</strong> arrow on the video and tap <strong>Copy Link</strong>.</li>
-              <li>Open <strong>Safari</strong> and navigate to TikFlow. Tap the <strong>Paste Link</strong> button.</li>
+              <li>Open <strong>Safari</strong> and navigate to QukTik. Tap the <strong>Paste Link</strong> button.</li>
               <li>Tap <strong>Download Video (Without Watermark)</strong>. Safari will display a download confirmation prompt.</li>
               <li>Tap <strong>Download</strong>. Tap the blue circle icon in Safari&apos;s address bar, select the video, tap <strong>Share &gt; Save Video</strong>. The clean MP4 will instantly appear in Apple Photos.</li>
             </ol>
@@ -452,7 +452,7 @@ export default function SemanticContent() {
             </div>
             <ol className="space-y-3 text-xs sm:text-sm text-slate-600 list-decimal list-inside">
               <li>Copy the video link from TikTok&apos;s share sheet.</li>
-              <li>Open <strong>Chrome</strong>, visit TikFlow, and tap <strong>Paste Link</strong>.</li>
+              <li>Open <strong>Chrome</strong>, visit QukTik, and tap <strong>Paste Link</strong>.</li>
               <li>Tap <strong>Download Video (Without Watermark)</strong>. The MP4 file saves directly to your device storage.</li>
               <li>Access the video instantly via Google Photos, Files by Google, or your native phone Gallery under <code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">/Download</code>.</li>
             </ol>
@@ -548,11 +548,11 @@ export default function SemanticContent() {
         </p>
         <ul className="list-disc list-inside space-y-3 pl-2 text-slate-600 text-sm sm:text-base">
           <li><strong>TikTok Shop &amp; E-Commerce Integration:</strong> Commercial creators and retail brands utilize TikTok Shop to broadcast interactive live selling events and video product showcases. Marketers rely on clean video downloads to study high-converting ad hooks, product demonstration camera angles, and customer testimonial packaging.</li>
-          <li><strong>TikTok Studio &amp; Desktop Workflow:</strong> Creators utilize TikTok Studio to schedule posts, manage community comments, and monitor analytical dashboards across desktop workstations, making direct-to-browser media utilities like TikFlow an indispensable tool in desktop post-production.</li>
+          <li><strong>TikTok Studio &amp; Desktop Workflow:</strong> Creators utilize TikTok Studio to schedule posts, manage community comments, and monitor analytical dashboards across desktop workstations, making direct-to-browser media utilities like QukTik an indispensable tool in desktop post-production.</li>
           <li><strong>TikTok Live, TikTok Coins &amp; Stream Utilities:</strong> Live broadcasts (<code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktoklive</code>) feature real-time creator interaction and live viewer counts (<code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok view</code>), powered by digital tipping with in-app tokens (<code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktokcoins</code>), as well as specialized third-party community engagement software such as TikFinity, which bridges live video events with interactive audience mechanics.</li>
           <li><strong>Optimized Clients (TikTok Lite &amp; Tik Lite):</strong> To accommodate users on entry-level smartphones and constrained cellular connections in emerging markets, ByteDance offers TikTok Lite (tik lite / tik toklite). These streamlined builds consume minimal storage while preserving core feed exploration.</li>
           <li><strong>Web Accessibility &amp; Network Freedom:</strong> While users frequently access the official <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok website</code> or portals like <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tik tok com</code> and <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">titok com</code>, manage their accounts via browser login (<code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktoklogin</code>), or explore open web viewers like Urlebird (urlebird) and FYP portals (fyppt), office and academic firewalls sometimes restrict app connectivity. Educational discussions around network availability (such as &ldquo;tiktok unblocked&rdquo; or international regulatory debates over &ldquo;tiktok banned&rdquo; proposals) highlight the growing importance of resilient, open web browser access for research and media archiving.</li>
-          <li><strong>Universal Search Variations:</strong> Everyday audiences discover content through diverse colloquial search queries—from phonetic spellings like <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tik</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tok</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiotok</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tikrok</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tik tokk</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tik t</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tik top</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">ttik tok</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tik ok</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktoka</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tikto k</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tik to k</code>, or rhythmic phrases like <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tick tock tick tock tick tock</code>, to functional requests like <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">save tiktok</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok saver</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok to mp4</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktokapp</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok dow</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">dow video tiktok</code>, and <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok download free</code>. TikFlow provides a seamless, zero-friction universal web gateway for all users regardless of input format.</li>
+          <li><strong>Universal Search Variations:</strong> Everyday audiences discover content through diverse colloquial search queries—from phonetic spellings like <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tik</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tok</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiotok</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tikrok</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tik tokk</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tik t</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tik top</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">ttik tok</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tik ok</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktoka</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tikto k</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tik to k</code>, or rhythmic phrases like <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tick tock tick tock tick tock</code>, to functional requests like <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">save tiktok</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok saver</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok to mp4</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktokapp</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok dow</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">dow video tiktok</code>, and <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok download free</code>. QukTik provides a seamless, zero-friction universal web gateway for all users regardless of input format.</li>
         </ul>
       </section>
 
@@ -563,10 +563,10 @@ export default function SemanticContent() {
           <h4>Intellectual Property Rights, Fair Use &amp; DMCA Compliance</h4>
         </div>
         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-          TikFlow is an independent web utility built strictly for personal archiving, educational study, private backup, and fair-use creator repurposing of original user-generated content. All video, audio, photo, and trademark assets hosted on TikTok and Douyin remain the exclusive intellectual property of their original copyright owners and ByteDance Ltd. TikFlow does not host, store, or archive copyrighted media files on its servers; all requests stream transiently through official public CDN endpoints.
+          QukTik is an independent web utility built strictly for personal archiving, educational study, private backup, and fair-use creator repurposing of original user-generated content. All video, audio, photo, and trademark assets hosted on TikTok and Douyin remain the exclusive intellectual property of their original copyright owners and ByteDance Ltd. QukTik does not host, store, or archive copyrighted media files on its servers; all requests stream transiently through official public CDN endpoints.
         </p>
         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-          Users must obtain explicit written authorization before re-distributing, monetizing, or utilizing another creator&apos;s media assets in commercial advertising campaigns. TikFlow strictly complies with Digital Millennium Copyright Act (DMCA) regulations. For copyright notices, inquiries, or takedown requests, please consult our official legal documentation.
+          Users must obtain explicit written authorization before re-distributing, monetizing, or utilizing another creator&apos;s media assets in commercial advertising campaigns. QukTik strictly complies with Digital Millennium Copyright Act (DMCA) regulations. For copyright notices, inquiries, or takedown requests, please consult our official legal documentation.
         </p>
       </section>
 

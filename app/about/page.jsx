@@ -2,8 +2,8 @@ import React from 'react';
 import { Shield, Sparkles, Users } from 'lucide-react';
 
 export const metadata = {
-  title: 'About Us | TikFlow Team',
-  description: 'Learn about TikFlow, our mission to provide clean video archiving tools, and our commitment to user privacy and streaming technology.',
+  title: 'About Us | QukTik Team',
+  description: 'Learn about QukTik, our mission to provide clean video archiving tools, and our commitment to user privacy and streaming technology.',
 };
 
 export default function AboutPage() {
@@ -15,7 +15,7 @@ export default function AboutPage() {
           Our Story &amp; Mission
         </span>
         <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-4">
-          About TikFlow
+          About QukTik
         </h1>
         <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
           Building fast, elegant, and secure multimedia web utilities for creators, researchers, and digital archivists worldwide.
@@ -30,10 +30,10 @@ export default function AboutPage() {
             <span>Who We Are</span>
           </h2>
           <p>
-            TikFlow was created in 2024 by an independent group of creators and software developers who were tired of having jumping watermark logos ruin their short-form videos. Every time you save your own video inside TikTok, the app stamps that logo over captions and faces.
+            QukTik was created in 2024 by an independent group of creators and software developers who were tired of having jumping watermark logos ruin their short-form videos. Every time you save your own video inside TikTok, the app stamps that logo over captions and faces.
           </p>
           <p>
-            We built TikFlow as a free, lightweight, web-only tool that lets anyone grab the clean, unbranded original video or audio file directly to their phone or computer in seconds.
+            We built QukTik as a free, lightweight, web-only tool that lets anyone grab the clean, unbranded original video or audio file directly to their phone or computer in seconds.
           </p>
         </section>
 
@@ -73,10 +73,10 @@ export default function AboutPage() {
         <section className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
             <Users className="w-5 h-5 text-indigo-600" />
-            <span>Who Uses TikFlow?</span>
+            <span>Who Uses QukTik?</span>
           </h2>
           <p>
-            People around the world use TikFlow every day:
+            People around the world use QukTik every day:
           </p>
           <ul className="space-y-2 list-disc list-inside text-slate-600 text-sm sm:text-base">
             <li><strong>Content Creators:</strong> Saving their own videos to re-upload to Instagram Reels and YouTube Shorts without logo penalties.</li>

@@ -16,8 +16,8 @@ export default function HowToSection() {
     {
       step: '02',
       icon: Copy,
-      title: 'Paste It into TikFlow',
-      desc: 'Open your mobile browser (Safari, Chrome) and visit TikFlow. Tap the Paste Link button and tap Download.',
+      title: 'Paste It into QukTik',
+      desc: 'Open your mobile browser (Safari, Chrome) and visit QukTik. Tap the Paste Link button and tap Download.',
     },
     {
       step: '03',
@@ -37,8 +37,8 @@ export default function HowToSection() {
     {
       step: '02',
       icon: Copy,
-      title: 'Paste into TikFlow Web',
-      desc: 'Head to TikFlow in Chrome, Edge, or Safari. Paste the copied TikTok URL into the search bar and click Download.',
+      title: 'Paste into QukTik Web',
+      desc: 'Head to QukTik in Chrome, Edge, or Safari. Paste the copied TikTok URL into the search bar and click Download.',
     },
     {
       step: '03',
@@ -111,7 +111,7 @@ export default function HowToSection() {
                 <span className="text-slate-300">➔</span>
                 <span className="flex items-center gap-1.5 text-indigo-600">
                   <span className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs">2</span>
-                  <span>Paste on TikFlow</span>
+                  <span>Paste on QukTik</span>
                 </span>
                 <span className="text-slate-300">➔</span>
                 <span className="flex items-center gap-1.5 text-emerald-600">
@@ -128,7 +128,7 @@ export default function HowToSection() {
                 <span className="text-slate-300">➔</span>
                 <span className="flex items-center gap-1.5 text-indigo-600">
                   <span className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs">2</span>
-                  <span>Paste on TikFlow Web</span>
+                  <span>Paste on QukTik Web</span>
                 </span>
                 <span className="text-slate-300">➔</span>
                 <span className="flex items-center gap-1.5 text-emerald-600">

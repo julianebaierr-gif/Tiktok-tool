@@ -3,7 +3,7 @@ export async function GET() {
 Allow: /
 Disallow: /api/
 
-Sitemap: https://tikflow-downloader.vercel.app/sitemap.xml
+Sitemap: https://quktik.com/sitemap.xml
 `;
 
   return new Response(robotsTxt, {

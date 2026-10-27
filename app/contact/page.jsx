@@ -26,7 +26,7 @@ export default function ContactPage() {
           Get in Touch
         </span>
         <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-4">
-          Contact TikFlow Team
+          Contact QukTik Team
         </h1>
         <p className="mt-3 text-sm sm:text-base text-slate-600">
           Have a question, feedback, bug report, or DMCA inquiry? We are here to help.
@@ -44,8 +44,8 @@ export default function ContactPage() {
               <Mail className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
               <div>
                 <p className="font-bold text-slate-900">Email Support</p>
-                <a href="mailto:support@tikflow.app" className="text-rose-600 hover:underline">
-                  support@tikflow.app
+                <a href="mailto:support@quktik.app" className="text-rose-600 hover:underline">
+                  support@quktik.app
                 </a>
               </div>
             </div>
@@ -62,8 +62,8 @@ export default function ContactPage() {
               <Shield className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
               <div>
                 <p className="font-bold text-slate-900">DMCA Copyright Team</p>
-                <a href="mailto:dmca@tikflow.app" className="text-indigo-600 hover:underline">
-                  dmca@tikflow.app
+                <a href="mailto:dmca@quktik.app" className="text-indigo-600 hover:underline">
+                  dmca@quktik.app
                 </a>
               </div>
             </div>

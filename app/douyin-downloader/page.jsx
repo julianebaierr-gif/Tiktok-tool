@@ -32,40 +32,40 @@ export default function DouyinDownloaderPage() {
       a: "Douyin (抖音) is ByteDance's original domestic version of TikTok developed specifically for the Chinese market. While both apps share similar core algorithms and interface layouts, they run on completely separate servers with distinct user bases, content ecosystems, e-commerce integrations, and creative trends. Viral memes and editing styles often originate on Douyin months before appearing on international TikTok."
     },
     {
-      q: "Can I paste Chinese text directly into TikFlow Douyin Downloader?",
-      a: "Yes! When you tap 'Copy Link' inside the Douyin app, it copies a complete Chinese modal share snippet containing text, emojis, and a short link (for example: '7.32 e@d.gZ 03/12 v.douyin.com/xyz/ 复制此链接打开抖音'). TikFlow automatically parses the text, isolates the actual video URL, and processes the clean video stream without requiring you to manually delete Chinese characters."
+      q: "Can I paste Chinese text directly into QukTik Douyin Downloader?",
+      a: "Yes! When you tap 'Copy Link' inside the Douyin app, it copies a complete Chinese modal share snippet containing text, emojis, and a short link (for example: '7.32 e@d.gZ 03/12 v.douyin.com/xyz/ 复制此链接打开抖音'). QukTik automatically parses the text, isolates the actual video URL, and processes the clean video stream without requiring you to manually delete Chinese characters."
     },
     {
-      q: "Does TikFlow require a Chinese phone number, VPN, or Douyin account?",
-      a: "No! TikFlow's cloud servers handle all network communication directly with ByteDance Chinese CDN nodes. You do not need a Chinese phone number, an active Douyin login, or a VPN service to download public videos and audio tracks."
+      q: "Does QukTik require a Chinese phone number, VPN, or Douyin account?",
+      a: "No! QukTik's cloud servers handle all network communication directly with ByteDance Chinese CDN nodes. You do not need a Chinese phone number, an active Douyin login, or a VPN service to download public videos and audio tracks."
     },
     {
       q: "Are downloaded Douyin videos watermark-free and in 1080p Full HD?",
-      a: "Yes. Douyin natively embeds a moving logo with the creator's Douyin ID. TikFlow accesses the unwatermarked master MP4 stream, delivering clean 1080p Full HD video with crystal-clear audio at original bitrates."
+      a: "Yes. Douyin natively embeds a moving logo with the creator's Douyin ID. QukTik accesses the unwatermarked master MP4 stream, delivering clean 1080p Full HD video with crystal-clear audio at original bitrates."
     },
     {
       q: "Can I extract background music (BGM) from Douyin videos?",
-      a: "Yes! Chinese Douyin has an extraordinary collection of viral acoustic covers, traditional Chinese instrument remixes (Guzheng, Pipa), and electronic dance music. TikFlow extracts the pure 320kbps MP3 audio track with one click."
+      a: "Yes! Chinese Douyin has an extraordinary collection of viral acoustic covers, traditional Chinese instrument remixes (Guzheng, Pipa), and electronic dance music. QukTik extracts the pure 320kbps MP3 audio track with one click."
     },
     {
       q: "Can I use downloaded Douyin videos in CapCut (剪映)?",
       a: "Yes. All videos download in universal H.264 MP4 container format, making them immediately compatible with CapCut, JianYing (剪映), Adobe Premiere Pro, DaVinci Resolve, and Final Cut Pro for editing and repurposing."
     },
     {
-      q: "Is TikFlow Douyin Downloader completely free?",
+      q: "Is QukTik Douyin Downloader completely free?",
       a: "Yes, 100% free with unlimited daily downloads and no hidden subscription fees."
     },
     {
       q: "What domains and URL structures are supported for Douyin?",
-      a: "TikFlow supports all standard Douyin domains, including v.douyin.com, www.douyin.com, iesdouyin.com, and live.douyin.com links."
+      a: "QukTik supports all standard Douyin domains, including v.douyin.com, www.douyin.com, iesdouyin.com, and live.douyin.com links."
     },
     {
-      q: "Does TikFlow support Douyin photo slideshows and carousels?",
-      a: "Yes! If a Douyin post contains a multi-image photo gallery, TikFlow automatically extracts every individual high-resolution picture along with the background music."
+      q: "Does QukTik support Douyin photo slideshows and carousels?",
+      a: "Yes! If a Douyin post contains a multi-image photo gallery, QukTik automatically extracts every individual high-resolution picture along with the background music."
     },
     {
       q: "Why do standard western downloaders fail on Douyin links?",
-      a: "Most western download sites hard-code regular expressions strictly for tiktok.com. They fail to parse Chinese character sets and cannot navigate ByteDance's domestic Chinese redirection chains. TikFlow is specifically optimized for Chinese CDN routing."
+      a: "Most western download sites hard-code regular expressions strictly for tiktok.com. They fail to parse Chinese character sets and cannot navigate ByteDance's domestic Chinese redirection chains. QukTik is specifically optimized for Chinese CDN routing."
     }
   ];
 
@@ -118,10 +118,10 @@ export default function DouyinDownloaderPage() {
             Global Chinese Video Processing
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
-            Why Use TikFlow Douyin (抖音) Downloader?
+            Why Use QukTik Douyin (抖音) Downloader?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Western downloaders usually fail on Chinese URLs. TikFlow provides a dedicated high-speed bridge to ByteDance&apos;s domestic Chinese servers.
+            Western downloaders usually fail on Chinese URLs. QukTik provides a dedicated high-speed bridge to ByteDance&apos;s domestic Chinese servers.
           </p>
         </div>
 
@@ -132,7 +132,7 @@ export default function DouyinDownloaderPage() {
             </div>
             <h3 className="text-lg font-bold text-slate-900">Automatic Chinese Text Extraction</h3>
             <p className="text-sm text-slate-600 leading-relaxed">
-              No need to delete Chinese characters manually. Paste the entire clipboard share string from the Douyin app and TikFlow extracts the exact video stream.
+              No need to delete Chinese characters manually. Paste the entire clipboard share string from the Douyin app and QukTik extracts the exact video stream.
             </p>
           </div>
 
@@ -177,7 +177,7 @@ export default function DouyinDownloaderPage() {
             With over 700 million daily active users, Douyin serves as an incubator for high-level creative video production, cinematography techniques, viral dance choreography, culinary street food documentation, traditional crafting, and innovative visual effects. Content creators, digital marketers, and cultural researchers worldwide monitor Douyin closely because trends, editing templates, and audio concepts that originate on Douyin frequently surface on Western platforms months later.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            However, downloading media from Douyin has traditionally posed major hurdles: links copied from the Chinese mobile app are wrapped in Chinese characters, redirection chains pass through domestic Chinese proxy nodes, and standard western downloaders reject the URLs entirely. TikFlow bridges this gap with an automated CDN routing engine that delivers pristine, watermark-free Douyin MP4 videos and MP3 audio to any device worldwide.
+            However, downloading media from Douyin has traditionally posed major hurdles: links copied from the Chinese mobile app are wrapped in Chinese characters, redirection chains pass through domestic Chinese proxy nodes, and standard western downloaders reject the URLs entirely. QukTik bridges this gap with an automated CDN routing engine that delivers pristine, watermark-free Douyin MP4 videos and MP3 audio to any device worldwide.
           </p>
 
           {/* Embedded 3D Illustration: Douyin Downloader */}
@@ -217,7 +217,7 @@ export default function DouyinDownloaderPage() {
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
                   <th className="p-4 sm:p-5">Technical Obstacle</th>
-                  <th className="p-4 sm:p-5 text-rose-600">TikFlow Douyin Engine</th>
+                  <th className="p-4 sm:p-5 text-rose-600">QukTik Douyin Engine</th>
                   <th className="p-4 sm:p-5 text-slate-500">Standard Western Downloaders</th>
                 </tr>
               </thead>
@@ -333,7 +333,7 @@ export default function DouyinDownloaderPage() {
               <ol className="space-y-3 text-xs sm:text-sm text-slate-600 list-decimal list-inside">
                 <li>In the Douyin app, find the video and tap the <strong>Share</strong> button (分享).</li>
                 <li>Tap <strong>Copy Link</strong> (复制链接). This copies the full Chinese text.</li>
-                <li>Open <strong>TikFlow Douyin Downloader</strong> in Safari or Chrome.</li>
+                <li>Open <strong>QukTik Douyin Downloader</strong> in Safari or Chrome.</li>
                 <li>Paste the entire string into the search box and tap <strong>Download Douyin Video</strong>.</li>
                 <li>Tap <strong>Download Video (Without Watermark)</strong> to save the pristine MP4.</li>
               </ol>
@@ -353,7 +353,7 @@ export default function DouyinDownloaderPage() {
               <ol className="space-y-3 text-xs sm:text-sm text-slate-600 list-decimal list-inside">
                 <li>Visit <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">douyin.com</code> on your computer browser.</li>
                 <li>Copy the URL from the browser address bar (or click Share &gt; Copy link).</li>
-                <li>Navigate to TikFlow Douyin Downloader in Chrome, Edge, or Safari.</li>
+                <li>Navigate to QukTik Douyin Downloader in Chrome, Edge, or Safari.</li>
                 <li>Paste the link and hit <strong>Download Douyin Video</strong>.</li>
                 <li>Save the 1080p MP4 directly into your computer&apos;s Downloads folder.</li>
               </ol>
@@ -388,7 +388,7 @@ export default function DouyinDownloaderPage() {
             <span>Part 6: Natural Language &amp; URL Parsing</span>
           </div>
           <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            6. Decoding Chinese Clipboard Snippets: Behind the TikFlow Regex Parser
+            6. Decoding Chinese Clipboard Snippets: Behind the QukTik Regex Parser
           </h3>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Unlike Western social apps that simply copy a clean hyperlink to your clipboard, the Douyin app packages the share action with a colloquial conversational text snippet. A typical clipboard payload looks like this:
@@ -397,7 +397,7 @@ export default function DouyinDownloaderPage() {
             7.32 e@d.gZ 03/12 v.douyin.com/XYZ123/ 复制此链接打开抖音，看【创作者】的精彩视频！
           </div>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            When users paste this complex UTF-8 string into standard video tools, the software crashes or throws an &ldquo;Invalid URL&rdquo; exception because it cannot handle multi-byte Chinese characters. TikFlow employs an intelligent server-side regular expression engine that scans the entire text string, isolates the embedded <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">https://v.douyin.com/[token]</code> short URL, resolves the underlying HTTP 302 redirect chain, and queries ByteDance&apos;s domestic Beijing media cluster for the clean 1080p MP4 master.
+            When users paste this complex UTF-8 string into standard video tools, the software crashes or throws an &ldquo;Invalid URL&rdquo; exception because it cannot handle multi-byte Chinese characters. QukTik employs an intelligent server-side regular expression engine that scans the entire text string, isolates the embedded <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">https://v.douyin.com/[token]</code> short URL, resolves the underlying HTTP 302 redirect chain, and queries ByteDance&apos;s domestic Beijing media cluster for the clean 1080p MP4 master.
           </p>
         </section>
 
@@ -414,7 +414,7 @@ export default function DouyinDownloaderPage() {
             Due to the immense volume of mobile streaming traffic in China, ByteDance aggressively employs High-Efficiency Video Coding (HEVC / H.265) across Douyin&apos;s infrastructure. Compared to the older H.264 (AVC) standard widely used on Western social networks, HEVC provides superior compression efficiency, delivering crystal-clear 1080p60 fidelity and vibrant color contrast at nearly 40% lower data rates.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            However, older desktop media players and mobile operating systems can occasionally struggle to decode raw HEVC bitstreams smoothly. TikFlow intelligently identifies the user&apos;s target environment, delivering standard MP4 containers with universally decodable progressive scan profiles so your saved videos play without lag or black screen glitches.
+            However, older desktop media players and mobile operating systems can occasionally struggle to decode raw HEVC bitstreams smoothly. QukTik intelligently identifies the user&apos;s target environment, delivering standard MP4 containers with universally decodable progressive scan profiles so your saved videos play without lag or black screen glitches.
           </p>
         </section>
 
@@ -431,7 +431,7 @@ export default function DouyinDownloaderPage() {
             University linguistics departments and independent Mandarin Chinese learners frequently turn to Douyin for real-world language immersion. Unlike standardized textbook audio recordings, Douyin presents authentic vernacular dialects, rapid everyday conversational idioms, regional accents, and modern internet slang (网络热词) across all provinces of China.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            By downloading watermark-free Douyin videos along with their 320kbps MP3 audio soundtracks through TikFlow, students can import clips into linguistic software, generate bilingual subtitle tracks, and practice shadowing exercises offline without internet lag.
+            By downloading watermark-free Douyin videos along with their 320kbps MP3 audio soundtracks through QukTik, students can import clips into linguistic software, generate bilingual subtitle tracks, and practice shadowing exercises offline without internet lag.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Similarly, international culinary professionals, tea sommeliers, and traditional craft historians preserve master-level artisan techniques that are documented exclusively by Chinese creators on Douyin. Offline high-definition playback enables frame-by-frame scrutiny of delicate knife cuts, temperature control indicators, and ancient pottery techniques that cannot be replicated through casual web browsing.
@@ -445,7 +445,7 @@ export default function DouyinDownloaderPage() {
             <h4>Intellectual Property &amp; Cross-Border Fair Use</h4>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            TikFlow Douyin Downloader is provided solely for personal archiving, language learning, cultural research, and educational analysis. Media published on Douyin belongs exclusively to the respective Chinese creators and ByteDance Ltd. Please do not re-upload creators&apos; work onto Western platforms like YouTube or Instagram to profit commercially without giving clear attribution and receiving proper creator consent.
+            QukTik Douyin Downloader is provided solely for personal archiving, language learning, cultural research, and educational analysis. Media published on Douyin belongs exclusively to the respective Chinese creators and ByteDance Ltd. Please do not re-upload creators&apos; work onto Western platforms like YouTube or Instagram to profit commercially without giving clear attribution and receiving proper creator consent.
           </p>
         </section>
 

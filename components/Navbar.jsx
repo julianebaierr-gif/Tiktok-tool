@@ -34,10 +34,10 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 flex items-center gap-1.5">
-                Tik<span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-indigo-600">Flow</span>
+                Quk<span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-indigo-600">Tik</span>
                 <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-rose-50 text-rose-600 border border-rose-200 uppercase tracking-wider hidden sm:inline-block">HD</span>
               </span>
-              <span className="text-[11px] text-slate-500 font-medium tracking-wide -mt-1 hidden sm:block">Clean Video Downloader</span>
+              <span className="text-[11px] text-slate-500 font-medium tracking-wide -mt-1 hidden sm:block">Fast Video Downloader</span>
             </div>
           </Link>
 

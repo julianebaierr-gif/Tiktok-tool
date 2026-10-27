@@ -57,7 +57,7 @@ export default function FeatureGrid() {
           Everything You Need In A Video Downloader
         </h2>
         <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
-          No complicated settings, no subscriptions, and no intrusive watermarks. Here is what makes TikFlow the simplest way to save short-form videos.
+          No complicated settings, no subscriptions, and no intrusive watermarks. Here is what makes QukTik the simplest way to save short-form videos.
         </p>
       </div>
 
