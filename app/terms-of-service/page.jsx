@@ -6,7 +6,7 @@ export const metadata = {
   title: 'Terms of Service',
   description: 'QukTik Terms of Service governing the use of our online media downloader, intellectual property guidelines, and fair-use limitations.',
   alternates: {
-    canonical: '<Link href="/" className="text-rose-600 font-semibold hover:underline">https://quktik.com</Link>/terms-of-service',
+    canonical: '<Link href="/" className="text-rose-700 font-semibold hover:underline">https://quktik.com</Link>/terms-of-service',
   },
   openGraph: {
     title: 'Terms of Service',
@@ -24,7 +24,7 @@ export default function TermsOfServicePage() {
       <Breadcrumbs items={[{ name: 'Terms of Service', url: '/terms-of-service' }]} />
       
       <div className="border-b border-slate-200 pb-8 mb-10">
-        <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3.5 py-1 rounded-full border border-emerald-200">
+        <span className="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 px-3.5 py-1 rounded-full border border-emerald-200">
           User Agreement
         </span>
         <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-4">
@@ -85,7 +85,7 @@ export default function TermsOfServicePage() {
         <section className="space-y-3">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">6. Related Policies &amp; Contact</h2>
           <p>
-            For information on how we handle data, please read our <Link href="/privacy-policy" className="text-rose-600 font-semibold hover:underline">Privacy Policy</Link>. To submit a copyright notice or review fair-use guidelines, consult our <Link href="/disclaimer" className="text-rose-600 font-semibold hover:underline">DMCA &amp; Copyright Disclaimer</Link>. If you have any inquiries regarding these terms, visit our <Link href="/contact" className="text-rose-600 font-semibold hover:underline">Contact Support</Link> page, learn more <Link href="/about" className="text-rose-600 font-semibold hover:underline">About QukTik</Link>, or return to the <Link href="/" className="text-rose-600 font-semibold hover:underline">QukTik Downloader</Link>.
+            For information on how we handle data, please read our <Link href="/privacy-policy" className="text-rose-700 font-semibold hover:underline">Privacy Policy</Link>. To submit a copyright notice or review fair-use guidelines, consult our <Link href="/disclaimer" className="text-rose-700 font-semibold hover:underline">DMCA &amp; Copyright Disclaimer</Link>. If you have any inquiries regarding these terms, visit our <Link href="/contact" className="text-rose-700 font-semibold hover:underline">Contact Support</Link> page, learn more <Link href="/about" className="text-rose-700 font-semibold hover:underline">About QukTik</Link>, or return to the <Link href="/" className="text-rose-700 font-semibold hover:underline">QukTik Downloader</Link>.
           </p>
         </section>
 

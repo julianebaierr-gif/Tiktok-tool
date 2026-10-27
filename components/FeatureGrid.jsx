@@ -50,7 +50,7 @@ export default function FeatureGrid() {
   return (
     <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-3xl mx-auto mb-14">
-        <span className="text-xs font-bold uppercase tracking-widest text-rose-600 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">
+        <span className="text-xs font-bold uppercase tracking-widest text-rose-700 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">
           Built For Everyday Use
         </span>
         <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
@@ -75,7 +75,7 @@ export default function FeatureGrid() {
                     <Icon className="w-6 h-6 text-slate-800" />
                   </div>
                 </div>
-                <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">
+                <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">
                   {feature.badge}
                 </span>
               </div>

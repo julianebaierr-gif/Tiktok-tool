@@ -40,10 +40,10 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-3">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">1. Introduction</h2>
           <p>
-            At <strong>QukTik</strong> (accessible at <Link href="/" className="text-rose-600 font-semibold hover:underline">https://quktik.com</Link>), your privacy is one of our top priorities. Whether using our <Link href="/tiktok-video-downloader" className="text-rose-600 font-semibold hover:underline">video downloader</Link> or <Link href="/tiktok-mp3" className="text-rose-600 font-semibold hover:underline">MP3 converter</Link>, we collect minimal data. This Privacy Policy explains what information we receive when you visit our website and how it is handled.
+            At <strong>QukTik</strong> (accessible at <Link href="/" className="text-rose-700 font-semibold hover:underline">https://quktik.com</Link>), your privacy is one of our top priorities. Whether using our <Link href="/tiktok-video-downloader" className="text-rose-700 font-semibold hover:underline">video downloader</Link> or <Link href="/tiktok-mp3" className="text-rose-700 font-semibold hover:underline">MP3 converter</Link>, we collect minimal data. This Privacy Policy explains what information we receive when you visit our website and how it is handled.
           </p>
           <p>
-            If you have questions about this policy, feel free to reach out to us at <a href="mailto:privacy@quktik.com" className="text-rose-600 underline">privacy@quktik.com</a>, visit our <Link href="/contact" className="text-rose-600 font-semibold hover:underline">Contact Page</Link>, or read our <Link href="/terms-of-service" className="text-rose-600 font-semibold hover:underline">Terms of Service</Link> and <Link href="/disclaimer" className="text-rose-600 font-semibold hover:underline">DMCA Policy</Link>.
+            If you have questions about this policy, feel free to reach out to us at <a href="mailto:privacy@quktik.com" className="text-rose-700 underline">privacy@quktik.com</a>, visit our <Link href="/contact" className="text-rose-700 font-semibold hover:underline">Contact Page</Link>, or read our <Link href="/terms-of-service" className="text-rose-700 font-semibold hover:underline">Terms of Service</Link> and <Link href="/disclaimer" className="text-rose-700 font-semibold hover:underline">DMCA Policy</Link>.
           </p>
         </section>
 
@@ -61,8 +61,8 @@ export default function PrivacyPolicyPage() {
           </p>
           <ul className="list-disc list-inside space-y-2 text-slate-600 pl-2">
             <li>Third-party advertising partners, including Google, use cookies to display ads tailored to your browsing interests.</li>
-            <li>You can opt out of personalized Google advertising at any time by visiting the official <a href="https://adssettings.google.com/" target="_blank" rel="noreferrer" className="text-rose-600 underline">Google Ads Settings</a>.</li>
-            <li>You can also opt out of broader third-party cookie advertising networks by visiting <a href="https://www.aboutads.info" target="_blank" rel="noreferrer" className="text-rose-600 underline">www.aboutads.info</a>.</li>
+            <li>You can opt out of personalized Google advertising at any time by visiting the official <a href="https://adssettings.google.com/" target="_blank" rel="noreferrer" className="text-rose-700 underline">Google Ads Settings</a>.</li>
+            <li>You can also opt out of broader third-party cookie advertising networks by visiting <a href="https://www.aboutads.info" target="_blank" rel="noreferrer" className="text-rose-700 underline">www.aboutads.info</a>.</li>
           </ul>
         </section>
 

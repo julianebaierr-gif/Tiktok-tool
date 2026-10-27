@@ -37,25 +37,25 @@ export default function Footer() {
             <h3 className="text-slate-900 font-bold mb-4 text-xs tracking-wider uppercase">Free Tools</h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/tiktok-video-downloader" className="hover:text-rose-600 transition-colors">TikTok Video Downloader</Link>
+                <Link href="/tiktok-video-downloader" className="hover:text-rose-700 transition-colors">TikTok Video Downloader</Link>
               </li>
               <li>
-                <Link href="/tiktok-mp3" className="hover:text-rose-600 transition-colors">TikTok to MP3 Converter</Link>
+                <Link href="/tiktok-mp3" className="hover:text-rose-700 transition-colors">TikTok to MP3 Converter</Link>
               </li>
               <li>
-                <Link href="/tiktok-photo" className="hover:text-rose-600 transition-colors">Photo Slideshow Downloader</Link>
+                <Link href="/tiktok-photo" className="hover:text-rose-700 transition-colors">Photo Slideshow Downloader</Link>
               </li>
               <li>
-                <Link href="/tiktok-story" className="hover:text-rose-600 transition-colors">TikTok Story Saver</Link>
+                <Link href="/tiktok-story" className="hover:text-rose-700 transition-colors">TikTok Story Saver</Link>
               </li>
               <li>
-                <Link href="/douyin-downloader" className="hover:text-rose-600 transition-colors font-semibold text-rose-600">Douyin Downloader (抖音)</Link>
+                <Link href="/douyin-downloader" className="hover:text-rose-700 transition-colors font-semibold text-rose-700">Douyin Downloader (抖音)</Link>
               </li>
               <li>
-                <Link href="/tiktok-ringtone" className="hover:text-rose-600 transition-colors">TikTok Ringtone Maker</Link>
+                <Link href="/tiktok-ringtone" className="hover:text-rose-700 transition-colors">TikTok Ringtone Maker</Link>
               </li>
               <li>
-                <Link href="/tiktok-avatar" className="hover:text-rose-600 transition-colors">TikTok Avatar / PFP HD</Link>
+                <Link href="/tiktok-avatar" className="hover:text-rose-700 transition-colors">TikTok Avatar / PFP HD</Link>
               </li>
             </ul>
           </div>
@@ -65,16 +65,16 @@ export default function Footer() {
             <h3 className="text-slate-900 font-bold mb-4 text-xs tracking-wider uppercase">Resources</h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/#how-to-use" className="hover:text-rose-600 transition-colors">How to Download</Link>
+                <Link href="/#how-to-use" className="hover:text-rose-700 transition-colors">How to Download</Link>
               </li>
               <li>
-                <Link href="/#faq" className="hover:text-rose-600 transition-colors">Frequently Asked Questions</Link>
+                <Link href="/#faq" className="hover:text-rose-700 transition-colors">Frequently Asked Questions</Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-rose-600 transition-colors">About Us</Link>
+                <Link href="/about" className="hover:text-rose-700 transition-colors">About Us</Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-rose-600 transition-colors">Contact Support</Link>
+                <Link href="/contact" className="hover:text-rose-700 transition-colors">Contact Support</Link>
               </li>
             </ul>
           </div>
@@ -84,13 +84,13 @@ export default function Footer() {
             <h3 className="text-slate-900 font-bold mb-4 text-xs tracking-wider uppercase">Legal &amp; Policy</h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/privacy-policy" className="hover:text-rose-600 transition-colors">Privacy Policy</Link>
+                <Link href="/privacy-policy" className="hover:text-rose-700 transition-colors">Privacy Policy</Link>
               </li>
               <li>
-                <Link href="/terms-of-service" className="hover:text-rose-600 transition-colors">Terms of Service</Link>
+                <Link href="/terms-of-service" className="hover:text-rose-700 transition-colors">Terms of Service</Link>
               </li>
               <li>
-                <Link href="/disclaimer" className="hover:text-rose-600 transition-colors">DMCA &amp; Fair Use</Link>
+                <Link href="/disclaimer" className="hover:text-rose-700 transition-colors">DMCA &amp; Fair Use</Link>
               </li>
             </ul>
           </div>

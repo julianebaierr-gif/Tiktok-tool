@@ -24,14 +24,14 @@ export default function ContactPage() {
       <Breadcrumbs items={[{ name: 'Contact Support', url: '/contact' }]} />
       
       <div className="text-center max-w-2xl mx-auto mb-14">
-        <span className="text-xs font-bold uppercase tracking-widest text-rose-600 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">
+        <span className="text-xs font-bold uppercase tracking-widest text-rose-700 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">
           Get in Touch
         </span>
         <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-4">
           Contact QukTik Team
         </h1>
         <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
-          Have a question, feedback, bug report, or DMCA inquiry? We are here to help. Before contacting, you can also review our <Link href="/disclaimer" className="text-rose-600 font-semibold hover:underline">DMCA Policy</Link>, <Link href="/privacy-policy" className="text-rose-600 font-semibold hover:underline">Privacy Policy</Link>, and <Link href="/terms-of-service" className="text-rose-600 font-semibold hover:underline">Terms of Service</Link>, or return to the <Link href="/" className="text-rose-600 font-semibold hover:underline">QukTik Downloader</Link>.
+          Have a question, feedback, bug report, or DMCA inquiry? We are here to help. Before contacting, you can also review our <Link href="/disclaimer" className="text-rose-700 font-semibold hover:underline">DMCA Policy</Link>, <Link href="/privacy-policy" className="text-rose-700 font-semibold hover:underline">Privacy Policy</Link>, and <Link href="/terms-of-service" className="text-rose-700 font-semibold hover:underline">Terms of Service</Link>, or return to the <Link href="/" className="text-rose-700 font-semibold hover:underline">QukTik Downloader</Link>.
         </p>
       </div>
 
@@ -46,14 +46,14 @@ export default function ContactPage() {
               <Mail className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
               <div>
                 <p className="font-bold text-slate-900">Email Support</p>
-                <a href="mailto:support@quktik.com" className="text-rose-600 hover:underline">
+                <a href="mailto:support@quktik.com" className="text-rose-700 hover:underline">
                   support@quktik.com
                 </a>
               </div>
             </div>
 
             <div className="flex items-start space-x-3 text-sm">
-              <Clock className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+              <Clock className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
               <div>
                 <p className="font-bold text-slate-900">Response Window</p>
                 <p className="text-slate-500 text-xs mt-0.5">Usually within 24 to 48 business hours</p>

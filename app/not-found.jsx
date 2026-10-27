@@ -16,7 +16,7 @@ export default function NotFound() {
     <div className="min-h-[60vh] flex items-center justify-center px-4 py-16 text-center">
       <div className="max-w-md mx-auto space-y-6">
         <div className="w-20 h-20 mx-auto rounded-3xl bg-rose-50 border border-rose-200 flex items-center justify-center">
-          <span className="text-3xl font-black text-rose-600">404</span>
+          <span className="text-3xl font-black text-rose-700">404</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
           Page Not Found

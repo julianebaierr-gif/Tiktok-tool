@@ -153,9 +153,9 @@ export default function DownloaderForm({
                 <button
                   type="button"
                   onClick={handlePaste}
-                  className="flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-2xl bg-gradient-to-r from-rose-50 to-pink-50 hover:from-rose-100 hover:to-pink-100 text-rose-600 font-bold text-xs sm:text-sm border border-rose-200 transition-all active:scale-95 shadow-xs"
+                  className="flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-2xl bg-gradient-to-r from-rose-50 to-pink-50 hover:from-rose-100 hover:to-pink-100 text-rose-700 font-bold text-xs sm:text-sm border border-rose-200 transition-all active:scale-95 shadow-xs"
                 >
-                  <Clipboard className="w-4 h-4 text-rose-600" />
+                  <Clipboard className="w-4 h-4 text-rose-700" />
                   <span>Paste Link</span>
                 </button>
               )}
@@ -188,7 +188,7 @@ export default function DownloaderForm({
           <button
             type="button"
             onClick={loadSampleUrl}
-            className="text-rose-600 hover:text-rose-700 underline font-bold cursor-pointer"
+            className="text-rose-700 hover:text-rose-700 underline font-bold cursor-pointer"
           >
             Click here to try a fun sample video! 🎬
           </button>

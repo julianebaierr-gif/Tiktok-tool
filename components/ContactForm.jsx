@@ -21,7 +21,7 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div className="text-center py-12 space-y-4 animate-in fade-in">
-        <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto border border-emerald-200">
+        <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center mx-auto border border-emerald-200">
           <CheckCircle2 className="w-8 h-8" />
         </div>
         <h3 className="text-xl font-bold text-slate-900">Message Received!</h3>

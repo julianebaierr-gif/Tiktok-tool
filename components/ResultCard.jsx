@@ -74,19 +74,19 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
   const getModeBadge = () => {
     switch (mode) {
       case 'mp3':
-        return { text: 'MP3 Audio Extracted (320kbps)', icon: Disc, color: 'text-rose-600 bg-rose-50 border-rose-200' };
+        return { text: 'MP3 Audio Extracted (320kbps)', icon: Disc, color: 'text-rose-700 bg-rose-50 border-rose-200' };
       case 'ringtone':
-        return { text: 'Custom Ringtone Ready', icon: Bell, color: 'text-emerald-600 bg-emerald-50 border-emerald-200' };
+        return { text: 'Custom Ringtone Ready', icon: Bell, color: 'text-emerald-700 bg-emerald-50 border-emerald-200' };
       case 'avatar':
         return { text: 'Profile Avatar HD Extracted', icon: UserCheck, color: 'text-indigo-600 bg-indigo-50 border-indigo-200' };
       case 'douyin':
-        return { text: 'Douyin (抖音) Watermark Removed', icon: Globe2, color: 'text-rose-600 bg-rose-50 border-rose-200' };
+        return { text: 'Douyin (抖音) Watermark Removed', icon: Globe2, color: 'text-rose-700 bg-rose-50 border-rose-200' };
       case 'story':
-        return { text: 'Story Video (Saved Before 24h Expiry)', icon: Clock, color: 'text-amber-600 bg-amber-50 border-amber-200' };
+        return { text: 'Story Video (Saved Before 24h Expiry)', icon: Clock, color: 'text-amber-700 bg-amber-50 border-amber-200' };
       case 'photo':
         return { text: 'Photo Slideshow Gallery', icon: ImageIcon, color: 'text-indigo-600 bg-indigo-50 border-indigo-200' };
       default:
-        return { text: 'Watermark-Free 1080p Stream Ready', icon: CheckCircle2, color: 'text-emerald-600 bg-emerald-50 border-emerald-200' };
+        return { text: 'Watermark-Free 1080p Stream Ready', icon: CheckCircle2, color: 'text-emerald-700 bg-emerald-50 border-emerald-200' };
     }
   };
 
@@ -110,7 +110,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
               className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200 transition-all"
               title="Copy direct download link"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
+              {copied ? <Check className="w-3.5 h-3.5 text-emerald-700" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
               <span>{copied ? 'Link Copied!' : 'Copy Link'}</span>
             </button>
 
@@ -157,7 +157,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
 
             <div>
               <h3 className="text-2xl font-black text-slate-900">{author?.nickname || 'TikTok User'}</h3>
-              <p className="text-sm font-semibold text-rose-600">@{author?.username || 'user'}</p>
+              <p className="text-sm font-semibold text-rose-700">@{author?.username || 'user'}</p>
               {title && <p className="text-xs text-slate-500 mt-2 max-w-md mx-auto line-clamp-2">{title}</p>}
             </div>
 
@@ -260,7 +260,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                 <a
                   href={getProxyUrl(video.noWatermark, `quktik_video_${id}.mp4`, 'video')}
                   download={`quktik_video_${id}.mp4`}
-                  className="font-bold text-rose-600 hover:underline flex items-center gap-1"
+                  className="font-bold text-rose-700 hover:underline flex items-center gap-1"
                 >
                   <Video className="w-3.5 h-3.5" />
                   <span>Download MP4 Without Watermark</span>
@@ -298,7 +298,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                     {video?.noWatermark && (
                       <button
                         onClick={() => setIsPlaying(true)}
-                        className="absolute inset-0 flex items-center justify-center m-auto w-14 h-14 rounded-full bg-white/90 text-rose-600 shadow-lg hover:scale-110 active:scale-95 transition-all group-hover:bg-white"
+                        className="absolute inset-0 flex items-center justify-center m-auto w-14 h-14 rounded-full bg-white/90 text-rose-700 shadow-lg hover:scale-110 active:scale-95 transition-all group-hover:bg-white"
                         title="Play preview video"
                       >
                         <Play className="w-6 h-6 fill-rose-600 ml-0.5" />
@@ -311,7 +311,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                   </div>
                 )}
                 
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 border border-white/80 text-[11px] font-bold text-rose-600 shadow-sm flex items-center gap-1.5 pointer-events-none">
+                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 border border-white/80 text-[11px] font-bold text-rose-700 shadow-sm flex items-center gap-1.5 pointer-events-none">
                   <Sparkles className="w-3 h-3 text-rose-500" />
                   <span>No Watermark</span>
                 </div>
@@ -377,7 +377,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
               <div className="space-y-3.5 pt-2">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-black text-slate-500 uppercase tracking-wider">Choose Download Option:</h4>
-                  <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">Ready in 1080p</span>
+                  <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">Ready in 1080p</span>
                 </div>
 
                 {video?.noWatermark && (
@@ -450,11 +450,11 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
                     <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
                       <span className="font-bold text-slate-900 block">1080p MP4</span>
-                      <span className="text-[10px] text-emerald-600 font-semibold">Zero Watermark</span>
+                      <span className="text-[10px] text-emerald-700 font-semibold">Zero Watermark</span>
                     </div>
                     <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
                       <span className="font-bold text-slate-900 block">320kbps MP3</span>
-                      <span className="text-[10px] text-rose-600 font-semibold">Studio Stereo</span>
+                      <span className="text-[10px] text-rose-700 font-semibold">Studio Stereo</span>
                     </div>
                     <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
                       <span className="font-bold text-slate-900 block">Custom Tone</span>
@@ -473,7 +473,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                       href={video.noWatermark}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-rose-600 transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-rose-700 transition-colors"
                     >
                       <span>Having trouble downloading? Click here to view source stream</span>
                       <ExternalLink className="w-3 h-3" />
@@ -533,7 +533,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
             >
               <X className="w-5 h-5" />
             </button>
-            <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mx-auto mb-3">
+            <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-700 flex items-center justify-center mx-auto mb-3">
               <QrCode className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900 mb-1">Scan to Download on Phone</h3>

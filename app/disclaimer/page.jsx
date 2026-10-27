@@ -23,7 +23,7 @@ export default function DisclaimerPage() {
       <Breadcrumbs items={[{ name: 'DMCA Disclaimer', url: '/disclaimer' }]} />
       
       <div className="border-b border-slate-200 pb-8 mb-10">
-        <span className="text-xs font-bold uppercase tracking-widest text-rose-600 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">
+        <span className="text-xs font-bold uppercase tracking-widest text-rose-700 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">
           Copyright &amp; Compliance
         </span>
         <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-4">
@@ -39,7 +39,7 @@ export default function DisclaimerPage() {
         {/* Trademark Disclaimer */}
         <section className="p-6 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-2">
           <h2 className="text-lg font-bold text-amber-950 flex items-center gap-2">
-            <ShieldAlert className="w-5 h-5 text-amber-600" />
+            <ShieldAlert className="w-5 h-5 text-amber-700" />
             <span>Trademark &amp; Non-Affiliation Notice</span>
           </h2>
           <p className="text-amber-900 text-sm leading-relaxed">
@@ -81,7 +81,7 @@ export default function DisclaimerPage() {
             <span>DMCA Compliance Contact</span>
           </h3>
           <p className="text-sm text-slate-600">
-            Send all takedown notices directly to: <a href="mailto:dmca@quktik.com" className="text-rose-600 underline font-bold">dmca@quktik.com</a> or submit via our online <Link href="/contact" className="text-rose-600 font-semibold hover:underline">Contact Form</Link>. See also our <Link href="/terms-of-service" className="text-rose-600 font-semibold hover:underline">Terms of Service</Link> and <Link href="/about" className="text-rose-600 font-semibold hover:underline">About QukTik</Link>.
+            Send all takedown notices directly to: <a href="mailto:dmca@quktik.com" className="text-rose-700 underline font-bold">dmca@quktik.com</a> or submit via our online <Link href="/contact" className="text-rose-700 font-semibold hover:underline">Contact Form</Link>. See also our <Link href="/terms-of-service" className="text-rose-700 font-semibold hover:underline">Terms of Service</Link> and <Link href="/about" className="text-rose-700 font-semibold hover:underline">About QukTik</Link>.
           </p>
           <p className="text-xs text-slate-500">
             Valid takedown requests are typically handled and permanently blacklisted from our tool within 24 to 48 business hours.

@@ -122,7 +122,7 @@ export default function TikTokAvatarPage() {
       {/* Feature Highlights Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-teal-600 bg-teal-50 px-3.5 py-1 rounded-full border border-teal-200">
+          <span className="text-xs font-bold uppercase tracking-widest text-teal-700 bg-teal-50 px-3.5 py-1 rounded-full border border-teal-200">
             Uncompressed Master Photo Retrieval
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
@@ -135,7 +135,7 @@ export default function TikTokAvatarPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-600 mb-2">
+            <div className="w-12 h-12 rounded-2xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-700 mb-2">
               <Maximize2 className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900">Uncropped Full Size (1080p)</h3>
@@ -172,7 +172,7 @@ export default function TikTokAvatarPage() {
         {/* Section 1: The Avatar Dilemma & Relative 3D Image */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-700 text-xs font-bold uppercase tracking-wider">
-            <Camera className="w-4 h-4 text-teal-600" />
+            <Camera className="w-4 h-4 text-teal-700" />
             <span>Digital Identity &amp; Aesthetic Architecture</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -194,7 +194,7 @@ export default function TikTokAvatarPage() {
               width={1200} height={675} loading="lazy"
             />
             <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm text-slate-600 font-medium">
-              <span className="flex items-center gap-1.5 text-teal-600 font-bold">
+              <span className="flex items-center gap-1.5 text-teal-700 font-bold">
                 <span>Circular Crop Bypass (80x80 ➔ 1080x1080 Master)</span>
               </span>
               <span className="flex items-center gap-1.5 text-emerald-700 font-bold">
@@ -219,7 +219,7 @@ export default function TikTokAvatarPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                <span className="w-7 h-7 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center text-xs font-black">1</span>
+                <span className="w-7 h-7 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center text-xs font-black">1</span>
                 Original Master Upload
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -228,7 +228,7 @@ export default function TikTokAvatarPage() {
             </div>
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                <span className="w-7 h-7 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center text-xs font-black">2</span>
+                <span className="w-7 h-7 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center text-xs font-black">2</span>
                 Multitier Thumbnail Generation
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -237,7 +237,7 @@ export default function TikTokAvatarPage() {
             </div>
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                <span className="w-7 h-7 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center text-xs font-black">3</span>
+                <span className="w-7 h-7 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center text-xs font-black">3</span>
                 The 21.46% Circular CSS Cutoff
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -246,7 +246,7 @@ export default function TikTokAvatarPage() {
             </div>
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                <span className="w-7 h-7 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center text-xs font-black">4</span>
+                <span className="w-7 h-7 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center text-xs font-black">4</span>
                 QukTik Direct Master CDN Query
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -270,7 +270,7 @@ export default function TikTokAvatarPage() {
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
                   <th className="p-4 sm:p-5">Performance Metric</th>
-                  <th className="p-4 sm:p-5 text-teal-600">QukTik Avatar HD Downloader</th>
+                  <th className="p-4 sm:p-5 text-teal-700">QukTik Avatar HD Downloader</th>
                   <th className="p-4 sm:p-5 text-slate-500">TikTok Mobile Application</th>
                   <th className="p-4 sm:p-5 text-slate-500">Manual Screen Capture</th>
                 </tr>
@@ -333,7 +333,7 @@ export default function TikTokAvatarPage() {
           <div className="space-y-4 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
               <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-teal-600 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-teal-700 shrink-0" />
                 Spotting Re-Compressed Screenshot Avatars
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -343,7 +343,7 @@ export default function TikTokAvatarPage() {
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
               <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-teal-600 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-teal-700 shrink-0" />
                 Uncovering Fake Graphic Badges &amp; Painted Verification Ticks
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -353,7 +353,7 @@ export default function TikTokAvatarPage() {
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
               <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-teal-600 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-teal-700 shrink-0" />
                 Verifying Brand Partnerships and Talent Agency Roster Legitimacy
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -366,7 +366,7 @@ export default function TikTokAvatarPage() {
         {/* Section 5: Multi-Platform Cross-Posting & Avatar Repurposing Guide */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-700 text-xs font-bold uppercase tracking-wider">
-            <Palette className="w-4 h-4 text-teal-600" />
+            <Palette className="w-4 h-4 text-teal-700" />
             <span>Cross-Platform Media Compatibility</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -420,7 +420,7 @@ export default function TikTokAvatarPage() {
             {/* Mobile Walkthrough */}
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-600 font-bold">
+                <div className="w-10 h-10 rounded-2xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-700 font-bold">
                   <Smartphone className="w-5 h-5" />
                 </div>
                 <div>
@@ -462,7 +462,7 @@ export default function TikTokAvatarPage() {
         {/* Section 7: Legal, Ethical & Fair Use Guidelines (AdSense Safe) */}
         <section className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
           <div className="flex items-center gap-3 text-slate-900 font-bold text-lg">
-            <ShieldCheck className="w-6 h-6 text-teal-600 shrink-0" />
+            <ShieldCheck className="w-6 h-6 text-teal-700 shrink-0" />
             <h4>Ethical Compliance, Likeness Rights &amp; Safe Personal Archiving</h4>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -479,7 +479,7 @@ export default function TikTokAvatarPage() {
         {/* Section 8: FAQ Accordion Section */}
         <section className="space-y-8">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest text-teal-600 bg-teal-50 px-3.5 py-1 rounded-full border border-teal-200">
+            <span className="text-xs font-bold uppercase tracking-widest text-teal-700 bg-teal-50 px-3.5 py-1 rounded-full border border-teal-200">
               Clear Technical Answers
             </span>
             <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
@@ -498,7 +498,7 @@ export default function TikTokAvatarPage() {
               >
                 <summary className="font-bold text-base sm:text-lg text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
                   <span>{item.q}</span>
-                  <span className="text-teal-600 group-open:rotate-180 transition-transform text-xl font-black">
+                  <span className="text-teal-700 group-open:rotate-180 transition-transform text-xl font-black">
                     ↓
                   </span>
                 </summary>

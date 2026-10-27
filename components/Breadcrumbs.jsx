@@ -42,7 +42,7 @@ export default function Breadcrumbs({ items = [] }) {
           <li className="inline-flex items-center">
             <Link
               href="/"
-              className="inline-flex items-center gap-1 text-slate-500 hover:text-rose-600 transition-colors"
+              className="inline-flex items-center gap-1 text-slate-500 hover:text-rose-700 transition-colors"
             >
               <Home className="w-3.5 h-3.5" />
               <span>Home</span>
@@ -61,7 +61,7 @@ export default function Breadcrumbs({ items = [] }) {
                 ) : (
                   <Link
                     href={item.url}
-                    className="text-slate-500 hover:text-rose-600 transition-colors truncate max-w-[150px] sm:max-w-none"
+                    className="text-slate-500 hover:text-rose-700 transition-colors truncate max-w-[150px] sm:max-w-none"
                   >
                     {item.name}
                   </Link>

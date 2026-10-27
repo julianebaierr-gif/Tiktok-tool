@@ -20,7 +20,7 @@ const ALL_TOOLS = [
     description: 'Save original high-definition videos with no watermark, logos, or author tags.',
     icon: Video,
     color: 'from-rose-500 to-pink-600',
-    lightColor: 'text-rose-600 bg-rose-50 border-rose-200'
+    lightColor: 'text-rose-700 bg-rose-50 border-rose-200'
   },
   {
     slug: '/tiktok-mp3',
@@ -29,7 +29,7 @@ const ALL_TOOLS = [
     description: 'Extract crystal-clear studio audio, viral sound hooks, and background music instantly.',
     icon: Music,
     color: 'from-amber-500 to-orange-600',
-    lightColor: 'text-amber-600 bg-amber-50 border-amber-200'
+    lightColor: 'text-amber-700 bg-amber-50 border-amber-200'
   },
   {
     slug: '/tiktok-photo',
@@ -56,7 +56,7 @@ const ALL_TOOLS = [
     description: 'Download videos and audios from Chinese Douyin with automatic Chinese text URL parsing.',
     icon: Globe2,
     color: 'from-emerald-500 to-teal-600',
-    lightColor: 'text-emerald-600 bg-emerald-50 border-emerald-200'
+    lightColor: 'text-emerald-700 bg-emerald-50 border-emerald-200'
   },
   {
     slug: '/tiktok-ringtone',
@@ -85,7 +85,7 @@ export default function RelatedTools({ currentSlug = '' }) {
     <section className="py-16 bg-slate-50/70 border-t border-b border-slate-200/80 my-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-50 text-xs font-bold text-rose-600 border border-rose-200 mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-50 text-xs font-bold text-rose-700 border border-rose-200 mb-3">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Complete TikTok Suite</span>
           </div>
@@ -116,7 +116,7 @@ export default function RelatedTools({ currentSlug = '' }) {
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-rose-600 transition-colors">
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-rose-700 transition-colors">
                     {tool.title}
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -124,7 +124,7 @@ export default function RelatedTools({ currentSlug = '' }) {
                   </p>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs sm:text-sm font-bold text-rose-600 group-hover:gap-2.5 transition-all">
+                <div className="mt-5 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs sm:text-sm font-bold text-rose-700 group-hover:gap-2.5 transition-all">
                   <span>Open Tool</span>
                   <ArrowRight className="w-4 h-4" />
                 </div>
