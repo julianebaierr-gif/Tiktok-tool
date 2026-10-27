@@ -134,7 +134,7 @@ export default function TikTokAvatarPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
             <div className="w-12 h-12 rounded-2xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-700 mb-2">
               <Maximize2 className="w-6 h-6" />
             </div>
@@ -144,7 +144,7 @@ export default function TikTokAvatarPage() {
             </p>
           </div>
 
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
             <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 mb-2">
               <ZoomIn className="w-6 h-6" />
             </div>
@@ -154,7 +154,7 @@ export default function TikTokAvatarPage() {
             </p>
           </div>
 
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
             <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 mb-2">
               <UserCheck className="w-6 h-6" />
             </div>
@@ -186,7 +186,7 @@ export default function TikTokAvatarPage() {
           </p>
 
           {/* Embedded 3D Illustration: Avatar Downloader */}
-          <div className="my-8 rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white">
+          <div className="my-8 rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white">
             <img
               src="/images/avatar-downloader-3d.png"
               alt="3D visual illustration showing TikTok profile picture uncropping and HD zoom extraction into crisp 1080p JPG"
@@ -219,7 +219,7 @@ export default function TikTokAvatarPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                <span className="w-7 h-7 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center text-xs font-black">1</span>
+                <span className="w-6 h-6 rounded-lg bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center text-xs font-bold">1</span>
                 Original Master Upload
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -228,7 +228,7 @@ export default function TikTokAvatarPage() {
             </div>
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                <span className="w-7 h-7 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center text-xs font-black">2</span>
+                <span className="w-6 h-6 rounded-lg bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center text-xs font-bold">2</span>
                 Multitier Thumbnail Generation
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -237,7 +237,7 @@ export default function TikTokAvatarPage() {
             </div>
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                <span className="w-7 h-7 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center text-xs font-black">3</span>
+                <span className="w-6 h-6 rounded-lg bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center text-xs font-bold">3</span>
                 The 21.46% Circular CSS Cutoff
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -246,7 +246,7 @@ export default function TikTokAvatarPage() {
             </div>
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                <span className="w-7 h-7 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center text-xs font-black">4</span>
+                <span className="w-6 h-6 rounded-lg bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center text-xs font-bold">4</span>
                 QukTik Direct Master CDN Query
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -265,7 +265,7 @@ export default function TikTokAvatarPage() {
             The table below demonstrates the vast technical gap between taking a manual screenshot on a mobile device versus extracting the original media asset directly from the cloud CDN:
           </p>
 
-          <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-sm bg-white my-6">
+          <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white my-6">
             <table className="w-full text-left text-sm border-collapse">
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
@@ -421,7 +421,7 @@ export default function TikTokAvatarPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
             {/* Mobile Walkthrough */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-2xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-700 font-bold">
                   <Smartphone className="w-5 h-5" />
@@ -441,7 +441,7 @@ export default function TikTokAvatarPage() {
             </div>
 
             {/* Desktop Walkthrough */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 font-bold">
                   <Monitor className="w-5 h-5" />
@@ -463,7 +463,7 @@ export default function TikTokAvatarPage() {
         </section>
 
         {/* Section 7: Legal, Ethical & Fair Use Guidelines (AdSense Safe) */}
-        <section className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
+        <section className="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
           <div className="flex items-center gap-3 text-slate-900 font-bold text-lg">
             <ShieldCheck className="w-6 h-6 text-teal-700 shrink-0" />
             <h3 className="text-slate-900 font-bold text-lg">Ethical Compliance, Likeness Rights &amp; Safe Personal Archiving</h3>

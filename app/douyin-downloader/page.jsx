@@ -132,7 +132,7 @@ export default function DouyinDownloaderPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
             <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 mb-2">
               <Globe2 className="w-6 h-6" />
             </div>
@@ -142,7 +142,7 @@ export default function DouyinDownloaderPage() {
             </p>
           </div>
 
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
             <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 mb-2">
               <Zap className="w-6 h-6" />
             </div>
@@ -152,7 +152,7 @@ export default function DouyinDownloaderPage() {
             </p>
           </div>
 
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
             <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 mb-2">
               <Sparkles className="w-6 h-6" />
             </div>
@@ -175,7 +175,7 @@ export default function DouyinDownloaderPage() {
             Standard video downloaders on the internet are configured strictly for international TikTok domains (<code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok.com</code>). When presented with a Douyin link, they fail for three main reasons:
           </p>
 
-          <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-sm bg-white my-6">
+          <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white my-6">
             <table className="w-full text-left text-sm border-collapse">
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
@@ -218,7 +218,7 @@ export default function DouyinDownloaderPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
+                <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
                   01
                 </div>
                 <h3 className="font-bold text-slate-900 text-base">JianYing (剪映) &amp; CapCut Editing</h3>
@@ -230,7 +230,7 @@ export default function DouyinDownloaderPage() {
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
+                <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
                   02
                 </div>
                 <h3 className="font-bold text-slate-900 text-base">Viral BGM &amp; Traditional Instrumentals</h3>
@@ -242,7 +242,7 @@ export default function DouyinDownloaderPage() {
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
+                <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
                   03
                 </div>
                 <h3 className="font-bold text-slate-900 text-base">E-Commerce &amp; Product Showcases</h3>
@@ -254,7 +254,7 @@ export default function DouyinDownloaderPage() {
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
+                <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
                   04
                 </div>
                 <h3 className="font-bold text-slate-900 text-base">Culinary Techniques &amp; Street Food</h3>
@@ -273,7 +273,7 @@ export default function DouyinDownloaderPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
             {/* Mobile Box */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 font-bold">
                   App
@@ -293,7 +293,7 @@ export default function DouyinDownloaderPage() {
             </div>
 
             {/* Desktop Box */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0"><Laptop className="w-5 h-5" /></div>
                 <div>
@@ -370,7 +370,7 @@ export default function DouyinDownloaderPage() {
         </section>
 
         {/* Section 9: Ethical & Copyright Considerations */}
-        <section className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
+        <section className="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
           <div className="flex items-center gap-3 text-slate-900 font-bold text-lg">
             <ShieldCheck className="w-6 h-6 text-rose-700" />
             <h3 className="text-slate-900 font-bold text-lg">Intellectual Property &amp; Cross-Border Fair Use</h3>

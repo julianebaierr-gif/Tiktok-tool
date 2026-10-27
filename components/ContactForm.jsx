@@ -50,7 +50,7 @@ export default function ContactForm() {
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           placeholder="Enter your name"
-          className="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-rose-400 focus:bg-white transition-colors"
+          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-slate-800 focus:bg-white transition-colors"
         />
       </div>
 
@@ -64,7 +64,7 @@ export default function ContactForm() {
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           placeholder="name@yourdomain.com"
-          className="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-rose-400 focus:bg-white transition-colors"
+          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-slate-800 focus:bg-white transition-colors"
         />
       </div>
 
@@ -75,7 +75,7 @@ export default function ContactForm() {
         <select
           value={formData.subject}
           onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-          className="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-rose-400 focus:bg-white transition-colors"
+          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-slate-800 focus:bg-white transition-colors"
         >
           <option value="general">General Feedback / Inquiries</option>
           <option value="bug">Report a Broken Video Link / Bug</option>
@@ -94,13 +94,13 @@ export default function ContactForm() {
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           placeholder="Please describe your question or issue in detail..."
-          className="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-rose-400 focus:bg-white transition-colors"
+          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-slate-800 focus:bg-white transition-colors"
         />
       </div>
 
       <button
         type="submit"
-        className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-rose-500 to-indigo-600 hover:from-rose-600 hover:to-indigo-700 text-white font-bold text-sm shadow-md shadow-rose-500/20 flex items-center justify-center space-x-2 transition-all"
+        className="w-full py-3.5 px-6 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm shadow-xs active:scale-[0.99] flex items-center justify-center space-x-2 transition-all"
       >
         <Send className="w-4 h-4" />
         <span>Submit Message</span>

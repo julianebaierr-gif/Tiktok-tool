@@ -19,8 +19,6 @@ const ALL_TOOLS = [
     badge: '1080p MP4',
     description: 'Save original high-definition videos with no watermark, logos, or author tags.',
     icon: Video,
-    color: 'from-rose-500 to-pink-600',
-    lightColor: 'text-rose-700 bg-rose-50 border-rose-200'
   },
   {
     slug: '/tiktok-mp3',
@@ -28,8 +26,6 @@ const ALL_TOOLS = [
     badge: '320kbps Audio',
     description: 'Extract crystal-clear studio audio, viral sound hooks, and background music instantly.',
     icon: Music,
-    color: 'from-amber-500 to-orange-600',
-    lightColor: 'text-amber-700 bg-amber-50 border-amber-200'
   },
   {
     slug: '/tiktok-photo',
@@ -37,8 +33,6 @@ const ALL_TOOLS = [
     badge: 'HD Carousels',
     description: 'Download multi-slide photo carousels and slideshow pictures in original JPG resolution.',
     icon: ImageIcon,
-    color: 'from-blue-500 to-cyan-600',
-    lightColor: 'text-blue-600 bg-blue-50 border-blue-200'
   },
   {
     slug: '/tiktok-story',
@@ -46,87 +40,77 @@ const ALL_TOOLS = [
     badge: '100% Anonymous',
     description: 'Archive 24-hour disappearing TikTok stories before they vanish without creator notification.',
     icon: History,
-    color: 'from-purple-500 to-indigo-600',
-    lightColor: 'text-purple-600 bg-purple-50 border-purple-200'
   },
   {
     slug: '/douyin-downloader',
     title: 'Douyin Video Downloader',
-    badge: '抖音无水印',
+    badge: 'Douyin (抖音)',
     description: 'Download videos and audios from Chinese Douyin with automatic Chinese text URL parsing.',
     icon: Globe2,
-    color: 'from-emerald-500 to-teal-600',
-    lightColor: 'text-emerald-700 bg-emerald-50 border-emerald-200'
   },
   {
     slug: '/tiktok-ringtone',
     title: 'TikTok Ringtone Maker',
-    badge: 'Phone Tones',
-    description: 'Convert trending TikTok soundbites into customized ringtones and morning alarms.',
+    badge: 'M4R & MP3',
+    description: 'Create custom ringtones and text alerts from TikTok audio for iPhone and Android.',
     icon: BellRing,
-    color: 'from-pink-500 to-rose-600',
-    lightColor: 'text-pink-600 bg-pink-50 border-pink-200'
   },
   {
     slug: '/tiktok-avatar',
-    title: 'TikTok Avatar Downloader',
-    badge: 'Full-Res PFP',
-    description: 'Uncrop and download full-resolution profile pictures and creator avatars in HD.',
+    title: 'TikTok Avatar / PFP HD',
+    badge: 'Full Resolution',
+    description: 'View and download full-resolution TikTok profile pictures and avatars in uncropped HD.',
     icon: UserCircle,
-    color: 'from-indigo-500 to-violet-600',
-    lightColor: 'text-indigo-600 bg-indigo-50 border-indigo-200'
   }
 ];
 
-export default function RelatedTools({ currentSlug = '' }) {
-  const filteredTools = ALL_TOOLS.filter((t) => t.slug !== currentSlug);
+export default function RelatedTools({ currentSlug }) {
+  // Exclude current tool
+  const filteredTools = ALL_TOOLS.filter(t => t.slug !== currentSlug);
 
   return (
-    <section className="py-16 bg-slate-50/70 border-t border-b border-slate-200/80 my-16">
+    <section className="py-14 sm:py-18 bg-slate-50/70 border-t border-b border-slate-200/80 my-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-50 text-xs font-bold text-rose-700 border border-rose-200 mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Complete TikTok Suite</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            Explore More Free TikTok &amp; Douyin Tools
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <span className="text-xs font-semibold uppercase tracking-wider text-slate-700 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+            More Utilities
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
+            Explore More TikTok &amp; Douyin Tools
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600">
-            Switch smoothly between our high-speed media processing tools. All tools are 100% free with no watermark.
+            Switch smoothly between our high-speed media processing tools. All tools are 100% free with no watermarks.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredTools.map((tool) => {
             const Icon = tool.icon;
             return (
               <Link
                 key={tool.slug}
                 href={tool.slug}
-                className="group relative p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200 flex flex-col justify-between"
+                className="group relative p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-slate-300 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center border ${tool.lightColor}`}>
-                      <Icon className="w-6 h-6" />
+                    <div className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200/80 flex items-center justify-center text-slate-800">
+                      <Icon className="w-5 h-5 text-rose-600" />
                     </div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200/80">
                       {tool.badge}
                     </span>
                   </div>
-
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-rose-700 transition-colors">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 group-hover:text-rose-600 transition-colors">
                     {tool.title}
                   </h3>
-                  <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
                     {tool.description}
                   </p>
                 </div>
-
-                <div className="mt-5 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs sm:text-sm font-bold text-rose-700 group-hover:gap-2.5 transition-all">
+                <div className="flex items-center gap-1.5 text-xs font-semibold text-rose-600 group-hover:underline">
                   <span>Open Tool</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             );

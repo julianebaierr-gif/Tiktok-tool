@@ -133,7 +133,7 @@ export default function TikTokPhotoPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
             <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 mb-2">
               <Camera className="w-6 h-6" />
             </div>
@@ -143,7 +143,7 @@ export default function TikTokPhotoPage() {
             </p>
           </div>
 
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
             <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 mb-2">
               <Grid className="w-6 h-6" />
             </div>
@@ -153,7 +153,7 @@ export default function TikTokPhotoPage() {
             </p>
           </div>
 
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
             <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 mb-2">
               <FolderArchive className="w-6 h-6" />
             </div>
@@ -176,7 +176,7 @@ export default function TikTokPhotoPage() {
             When users see a travel guide or wallpaper they want to keep, their immediate instinct is often to capture a smartphone screenshot. Here is why taking screenshots produces inferior results compared to extracting master assets through QukTik:
           </p>
 
-          <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-sm bg-white my-6">
+          <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white my-6">
             <table className="w-full text-left text-sm border-collapse">
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
@@ -228,7 +228,7 @@ export default function TikTokPhotoPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
+                <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
                   01
                 </div>
                 <h3 className="font-bold text-slate-900 text-base">Travel Itineraries &amp; Offline Maps</h3>
@@ -240,7 +240,7 @@ export default function TikTokPhotoPage() {
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
+                <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
                   02
                 </div>
                 <h3 className="font-bold text-slate-900 text-base">Culinary Recipes &amp; Ingredient Ratios</h3>
@@ -252,7 +252,7 @@ export default function TikTokPhotoPage() {
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
+                <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
                   03
                 </div>
                 <h3 className="font-bold text-slate-900 text-base">Aesthetic Wallpapers &amp; Lock Screens</h3>
@@ -264,7 +264,7 @@ export default function TikTokPhotoPage() {
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
+                <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
                   04
                 </div>
                 <h3 className="font-bold text-slate-900 text-base">Fashion Lookbooks &amp; Style Inspiration</h3>
@@ -283,7 +283,7 @@ export default function TikTokPhotoPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
             {/* iOS Box */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 shrink-0">
                   <Smartphone className="w-5 h-5" />
@@ -302,7 +302,7 @@ export default function TikTokPhotoPage() {
             </div>
 
             {/* Android / PC Box */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0"><Smartphone className="w-5 h-5" /></div>
                 <div>
@@ -394,7 +394,7 @@ export default function TikTokPhotoPage() {
         </section>
 
         {/* Section 10: Ethical & Copyright Considerations */}
-        <section className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
+        <section className="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
           <div className="flex items-center gap-3 text-slate-900 font-bold text-lg">
             <ShieldCheck className="w-6 h-6 text-rose-700" />
             <h3 className="text-slate-900 font-bold text-lg">Photographer Copyright &amp; Ethical Re-use</h3>

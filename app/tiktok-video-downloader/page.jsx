@@ -163,7 +163,7 @@ export default function TikTokVideoDownloaderPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
+              <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
                 01
               </div>
               <h3 className="font-bold text-slate-900 text-base">Algorithmic Reach</h3>
@@ -173,7 +173,7 @@ export default function TikTokVideoDownloaderPage() {
             </div>
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
+              <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
                 02
               </div>
               <h3 className="font-bold text-slate-900 text-base">Sponsor &amp; Client Standards</h3>
@@ -183,7 +183,7 @@ export default function TikTokVideoDownloaderPage() {
             </div>
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
+              <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
                 03
               </div>
               <h3 className="font-bold text-slate-900 text-base">Long-Term Digital Backup</h3>
@@ -202,7 +202,7 @@ export default function TikTokVideoDownloaderPage() {
             The web is flooded with unreliable download sites loaded with deceptive banner ads, forced app installations, and slow conversion servers. Here is how QukTik compares across critical performance criteria:
           </p>
 
-          <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-sm bg-white my-6">
+          <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white my-6">
             <table className="w-full text-left text-sm border-collapse">
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
@@ -264,7 +264,7 @@ export default function TikTokVideoDownloaderPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
             {/* iOS Box */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 shrink-0">
                   <Smartphone className="w-5 h-5" />
@@ -283,7 +283,7 @@ export default function TikTokVideoDownloaderPage() {
             </div>
 
             {/* Android Box */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0">
                   <Smartphone className="w-5 h-5" />
@@ -302,7 +302,7 @@ export default function TikTokVideoDownloaderPage() {
             </div>
           </div>
 
-          <div className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-3">
+          <div className="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
             <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
               <Laptop className="w-5 h-5 text-indigo-600" />
               <span>Computer Shortcuts for Windows PC, macOS &amp; Linux:</span>
@@ -370,7 +370,7 @@ export default function TikTokVideoDownloaderPage() {
             However, many legacy platforms suffered from significant technical compromises: slow transcoding queues, misleading fake download buttons, aggressive banner redirects, and lossy re-compression that capped video streams at 720p or 480p resolution. Users searching for terms like <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">download tiktok video no watermark</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok downloader hd</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">download video tiktok</code>, <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tik tik downloader</code>, or <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">tiktok download video</code> often found themselves frustrated by broken download links or unsolicited software installation prompts.
           </p>
           
-          <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-sm bg-white my-6">
+          <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white my-6">
             <table className="w-full text-left text-sm border-collapse">
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
@@ -430,7 +430,7 @@ export default function TikTokVideoDownloaderPage() {
         </section>
 
         {/* Section 9: Legal, Fair Use & AdSense Compliance */}
-        <section className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
+        <section className="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
           <div className="flex items-center gap-3 text-slate-900 font-bold text-lg">
             <ShieldCheck className="w-6 h-6 text-rose-700" />
             <h3 className="text-slate-900 font-bold text-lg">Intellectual Property Rights &amp; Fair Use Ethics</h3>

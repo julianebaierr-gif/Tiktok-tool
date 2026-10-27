@@ -20,7 +20,7 @@ export default function Footer() {
               />
               <div className="flex flex-col">
                 <span className="text-2xl font-black tracking-tight text-slate-900 leading-none">
-                  Quk<span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-indigo-600">Tik</span>
+                  Quk<span className="text-rose-600">Tik</span>
                 </span>
                 <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider mt-1">
                   TikTok &amp; Douyin Video Downloader

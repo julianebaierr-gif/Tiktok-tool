@@ -166,7 +166,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                 <a
                   href={getProxyUrl(author.avatar, `avatar_${author.username || id}.jpg`, 'image')}
                   download={`avatar_${author.username || id}.jpg`}
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 text-white font-bold text-base shadow-lg shadow-rose-500/25 hover:scale-105 active:scale-95 transition-all"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-semibold text-base shadow-sm hover:shadow transition-all active:scale-[0.98]"
                 >
                   <Download className="w-5 h-5" />
                   <span>Download Full HD Avatar (.jpg)</span>
@@ -384,7 +384,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                   <a
                     href={getProxyUrl(video.noWatermark, `quktik_video_nowm_${id}.mp4`, 'video')}
                     download={`quktik_video_nowm_${id}.mp4`}
-                    className="w-full flex items-center justify-between px-6 py-4.5 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-base shadow-xl shadow-emerald-500/25 active:scale-[0.98] transition-all group"
+                    className="w-full flex items-center justify-between px-6 py-4.5 rounded-2xl sm:rounded-3xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base shadow-sm hover:shadow transition-all active:scale-[0.98] group"
                   >
                     <div className="flex items-center space-x-3.5">
                       <div className="w-9 h-9 rounded-2xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
@@ -415,7 +415,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                     <a
                       href={getProxyUrl(music.url, `quktik_audio_${id}.mp3`, 'audio')}
                       download={`quktik_audio_${id}.mp3`}
-                      className="flex items-center justify-between px-5 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold text-sm shadow-md shadow-rose-500/20 active:scale-[0.98] transition-all group"
+                      className="flex items-center justify-between px-5 py-3.5 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-semibold text-sm shadow-sm hover:shadow transition-all active:scale-[0.98] group"
                     >
                       <div className="flex items-center space-x-2.5 truncate">
                         <Music className="w-4 h-4 text-white shrink-0" />
@@ -427,7 +427,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                     <a
                       href={getProxyUrl(music.url, `quktik_ringtone_${id}.m4a`, 'audio')}
                       download={`quktik_ringtone_${id}.m4a`}
-                      className="flex items-center justify-between px-5 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold text-sm shadow-md shadow-indigo-500/20 active:scale-[0.98] transition-all group"
+                      className="flex items-center justify-between px-5 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm shadow-sm hover:shadow transition-all active:scale-[0.98] group"
                     >
                       <div className="flex items-center space-x-2.5 truncate">
                         <Bell className="w-4 h-4 text-white shrink-0" />

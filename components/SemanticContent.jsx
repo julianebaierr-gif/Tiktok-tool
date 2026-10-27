@@ -64,7 +64,7 @@ export default function SemanticContent() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-6">
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
+            <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
               <Video className="w-5 h-5" />
             </div>
             <h4 className="font-bold text-slate-900 text-base">Full HD Video Feeds</h4>
@@ -77,7 +77,7 @@ export default function SemanticContent() {
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
+            <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
               <Music className="w-5 h-5" />
             </div>
             <h4 className="font-bold text-slate-900 text-base">Viral Audio Soundtracks</h4>
@@ -94,7 +94,7 @@ export default function SemanticContent() {
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
+            <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
               <ImageIcon className="w-5 h-5" />
             </div>
             <h4 className="font-bold text-slate-900 text-base">Still Photo Carousels</h4>
@@ -107,7 +107,7 @@ export default function SemanticContent() {
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
+            <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
               <Clock className="w-5 h-5" />
             </div>
             <h4 className="font-bold text-slate-900 text-base">24-Hour Ephemeral Stories</h4>
@@ -120,7 +120,7 @@ export default function SemanticContent() {
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
+            <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
               <Globe2 className="w-5 h-5" />
             </div>
             <h4 className="font-bold text-slate-900 text-base">Douyin Chinese Ecosystem</h4>
@@ -133,7 +133,7 @@ export default function SemanticContent() {
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center font-bold">
+            <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center font-bold text-xs sm:text-sm">
               <UserCheck className="w-5 h-5" />
             </div>
             <h4 className="font-bold text-slate-900 text-base">Master Profile Avatars</h4>
@@ -148,7 +148,7 @@ export default function SemanticContent() {
       </section>
 
       {/* Embedded 3D Illustration: Watermark Comparison */}
-      <div className="my-8 rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white">
+      <div className="my-8 rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white">
         <img
           src="/images/watermark-vs-clean-3d.png"
           alt="Visual 3D claymorphic comparison showing video with distracting bouncing watermark versus pristine unwatermarked Full HD MP4"
@@ -197,7 +197,7 @@ export default function SemanticContent() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
             <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
-              <span className="w-7 h-7 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center text-xs font-black">1</span>
+              <span className="w-6 h-6 rounded-lg bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center text-xs font-bold">1</span>
               Lossless Bitstream Demuxing
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -206,7 +206,7 @@ export default function SemanticContent() {
           </div>
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
             <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
-              <span className="w-7 h-7 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center text-xs font-black">2</span>
+              <span className="w-6 h-6 rounded-lg bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center text-xs font-bold">2</span>
               Constant Bitrate 320kbps MP3 Packaging
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -224,7 +224,7 @@ export default function SemanticContent() {
           Understanding container formats, video codecs, and audio bitrates helps creators make informed choices when archiving and repurposing social media content:
         </p>
 
-        <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-sm bg-white my-6">
+        <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white my-6">
           <table className="w-full text-left text-sm border-collapse">
             <thead>
               <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
@@ -284,7 +284,7 @@ export default function SemanticContent() {
       </section>
 
       {/* Embedded 3D Illustration: Multi-Platform Repurposing */}
-      <div className="my-8 rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white">
+      <div className="my-8 rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white">
         <img
           src="/images/repurpose-reels-shorts-3d.png"
           alt="Visual 3D claymorphic illustration showing clean video redistribution to YouTube Shorts, Instagram Reels, and Pinterest Pins"
@@ -385,7 +385,7 @@ export default function SemanticContent() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
           {/* iOS Box */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 shrink-0">
                   <Smartphone className="w-5 h-5" />
@@ -404,7 +404,7 @@ export default function SemanticContent() {
           </div>
 
           {/* Android Box */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0">
                   <Smartphone className="w-5 h-5" />
@@ -550,7 +550,7 @@ export default function SemanticContent() {
       </section>
 
       {/* Section 16: Ethical Boundaries & AdSense Safety */}
-      <section className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
+      <section className="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
         <div className="flex items-center gap-3 text-slate-900 font-bold text-lg">
           <ShieldCheck className="w-6 h-6 text-rose-500" />
           <h4>Intellectual Property Rights, Fair Use &amp; DMCA Compliance</h4>
