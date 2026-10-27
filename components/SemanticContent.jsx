@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Video, Music, Smartphone, ShieldCheck, CheckCircle2, HelpCircle, AlertCircle, Compass, Layers, Globe2 } from 'lucide-react';
+import { Sparkles, Video, Music, Smartphone, ShieldCheck, CheckCircle2, HelpCircle, AlertCircle, Compass, Layers, Globe2, FileText, Check, Cpu, HardDrive, RefreshCw, KeyRound, EyeOff } from 'lucide-react';
 
 export default function SemanticContent() {
   return (
@@ -8,17 +8,17 @@ export default function SemanticContent() {
       {/* Article Header */}
       <div className="border-b border-slate-200 pb-10 mb-12">
         <span className="text-xs font-bold uppercase tracking-widest text-rose-600 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">
-          The Definitive Video Archiving Guide
+          Complete TikTok Archiving Handbook
         </span>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mt-4 mb-4 leading-tight">
           How to Download TikTok &amp; Douyin Videos in Full HD Without Watermarks
         </h2>
         <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-          A practical handbook for creators, video editors, and viewers looking to save clean MP4 videos, 320kbps MP3 audio tracks, and original photo carousels from TikTok and Douyin.
+          An in-depth, practical guide for creators, video editors, and viewers on saving unbranded MP4 videos, 320kbps MP3 audio soundtracks, and original high-resolution photo carousels directly from public TikTok and Douyin links.
         </p>
       </div>
 
-      <div className="space-y-12 text-slate-700">
+      <div className="space-y-14 text-slate-700">
 
         {/* Section 1: Watermark Mechanism */}
         <section className="space-y-4">
@@ -41,7 +41,62 @@ export default function SemanticContent() {
           </p>
         </section>
 
-        {/* Section 2: Creator Repurposing */}
+        {/* Section 2: What "Without Watermark" Actually Means vs Burned-in Graphics */}
+        <section className="space-y-4 bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/90">
+          <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2.5">
+            <Layers className="w-7 h-7 text-indigo-600" />
+            <span>What &ldquo;Without Watermark&rdquo; Actually Means (Platform Badge vs. Creator Art)</span>
+          </h3>
+          <p>
+            It is important to understand the technical difference between a <strong>platform watermark</strong> and <strong>burned-in creator graphics</strong>:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm">
+              <h4 className="font-bold text-slate-900 text-base mb-2 text-rose-600">
+                1. Platform Watermark (Removed by TikFlow)
+              </h4>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                This is the bouncing TikTok or Douyin animated logo, creator username tag, and the 3-second black end bumper card that TikTok automatically inserts during in-app export. TikFlow accesses the raw source stream (<code className="text-xs bg-slate-100 text-slate-800 px-1 py-0.5 rounded">play_addr</code>), meaning the platform badge is 100% absent.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm">
+              <h4 className="font-bold text-slate-900 text-base mb-2 text-indigo-600">
+                2. Embedded Creator Elements (Preserved Intact)
+              </h4>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                If the creator manually edited text captions, speech bubble stickers, CapCut transitions, or their own personal YouTube/Instagram handle directly into the camera footage before uploading, those elements are part of the video frames. TikFlow preserves these in crystal-clear quality without destructive blurring or distortion.
+              </p>
+            </div>
+          </div>
+          <p className="text-sm text-slate-600">
+            TikFlow does not run lossy AI object-erasure tools that smudge your footage. Instead, we deliver the genuine, unedited master stream stored on ByteDance&apos;s global content servers.
+          </p>
+        </section>
+
+        {/* Section 3: Video Quality Reality (What HD Can and Cannot Promise) */}
+        <section className="space-y-4">
+          <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2.5">
+            <Cpu className="w-7 h-7 text-emerald-600" />
+            <span>Video Quality Reality: What 1080p HD Can and Cannot Promise</span>
+          </h3>
+          <p>
+            Many download tools make unrealistic promises like &ldquo;Turn any TikTok into 4K 60FPS.&rdquo; In the real world, digital video fidelity is strictly determined by how the original clip was recorded, compressed, and encoded by the author and the platform:
+          </p>
+          <ul className="list-disc list-inside space-y-2.5 pl-2 text-slate-600 text-base">
+            <li>
+              <strong>Source Resolution Limits:</strong> TikTok encodes the majority of vertical video uploads in <strong>1080&times;1920</strong> (1080p Full HD) or <strong>720&times;1280</strong> (720p HD) using modern H.264 or HEVC codecs. TikFlow delivers the highest bitrate version available on the server.
+            </li>
+            <li>
+              <strong>Original Camera Quality:</strong> An HD label cannot magically turn a blurry video recorded in a dark room with a low-end smartphone into a studio-grade production. However, TikFlow guarantees zero secondary compression loss&mdash;you receive the exact digital stream delivered to the TikTok app.
+            </li>
+            <li>
+              <strong>Dual Server Routing:</strong> In TikFlow, you will frequently see both <strong>Server 1 (Direct Stream)</strong> and <strong>Server 2 (HD Mirror)</strong>. Server 1 delivers the fastest CDN connection, while Server 2 provides an alternate high-bitrate route if your internet provider is experiencing routing congestion to primary CDN clusters.
+            </li>
+          </ul>
+        </section>
+
+        {/* Section 4: Creator Repurposing Playbook */}
         <section className="space-y-4 bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/90">
           <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
             The Content Creator&apos;s Playbook: Repurposing Clips to Reels and Shorts
@@ -57,7 +112,46 @@ export default function SemanticContent() {
           </p>
         </section>
 
-        {/* Section 3: Douyin (Chinese TikTok) Gap Filled */}
+        {/* Section 5: Link Selection Guide */}
+        <section className="space-y-4">
+          <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2.5">
+            <Compass className="w-7 h-7 text-rose-500" />
+            <span>Link Selection Guide: How to Grab the Correct URL</span>
+          </h3>
+          <p>
+            To ensure an instant, error-free download, make sure you copy the exact individual post URL rather than a profile page or hashtag feed:
+          </p>
+          <div className="space-y-3 pt-2">
+            <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-3">
+              <span className="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 font-bold text-xs shrink-0 mt-0.5">Recommended</span>
+              <div className="text-sm">
+                <strong className="text-slate-900 block mb-0.5">Standard Web Post URL</strong>
+                <code className="text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded text-xs break-all">https://www.tiktok.com/@username/video/7123456789012345678</code>
+                <p className="text-slate-500 text-xs mt-1">Copied directly from the address bar on your desktop browser or laptop.</p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-3">
+              <span className="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 font-bold text-xs shrink-0 mt-0.5">Recommended</span>
+              <div className="text-sm">
+                <strong className="text-slate-900 block mb-0.5">Mobile Share Short Link</strong>
+                <code className="text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded text-xs break-all">https://vt.tiktok.com/ZS.../ or https://vm.tiktok.com/.../</code>
+                <p className="text-slate-500 text-xs mt-1">Generated automatically when you tap Share &gt; Copy Link inside the TikTok iPhone or Android app.</p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-3">
+              <span className="px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-700 font-bold text-xs shrink-0 mt-0.5">Chinese TikTok</span>
+              <div className="text-sm">
+                <strong className="text-slate-900 block mb-0.5">Douyin Share Text &amp; URLs</strong>
+                <code className="text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded text-xs break-all">https://v.douyin.com/.../ or 7.18 复制打开抖音... https://v.douyin.com/...</code>
+                <p className="text-slate-500 text-xs mt-1">Copied from Douyin app (抖音). TikFlow automatically extracts the URL and filters out the Chinese text.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 6: Douyin (Chinese TikTok) */}
         <section className="space-y-4">
           <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2.5">
             <Globe2 className="w-7 h-7 text-rose-500" />
@@ -71,10 +165,10 @@ export default function SemanticContent() {
           </p>
         </section>
 
-        {/* Section 4: Comparison Table: TikFlow vs SSSTikTok vs TikDown vs SnapTik */}
+        {/* Section 7: Comparison Table */}
         <section className="space-y-4">
           <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            Comparison: TikFlow vs SSSTikTok vs TikDown vs SnapTik
+            Comparison: TikFlow vs SnapTik vs SSSTikTok vs TikDown
           </h3>
           <p className="text-slate-600 text-base">
             See how TikFlow compares to legacy download tools across performance, file formats, and device compatibility:
@@ -86,45 +180,17 @@ export default function SemanticContent() {
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
                   <th className="p-4">Feature / Tool</th>
                   <th className="p-4 text-rose-600">TikFlow</th>
+                  <th className="p-4 text-slate-700">SnapTik</th>
                   <th className="p-4 text-slate-700">SSSTikTok</th>
                   <th className="p-4 text-slate-700">TikDown</th>
-                  <th className="p-4 text-slate-700">SnapTik</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 text-slate-600">
+              <tbody className="divide-y border-slate-100 text-slate-600">
                 <tr>
                   <td className="p-4 font-semibold text-slate-900">No Watermark HD MP4</td>
                   <td className="p-4 text-emerald-600 font-bold">Yes (1080p Direct)</td>
                   <td className="p-4">Yes</td>
                   <td className="p-4">Yes</td>
-                  <td className="p-4">Yes</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-slate-900">Douyin (Chinese TikTok) Support</td>
-                  <td className="p-4 text-emerald-600 font-bold">Yes (Native)</td>
-                  <td className="p-4">Limited</td>
-                  <td className="p-4">No</td>
-                  <td className="p-4">Partial</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-slate-900">QR Code for Phone Save</td>
-                  <td className="p-4 text-emerald-600 font-bold">Yes (Instant Scan)</td>
-                  <td className="p-4">No</td>
-                  <td className="p-4">No</td>
-                  <td className="p-4">No</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-slate-900">Video Player Preview</td>
-                  <td className="p-4 text-emerald-600 font-bold">Yes (Play on Page)</td>
-                  <td className="p-4">No</td>
-                  <td className="p-4">No</td>
-                  <td className="p-4">No</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold text-slate-900">Photo Slideshow Extraction</td>
-                  <td className="p-4 text-emerald-600 font-bold">Yes (High-Res JPG)</td>
-                  <td className="p-4">Yes</td>
-                  <td className="p-4">Limited</td>
                   <td className="p-4">Yes</td>
                 </tr>
                 <tr>
@@ -135,18 +201,53 @@ export default function SemanticContent() {
                   <td className="p-4">128kbps</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-semibold text-slate-900">Ad Clutter &amp; Popups</td>
-                  <td className="p-4 text-emerald-600 font-bold">Clean &amp; Non-Intrusive</td>
+                  <td className="p-4 font-semibold text-slate-900">Photo Slideshow Extraction</td>
+                  <td className="p-4 text-emerald-600 font-bold">Yes (High-Res JPG)</td>
+                  <td className="p-4">Yes</td>
+                  <td className="p-4">Yes</td>
+                  <td className="p-4">Limited</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-slate-900">Douyin (Chinese TikTok) Support</td>
+                  <td className="p-4 text-emerald-600 font-bold">Yes (Native Engine)</td>
+                  <td className="p-4">Partial</td>
+                  <td className="p-4">Limited</td>
+                  <td className="p-4">No</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-slate-900">QR Code for Phone Save</td>
+                  <td className="p-4 text-emerald-600 font-bold">Yes (Instant Scan)</td>
+                  <td className="p-4">No</td>
+                  <td className="p-4">No</td>
+                  <td className="p-4">No</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-slate-900">Video Player Preview</td>
+                  <td className="p-4 text-emerald-600 font-bold">Yes (In-Page Player)</td>
+                  <td className="p-4">No</td>
+                  <td className="p-4">No</td>
+                  <td className="p-4">No</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-slate-900">No Registration or Password</td>
+                  <td className="p-4 text-emerald-600 font-bold">100% Anonymous</td>
+                  <td className="p-4">Anonymous</td>
+                  <td className="p-4">Anonymous</td>
+                  <td className="p-4">Anonymous</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-slate-900">User Interface &amp; Ads</td>
+                  <td className="p-4 text-emerald-600 font-bold">Modern Light &amp; Clean</td>
+                  <td className="p-4">Heavy Banners</td>
                   <td className="p-4">Heavy Popunders</td>
                   <td className="p-4">Aggressive Ads</td>
-                  <td className="p-4">Heavy Banners</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
 
-        {/* Section 5: Audio & Sound Mastery */}
+        {/* Section 8: Audio & Sound Mastery */}
         <section className="space-y-4">
           <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
             How to Extract Just the MP3 Audio Track in 320kbps Quality
@@ -181,7 +282,7 @@ export default function SemanticContent() {
           </div>
         </section>
 
-        {/* Section 6: Photo Slideshows */}
+        {/* Section 9: Photo Slideshows */}
         <section className="space-y-4">
           <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
             Saving TikTok Photo Slideshows &amp; Picture Carousels
@@ -194,78 +295,115 @@ export default function SemanticContent() {
           </p>
         </section>
 
-        {/* Section 7: Device Walkthrough */}
+        {/* Section 10: Where Are Saved Files? Comprehensive Device Storage Guide */}
         <section className="space-y-4 bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/90">
-          <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            Step-by-Step Guides for Every Device
+          <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2.5">
+            <HardDrive className="w-7 h-7 text-indigo-600" />
+            <span>Where Are Saved Files? Comprehensive File Manager Guide</span>
           </h3>
+          <p>
+            Because TikFlow runs directly inside your web browser, file saving is handled securely by your device operating system:
+          </p>
 
-          <div className="space-y-6 pt-2">
-            <div>
-              <h4 className="text-lg font-bold text-slate-900 mb-1">
-                How to Download on iPhone and iPad (iOS 13, 14, 15, 16, 17, 18)
+          <div className="space-y-4 pt-2">
+            <div className="p-4 rounded-2xl bg-white border border-slate-200">
+              <h4 className="font-bold text-slate-900 text-base mb-1">
+                iPhone and iPad (iOS &amp; iPadOS Safari)
               </h4>
-              <p className="text-slate-600 text-sm sm:text-base">
-                1. Open TikTok and find the video you want. Tap the <strong>Share</strong> arrow and select <strong>Copy Link</strong>.<br />
-                2. Open <strong>Safari</strong> and visit TikFlow. Paste your link into the box and tap <strong>Download</strong>.<br />
-                3. Tap the green <strong>Download MP4 (Without Watermark)</strong> button. Safari will display a small popup asking: <em>&ldquo;Do you want to download this file?&rdquo;</em> Tap <strong>Download</strong>.<br />
-                4. Tap the download icon in your Safari address bar. Tap your video, tap the share sheet icon in the bottom corner, and choose <strong>Save Video</strong>. It is now stored in your Photos app alongside your camera roll.
+              <p className="text-sm text-slate-600 leading-relaxed">
+                When you tap Download in Safari, tap the <strong>blue downward arrow icon</strong> in your browser address bar to view active downloads. To move the video to your camera roll: open Apple&apos;s <strong>Files app</strong> &gt; go to <strong>Downloads</strong> &gt; tap your video &gt; tap the <strong>Share</strong> icon &gt; tap <strong>Save Video</strong>. It will immediately appear in your standard <strong>Photos</strong> app.
               </p>
             </div>
 
-            <div>
-              <h4 className="text-lg font-bold text-slate-900 mb-1">
-                How to Download on Android (Samsung Galaxy, Google Pixel, Xiaomi, OnePlus, Vivo)
+            <div className="p-4 rounded-2xl bg-white border border-slate-200">
+              <h4 className="font-bold text-slate-900 text-base mb-1">
+                Android Devices (Google Chrome, Samsung Internet, Firefox)
               </h4>
-              <p className="text-slate-600 text-sm sm:text-base">
-                1. Tap the Share button in TikTok and click <strong>Copy Link</strong>.<br />
-                2. Open Chrome, Samsung Internet, or Firefox, paste the link into TikFlow, and tap Download.<br />
-                3. Press the <strong>Download MP4</strong> button. The file saves directly to your device storage (<code className="text-xs bg-slate-200 px-1 py-0.5 rounded">/storage/emulated/0/Download</code>) and will appear right away in your Gallery, Files, or Google Photos app.
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Android saves files directly into your primary <strong>Download</strong> directory. You can find them instantly in the <strong>Files by Google</strong> app, <strong>Samsung My Files</strong>, or directly inside your <strong>Gallery</strong> app under the &ldquo;Downloads&rdquo; album. You can also view recent downloads inside Chrome by typing <code className="text-xs bg-slate-100 text-slate-800 px-1 py-0.5 rounded">chrome://downloads</code>.
               </p>
             </div>
 
-            <div>
-              <h4 className="text-lg font-bold text-slate-900 mb-1">
-                How to Download on Windows 11 / 10 and macOS (MacBook, iMac)
+            <div className="p-4 rounded-2xl bg-white border border-slate-200">
+              <h4 className="font-bold text-slate-900 text-base mb-1">
+                Windows, Mac, Linux &amp; Chromebook
               </h4>
-              <p className="text-slate-600 text-sm sm:text-base">
-                1. Open your desktop browser (Chrome, Edge, Firefox, Brave, or Safari) and go to tiktok.com.<br />
-                2. Copy the URL from your browser address bar or click the video&apos;s Copy Link button.<br />
-                3. Paste the URL into TikFlow and click Download. The standard MP4 video file will save to your computer&apos;s Downloads folder, ready for editing in CapCut, Adobe Premiere Pro, or DaVinci Resolve.
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Desktop browsers save downloaded media to your user <strong>Downloads</strong> folder. Use quick keyboard shortcuts to reveal your downloads list instantly: press <kbd className="px-1.5 py-0.5 bg-slate-100 border border-slate-300 rounded text-xs font-mono font-bold text-slate-800">Ctrl + J</kbd> on Windows/Linux or <kbd className="px-1.5 py-0.5 bg-slate-100 border border-slate-300 rounded text-xs font-mono font-bold text-slate-800">Cmd + Option + L</kbd> on macOS.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Section 8: Troubleshooting */}
+        {/* Section 11: Troubleshooting Playbook */}
         <section className="space-y-4">
-          <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            Troubleshooting Common Download Questions
+          <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2.5">
+            <RefreshCw className="w-7 h-7 text-rose-500" />
+            <span>Troubleshooting: 5 Reasons a Download Stops or Fails &amp; How to Fix It</span>
           </h3>
-          
-          <div className="space-y-4 text-base text-slate-600">
+          <p className="text-slate-600">
+            If a download doesn&apos;t start immediately, follow this 5-point checklist:
+          </p>
+
+          <div className="space-y-3 pt-2">
             <div className="p-4 rounded-2xl bg-white border border-slate-200">
-              <strong className="text-slate-900 block mb-1">Why does a link show &ldquo;Unable to retrieve media&rdquo;?</strong>
-              This usually happens if the creator set their TikTok account to private, deleted the video, or if the video is restricted by country or age settings. TikFlow can only access public videos that are viewable on the open web.
+              <strong className="text-slate-900 block mb-1">1. The Video Is Set to Private or Friends-Only</strong>
+              <p className="text-sm text-slate-600">
+                TikFlow respects user privacy and can only access publicly visible content. If an author sets their account to private or removes the video, the content delivery network revokes access. Make sure the video plays publicly in an incognito window.
+              </p>
             </div>
 
             <div className="p-4 rounded-2xl bg-white border border-slate-200">
-              <strong className="text-slate-900 block mb-1">Do short links like vt.tiktok.com or vm.tiktok.com work?</strong>
-              Yes! When you tap &ldquo;Copy Link&rdquo; on a mobile device, TikTok frequently creates a shortened redirect URL such as <code className="bg-slate-100 text-rose-600 px-1 py-0.5 rounded text-xs">vt.tiktok.com/ZS...</code>. TikFlow automatically resolves these short redirects to find the full video ID and download it cleanly.
+              <strong className="text-slate-900 block mb-1">2. Mobile Browser Popup Confirmation Blocked</strong>
+              <p className="text-sm text-slate-600">
+                On Safari (iOS), Apple shows a confirmation prompt: <em>&ldquo;Do you want to download this file?&rdquo;</em> If you tap outside the prompt or have strict popup blockers enabled, the transfer may pause. Always tap &ldquo;Download&rdquo; to confirm.
+              </p>
             </div>
 
             <div className="p-4 rounded-2xl bg-white border border-slate-200">
-              <strong className="text-slate-900 block mb-1">Will downloading a video alert the creator?</strong>
-              No. TikTok does not notify creators when their public video is downloaded through an external browser tool. Your downloads remain completely anonymous.
+              <strong className="text-slate-900 block mb-1">3. Try Server 2 (HD Mirror)</strong>
+              <p className="text-sm text-slate-600">
+                If Server 1 is experiencing regional CDN routing delays, click <strong>Server 2 (HD Mirror)</strong> on the result card. It routes the request through a secondary high-speed media relay.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white border border-slate-200">
+              <strong className="text-slate-900 block mb-1">4. Insufficient Device Storage</strong>
+              <p className="text-sm text-slate-600">
+                HD video clips can range from 15MB to 80MB. If your smartphone storage is completely full, your browser cannot finish writing the file. Check your available storage in phone settings.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white border border-slate-200">
+              <strong className="text-slate-900 block mb-1">5. Stale Browser Cache or Old Short-Link</strong>
+              <p className="text-sm text-slate-600">
+                Occasionally, a mobile short link (<code className="text-xs bg-slate-100 px-1 py-0.5 rounded">vt.tiktok.com</code>) generated hours earlier may have expired redirect parameters. Go back to TikTok, tap Share &gt; Copy Link freshly, and paste the new URL.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Section 9: Ethical Notice */}
+        {/* Section 12: Zero Passwords / Absolute Security */}
+        <section className="space-y-4 bg-emerald-50/70 p-6 sm:p-8 rounded-3xl border border-emerald-200/80">
+          <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2.5">
+            <ShieldCheck className="w-7 h-7 text-emerald-600" />
+            <span>Absolute Security: Why You Never Enter a Password or Install Software</span>
+          </h3>
+          <p className="text-slate-700">
+            Your online security is paramount. Unlike suspicious apps in third-party app stores that ask for login credentials or request invasive device permissions, TikFlow operates under strict zero-trust standards:
+          </p>
+          <ul className="list-disc list-inside space-y-2 pl-2 text-slate-700 text-sm sm:text-base">
+            <li><strong>No TikTok Account Password Required:</strong> You never log in. All requests are processed via public video links.</li>
+            <li><strong>No Software or Extension Installation:</strong> TikFlow runs entirely in modern web standards (HTML5 / HTTPS).</li>
+            <li><strong>No History Stored:</strong> We do not log what videos you download or track your personal browsing activity.</li>
+          </ul>
+        </section>
+
+        {/* Section 13: Ethical Notice & Copyright */}
         <section className="p-6 rounded-3xl bg-amber-50/80 border border-amber-200/90 text-amber-900 text-sm sm:text-base space-y-2">
           <div className="flex items-center gap-2 font-bold text-amber-950">
             <AlertCircle className="w-5 h-5 text-amber-600" />
-            <span>A Friendly Note on Copyright and Creator Respect</span>
+            <span>Fair Use, Ethical Archiving, and Attribution Policy</span>
           </div>
           <p className="leading-relaxed">
             TikFlow is built for personal offline viewing, research, and creators archiving their own uploads. Always remember that creators put time and creative effort into their content. If you share someone else&apos;s video on other platforms, always give proper credit by tagging their original account name, and never sell or monetize someone else&apos;s copyrighted work without their permission.

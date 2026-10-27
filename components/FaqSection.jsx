@@ -8,36 +8,52 @@ export default function FaqSection() {
 
   const faqs = [
     {
-      q: 'Is TikFlow free, and is there any limit on how many videos I can download?',
-      a: 'Yes, TikFlow is completely free with no daily or monthly limits. You do not need an account, credit card, or subscription. You can save as many videos and songs as you like.',
+      q: 'How do I download TikTok videos without watermark for free?',
+      a: 'Open the TikTok app or website, find your desired video, tap "Share", and choose "Copy Link". Paste the URL into the search box on TikFlow above and click "Download". Once the result appears, click "Download MP4 (Without Watermark)" to save the clean video file directly to your device.',
     },
     {
-      q: 'How does TikFlow remove the watermark without making the video blurry?',
-      a: 'Traditional apps try to blur or crop out the bouncing logo, which damages video quality. TikFlow does not do that. When someone uploads a video, TikTok generates an untouched original video before putting their animated watermark over it. We simply fetch that untouched original file directly from the content delivery network, keeping the original 1080p sharpness.',
+      q: 'Does TikFlow need my TikTok login or password?',
+      a: 'No, absolutely not. TikFlow never asks for your TikTok account password, username, phone number, or verification code. The entire process runs by parsing public post URLs directly. You should never enter your social media passwords on any third-party downloader website.',
     },
     {
-      q: 'Where do downloaded videos go on my phone or computer?',
-      a: 'On Windows and Mac, files save directly to your computer\'s "Downloads" folder. On Android phones, you will find files in your Downloads folder, Files app, or Gallery. On iPhone and iPad, Safari saves files to Safari Downloads, where you can tap "Save Video" to send it right into your Photos Camera Roll.',
+      q: 'Where will the downloaded file be saved on iPhone, Android, or PC?',
+      a: 'On Windows and Mac, files save to your default "Downloads" folder (press Ctrl+J on Windows or Cmd+Option+L on Mac to view them). On Android, files go into your "Downloads" folder, accessible in Files by Google or your Gallery app. On iPhone and iPad, Safari saves files to the Downloads section of Apple\'s "Files" app; open the video in Files, tap Share, and select "Save Video" to add it directly to your Photos Camera Roll.',
     },
     {
-      q: 'Can I download only the background song or audio from a video?',
-      a: 'Yes. Every video link you enter gives you a pink "Download MP3 Audio" button. This extracts just the soundtrack in high-quality 320kbps MP3 format, ideal for music playlists, video editing, or custom phone ringtones.',
+      q: 'Can TikFlow access private videos, friends-only posts, or drafts?',
+      a: 'No. TikFlow operates exclusively on publicly accessible web posts. Private accounts, friends-only clips, and drafts remain restricted by TikTok\'s authentication servers and cannot be downloaded without creator account credentials. TikFlow does not bypass user privacy controls.',
     },
     {
-      q: 'Can I download TikTok photo slideshows and carousels?',
-      a: 'Yes! When you paste a link to a TikTok photo dump or image carousel, TikFlow automatically shows each individual photo in high-definition JPG format so you can save them all to your gallery.',
+      q: 'Will a downloaded video without watermark always be 1080p Full HD?',
+      a: 'TikFlow delivers the exact highest-resolution stream stored on TikTok\'s content delivery servers (typically 1080x1920 or 720x1280). If the creator recorded in high definition, you get full 1080p clarity with zero re-encoding loss. However, a video originally recorded in low lighting or low resolution cannot be artificially upscaled.',
     },
     {
-      q: 'Do I have to install any apps or browser extensions?',
-      a: 'No apps are required. TikFlow runs 100% inside your standard web browser (Safari, Chrome, Firefox, Edge, Samsung Internet). This keeps your phone safe from suspicious third-party app installations.',
+      q: 'How do I save only the background music or audio in 320kbps MP3 format?',
+      a: 'Paste your TikTok link into TikFlow and, on the result card, click the green "Download MP3 Audio (320kbps)" button. This extracts the audio channel into a standalone MP3 file that you can listen to offline, import into video editing software, or set as a custom phone ringtone.',
     },
     {
-      q: 'Does TikFlow keep copies of the videos I download?',
-      a: 'No. We respect your privacy. We never store, host, or keep copies of any videos on our servers. When you request a download, the file streams straight from TikTok\'s public network to your browser.',
+      q: 'Can I download TikTok photo slideshows and image carousels?',
+      a: 'Yes! When you paste a link to a TikTok photo post, TikFlow automatically detects the image carousel and displays high-resolution thumbnails for every slide. You can download individual pictures in original JPG format or save the accompanying background audio.',
     },
     {
-      q: 'Is it safe and legal to download TikTok videos?',
-      a: 'Yes. Downloading public videos for personal offline watching, educational study, or backing up your own creative uploads is standard fair use. However, you should never sell or claim ownership of other creators\' videos without their permission.',
+      q: 'Why did my download stop or show "Unable to retrieve media"?',
+      a: 'This usually occurs for one of four reasons: (1) The video was deleted or set to private by the creator, (2) Safari popup blockers halted the download prompt (tap "Download" on the prompt), (3) Your device storage is full, or (4) The short link expired. If one server is slow, click "Server 2 (HD Mirror)" on the result card for an alternate route.',
+    },
+    {
+      q: 'Does downloading a video remove every logo or give me commercial reuse rights?',
+      a: 'TikFlow removes the dynamic TikTok platform watermark and username overlay. However, any text, stickers, or creator watermarks manually edited into the footage by the author remain. Additionally, downloading does not transfer copyright; always ask for permission before using someone else\'s video in commercial or monetized projects.',
+    },
+    {
+      q: 'Do I need to install any app or browser extension?',
+      a: 'No applications, APKs, or browser extensions are required. TikFlow functions entirely within your standard browser (Safari, Chrome, Firefox, Edge, Samsung Internet, Brave). This keeps your phone or computer completely safe from malware and bloated apps.',
+    },
+    {
+      q: 'Does downloading alert the creator that I saved their video?',
+      a: 'No. TikTok does not notify creators or accounts when their public video is downloaded through an external browser utility. All downloads are 100% anonymous and private.',
+    },
+    {
+      q: 'Is TikFlow completely free with no download limits?',
+      a: 'Yes, TikFlow is 100% free with unlimited daily downloads. There is no subscription, paywall, or credit system. You can archive as many videos, audio tracks, and photo carousels as you need.',
     },
   ];
 

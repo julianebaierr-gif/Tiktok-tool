@@ -16,6 +16,7 @@ export default function Navbar() {
     { href: '/tiktok-story', label: 'Stories', icon: History },
     { href: '/douyin-downloader', label: 'Douyin 抖音', icon: Globe2 },
     { href: '/tiktok-ringtone', label: 'Ringtones', icon: Bell },
+    { href: '/tiktok-avatar', label: 'Avatar HD', icon: UserCheck },
   ];
 
   return (

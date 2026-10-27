@@ -92,16 +92,30 @@ export default function HowToSection() {
         </div>
 
         {/* Device specific tips */}
-        <div className="mt-12 p-6 rounded-3xl bg-white border border-slate-200 max-w-3xl mx-auto shadow-sm">
-          <h4 className="text-slate-900 font-bold text-sm flex items-center gap-2 mb-2">
-            <Check className="w-4 h-4 text-emerald-600" />
-            <span>{activeTab === 'mobile' ? 'Quick Tip for iPhone Users:' : 'Quick Tip for Computer Users:'}</span>
+        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 max-w-3xl mx-auto shadow-sm space-y-3">
+          <h4 className="text-slate-900 font-bold text-base flex items-center gap-2">
+            <Check className="w-5 h-5 text-emerald-600" />
+            <span>{activeTab === 'mobile' ? 'Quick Tips for Mobile Users (iOS & Android):' : 'Quick Tips for Computer Users (PC, Mac, Linux):'}</span>
           </h4>
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            {activeTab === 'mobile'
-              ? 'On iOS Safari, after tapping Download, tap the blue arrow in the bottom address bar to view your downloaded file. Open the video, tap the bottom Share button, and select "Save Video" to send it right into your Photos app.'
-              : 'On Google Chrome or Edge, hitting the green download button will automatically drop the MP4 file into your Downloads folder without having to right-click or wait for re-encoding.'}
-          </p>
+          {activeTab === 'mobile' ? (
+            <div className="space-y-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p>
+                <strong className="text-slate-900">iPhone / iPad (Safari):</strong> After pressing Download, tap the blue downward arrow in Safari&apos;s address bar to inspect the file. Tap the downloaded video, tap the bottom-left Share icon, and tap <em>&ldquo;Save Video&rdquo;</em> to move it into your Apple Photos Camera Roll.
+              </p>
+              <p>
+                <strong className="text-slate-900">Android (Chrome / Samsung Internet):</strong> Tapping Download saves the MP4 instantly to your phone&apos;s internal storage under <code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">/Download</code>. You can open it right away in Google Photos, Files by Google, or your device Gallery.
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p>
+                <strong className="text-slate-900">Windows &amp; Linux:</strong> Files save automatically to your personal <code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">C:\Users\...\Downloads</code> directory. Press <kbd className="px-1.5 py-0.5 bg-slate-100 border border-slate-300 rounded text-xs font-mono font-bold text-slate-800">Ctrl + J</kbd> in Chrome or Edge to view your completed downloads.
+              </p>
+              <p>
+                <strong className="text-slate-900">macOS (MacBook &amp; iMac):</strong> Files save to your user Downloads folder. Press <kbd className="px-1.5 py-0.5 bg-slate-100 border border-slate-300 rounded text-xs font-mono font-bold text-slate-800">Cmd + Option + L</kbd> in Safari or <kbd className="px-1.5 py-0.5 bg-slate-100 border border-slate-300 rounded text-xs font-mono font-bold text-slate-800">Cmd + Shift + J</kbd> in Chrome to reveal the file in Finder.
+              </p>
+            </div>
+          )}
         </div>
 
       </div>
