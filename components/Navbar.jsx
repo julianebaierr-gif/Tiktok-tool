@@ -30,20 +30,16 @@ export default function Navbar() {
             <div className="relative">
               <img 
                 src="/logo-icon.svg" 
-                alt="QukTik Logo" 
-                className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl shadow-lg shadow-rose-500/20 group-hover:scale-105 group-hover:rotate-2 transition-all duration-300"
+                alt="QukTik - TikTok & Douyin Video Downloader" 
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl shadow-md shadow-slate-900/10 group-hover:scale-105 transition-all duration-200"
               />
-              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 flex items-center gap-1.5 leading-none">
+              <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 flex items-center leading-none">
                 Quk<span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-indigo-600">Tik</span>
-                <span className="text-[10px] font-black px-1.5 py-0.5 rounded-full bg-gradient-to-r from-rose-500/10 to-indigo-500/10 text-rose-600 border border-rose-200/80 uppercase tracking-wider hidden sm:inline-block shadow-xs">
-                  FAST HD
-                </span>
               </span>
               <span className="text-[10px] sm:text-[11px] text-slate-500 font-semibold tracking-wider uppercase mt-1 hidden sm:block">
-                Ultra-Fast Video Downloader
+                TikTok &amp; Douyin Video Downloader
               </span>
             </div>
           </Link>

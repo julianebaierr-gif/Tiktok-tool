@@ -15,15 +15,15 @@ export default function Footer() {
             <Link href="/" className="flex items-center space-x-3 group">
               <img 
                 src="/logo-icon.svg" 
-                alt="QukTik Logo" 
-                className="w-10 h-10 rounded-2xl shadow-md shadow-rose-500/15 group-hover:scale-105 transition-transform"
+                alt="QukTik - TikTok & Douyin Video Downloader" 
+                className="w-10 h-10 rounded-2xl shadow-md shadow-slate-900/10 group-hover:scale-105 transition-transform"
               />
               <div className="flex flex-col">
                 <span className="text-2xl font-black tracking-tight text-slate-900 leading-none">
                   Quk<span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-indigo-600">Tik</span>
                 </span>
                 <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider mt-1">
-                  Fast TikTok &amp; Douyin Downloader
+                  TikTok &amp; Douyin Video Downloader
                 </span>
               </div>
             </Link>
