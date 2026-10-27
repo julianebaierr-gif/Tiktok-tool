@@ -5,10 +5,10 @@ import Footer from '../components/Footer';
 export const metadata = {
   metadataBase: new URL('https://tikflow-downloader.vercel.app'),
   title: {
-    default: 'TikFlow - Download TikTok Video Without Watermark in HD (Free Online)',
+    default: 'TikFlow - Save TikTok Videos Without Watermark in HD (Free Online)',
     template: '%s | TikFlow'
   },
-  description: 'Download TikTok videos without watermark in HD MP4 quality and convert TikTok to MP3 audio online for free. Fast, secure, and works on all devices with zero limits.',
+  description: 'Clean, fast online tool to download TikTok videos without watermark in HD MP4 quality and extract MP3 audio. 100% free with no registration or apps required.',
   keywords: [
     'download tiktok video',
     'tiktok without watermark',
@@ -55,7 +55,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  // Schema.org structured data for WebApplication & SoftwareApplication
   const webAppSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -73,7 +72,7 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         {/* Google AdSense Script Placeholder (Ready for user pub ID) */}
         {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossOrigin="anonymous"></script> */}
@@ -83,7 +82,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
         />
       </head>
-      <body className="bg-slate-950 text-slate-100 flex flex-col min-h-screen antialiased selection:bg-pink-500 selection:text-white">
+      <body className="bg-[#fcfcfd] text-slate-900 flex flex-col min-h-screen antialiased selection:bg-rose-500 selection:text-white">
         <Navbar />
         <main className="flex-grow">
           {children}

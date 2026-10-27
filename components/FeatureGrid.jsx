@@ -5,71 +5,82 @@ export default function FeatureGrid() {
   const features = [
     {
       icon: Sparkles,
-      title: 'Zero Watermark & No Logo',
-      description: 'Automatically strips out the moving TikTok badge and creator ID overlay, giving you pristine, uncompressed video playback.',
-      color: 'from-pink-500 to-rose-500',
+      title: 'Clean Videos With No Watermark',
+      description: 'Get the exact video as uploaded by the creator, without the jumping TikTok logo or username text blocking the screen.',
+      badge: 'Zero Logos',
+      gradient: 'from-rose-500 to-pink-500',
     },
     {
       icon: Zap,
-      title: 'Ultra High Definition (HD)',
-      description: 'Fetches raw master streams directly from TikTok content delivery nodes with zero quality degradation or extra compression.',
-      color: 'from-amber-400 to-orange-500',
+      title: 'Full Resolution & Original Colors',
+      description: 'We pull the video directly from the source network, keeping the original 1080p sharpness, frame rate, and audio clarity.',
+      badge: '1080p HD',
+      gradient: 'from-indigo-500 to-blue-500',
     },
     {
       icon: Music2,
-      title: 'Studio MP3 Audio Extraction',
-      description: 'Instantly extract sound tracks, trending background music, and voiceovers into crystal-clear 320kbps MP3 audio files.',
-      color: 'from-cyan-400 to-blue-500',
+      title: 'Separate MP3 Audio Extraction',
+      description: 'Found a catchy song or viral sound? Grab just the audio track as an MP3 file ready for your phone, ringtone, or playlist.',
+      badge: '320kbps Audio',
+      gradient: 'from-pink-500 to-rose-500',
     },
     {
       icon: DownloadCloud,
-      title: 'Slideshow & Photo Support',
-      description: 'Easily save full TikTok photo carousels and slideshow galleries in original high-resolution JPG format in one click.',
-      color: 'from-emerald-400 to-teal-500',
+      title: 'Photo Slideshows & Carousels',
+      description: 'TikTok photo posts and memes are fully supported. Download every slide in crisp original resolution with one click.',
+      badge: 'Full Galleries',
+      gradient: 'from-amber-500 to-orange-500',
     },
     {
       icon: Smartphone,
-      title: 'All Devices & Browsers',
-      description: 'Seamlessly works across Apple iPhone, iPad, Android smartphones, Windows PC, Mac, Linux, and all major web browsers.',
-      color: 'from-purple-400 to-indigo-500',
+      title: 'Works on All Phones & Computers',
+      description: 'No apps to install from unknown websites. Just open Safari on iPhone, Chrome on Android, or your PC browser and download.',
+      badge: 'Universal',
+      gradient: 'from-emerald-500 to-teal-500',
     },
     {
       icon: ShieldCheck,
-      title: '100% Free & Privacy First',
-      description: 'No account registration, no credit card, and no invasive permissions required. We never store your downloaded videos on our servers.',
-      color: 'from-rose-500 to-pink-500',
+      title: 'Completely Free & Anonymous',
+      description: 'No account needed, no email requested, and we do not store copies of your downloaded videos on our servers.',
+      badge: 'No Account',
+      gradient: 'from-teal-500 to-cyan-500',
     },
   ];
 
   return (
-    <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="text-xs sm:text-sm font-bold tracking-widest text-cyan-400 uppercase mb-2">
-          Engineered for Speed & Quality
+    <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-center max-w-3xl mx-auto mb-14">
+        <span className="text-xs font-bold uppercase tracking-widest text-rose-600 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">
+          Built For Everyday Use
+        </span>
+        <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
+          Everything You Need In A Video Downloader
         </h2>
-        <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Why Millions Choose TikFlow Over Ordinary Downloaders
-        </h3>
-        <p className="mt-4 text-sm sm:text-base text-slate-400 leading-relaxed">
-          Experience the fastest, cleanest, and most reliable web tool designed specifically to preserve original video quality and soundtrack clarity.
+        <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+          No complicated settings, no subscriptions, and no intrusive watermarks. Here is what makes TikFlow the simplest way to save short-form videos.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map((feature, idx) => {
           const Icon = feature.icon;
           return (
             <div
               key={idx}
-              className="p-6 sm:p-8 rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/90 transition-all duration-300 group hover:-translate-y-1 shadow-lg"
+              className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 hover:border-rose-200 shadow-sm hover:shadow-xl hover:shadow-slate-200/60 transition-all duration-300 group"
             >
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-tr ${feature.color} p-0.5 mb-6 group-hover:scale-110 transition-transform`}>
-                <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
-                  <Icon className="w-6 h-6 text-white" />
+              <div className="flex items-center justify-between mb-5">
+                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-tr ${feature.gradient} p-0.5 shadow-md shadow-slate-200`}>
+                  <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center">
+                    <Icon className="w-6 h-6 text-slate-800" />
+                  </div>
                 </div>
+                <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">
+                  {feature.badge}
+                </span>
               </div>
-              <h4 className="text-lg font-bold text-white mb-2">{feature.title}</h4>
-              <p className="text-slate-400 text-sm leading-relaxed">{feature.description}</p>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">{feature.title}</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
             </div>
           );
         })}

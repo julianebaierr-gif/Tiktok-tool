@@ -9,74 +9,64 @@ export default function TermsOfServicePage() {
   const lastUpdated = 'January 2026';
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 text-slate-300 leading-relaxed text-sm sm:text-base">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 text-slate-700 leading-relaxed text-sm sm:text-base">
       
-      <div className="border-b border-slate-800 pb-8 mb-10">
-        <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+      <div className="border-b border-slate-200 pb-8 mb-10">
+        <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3.5 py-1 rounded-full border border-emerald-200">
           User Agreement
         </span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-4">
+        <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-4">
           Terms of Service
         </h1>
-        <p className="mt-2 text-xs sm:text-sm text-slate-400">
-          Last Updated & Effective: {lastUpdated}
+        <p className="mt-2 text-xs sm:text-sm text-slate-500">
+          Last Updated &amp; Effective: {lastUpdated}
         </p>
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-8 bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
         
         <section className="space-y-3">
-          <h2 className="text-xl sm:text-2xl font-bold text-white">1. Acceptance of Terms</h2>
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900">1. Acceptance of Terms</h2>
           <p>
-            By accessing or using the TikFlow website (the &quot;Service&quot;), you acknowledge that you have read, understood, and agreed to be bound by these Terms of Service. If you do not agree with any part of these terms, you must discontinue your use of the Service immediately.
+            By visiting or using TikFlow (the &quot;Service&quot;), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please discontinue using the website.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl sm:text-2xl font-bold text-white">2. Scope & Permitted Use</h2>
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900">2. Permitted Fair-Use Purpose</h2>
           <p>
-            TikFlow is provided solely as a technical convenience tool for personal, non-commercial, and fair-use educational archiving. You agree to use the Service in compliance with all applicable local, national, and international laws, regulations, and third-party platform terms.
+            TikFlow is provided as a technical web utility for personal offline archiving, research, and creators backing up their own original content. You agree to use the service in compliance with all copyright laws and platform terms.
           </p>
-          <ul className="list-disc list-inside space-y-1.5 text-slate-400 pl-2">
-            <li>You may only download content for which you possess proper intellectual property authorization or legitimate fair-use privilege (e.g., personal offline backups of your own uploaded videos).</li>
-            <li>You agree not to monetize, sell, distribute, or broadcast downloaded third-party media files without explicit written consent from the copyright holder.</li>
+          <ul className="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+            <li>You should only download files for personal, non-commercial use, or content for which you hold copyright permission.</li>
+            <li>You agree not to sell, monetize, or publicly broadcast someone else&apos;s creative content without the creator&apos;s explicit consent.</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl sm:text-2xl font-bold text-white">3. Intellectual Property Rights</h2>
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900">3. Intellectual Property</h2>
           <p>
-            TikFlow does not claim any ownership, title, or interest in any video, audio, image, or text processed through the Service. All trademarks, copyrights, and intellectual property associated with TikTok, Musical.ly, and ByteDance Ltd. belong exclusively to their respective owners.
+            TikFlow does not claim ownership of any videos, audios, or photos processed through the tool. All copyrights and trademarks belong exclusively to their respective creators and ByteDance Ltd.
           </p>
           <p>
-            The software, layout, design, trademarks, code, and graphical assets of the TikFlow website remain the exclusive intellectual property of TikFlow.
+            The software, design, branding, and code of the TikFlow website belong to TikFlow.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl sm:text-2xl font-bold text-white">4. Prohibited Activities</h2>
-          <p>You agree not to engage in any of the following prohibited behaviors:</p>
-          <ul className="list-disc list-inside space-y-1.5 text-slate-400 pl-2">
-            <li>Employing automated bots, spiders, or scrapers to perform denial-of-service (DDoS) or high-volume scraping attacks on our servers.</li>
-            <li>Attempting to bypass security, rate-limiting, or firewall protections.</li>
-            <li>Using the Service to infringe upon the intellectual property, privacy, or publicity rights of any third party.</li>
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900">4. Misuse of the Service</h2>
+          <p>You agree not to:</p>
+          <ul className="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+            <li>Launch automated bots or scripts aimed at overwhelming our servers.</li>
+            <li>Attempt to bypass rate limits or compromise server stability.</li>
+            <li>Use the tool to violate the privacy or rights of any individual.</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl sm:text-2xl font-bold text-white">5. Disclaimer of Warranties & Limitation of Liability</h2>
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900">5. Disclaimer</h2>
           <p>
-            THE SERVICE IS PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
-          </p>
-          <p>
-            In no event shall TikFlow, its operators, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your access to, use of, or inability to use the Service.
-          </p>
-        </section>
-
-        <section className="space-y-3">
-          <h2 className="text-xl sm:text-2xl font-bold text-white">6. Modifications to Terms</h2>
-          <p>
-            TikFlow reserves the right to amend these Terms of Service at any time without prior notice. Continued use of the website following any modifications constitutes your formal acceptance of the updated terms.
+            TikFlow is provided on an &quot;as is&quot; basis without warranties of any kind. We do not guarantee uninterrupted availability and are not liable for any third-party misuse of downloaded media.
           </p>
         </section>
 

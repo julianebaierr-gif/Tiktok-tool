@@ -13,7 +13,6 @@ export default function HomePage() {
 
   const handleResult = (data) => {
     setDownloadResult(data);
-    // Smooth scroll down to result card
     setTimeout(() => {
       window.scrollTo({ top: 120, behavior: 'smooth' });
     }, 100);
@@ -26,18 +25,13 @@ export default function HomePage() {
   return (
     <div className="relative overflow-hidden">
       
-      {/* Decorative Background Glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-pink-500/10 via-cyan-500/10 to-transparent blur-3xl pointer-events-none -z-10"></div>
-      <div className="absolute top-80 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-      <div className="absolute top-96 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-
       {/* Downloader Section */}
       <section className="pt-4 pb-8 sm:pb-12">
         {!downloadResult ? (
           <DownloaderForm 
             onResult={handleResult} 
-            title="Download TikTok Video Without Watermark in HD"
-            subtitle="Save clean MP4 videos with no logo, extract studio-quality MP3 audio, and download photo carousels online for free."
+            title="Download TikTok Videos Without Watermark in HD"
+            subtitle="Save clean MP4 videos with no logo, extract crystal-clear MP3 music, and download full photo slideshows online for free."
           />
         ) : (
           <ResultCard 
@@ -53,7 +47,7 @@ export default function HomePage() {
       {/* How to Use Tutorial */}
       <HowToSection />
 
-      {/* Rich Semantic Content & 1000+ Keyword Hunter Coverage */}
+      {/* Rich 1200+ Words Human Editorial Content */}
       <SemanticContent />
 
       {/* FAQ Accordion */}

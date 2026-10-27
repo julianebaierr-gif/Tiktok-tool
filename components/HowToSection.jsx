@@ -11,60 +11,60 @@ export default function HowToSection() {
       step: '01',
       icon: Share2,
       title: 'Copy the TikTok Link',
-      desc: 'Open the TikTok app or website. Tap the "Share" arrow on your desired video and select "Copy Link".',
+      desc: 'Open the TikTok app on your phone or computer. Find the video you want to save, tap the Share button, and hit Copy Link.',
     },
     {
       step: '02',
       icon: Copy,
-      title: 'Paste URL into TikFlow',
-      desc: 'Navigate to TikFlow in any mobile or desktop web browser and paste the copied link into the top input field.',
+      title: 'Paste It into TikFlow',
+      desc: 'Come over to TikFlow in your web browser. Paste the link into the search box at the top and press Download.',
     },
     {
       step: '03',
       icon: Download,
-      title: 'Save Clean File',
-      desc: 'Hit "Download", then select "Download MP4 (No Watermark)" or "Download MP3" to save the file instantly.',
+      title: 'Save the Clean Video or Audio',
+      desc: 'Pick your preferred format: click Download MP4 for the watermark-free video, or Download MP3 for just the music.',
     },
   ];
 
   return (
-    <section id="how-to-use" className="py-16 sm:py-20 bg-slate-950/60 border-y border-slate-800/80">
+    <section id="how-to-use" className="py-16 sm:py-20 bg-slate-50/80 border-y border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-pink-400 bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">
-            Quick 3-Step Guide
+          <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 px-3.5 py-1 rounded-full border border-indigo-200">
+            Simple 3-Step Guide
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mt-4">
-            How to Download TikTok Videos Without Watermark
+          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
+            How to Download TikTok Videos on Your Phone or PC
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-400">
-            It takes less than 5 seconds. Follow these simple steps on any phone, tablet, or computer.
+          <p className="mt-3 text-sm sm:text-base text-slate-600">
+            You do not need to install extra apps or create an account. Here is the whole process:
           </p>
 
           {/* Device Tabs */}
-          <div className="inline-flex p-1 rounded-xl bg-slate-900 border border-slate-800 mt-6">
+          <div className="inline-flex p-1 rounded-2xl bg-white border border-slate-200 mt-6 shadow-sm">
             <button
               onClick={() => setActiveTab('mobile')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 activeTab === 'mobile'
-                  ? 'bg-slate-800 text-cyan-300 shadow-sm'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-slate-900 text-white shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <Smartphone className="w-4 h-4" />
-              <span>Mobile Phone (iOS / Android)</span>
+              <span>Mobile Phone (iPhone & Android)</span>
             </button>
             <button
               onClick={() => setActiveTab('desktop')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 activeTab === 'desktop'
-                  ? 'bg-slate-800 text-cyan-300 shadow-sm'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-slate-900 text-white shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <Laptop className="w-4 h-4" />
-              <span>PC / Mac / Laptop</span>
+              <span>Computer (PC & Mac)</span>
             </button>
           </div>
         </div>
@@ -76,31 +76,31 @@ export default function HowToSection() {
             return (
               <div
                 key={idx}
-                className="relative p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800/80 shadow-xl overflow-hidden group hover:border-slate-700 transition-all"
+                className="relative p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300"
               >
-                <div className="absolute top-4 right-6 text-5xl font-black text-slate-800/40 select-none group-hover:text-slate-800/70 transition-colors">
+                <div className="absolute top-5 right-6 text-5xl font-black text-slate-100 select-none">
                   {item.step}
                 </div>
-                <div className="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-cyan-400 mb-6 group-hover:bg-cyan-500/20 group-hover:text-cyan-300 transition-all">
-                  <Icon className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-800 mb-6">
+                  <Icon className="w-6 h-6 text-rose-500" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
               </div>
             );
           })}
         </div>
 
         {/* Device specific tips */}
-        <div className="mt-12 p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 max-w-3xl mx-auto">
-          <h4 className="text-white font-semibold text-sm flex items-center gap-2 mb-2">
-            <Check className="w-4 h-4 text-emerald-400" />
-            <span>{activeTab === 'mobile' ? 'Mobile Pro Tip:' : 'Desktop Pro Tip:'}</span>
+        <div className="mt-12 p-6 rounded-3xl bg-white border border-slate-200 max-w-3xl mx-auto shadow-sm">
+          <h4 className="text-slate-900 font-bold text-sm flex items-center gap-2 mb-2">
+            <Check className="w-4 h-4 text-emerald-600" />
+            <span>{activeTab === 'mobile' ? 'Quick Tip for iPhone Users:' : 'Quick Tip for Computer Users:'}</span>
           </h4>
-          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             {activeTab === 'mobile'
-              ? 'On Apple iPhone running iOS 13 or later, Safari will prompt "Do you want to download this file?". Tap Download, and the clean MP4 video will appear in your Safari Downloads manager, ready to be saved into your Photos Camera Roll with a single tap.'
-              : 'On Google Chrome or Edge on Windows and Mac, hitting "Download MP4" saves the video straight into your default "Downloads" folder without re-encoding or opening an annoying new tab.'}
+              ? 'On iOS Safari, after tapping Download, tap the blue arrow in the bottom address bar to view your downloaded file. Open the video, tap the bottom Share button, and select "Save Video" to send it right into your Photos app.'
+              : 'On Google Chrome or Edge, hitting the green download button will automatically drop the MP4 file into your Downloads folder without having to right-click or wait for re-encoding.'}
           </p>
         </div>
 
