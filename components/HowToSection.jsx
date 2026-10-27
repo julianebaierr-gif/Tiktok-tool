@@ -149,9 +149,9 @@ export default function HowToSection() {
                 key={idx}
                 className="relative p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300"
               >
-                <div className="absolute top-5 right-6 text-5xl font-black text-slate-100 select-none" aria-hidden="true">
-                  {item.step}
-                </div>
+                <span className="absolute top-5 right-6 text-xs font-black tracking-wider uppercase px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200 select-none">
+                  Step {item.step}
+                </span>
                 <div className="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-800 mb-6">
                   <Icon className="w-6 h-6 text-rose-500" />
                 </div>

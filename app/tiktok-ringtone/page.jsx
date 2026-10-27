@@ -170,47 +170,7 @@ export default function TikTokRingtonePage() {
 
         {/* Section 1: The Ringtone Revolution & 3D Illustration */}
         <section className="space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider">
-            <Bell className="w-4 h-4 text-rose-700" />
-            <span>Personalized Acoustic Identity</span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            1. How to Turn Viral TikTok Sounds into Custom iPhone and Android Ringtones
-          </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-            In an era where millions of smartphones share the same generic factory ringtones (like Apple&apos;s &ldquo;Reflection&rdquo; or Samsung&apos;s &ldquo;Over the Horizon&rdquo;), hearing a phone ring in a crowded room often causes half a dozen people to reach into their pockets simultaneously. Setting a custom ringtone is the ultimate way to personalize your device and instantly know when someone is actually calling you.
-          </p>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            TikTok has become the premier catalog for catchy audio hooks, iconic dialogue lines, viral soundboard effects, and acoustic remixes that make perfect ringtones and alarm sounds. QukTik simplifies the ringtone creation pipeline by isolating the pure 320kbps MP3 audio stream directly from any TikTok video, ready for instant setup on iOS and Android without paid subscriptions or third-party computer utilities.
-          </p>
-
-          {/* Embedded 3D Illustration: Ringtone Maker */}
-          <div className="my-8 rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white">
-            <img
-              src="/images/audio-ringtone-3d.png"
-              alt="3D visual illustration showing TikTok sound extraction into a customized smartphone ringtone and alarm"
-              className="w-full h-auto object-cover max-h-[420px]"
-              width={1200} height={675} loading="lazy"
-            />
-            <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm text-slate-600 font-medium">
-              <span className="flex items-center gap-1.5 text-rose-700 font-bold">
-                <span>Viral Sound Hook Isolation</span>
-              </span>
-              <span className="flex items-center gap-1.5 text-emerald-700 font-bold">
-                <span>320 kbps Studio Audio • GarageBand &amp; Android Ready</span>
-              </span>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 2: Ringtone Format Constraints & Specifications */}
-        <section className="space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Sliders className="w-3.5 h-3.5 text-indigo-600" />
-            <span>Part 2: OS Specifications</span>
-          </div>
-          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            2. iOS vs Android: Ringtone Constraints and Audio Specifications
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">iOS vs Android: Ringtone Constraints and Audio Specifications
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Different mobile operating systems handle custom audio files through distinct frameworks. Here is a technical breakdown of how Apple iOS and Google Android process custom ringtones:
@@ -253,12 +213,7 @@ export default function TikTokRingtonePage() {
 
         {/* Section 3: Creative Tone Ideas */}
         <section className="space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Compass className="w-3.5 h-3.5 text-rose-700" />
-            <span>Part 3: Creative Ideas</span>
-          </div>
-          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            3. You can also sample audio from 24-hour stories using our <Link href="/tiktok-story" className="text-rose-700 font-semibold hover:underline">TikTok Story Saver</Link> or convert trending Chinese audio from our <Link href="/douyin-downloader" className="text-rose-700 font-semibold hover:underline">Douyin Downloader</Link>. Creative Ideas for Your Custom TikTok Ringtones
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">You can also sample audio from 24-hour stories using our <Link href="/tiktok-story" className="text-rose-700 font-semibold hover:underline">TikTok Story Saver</Link> or convert trending Chinese audio from our <Link href="/douyin-downloader" className="text-rose-700 font-semibold hover:underline">Douyin Downloader</Link>. Creative Ideas for Your Custom TikTok Ringtones
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
@@ -314,20 +269,15 @@ export default function TikTokRingtonePage() {
 
         {/* Section 4: Detailed Step-by-Step Device Tutorials */}
         <section className="space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Smartphone className="w-3.5 h-3.5 text-indigo-600" />
-            <span>Part 4: Device Tutorials</span>
-          </div>
-          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            4. Complete Step-by-Step Setup Guides for iOS and Android
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">Complete Step-by-Step Setup Guides for iOS and Android
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
             {/* iOS GarageBand */}
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 font-bold">
-                  iOS
+                <div className="w-10 h-10 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 shrink-0">
+                  <Smartphone className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 text-lg">iPhone Ringtone (GarageBand)</h3>
@@ -349,8 +299,8 @@ export default function TikTokRingtonePage() {
             {/* Android Settings */}
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 font-bold">
-                  Android
+                <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0">
+                  <Smartphone className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 text-lg">Android Custom Tone Setup</h3>
@@ -372,12 +322,7 @@ export default function TikTokRingtonePage() {
 
         {/* Section 5: Acoustic EQ for Mobile Speakers */}
         <section className="space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Volume2 className="w-3.5 h-3.5 text-purple-600" />
-            <span>Part 5: Mobile Acoustic Calibration</span>
-          </div>
-          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            5. Speaker Optimization: Preventing Crackling on Smartphone Micro-Speakers
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">Speaker Optimization: Preventing Crackling on Smartphone Micro-Speakers
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Smartphone micro-speakers feature physical speaker transducers measuring merely 10mm to 15mm across. When deep sub-bass frequencies (below 80 Hz) are pushed through phone speakers at maximum volume, the physical cone over-excursions, producing unpleasant rattling, buzzing, or distorted vocal harmonics.
@@ -400,12 +345,7 @@ export default function TikTokRingtonePage() {
 
         {/* Section 6: Seamless Loop Transitions */}
         <section className="space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Clock className="w-3.5 h-3.5 text-indigo-600" />
-            <span>Part 6: Loop Design</span>
-          </div>
-          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            6. Designing Seamless Loop Cycles for Repetitive Incoming Calls
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">Designing Seamless Loop Cycles for Repetitive Incoming Calls
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             When someone calls you, your smartphone loops your chosen audio file repeatedly until you answer or the call diverts to voicemail. If your audio track ends abruptly on a hard transient or middle syllable, each loop repetition creates a jarring click or awkward pause.
@@ -417,12 +357,7 @@ export default function TikTokRingtonePage() {
 
         {/* Section 7: Psychoacoustics of Alarm Ringtones */}
         <section className="space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Radio className="w-3.5 h-3.5 text-emerald-700" />
-            <span>Part 7: Psychoacoustic Science</span>
-          </div>
-          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            7. The Psychoacoustics of Morning Wake-Up Alarms
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">The Psychoacoustics of Morning Wake-Up Alarms
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Sleep researchers note that conventional digital alarm chimes trigger sudden spikes in cortisol and heart rate by activating the brain&apos;s fight-or-flight mechanism. This abrupt awakening often leads to prolonged sleep inertia, leaving you feeling groggy and fatigued for hours after getting out of bed.
@@ -434,12 +369,7 @@ export default function TikTokRingtonePage() {
 
         {/* Section 8: Smartwatch & Bluetooth Wearable Sync */}
         <section className="space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Headphones className="w-3.5 h-3.5 text-rose-700" />
-            <span>Part 8: Wearable Audio &amp; Bluetooth Sync</span>
-          </div>
-          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            8. Wearable Audio: Syncing Custom Tones to Apple Watch &amp; Bluetooth Earbuds
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">Wearable Audio: Syncing Custom Tones to Apple Watch &amp; Bluetooth Earbuds
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Many users rely on wearable smart accessories throughout their day—such as Apple Watch, Samsung Galaxy Watch, or wireless earbuds like AirPods Pro. When you set a custom ringtone on your primary smartphone, how does it interact with your paired accessories?
