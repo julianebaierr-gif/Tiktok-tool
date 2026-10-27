@@ -3,14 +3,15 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Music, Image as ImageIcon, Video, History, Menu, X, ArrowDownToLine, Globe2, Bell, UserCheck } from 'lucide-react';
+import { Home, Music, Image as ImageIcon, Video, History, Menu, X, ArrowDownToLine, Globe2, Bell, UserCheck } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   const navLinks = [
-    { href: '/', label: 'Video Saver', icon: Video },
+    { href: '/', label: 'Home', icon: Home },
+    { href: '/#downloader', label: 'Video Downloader', icon: Video },
     { href: '/tiktok-mp3', label: 'Audio & MP3', icon: Music },
     { href: '/tiktok-photo', label: 'Photo Slides', icon: ImageIcon },
     { href: '/tiktok-story', label: 'Stories', icon: History },
@@ -64,7 +65,7 @@ export default function Navbar() {
 
           {/* Medium screen navigation fallback */}
           <nav className="hidden md:flex xl:hidden items-center space-x-1">
-            {navLinks.slice(0, 4).map((link) => {
+            {navLinks.slice(0, 5).map((link) => {
               const Icon = link.icon;
               const isActive = pathname === link.href;
               return (

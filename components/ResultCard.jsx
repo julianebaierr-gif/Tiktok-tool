@@ -125,10 +125,10 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
 
             <button
               onClick={onReset}
-              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition-all"
+              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold border border-rose-200 transition-all active:scale-95 shadow-xs"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
-              <span>New Search</span>
+              <RotateCcw className="w-3.5 h-3.5 text-rose-500" />
+              <span>Download Another Video</span>
             </button>
           </div>
         </div>
@@ -374,20 +374,25 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
               </div>
 
               {/* Download Buttons Section */}
-              <div className="space-y-3 pt-2">
-                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Choose Download Option</h4>
+              <div className="space-y-3.5 pt-2">
+                <div className="flex items-center justify-between">
+                  <h4 className="text-xs font-black text-slate-500 uppercase tracking-wider">Choose Download Option:</h4>
+                  <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">Ready in 1080p</span>
+                </div>
 
                 {video?.noWatermark && (
                   <a
                     href={getProxyUrl(video.noWatermark, `tikflow_video_nowm_${id}.mp4`, 'video')}
                     download={`tikflow_video_nowm_${id}.mp4`}
-                    className="w-full flex items-center justify-between px-5 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-sm shadow-md shadow-emerald-500/20 active:scale-[0.99] transition-all group"
+                    className="w-full flex items-center justify-between px-6 py-4.5 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-base shadow-xl shadow-emerald-500/25 active:scale-[0.98] transition-all group"
                   >
-                    <div className="flex items-center space-x-3">
-                      <Download className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
-                      <span>Download MP4 (Without Watermark)</span>
+                    <div className="flex items-center space-x-3.5">
+                      <div className="w-9 h-9 rounded-2xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                        <Download className="w-5 h-5 text-white" />
+                      </div>
+                      <span className="text-left font-black tracking-tight">Download Video (Without Watermark)</span>
                     </div>
-                    <span className="text-[11px] px-2 py-0.5 rounded bg-white/20 font-semibold uppercase">Server 1</span>
+                    <span className="text-xs px-2.5 py-1 rounded-full bg-white/25 font-bold uppercase tracking-wider shrink-0">Server 1</span>
                   </a>
                 )}
 
@@ -395,13 +400,13 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                   <a
                     href={getProxyUrl(video.noWatermarkHd, `tikflow_video_hd_${id}.mp4`, 'video')}
                     download={`tikflow_video_hd_${id}.mp4`}
-                    className="w-full flex items-center justify-between px-5 py-3.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-sm border border-slate-200 active:scale-[0.99] transition-all group"
+                    className="w-full flex items-center justify-between px-6 py-3.5 rounded-2xl sm:rounded-3xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm border border-slate-200 active:scale-[0.98] transition-all group"
                   >
-                    <div className="flex items-center space-x-3">
-                      <Video className="w-5 h-5 text-indigo-600" />
-                      <span>Download MP4 (HD Server 2)</span>
+                    <div className="flex items-center space-x-3.5">
+                      <Video className="w-5 h-5 text-indigo-600 shrink-0" />
+                      <span className="text-left font-bold">Download Video (HD Server 2)</span>
                     </div>
-                    <span className="text-[11px] text-slate-500">Source HD</span>
+                    <span className="text-xs text-slate-500 font-semibold">HD Mirror</span>
                   </a>
                 )}
 
@@ -409,15 +414,17 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                   <a
                     href={getProxyUrl(music.url, `tikflow_audio_${id}.mp3`, 'audio')}
                     download={`tikflow_audio_${id}.mp3`}
-                    className="w-full flex items-center justify-between px-5 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-semibold text-sm shadow-md shadow-rose-500/20 active:scale-[0.99] transition-all group"
+                    className="w-full flex items-center justify-between px-6 py-4 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-rose-500/20 active:scale-[0.98] transition-all group"
                   >
-                    <div className="flex items-center space-x-3">
-                      <Music className="w-5 h-5 text-rose-100" />
-                      <span className="truncate max-w-[240px]">
+                    <div className="flex items-center space-x-3.5">
+                      <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                        <Music className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="truncate max-w-[240px] font-bold">
                         Download MP3 Audio ({music.title || 'Soundtrack'})
                       </span>
                     </div>
-                    <span className="text-[11px] px-2 py-0.5 rounded bg-white/20 font-semibold uppercase">320kbps</span>
+                    <span className="text-xs px-2.5 py-1 rounded-full bg-white/25 font-bold uppercase tracking-wider shrink-0">320kbps</span>
                   </a>
                 )}
 
