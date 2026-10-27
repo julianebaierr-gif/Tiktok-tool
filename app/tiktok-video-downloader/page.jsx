@@ -155,13 +155,13 @@ export default function TikTokVideoDownloaderPage() {
               src="/images/watermark-vs-clean-3d.png"
               alt="Visual comparison showing a video with annoying bouncing watermark versus clean spotless Full HD MP4 downloaded via QukTik"
               className="w-full h-auto object-cover max-h-[420px]"
-              loading="lazy"
+              width={1200} height={675} loading="lazy"
             />
             <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm text-slate-600 font-medium">
-              <span className="flex items-center gap-1.5 text-rose-600 font-bold">
+              <span className="flex items-center gap-1.5 text-rose-700 font-bold">
                 <span>Left: Native TikTok Save (Bouncing Watermark + Second Compression)</span>
               </span>
-              <span className="flex items-center gap-1.5 text-emerald-600 font-bold">
+              <span className="flex items-center gap-1.5 text-emerald-700 font-bold">
                 <span>Right: QukTik HD (Clean 1080p Master MP4 • Zero Overlays)</span>
               </span>
             </div>
@@ -189,21 +189,21 @@ export default function TikTokVideoDownloaderPage() {
             <li><strong>Gaussian Blur Smudges:</strong> Some tools apply an artificial blur over the logo. This leaves an ugly, pixelated smudge that draws more viewer distraction than the original logo itself.</li>
           </ul>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            <strong>How QukTik Operates Differently:</strong> Rather than performing destructive post-processing on a watermarked file, QukTik queries ByteDance&apos;s global content distribution nodes directly. When a video is uploaded, an untouched master file is written to the server before the watermark render queue executes. If you only require the audio stem or background music rather than the video, you can utilize our specialized <Link href="/tiktok-mp3" className="text-rose-600 font-semibold hover:underline">TikTok to MP3 Converter</Link> or create <Link href="/tiktok-ringtone" className="text-rose-600 font-semibold hover:underline">custom smartphone ringtones</Link>. QukTik retrieves this original untouched file stream (<code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">play_addr</code>), delivering a 100% clean video with full resolution, vibrant color gamuts, and zero pixel distortion.
+            <strong>How QukTik Operates Differently:</strong> Rather than performing destructive post-processing on a watermarked file, QukTik queries ByteDance&apos;s global content distribution nodes directly. When a video is uploaded, an untouched master file is written to the server before the watermark render queue executes. If you only require the audio stem or background music rather than the video, you can utilize our specialized <Link href="/tiktok-mp3" className="text-rose-700 font-semibold hover:underline">TikTok to MP3 Converter</Link> or create <Link href="/tiktok-ringtone" className="text-rose-700 font-semibold hover:underline">custom smartphone ringtones</Link>. QukTik retrieves this original untouched file stream (<code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">play_addr</code>), delivering a 100% clean video with full resolution, vibrant color gamuts, and zero pixel distortion.
           </p>
         </section>
 
         {/* Section 3: Creator Workflow - Multi-Platform Distribution */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Compass className="w-3.5 h-3.5 text-emerald-600" />
+            <Compass className="w-3.5 h-3.5 text-emerald-700" />
             <span>Part 3: Creator Repurposing Strategy</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             3. The Multi-Platform Repurposing Funnel for Content Creators
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            For professional digital creators, brand managers, and small business owners, producing engaging video content requires substantial time and creative effort. To maximize return on investment, successful creators never post their work to just one social network. They cross-post across YouTube Shorts, Instagram Reels, Facebook Reels, Snapchat Spotlight, and Pinterest Idea Pins. For creators publishing still image carousels, our <Link href="/tiktok-photo" className="text-rose-600 font-semibold hover:underline">TikTok photo slideshow downloader</Link> extracts individual JPG frames, while our <Link href="/tiktok-story" className="text-rose-600 font-semibold hover:underline">TikTok story saver</Link> archives 24-hour disappearing clips.
+            For professional digital creators, brand managers, and small business owners, producing engaging video content requires substantial time and creative effort. To maximize return on investment, successful creators never post their work to just one social network. They cross-post across YouTube Shorts, Instagram Reels, Facebook Reels, Snapchat Spotlight, and Pinterest Idea Pins. For creators publishing still image carousels, our <Link href="/tiktok-photo" className="text-rose-700 font-semibold hover:underline">TikTok photo slideshow downloader</Link> extracts individual JPG frames, while our <Link href="/tiktok-story" className="text-rose-700 font-semibold hover:underline">TikTok story saver</Link> archives 24-hour disappearing clips.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             However, automated recommendation algorithms on Instagram and YouTube actively penalize videos that bear the TikTok logo watermark. Meta and Google specifically updated their recommendation guidelines to deprioritize watermarked media, severely limiting organic distribution in explore tabs.
@@ -211,7 +211,7 @@ export default function TikTokVideoDownloaderPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold">
+              <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
                 01
               </div>
               <h4 className="font-bold text-slate-900 text-base">Algorithmic Reach</h4>
@@ -231,7 +231,7 @@ export default function TikTokVideoDownloaderPage() {
             </div>
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
                 03
               </div>
               <h4 className="font-bold text-slate-900 text-base">Long-Term Digital Backup</h4>
@@ -260,7 +260,7 @@ export default function TikTokVideoDownloaderPage() {
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
                   <th className="p-4 sm:p-5">Performance Metric</th>
-                  <th className="p-4 sm:p-5 text-rose-600">QukTik Video Downloader</th>
+                  <th className="p-4 sm:p-5 text-rose-700">QukTik Video Downloader</th>
                   <th className="p-4 sm:p-5 text-slate-500">Typical Online Converters</th>
                   <th className="p-4 sm:p-5 text-slate-500">Screen Recording</th>
                 </tr>
@@ -268,37 +268,37 @@ export default function TikTokVideoDownloaderPage() {
               <tbody className="divide-y divide-slate-100 text-slate-700">
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Watermark Removal Technique</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Direct CDN Stream Extraction</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Direct CDN Stream Extraction</td>
                   <td className="p-4 sm:p-5 text-slate-500">Edge cropping or blur filters</td>
                   <td className="p-4 sm:p-5 text-rose-500">Captures full watermark &amp; UI icons</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Output Resolution</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Original 1080p / 720p 60fps</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Original 1080p / 720p 60fps</td>
                   <td className="p-4 sm:p-5 text-slate-500">Downscaled to 480p/720p</td>
                   <td className="p-4 sm:p-5 text-slate-500">Device display resolution</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Audio-Video Lip Synchronization</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Frame-Accurate AAC Stereo</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Frame-Accurate AAC Stereo</td>
                   <td className="p-4 sm:p-5 text-slate-500">Audio drift / sync delay</td>
                   <td className="p-4 sm:p-5 text-rose-500">Microphone ambient noise risk</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Download Speed</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Instant (Under 2 Seconds)</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Instant (Under 2 Seconds)</td>
                   <td className="p-4 sm:p-5 text-slate-500">15-45 seconds in queue</td>
                   <td className="p-4 sm:p-5 text-slate-500">Requires real-time playback</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Software Installation</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">None (Pure Web Browser)</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">None (Pure Web Browser)</td>
                   <td className="p-4 sm:p-5 text-slate-500">Pushes suspicious APKs &amp; extensions</td>
                   <td className="p-4 sm:p-5 text-slate-500">Built-in OS utility</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Device Privacy</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">100% Secure (HTTPS, No Logs)</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">100% Secure (HTTPS, No Logs)</td>
                   <td className="p-4 sm:p-5 text-slate-500">Intrusive pop-ups and tracking scripts</td>
                   <td className="p-4 sm:p-5 text-slate-500">Local capture</td>
                 </tr>
@@ -343,7 +343,7 @@ export default function TikTokVideoDownloaderPage() {
             {/* Android Box */}
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 font-bold">
+                <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 font-bold">
                   Android
                 </div>
                 <div>
@@ -379,7 +379,7 @@ export default function TikTokVideoDownloaderPage() {
         {/* Section 6: Troubleshooting Matrix */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
+            <AlertCircle className="w-3.5 h-3.5 text-amber-700" />
             <span>Part 6: Troubleshooting Guide</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -443,7 +443,7 @@ export default function TikTokVideoDownloaderPage() {
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
                   <th className="p-4 sm:p-5">Capability / User Experience</th>
-                  <th className="p-4 sm:p-5 text-rose-600">QukTik Next-Gen Downloader</th>
+                  <th className="p-4 sm:p-5 text-rose-700">QukTik Next-Gen Downloader</th>
                   <th className="p-4 sm:p-5 text-slate-500">Legacy Downloaders (SnapTik, SSSTik, TikFlow)</th>
                   <th className="p-4 sm:p-5 text-slate-500">Mobile Video Saver Apps (APKs)</th>
                 </tr>
@@ -451,25 +451,25 @@ export default function TikTokVideoDownloaderPage() {
               <tbody className="divide-y divide-slate-100 text-slate-700">
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Direct Master Stream Access</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Pristine 1080p60 Source Quality</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Pristine 1080p60 Source Quality</td>
                   <td className="p-4 sm:p-5 text-slate-500">Often downscaled to 720p</td>
                   <td className="p-4 sm:p-5 text-slate-500">Re-compressed screen capture</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Ad Clutter &amp; Deceptive Popups</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Zero Deceptive Buttons / Clean UI</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Zero Deceptive Buttons / Clean UI</td>
                   <td className="p-4 sm:p-5 text-rose-500">Heavy full-screen interstitial ads</td>
                   <td className="p-4 sm:p-5 text-rose-500">Invasive background notifications</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Security &amp; Device Permissions</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">No App Install, 100% Web Sandbox</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">No App Install, 100% Web Sandbox</td>
                   <td className="p-4 sm:p-5 text-slate-500">Browser cookie tracking</td>
                   <td className="p-4 sm:p-5 text-rose-500">Demands storage, contacts, GPS access</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Multi-Asset Support (Audio, Photos)</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">All-in-One Suite (MP4, MP3, Carousels)</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">All-in-One Suite (MP4, MP3, Carousels)</td>
                   <td className="p-4 sm:p-5 text-slate-500">Video only / fragmented tools</td>
                   <td className="p-4 sm:p-5 text-slate-500">Restricted features behind paywalls</td>
                 </tr>
@@ -492,7 +492,7 @@ export default function TikTokVideoDownloaderPage() {
             QukTik Video Downloader is intended strictly for personal archiving, academic study, research, and fair-use repurposing of your own original intellectual property. We do not support or condone the unauthorized re-uploading or commercial monetization of another creator&apos;s work without their explicit written permission.
           </p>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            All trademarks, logos, and brand names belong to their respective owners (ByteDance Ltd., TikTok). For videos originating on ByteDance's domestic Chinese platform, use our <Link href="/douyin-downloader" className="text-rose-600 font-semibold hover:underline">Douyin Downloader</Link>, or inspect creator profiles with the <Link href="/tiktok-avatar" className="text-rose-600 font-semibold hover:underline">TikTok Avatar Downloader</Link>. Review our <Link href="/disclaimer" className="text-rose-600 font-semibold hover:underline">DMCA Policy</Link>, <Link href="/privacy-policy" className="text-rose-600 font-semibold hover:underline">Privacy Policy</Link>, or reach us via <Link href="/contact" className="text-rose-600 font-semibold hover:underline">Contact Support</Link>.
+            All trademarks, logos, and brand names belong to their respective owners (ByteDance Ltd., TikTok). For videos originating on ByteDance's domestic Chinese platform, use our <Link href="/douyin-downloader" className="text-rose-700 font-semibold hover:underline">Douyin Downloader</Link>, or inspect creator profiles with the <Link href="/tiktok-avatar" className="text-rose-700 font-semibold hover:underline">TikTok Avatar Downloader</Link>. Review our <Link href="/disclaimer" className="text-rose-700 font-semibold hover:underline">DMCA Policy</Link>, <Link href="/privacy-policy" className="text-rose-700 font-semibold hover:underline">Privacy Policy</Link>, or reach us via <Link href="/contact" className="text-rose-700 font-semibold hover:underline">Contact Support</Link>.
           </p>
         </section>
 

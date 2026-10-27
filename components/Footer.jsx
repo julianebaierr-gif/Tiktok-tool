@@ -16,7 +16,7 @@ export default function Footer() {
               <img 
                 src="/logo-icon.svg" 
                 alt="QukTik - TikTok & Douyin Video Downloader" 
-                className="w-10 h-10 rounded-2xl shadow-md shadow-slate-900/10 group-hover:scale-105 transition-transform"
+                width={40} height={40} className="w-10 h-10 rounded-2xl shadow-md shadow-slate-900/10 group-hover:scale-105 transition-transform"
               />
               <div className="flex flex-col">
                 <span className="text-2xl font-black tracking-tight text-slate-900 leading-none">

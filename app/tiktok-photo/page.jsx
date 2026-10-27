@@ -128,7 +128,7 @@ export default function TikTokPhotoPage() {
             Why Use QukTik Photo Slideshow Downloader?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Say goodbye to low-resolution phone screenshots and UI clutter. Get the exact master photo files uploaded by creators. If you need standard full-motion video clips, use our <Link href="/tiktok-video-downloader" className="text-rose-600 font-semibold hover:underline">TikTok Video Downloader</Link>, or extract accompanying audio stems with our <Link href="/tiktok-mp3" className="text-rose-600 font-semibold hover:underline">TikTok to MP3 Converter</Link>.
+            Say goodbye to low-resolution phone screenshots and UI clutter. Get the exact master photo files uploaded by creators. If you need standard full-motion video clips, use our <Link href="/tiktok-video-downloader" className="text-rose-700 font-semibold hover:underline">TikTok Video Downloader</Link>, or extract accompanying audio stems with our <Link href="/tiktok-mp3" className="text-rose-700 font-semibold hover:underline">TikTok to MP3 Converter</Link>.
           </p>
         </div>
 
@@ -144,7 +144,7 @@ export default function TikTokPhotoPage() {
           </div>
 
           <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 mb-2">
+            <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 mb-2">
               <Grid className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900">Complete Carousel Extraction</h3>
@@ -154,7 +154,7 @@ export default function TikTokPhotoPage() {
           </div>
 
           <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mb-2">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 mb-2">
               <FolderArchive className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900">Bundled Music Included</h3>
@@ -193,13 +193,13 @@ export default function TikTokPhotoPage() {
               src="/images/photo-slideshow-3d.png"
               alt="3D visual illustration showing TikTok multi-image photo carousel extraction into crisp individual JPG pictures"
               className="w-full h-auto object-cover max-h-[420px]"
-              loading="lazy"
+              width={1200} height={675} loading="lazy"
             />
             <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm text-slate-600 font-medium">
-              <span className="flex items-center gap-1.5 text-rose-600 font-bold">
+              <span className="flex items-center gap-1.5 text-rose-700 font-bold">
                 <span>Multi-Image Carousel Parsing (Up to 35 Photos)</span>
               </span>
-              <span className="flex items-center gap-1.5 text-emerald-600 font-bold">
+              <span className="flex items-center gap-1.5 text-emerald-700 font-bold">
                 <span>Original Master JPG/WebP • Zero UI Clutter</span>
               </span>
             </div>
@@ -224,7 +224,7 @@ export default function TikTokPhotoPage() {
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
                   <th className="p-4 sm:p-5">Comparison Metric</th>
-                  <th className="p-4 sm:p-5 text-rose-600">QukTik Carousel Downloader</th>
+                  <th className="p-4 sm:p-5 text-rose-700">QukTik Carousel Downloader</th>
                   <th className="p-4 sm:p-5 text-slate-500">Phone Screenshot</th>
                   <th className="p-4 sm:p-5 text-slate-500">Legacy Video Downloaders</th>
                 </tr>
@@ -232,25 +232,25 @@ export default function TikTokPhotoPage() {
               <tbody className="divide-y divide-slate-100 text-slate-700">
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Image Resolution</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Full 1080x1920+ Native Source</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Full 1080x1920+ Native Source</td>
                   <td className="p-4 sm:p-5 text-slate-500">Screen resolution with status bar</td>
                   <td className="p-4 sm:p-5 text-rose-500">Downscaled 720p video frame</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">UI Elements &amp; Overlays</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">100% Clean (Zero UI / No Icons)</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">100% Clean (Zero UI / No Icons)</td>
                   <td className="p-4 sm:p-5 text-rose-500">Covered by likes, comments, share icons</td>
                   <td className="p-4 sm:p-5 text-rose-500">Bouncing TikTok watermark</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Aspect Ratio Integrity</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Untouched 9:16, 4:3, or 1:1 format</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Untouched 9:16, 4:3, or 1:1 format</td>
                   <td className="p-4 sm:p-5 text-slate-500">Forced black bars on top and bottom</td>
                   <td className="p-4 sm:p-5 text-slate-500">Stretched video container</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">File Format</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Standard JPG / PNG Image Files</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Standard JPG / PNG Image Files</td>
                   <td className="p-4 sm:p-5 text-slate-500">PNG screenshot with compression</td>
                   <td className="p-4 sm:p-5 text-slate-500">Unwanted MP4 video file</td>
                 </tr>
@@ -262,11 +262,11 @@ export default function TikTokPhotoPage() {
         {/* Section 3: Popular Creative Uses for Carousels */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Compass className="w-3.5 h-3.5 text-emerald-600" />
+            <Compass className="w-3.5 h-3.5 text-emerald-700" />
             <span>Part 3: Practical Use Cases</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            3. Valuable Real-World Applications for Saved Photo Carousels (Also archive temporary status posts with our <Link href="/tiktok-story" className="text-rose-600 font-semibold hover:underline">TikTok Story Saver</Link> or check author profiles with our <Link href="/tiktok-avatar" className="text-rose-600 font-semibold hover:underline">Avatar Downloader</Link>)
+            3. Valuable Real-World Applications for Saved Photo Carousels (Also archive temporary status posts with our <Link href="/tiktok-story" className="text-rose-700 font-semibold hover:underline">TikTok Story Saver</Link> or check author profiles with our <Link href="/tiktok-avatar" className="text-rose-700 font-semibold hover:underline">Avatar Downloader</Link>)
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
@@ -284,7 +284,7 @@ export default function TikTokPhotoPage() {
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
                   02
                 </div>
                 <h4 className="font-bold text-slate-900 text-base">Culinary Recipes &amp; Ingredient Ratios</h4>
@@ -308,7 +308,7 @@ export default function TikTokPhotoPage() {
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
                   04
                 </div>
                 <h4 className="font-bold text-slate-900 text-base">Fashion Lookbooks &amp; Style Inspiration</h4>
@@ -353,7 +353,7 @@ export default function TikTokPhotoPage() {
             {/* Android / PC Box */}
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 font-bold">
+                <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 font-bold">
                   PC / Android
                 </div>
                 <div>
@@ -421,7 +421,7 @@ export default function TikTokPhotoPage() {
         {/* Section 7: Curating High-Resolution Vertical Wallpapers */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Smartphone className="w-3.5 h-3.5 text-rose-600" />
+            <Smartphone className="w-3.5 h-3.5 text-rose-700" />
             <span>Part 7: Mobile Display Optimization</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -438,7 +438,7 @@ export default function TikTokPhotoPage() {
         {/* Section 8: Digital Archival Protocols for Multi-Image Albums */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <FolderArchive className="w-3.5 h-3.5 text-emerald-600" />
+            <FolderArchive className="w-3.5 h-3.5 text-emerald-700" />
             <span>Part 8: Multi-Asset Archiving Architecture</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -459,7 +459,7 @@ export default function TikTokPhotoPage() {
             <h4>Photographer Copyright &amp; Ethical Re-use</h4>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            QukTik Photo Slideshow Downloader is intended strictly for personal archiving, educational research, and offline reference. Visual photography and artwork posted on TikTok remain the exclusive intellectual property of their original creators. Please do not re-upload, sell, or commercially utilize these photographs without obtaining explicit permission or a license from the copyright holder. You can also archive temporary photo stories with our <Link href="/tiktok-story" className="text-rose-600 font-semibold hover:underline">TikTok Story Saver</Link> or inspect creator profile pictures with the <Link href="/tiktok-avatar" className="text-rose-600 font-semibold hover:underline">Avatar Downloader</Link>. Review our <Link href="/disclaimer" className="text-rose-600 font-semibold hover:underline">DMCA Policy</Link>, <Link href="/privacy-policy" className="text-rose-600 font-semibold hover:underline">Privacy Policy</Link>, or reach us via <Link href="/contact" className="text-rose-600 font-semibold hover:underline">Contact Support</Link>.
+            QukTik Photo Slideshow Downloader is intended strictly for personal archiving, educational research, and offline reference. Visual photography and artwork posted on TikTok remain the exclusive intellectual property of their original creators. Please do not re-upload, sell, or commercially utilize these photographs without obtaining explicit permission or a license from the copyright holder. You can also archive temporary photo stories with our <Link href="/tiktok-story" className="text-rose-700 font-semibold hover:underline">TikTok Story Saver</Link> or inspect creator profile pictures with the <Link href="/tiktok-avatar" className="text-rose-700 font-semibold hover:underline">Avatar Downloader</Link>. Review our <Link href="/disclaimer" className="text-rose-700 font-semibold hover:underline">DMCA Policy</Link>, <Link href="/privacy-policy" className="text-rose-700 font-semibold hover:underline">Privacy Policy</Link>, or reach us via <Link href="/contact" className="text-rose-700 font-semibold hover:underline">Contact Support</Link>.
           </p>
         </section>
 

@@ -145,7 +145,7 @@ export default function TikTokStoryPage() {
           </div>
 
           <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 mb-2">
+            <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 mb-2">
               <Archive className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900">Permanent Archiving</h3>
@@ -155,7 +155,7 @@ export default function TikTokStoryPage() {
           </div>
 
           <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mb-2">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 mb-2">
               <Sparkles className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900">Original Master 1080p Quality</h3>
@@ -191,13 +191,13 @@ export default function TikTokStoryPage() {
               src="/images/story-saver-3d.png"
               alt="3D visual illustration showing TikTok 24-hour disappearing story saved securely into permanent photo gallery"
               className="w-full h-auto object-cover max-h-[420px]"
-              loading="lazy"
+              width={1200} height={675} loading="lazy"
             />
             <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm text-slate-600 font-medium">
               <span className="flex items-center gap-1.5 text-purple-600 font-bold">
                 <span>Active 24-Hour Story Ring Extraction</span>
               </span>
-              <span className="flex items-center gap-1.5 text-emerald-600 font-bold">
+              <span className="flex items-center gap-1.5 text-emerald-700 font-bold">
                 <span>Permanent Local Storage • 100% Anonymous</span>
               </span>
             </div>
@@ -230,25 +230,25 @@ export default function TikTokStoryPage() {
               <tbody className="divide-y divide-slate-100 text-slate-700">
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Story Token Routing</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Specialized Story API Parser</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Specialized Story API Parser</td>
                   <td className="p-4 sm:p-5 text-rose-500">Fails (Hardcoded feed regex)</td>
                   <td className="p-4 sm:p-5 text-slate-500">Manual capture required</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Viewer Anonymity</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">100% Anonymous (No Login)</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">100% Anonymous (No Login)</td>
                   <td className="p-4 sm:p-5 text-slate-500">N/A (Link fails)</td>
                   <td className="p-4 sm:p-5 text-rose-500">Exposes name to creator&apos;s view list</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Watermark Removal</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Zero Watermark Clean Stream</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Zero Watermark Clean Stream</td>
                   <td className="p-4 sm:p-5 text-slate-500">N/A</td>
                   <td className="p-4 sm:p-5 text-rose-500">Captures full screen &amp; UI buttons</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Photo Story Support</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Native JPG Image Extraction</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Native JPG Image Extraction</td>
                   <td className="p-4 sm:p-5 text-slate-500">Unsupported</td>
                   <td className="p-4 sm:p-5 text-slate-500">Compressed screenshot</td>
                 </tr>
@@ -294,7 +294,7 @@ export default function TikTokStoryPage() {
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
                   03
                 </div>
                 <h4 className="font-bold text-slate-900 text-base">Creator Competitive Analysis</h4>
@@ -306,7 +306,7 @@ export default function TikTokStoryPage() {
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
                   04
                 </div>
                 <h4 className="font-bold text-slate-900 text-base">Personal Life Keepsakes</h4>
@@ -351,7 +351,7 @@ export default function TikTokStoryPage() {
             {/* Android / PC Box */}
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 font-bold">
+                <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 font-bold">
                   PC / Android
                 </div>
                 <div>
@@ -417,7 +417,7 @@ export default function TikTokStoryPage() {
         {/* Section 7: Time-to-Live TTL Dynamics */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Clock className="w-3.5 h-3.5 text-rose-600" />
+            <Clock className="w-3.5 h-3.5 text-rose-700" />
             <span>Part 7: Technical Lifecycle</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -431,11 +431,11 @@ export default function TikTokStoryPage() {
         {/* Section 8: Cloud Archiving & Personal Media Management */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Archive className="w-3.5 h-3.5 text-emerald-600" />
+            <Archive className="w-3.5 h-3.5 text-emerald-700" />
             <span>Part 8: Personal Cloud Storage &amp; Organization</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            8. To view full-resolution profile pictures of story authors, use our <Link href="/tiktok-avatar" className="text-rose-600 font-semibold hover:underline">TikTok Avatar Downloader</Link>, or save photo-based stories with our <Link href="/tiktok-photo" className="text-rose-600 font-semibold hover:underline">Photo Downloader</Link>. Organizing Ephemeral Archives: Cloud Synchronization and Metadata Tagging
+            8. To view full-resolution profile pictures of story authors, use our <Link href="/tiktok-avatar" className="text-rose-700 font-semibold hover:underline">TikTok Avatar Downloader</Link>, or save photo-based stories with our <Link href="/tiktok-photo" className="text-rose-700 font-semibold hover:underline">Photo Downloader</Link>. Organizing Ephemeral Archives: Cloud Synchronization and Metadata Tagging
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Because stories vanish so quickly, users who archive multiple stories per week can easily end up with a disorganized smartphone camera roll. Professional social media archivists and digital curators implement structured storage pipelines to ensure saved stories remain easily searchable:

@@ -31,7 +31,7 @@ export default function Navbar() {
               <img 
                 src="/logo-icon.svg" 
                 alt="QukTik - TikTok & Douyin Video Downloader" 
-                className="w-10 h-10 rounded-2xl shadow-sm group-hover:scale-105 transition-all duration-200"
+                width={40} height={40} className="w-10 h-10 rounded-2xl shadow-sm group-hover:scale-105 transition-all duration-200"
               />
             </div>
             <div className="flex flex-col">

@@ -155,7 +155,7 @@ export default function TikTokAvatarPage() {
           </div>
 
           <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 mb-2">
+            <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 mb-2">
               <UserCheck className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900">100% Anonymous Lookup</h3>
@@ -191,13 +191,13 @@ export default function TikTokAvatarPage() {
               src="/images/avatar-downloader-3d.png"
               alt="3D visual illustration showing TikTok profile picture uncropping and HD zoom extraction into crisp 1080p JPG"
               className="w-full h-auto object-cover max-h-[420px]"
-              loading="lazy"
+              width={1200} height={675} loading="lazy"
             />
             <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm text-slate-600 font-medium">
               <span className="flex items-center gap-1.5 text-teal-600 font-bold">
                 <span>Circular Crop Bypass (80x80 ➔ 1080x1080 Master)</span>
               </span>
-              <span className="flex items-center gap-1.5 text-emerald-600 font-bold">
+              <span className="flex items-center gap-1.5 text-emerald-700 font-bold">
                 <span>Full Uncropped JPG/WebP • 100% Anonymous Lookup</span>
               </span>
             </div>
@@ -278,37 +278,37 @@ export default function TikTokAvatarPage() {
               <tbody className="divide-y divide-slate-100 text-slate-700">
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Pixel Resolution</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">720x720 to 1080x1080 Master</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">720x720 to 1080x1080 Master</td>
                   <td className="p-4 sm:p-5 text-rose-500">80x80 to 100x100 Thumbnail</td>
                   <td className="p-4 sm:p-5 text-slate-500">Pixelated sub-crop (~120x120)</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Canvas Framing</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Complete Uncropped 1:1 Square</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Complete Uncropped 1:1 Square</td>
                   <td className="p-4 sm:p-5 text-rose-500">Strict circular CSS mask</td>
                   <td className="p-4 sm:p-5 text-rose-500">Cropped circle with UI background</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Color Spectrum (Gamut)</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Pure sRGB / WebP Color Profile</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Pure sRGB / WebP Color Profile</td>
                   <td className="p-4 sm:p-5 text-slate-500">Compressed mobile rendering</td>
                   <td className="p-4 sm:p-5 text-slate-500">Altered by phone screen calibration</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Zoom Magnification</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Full optical zoom on high-res pixels</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Full optical zoom on high-res pixels</td>
                   <td className="p-4 sm:p-5 text-rose-500">No pinch-to-zoom supported</td>
                   <td className="p-4 sm:p-5 text-rose-500">Severely blurred digital interpolation</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Download Availability</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">One-click uncompressed JPG/WebP</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">One-click uncompressed JPG/WebP</td>
                   <td className="p-4 sm:p-5 text-rose-500">No native download option</td>
                   <td className="p-4 sm:p-5 text-slate-500">Requires manual photo editing</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Privacy &amp; Anonymity</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">100% Anonymous (No login needed)</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">100% Anonymous (No login needed)</td>
                   <td className="p-4 sm:p-5 text-slate-500">May trigger Profile Views history</td>
                   <td className="p-4 sm:p-5 text-slate-500">Requires visiting profile in app</td>
                 </tr>
@@ -320,11 +320,11 @@ export default function TikTokAvatarPage() {
         {/* Section 4: Security, Safety & Impersonator Bot Detection */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider">
-            <ShieldAlert className="w-4 h-4 text-rose-600" />
+            <ShieldAlert className="w-4 h-4 text-rose-700" />
             <span>Cybersecurity &amp; Account Authentication</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            After inspecting profile pictures, explore the creator's full video feed with our <Link href="/tiktok-video-downloader" className="text-rose-600 font-semibold hover:underline">TikTok Video Downloader</Link> or archive disappearing status posts with our <Link href="/tiktok-story" className="text-rose-600 font-semibold hover:underline">Story Saver</Link>. How High-Resolution Avatar Inspection Exposes Impersonator Bots and Scams
+            After inspecting profile pictures, explore the creator's full video feed with our <Link href="/tiktok-video-downloader" className="text-rose-700 font-semibold hover:underline">TikTok Video Downloader</Link> or archive disappearing status posts with our <Link href="/tiktok-story" className="text-rose-700 font-semibold hover:underline">Story Saver</Link>. How High-Resolution Avatar Inspection Exposes Impersonator Bots and Scams
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             One of the most vital practical applications of QukTik Avatar HD Downloader is cybersecurity and fraud prevention. With the explosive growth of TikTok commerce, cryptocurrency discussions, and brand influencer marketing, impersonator networks have become increasingly sophisticated:
@@ -370,7 +370,7 @@ export default function TikTokAvatarPage() {
             <span>Cross-Platform Media Compatibility</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            For creators who publish photography galleries alongside their profile, use our <Link href="/tiktok-photo" className="text-rose-600 font-semibold hover:underline">Photo Downloader</Link> or extract sound bites with our <Link href="/tiktok-mp3" className="text-rose-600 font-semibold hover:underline">MP3 Converter</Link>. Repurposing TikTok Avatars Across Discord, Steam, Twitter (X), and Phone Contacts
+            For creators who publish photography galleries alongside their profile, use our <Link href="/tiktok-photo" className="text-rose-700 font-semibold hover:underline">Photo Downloader</Link> or extract sound bites with our <Link href="/tiktok-mp3" className="text-rose-700 font-semibold hover:underline">MP3 Converter</Link>. Repurposing TikTok Avatars Across Discord, Steam, Twitter (X), and Phone Contacts
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             TikTok has evolved into a global hub for visual subcultures, digital illustrators, VTubers, 3D blender animators, and esports franchises. Users frequently discover striking aesthetic profile pictures on TikTok that they wish to synchronize across their entire digital presence:

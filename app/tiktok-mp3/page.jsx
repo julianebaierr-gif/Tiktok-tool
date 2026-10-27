@@ -119,7 +119,7 @@ export default function TikTokMp3Page() {
       {/* Audio Engine Feature Cards */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-rose-600 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">
+          <span className="text-xs font-bold uppercase tracking-widest text-rose-700 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">
             Dedicated Audio Engine
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
@@ -132,12 +132,12 @@ export default function TikTokMp3Page() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 mb-2">
+            <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 mb-2">
               <Disc className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900">Original Studio Bitrate (320kbps)</h3>
             <p className="text-sm text-slate-600 leading-relaxed">
-              We extract the original audio stream directly from TikTok servers without re-compressing, delivering clean sound at up to 320kbps bitrate with crisp highs and deep bass. If you need the complete visual footage alongside the audio, simply use our <Link href="/tiktok-video-downloader" className="text-rose-600 font-semibold hover:underline">TikTok Video Downloader</Link>.
+              We extract the original audio stream directly from TikTok servers without re-compressing, delivering clean sound at up to 320kbps bitrate with crisp highs and deep bass. If you need the complete visual footage alongside the audio, simply use our <Link href="/tiktok-video-downloader" className="text-rose-700 font-semibold hover:underline">TikTok Video Downloader</Link>.
             </p>
           </div>
 
@@ -152,7 +152,7 @@ export default function TikTokMp3Page() {
           </div>
 
           <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mb-2">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 mb-2">
               <Volume2 className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900">Universal Compatibility</h3>
@@ -191,10 +191,10 @@ export default function TikTokMp3Page() {
               src="/images/audio-ringtone-3d.png"
               alt="3D illustration showing audio waveform extraction from TikTok video into a high-fidelity 320kbps MP3 audio file"
               className="w-full h-auto object-cover max-h-[420px]"
-              loading="lazy"
+              width={1200} height={675} loading="lazy"
             />
             <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm text-slate-600 font-medium">
-              <span className="flex items-center gap-1.5 text-rose-600 font-bold">
+              <span className="flex items-center gap-1.5 text-rose-700 font-bold">
                 <span>Direct Audio Stream Extraction (Cloud Demuxing)</span>
               </span>
               <span className="flex items-center gap-1.5 text-indigo-600 font-bold">
@@ -207,7 +207,7 @@ export default function TikTokMp3Page() {
         {/* Section 2: Demuxing vs Re-Encoding */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Cpu className="w-3.5 h-3.5 text-rose-600" />
+            <Cpu className="w-3.5 h-3.5 text-rose-700" />
             <span>Part 2: Technical Demuxing</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -247,7 +247,7 @@ export default function TikTokMp3Page() {
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
                   <th className="p-4 sm:p-5">Acoustic Specification</th>
-                  <th className="p-4 sm:p-5 text-rose-600">QukTik MP3 Converter</th>
+                  <th className="p-4 sm:p-5 text-rose-700">QukTik MP3 Converter</th>
                   <th className="p-4 sm:p-5 text-slate-500">Standard Web Converters</th>
                   <th className="p-4 sm:p-5 text-slate-500">Screen Recording Audio</th>
                 </tr>
@@ -255,25 +255,25 @@ export default function TikTokMp3Page() {
               <tbody className="divide-y divide-slate-100 text-slate-700">
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Bitrate Density</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Up to 320 kbps (Constant Bitrate)</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Up to 320 kbps (Constant Bitrate)</td>
                   <td className="p-4 sm:p-5 text-slate-500">64 kbps - 128 kbps (Low Fidelity)</td>
                   <td className="p-4 sm:p-5 text-rose-500">Variable / Compressed</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Frequency Response Range</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">20 Hz - 20,000 Hz (Full Spectrum)</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">20 Hz - 20,000 Hz (Full Spectrum)</td>
                   <td className="p-4 sm:p-5 text-slate-500">Cut off above 12,000 Hz</td>
                   <td className="p-4 sm:p-5 text-slate-500">Distorted high frequencies</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Stereo Separation</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">True Dual Stereo (Left / Right)</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">True Dual Stereo (Left / Right)</td>
                   <td className="p-4 sm:p-5 text-slate-500">Frequently collapsed to Mono</td>
                   <td className="p-4 sm:p-5 text-slate-500">System Mono Track</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Audio Container</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Pure MPEG-3 (.mp3) with ID3 Tags</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Pure MPEG-3 (.mp3) with ID3 Tags</td>
                   <td className="p-4 sm:p-5 text-slate-500">Renamed M4A extension</td>
                   <td className="p-4 sm:p-5 text-slate-500">Embedded in MP4 video</td>
                 </tr>
@@ -298,7 +298,7 @@ export default function TikTokMp3Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
                   01
                 </div>
                 <h4 className="font-bold text-slate-900 text-base">Custom Phone Ringtones &amp; Alarms</h4>
@@ -306,7 +306,7 @@ export default function TikTokMp3Page() {
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Transform that hilarious viral comedy punchline or energetic melodic beat into your personal morning alarm or incoming call ringtone for iPhone and Android.
               </p>
-              <Link href="/tiktok-ringtone" className="text-xs font-bold text-rose-600 hover:underline inline-flex items-center gap-1">
+              <Link href="/tiktok-ringtone" className="text-xs font-bold text-rose-700 hover:underline inline-flex items-center gap-1">
                 View Dedicated Ringtone Guide &rarr;
               </Link>
             </div>
@@ -337,7 +337,7 @@ export default function TikTokMp3Page() {
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
                   04
                 </div>
                 <h4 className="font-bold text-slate-900 text-base">Offline Podcast &amp; Speech Study</h4>
@@ -352,7 +352,7 @@ export default function TikTokMp3Page() {
         {/* Section 5: Spotify Local Files Integration Guide */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <FolderDown className="w-3.5 h-3.5 text-emerald-600" />
+            <FolderDown className="w-3.5 h-3.5 text-emerald-700" />
             <span>Part 5: Music Integration</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -416,7 +416,7 @@ export default function TikTokMp3Page() {
             <span>Part 7: Mobile Workflows &amp; Educational Study</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            7. For multi-image posts, pair our audio extractor with the <Link href="/tiktok-photo" className="text-rose-600 font-semibold hover:underline">TikTok Photo Downloader</Link>, or extract audio from Chinese clips via the <Link href="/douyin-downloader" className="text-rose-600 font-semibold hover:underline">Douyin Downloader</Link>. Offline Language Learning, Speech Drills &amp; Acoustic Practice
+            7. For multi-image posts, pair our audio extractor with the <Link href="/tiktok-photo" className="text-rose-700 font-semibold hover:underline">TikTok Photo Downloader</Link>, or extract audio from Chinese clips via the <Link href="/douyin-downloader" className="text-rose-700 font-semibold hover:underline">Douyin Downloader</Link>. Offline Language Learning, Speech Drills &amp; Acoustic Practice
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Millions of students and educators utilize TikTok as a micro-learning classroom for foreign language pronunciation, voice training, musical scales, and public speaking techniques. Relying on streaming video consumes high mobile data packets and forces the smartphone screen to remain powered on, draining battery life.

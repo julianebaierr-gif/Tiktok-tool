@@ -120,20 +120,20 @@ export default function DouyinDownloaderPage() {
       {/* Feature Highlights */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-rose-600 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">
+          <span className="text-xs font-bold uppercase tracking-widest text-rose-700 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">
             Global Chinese Video Processing
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
             Why Use QukTik Douyin (抖音) Downloader?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            While our global <Link href="/tiktok-video-downloader" className="text-rose-600 font-semibold hover:underline">TikTok Video Downloader</Link> handles international links, Western downloaders usually fail on Chinese Douyin URLs. QukTik provides a dedicated bridge to ByteDance&apos;s domestic Chinese servers. You can also extract viral Chinese audio hooks with our <Link href="/tiktok-mp3" className="text-rose-600 font-semibold hover:underline">TikTok to MP3 Converter</Link>, create alarms with the <Link href="/tiktok-ringtone" className="text-rose-600 font-semibold hover:underline">Ringtone Maker</Link>, or save photo carousels with the <Link href="/tiktok-photo" className="text-rose-600 font-semibold hover:underline">Photo Downloader</Link>.
+            While our global <Link href="/tiktok-video-downloader" className="text-rose-700 font-semibold hover:underline">TikTok Video Downloader</Link> handles international links, Western downloaders usually fail on Chinese Douyin URLs. QukTik provides a dedicated bridge to ByteDance&apos;s domestic Chinese servers. You can also extract viral Chinese audio hooks with our <Link href="/tiktok-mp3" className="text-rose-700 font-semibold hover:underline">TikTok to MP3 Converter</Link>, create alarms with the <Link href="/tiktok-ringtone" className="text-rose-700 font-semibold hover:underline">Ringtone Maker</Link>, or save photo carousels with the <Link href="/tiktok-photo" className="text-rose-700 font-semibold hover:underline">Photo Downloader</Link>.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 mb-2">
+            <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 mb-2">
               <Globe2 className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900">Automatic Chinese Text Extraction</h3>
@@ -153,7 +153,7 @@ export default function DouyinDownloaderPage() {
           </div>
 
           <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mb-2">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 mb-2">
               <Sparkles className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900">100% Watermark-Free (无水印)</h3>
@@ -192,13 +192,13 @@ export default function DouyinDownloaderPage() {
               src="/images/douyin-downloader-3d.png"
               alt="3D visual illustration showing Douyin Chinese TikTok video downloading without watermark in 1080p Full HD"
               className="w-full h-auto object-cover max-h-[420px]"
-              loading="lazy"
+              width={1200} height={675} loading="lazy"
             />
             <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm text-slate-600 font-medium">
-              <span className="flex items-center gap-1.5 text-rose-600 font-bold">
+              <span className="flex items-center gap-1.5 text-rose-700 font-bold">
                 <span>Douyin App Share Text (v.douyin.com)</span>
               </span>
-              <span className="flex items-center gap-1.5 text-emerald-600 font-bold">
+              <span className="flex items-center gap-1.5 text-emerald-700 font-bold">
                 <span>无水印 1080p MP4 • Global CDN Direct Extraction</span>
               </span>
             </div>
@@ -223,29 +223,29 @@ export default function DouyinDownloaderPage() {
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-200 text-slate-900 font-bold">
                   <th className="p-4 sm:p-5">Technical Obstacle</th>
-                  <th className="p-4 sm:p-5 text-rose-600">QukTik Douyin Engine</th>
+                  <th className="p-4 sm:p-5 text-rose-700">QukTik Douyin Engine</th>
                   <th className="p-4 sm:p-5 text-slate-500">Standard Western Downloaders</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 text-slate-700">
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Chinese Share Text Parsing</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Regex filters Chinese characters instantly</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Regex filters Chinese characters instantly</td>
                   <td className="p-4 sm:p-5 text-rose-500">Throws &ldquo;Invalid URL&rdquo; error</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">v.douyin.com Redirects</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Follows 302 redirects to master video ID</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Follows 302 redirects to master video ID</td>
                   <td className="p-4 sm:p-5 text-rose-500">Times out or rejects domain</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">ByteDance China CDN Access</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">Direct authorized stream retrieval</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">Direct authorized stream retrieval</td>
                   <td className="p-4 sm:p-5 text-rose-500">Blocked by regional firewall</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Watermark Removal (无水印)</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-600">100% Clean master file output</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">100% Clean master file output</td>
                   <td className="p-4 sm:p-5 text-slate-500">Unsupported or crops frames</td>
                 </tr>
               </tbody>
@@ -256,7 +256,7 @@ export default function DouyinDownloaderPage() {
         {/* Section 3: Popular Uses for Douyin Content */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Compass className="w-3.5 h-3.5 text-emerald-600" />
+            <Compass className="w-3.5 h-3.5 text-emerald-700" />
             <span>Part 3: Creative Applications</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -266,7 +266,7 @@ export default function DouyinDownloaderPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
                   01
                 </div>
                 <h4 className="font-bold text-slate-900 text-base">JianYing (剪映) &amp; CapCut Editing</h4>
@@ -302,7 +302,7 @@ export default function DouyinDownloaderPage() {
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
                   04
                 </div>
                 <h4 className="font-bold text-slate-900 text-base">Culinary Techniques &amp; Street Food</h4>
@@ -328,7 +328,7 @@ export default function DouyinDownloaderPage() {
             {/* Mobile Box */}
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 font-bold">
+                <div className="w-10 h-10 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 font-bold">
                   App
                 </div>
                 <div>
@@ -348,7 +348,7 @@ export default function DouyinDownloaderPage() {
             {/* Desktop Box */}
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 font-bold">
+                <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 font-bold">
                   PC
                 </div>
                 <div>
@@ -370,7 +370,7 @@ export default function DouyinDownloaderPage() {
         {/* Section 5: The Dual Platform Ecosystem & Innovation Pipeline */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Globe2 className="w-3.5 h-3.5 text-rose-600" />
+            <Globe2 className="w-3.5 h-3.5 text-rose-700" />
             <span>Part 5: Digital Media Geography</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -410,7 +410,7 @@ export default function DouyinDownloaderPage() {
         {/* Section 7: HEVC vs H.264 Video Coding */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-            <Film className="w-3.5 h-3.5 text-emerald-600" />
+            <Film className="w-3.5 h-3.5 text-emerald-700" />
             <span>Part 7: Video Compression Standards</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -451,7 +451,7 @@ export default function DouyinDownloaderPage() {
             <h4>Intellectual Property &amp; Cross-Border Fair Use</h4>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            QukTik Douyin Downloader is provided solely for personal archiving, language learning, cultural research, and educational analysis. Media published on Douyin belongs exclusively to the respective Chinese creators and ByteDance Ltd. Please do not re-upload creators&apos; work onto Western platforms like YouTube or Instagram to profit commercially without giving clear attribution and receiving proper creator consent. Review our <Link href="/disclaimer" className="text-rose-600 font-semibold hover:underline">DMCA &amp; Copyright Policy</Link>, <Link href="/terms-of-service" className="text-rose-600 font-semibold hover:underline">Terms of Service</Link>, and <Link href="/privacy-policy" className="text-rose-600 font-semibold hover:underline">Privacy Policy</Link>, or contact us on our <Link href="/contact" className="text-rose-600 font-semibold hover:underline">Contact Page</Link>. Learn more <Link href="/about" className="text-rose-600 font-semibold hover:underline">About QukTik</Link>.
+            QukTik Douyin Downloader is provided solely for personal archiving, language learning, cultural research, and educational analysis. Media published on Douyin belongs exclusively to the respective Chinese creators and ByteDance Ltd. Please do not re-upload creators&apos; work onto Western platforms like YouTube or Instagram to profit commercially without giving clear attribution and receiving proper creator consent. Review our <Link href="/disclaimer" className="text-rose-700 font-semibold hover:underline">DMCA &amp; Copyright Policy</Link>, <Link href="/terms-of-service" className="text-rose-700 font-semibold hover:underline">Terms of Service</Link>, and <Link href="/privacy-policy" className="text-rose-700 font-semibold hover:underline">Privacy Policy</Link>, or contact us on our <Link href="/contact" className="text-rose-700 font-semibold hover:underline">Contact Page</Link>. Learn more <Link href="/about" className="text-rose-700 font-semibold hover:underline">About QukTik</Link>.
           </p>
         </section>
 

@@ -40,7 +40,7 @@ export default function SemanticContent() {
       
       {/* Article Header */}
       <div className="border-b border-slate-200 pb-10">
-        <span className="text-xs font-bold uppercase tracking-widest text-rose-600 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">
+        <span className="text-xs font-bold uppercase tracking-widest text-rose-700 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200">
           The Master Archiving Handbook
         </span>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mt-4 mb-4 leading-tight">
@@ -69,14 +69,14 @@ export default function SemanticContent() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-6">
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
               <Video className="w-5 h-5" />
             </div>
             <h4 className="font-bold text-slate-900 text-base">Full HD Video Feeds</h4>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               High-definition vertical videos up to 10 minutes in length, filmed at 1080p resolution and up to 60 frames per second using high-efficiency H.264 (AVC) and H.265 (HEVC) compression codecs.
             </p>
-            <Link href="/tiktok-video-downloader" className="text-xs font-bold text-rose-600 hover:underline inline-flex items-center gap-1">
+            <Link href="/tiktok-video-downloader" className="text-xs font-bold text-rose-700 hover:underline inline-flex items-center gap-1">
               Explore Video Downloader &rarr;
             </Link>
           </div>
@@ -112,40 +112,40 @@ export default function SemanticContent() {
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
               <Clock className="w-5 h-5" />
             </div>
             <h4 className="font-bold text-slate-900 text-base">24-Hour Ephemeral Stories</h4>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               Temporary video clips and status updates with an automated 24-hour time-to-live (TTL) expiration window, offering casual behind-the-scenes glimpses into creators&apos; daily routines.
             </p>
-            <Link href="/tiktok-story" className="text-xs font-bold text-amber-600 hover:underline inline-flex items-center gap-1">
+            <Link href="/tiktok-story" className="text-xs font-bold text-amber-700 hover:underline inline-flex items-center gap-1">
               Explore Story Saver &rarr;
             </Link>
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
               <Globe2 className="w-5 h-5" />
             </div>
             <h4 className="font-bold text-slate-900 text-base">Douyin Chinese Ecosystem</h4>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               ByteDance&apos;s domestic Chinese network featuring cutting-edge visual effects, e-commerce livestreams, and creative templates from JianYing (剪映) that dictate future global trends.
             </p>
-            <Link href="/douyin-downloader" className="text-xs font-bold text-emerald-600 hover:underline inline-flex items-center gap-1">
+            <Link href="/douyin-downloader" className="text-xs font-bold text-emerald-700 hover:underline inline-flex items-center gap-1">
               Explore Douyin Downloader &rarr;
             </Link>
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center font-bold">
               <UserCheck className="w-5 h-5" />
             </div>
             <h4 className="font-bold text-slate-900 text-base">Master Profile Avatars</h4>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               High-resolution 1080x1080 square source profile photographs uploaded by creators, which the native smartphone app aggressively crops into tiny 80x80 circular thumbnails.
             </p>
-            <Link href="/tiktok-avatar" className="text-xs font-bold text-teal-600 hover:underline inline-flex items-center gap-1">
+            <Link href="/tiktok-avatar" className="text-xs font-bold text-teal-700 hover:underline inline-flex items-center gap-1">
               Explore Avatar HD &rarr;
             </Link>
           </div>
@@ -158,14 +158,14 @@ export default function SemanticContent() {
           src="/images/watermark-vs-clean-3d.png"
           alt="Visual 3D claymorphic comparison showing video with distracting bouncing watermark versus pristine unwatermarked Full HD MP4"
           className="w-full h-auto object-cover max-h-[420px]"
-          loading="lazy"
+          width={1200} height={675} loading="lazy"
         />
         <div className="p-4 bg-slate-50 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-bold">
-          <span className="flex items-center gap-1.5 text-rose-600">
+          <span className="flex items-center gap-1.5 text-rose-700">
             <span className="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
             <span>Default In-App Save (Bouncing Watermark Overlay + Re-encoded Artifacts)</span>
           </span>
-          <span className="flex items-center gap-1.5 text-emerald-600">
+          <span className="flex items-center gap-1.5 text-emerald-700">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
             <span>QukTik Direct Extraction (100% Clean Master MP4 • Zero Logos)</span>
           </span>
@@ -175,7 +175,7 @@ export default function SemanticContent() {
       {/* Section 2: Technical Demuxing Architecture */}
       <section className="space-y-6">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-          <Cpu className="w-3.5 h-3.5 text-rose-600" />
+          <Cpu className="w-3.5 h-3.5 text-rose-700" />
           <span>Part 2: Under the Hood</span>
         </div>
         <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
@@ -258,7 +258,7 @@ export default function SemanticContent() {
             <tbody className="divide-y divide-slate-100 text-slate-700">
               <tr className="hover:bg-slate-50/50">
                 <td className="p-4 sm:p-5 font-semibold text-slate-900">Standard HD Video</td>
-                <td className="p-4 sm:p-5 font-bold text-rose-600">.MP4</td>
+                <td className="p-4 sm:p-5 font-bold text-rose-700">.MP4</td>
                 <td className="p-4 sm:p-5">1080 x 1920 (Full HD, 60fps)</td>
                 <td className="p-4 sm:p-5">H.264 / AVC Baseline 4.1</td>
                 <td className="p-4 sm:p-5">Instagram Reels, YouTube Shorts repurposing</td>
@@ -279,21 +279,21 @@ export default function SemanticContent() {
               </tr>
               <tr className="hover:bg-slate-50/50">
                 <td className="p-4 sm:p-5 font-semibold text-slate-900">Ephemeral Story Clip</td>
-                <td className="p-4 sm:p-5 font-bold text-amber-600">.MP4</td>
+                <td className="p-4 sm:p-5 font-bold text-amber-700">.MP4</td>
                 <td className="p-4 sm:p-5">1080 x 1920 (24h TTL Window)</td>
                 <td className="p-4 sm:p-5">H.264 Progressive</td>
                 <td className="p-4 sm:p-5">Permanent personal archives of daily vlogs</td>
               </tr>
               <tr className="hover:bg-slate-50/50">
                 <td className="p-4 sm:p-5 font-semibold text-slate-900">Douyin Video (抖音)</td>
-                <td className="p-4 sm:p-5 font-bold text-emerald-600">.MP4</td>
+                <td className="p-4 sm:p-5 font-bold text-emerald-700">.MP4</td>
                 <td className="p-4 sm:p-5">1080p60 / 4K Source Stream</td>
                 <td className="p-4 sm:p-5">HEVC / H.265 High Profile</td>
                 <td className="p-4 sm:p-5">CapCut (剪映) editing &amp; international trend study</td>
               </tr>
               <tr className="hover:bg-slate-50/50">
                 <td className="p-4 sm:p-5 font-semibold text-slate-900">Master Profile Avatar</td>
-                <td className="p-4 sm:p-5 font-bold text-teal-600">.JPG / .PNG</td>
+                <td className="p-4 sm:p-5 font-bold text-teal-700">.JPG / .PNG</td>
                 <td className="p-4 sm:p-5">1080 x 1080 Square Source</td>
                 <td className="p-4 sm:p-5">Uncropped Master Bitmap</td>
                 <td className="p-4 sm:p-5">Discord avatars, account authenticity check</td>
@@ -309,18 +309,18 @@ export default function SemanticContent() {
           src="/images/repurpose-reels-shorts-3d.png"
           alt="Visual 3D claymorphic illustration showing clean video redistribution to YouTube Shorts, Instagram Reels, and Pinterest Pins"
           className="w-full h-auto object-cover max-h-[420px]"
-          loading="lazy"
+          width={1200} height={675} loading="lazy"
         />
         <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm font-bold text-slate-600">
           <span className="text-indigo-600">Multi-Channel Distribution Strategy</span>
-          <span className="text-emerald-600">Algorithm Favorability Guaranteed</span>
+          <span className="text-emerald-700">Algorithm Favorability Guaranteed</span>
         </div>
       </div>
 
       {/* Section 5: The Creator Cross-Platform Repurposing Funnel */}
       <section className="space-y-6">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-          <Compass className="w-3.5 h-3.5 text-emerald-600" />
+          <Compass className="w-3.5 h-3.5 text-emerald-700" />
           <span>Part 5: Creator Growth Playbook</span>
         </div>
         <h3 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -376,7 +376,7 @@ export default function SemanticContent() {
       {/* Section 7: Zero-Install Browser Security vs Suspicious Apps */}
       <section className="space-y-6">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-          <Server className="w-3.5 h-3.5 text-emerald-600" />
+          <Server className="w-3.5 h-3.5 text-emerald-700" />
           <span>Part 7: Cybersecurity &amp; Privacy</span>
         </div>
         <h3 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -391,7 +391,7 @@ export default function SemanticContent() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
             <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+              <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0" />
               100% Client-Side Sandboxing
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -400,7 +400,7 @@ export default function SemanticContent() {
           </div>
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
             <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+              <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0" />
               Zero Account Login or Cookie Sharing
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -446,7 +446,7 @@ export default function SemanticContent() {
           {/* Android Box */}
           <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 font-bold">
+              <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 font-bold">
                 Android
               </div>
               <div>
@@ -467,7 +467,7 @@ export default function SemanticContent() {
       {/* Section 9: Long-Term Digital Preservation Standards */}
       <section className="space-y-6">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-          <HardDrive className="w-3.5 h-3.5 text-rose-600" />
+          <HardDrive className="w-3.5 h-3.5 text-rose-700" />
           <span>Part 9: Archival Science &amp; Preservation</span>
         </div>
         <h3 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -541,7 +541,7 @@ export default function SemanticContent() {
       {/* Section 11: The Expanding Platform Architecture */}
       <section className="space-y-6">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-          <Globe2 className="w-3.5 h-3.5 text-emerald-600" />
+          <Globe2 className="w-3.5 h-3.5 text-emerald-700" />
           <span>Part 11: Platform Ecosystem &amp; Network Tools</span>
         </div>
         <h3 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -570,7 +570,7 @@ export default function SemanticContent() {
           QukTik is an independent web utility built strictly for personal archiving, educational study, private backup, and fair-use creator repurposing of original user-generated content. All video, audio, photo, and trademark assets hosted on TikTok and Douyin remain the exclusive intellectual property of their original copyright owners and ByteDance Ltd. QukTik does not host, store, or archive copyrighted media files on its servers; all requests stream transiently through official public CDN endpoints.
         </p>
         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-          Users must obtain explicit written authorization before re-distributing, monetizing, or utilizing another creator&apos;s media assets in commercial advertising campaigns. QukTik strictly complies with Digital Millennium Copyright Act (DMCA) regulations. For copyright notices, inquiries, or takedown requests, please consult our <Link href="/disclaimer" className="text-rose-600 font-semibold hover:underline">DMCA &amp; Copyright Policy</Link>, review our <Link href="/terms-of-service" className="text-rose-600 font-semibold hover:underline">Terms of Service</Link> and <Link href="/privacy-policy" className="text-rose-600 font-semibold hover:underline">Privacy Policy</Link>, or contact our compliance team directly via our <Link href="/contact" className="text-rose-600 font-semibold hover:underline">Contact Support form</Link>. Learn more about our team mission on the <Link href="/about" className="text-rose-600 font-semibold hover:underline">About QukTik</Link> page.
+          Users must obtain explicit written authorization before re-distributing, monetizing, or utilizing another creator&apos;s media assets in commercial advertising campaigns. QukTik strictly complies with Digital Millennium Copyright Act (DMCA) regulations. For copyright notices, inquiries, or takedown requests, please consult our <Link href="/disclaimer" className="text-rose-700 font-semibold hover:underline">DMCA &amp; Copyright Policy</Link>, review our <Link href="/terms-of-service" className="text-rose-700 font-semibold hover:underline">Terms of Service</Link> and <Link href="/privacy-policy" className="text-rose-700 font-semibold hover:underline">Privacy Policy</Link>, or contact our compliance team directly via our <Link href="/contact" className="text-rose-700 font-semibold hover:underline">Contact Support form</Link>. Learn more about our team mission on the <Link href="/about" className="text-rose-700 font-semibold hover:underline">About QukTik</Link> page.
         </p>
       </section>
 

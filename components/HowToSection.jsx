@@ -55,7 +55,7 @@ export default function HowToSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 px-3.5 py-1 rounded-full border border-indigo-200">
+          <span className="text-xs font-bold uppercase tracking-widest text-indigo-700 bg-indigo-50 px-3.5 py-1 rounded-full border border-indigo-200">
             Simple 3-Step Guide
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
@@ -99,39 +99,39 @@ export default function HowToSection() {
             src={activeTab === 'mobile' ? '/images/how-to-download-3d.png' : '/images/how-to-download-desktop-3d.png'}
             alt={activeTab === 'mobile' ? '3D visual illustration showing how to copy TikTok link on phone and download' : '3D visual illustration showing how to download TikTok videos on PC and Mac browser'}
             className="w-full h-auto object-cover max-h-[380px] transition-opacity duration-300"
-            loading="lazy"
+            width={1200} height={675} loading="lazy"
           />
           <div className="p-4 bg-white border-t border-slate-100 flex flex-wrap items-center justify-around gap-2 text-xs sm:text-sm font-bold text-slate-700">
             {activeTab === 'mobile' ? (
               <>
-                <span className="flex items-center gap-1.5 text-rose-600">
+                <span className="flex items-center gap-1.5 text-rose-700">
                   <span className="w-5 h-5 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs">1</span>
                   <span>Tap Share &gt; Copy Link</span>
                 </span>
                 <span className="text-slate-300">➔</span>
-                <span className="flex items-center gap-1.5 text-indigo-600">
+                <span className="flex items-center gap-1.5 text-indigo-700">
                   <span className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs">2</span>
                   <span>Paste on QukTik</span>
                 </span>
                 <span className="text-slate-300">➔</span>
-                <span className="flex items-center gap-1.5 text-emerald-600">
+                <span className="flex items-center gap-1.5 text-emerald-700">
                   <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">3</span>
                   <span>Save HD Video to Gallery!</span>
                 </span>
               </>
             ) : (
               <>
-                <span className="flex items-center gap-1.5 text-rose-600">
+                <span className="flex items-center gap-1.5 text-rose-700">
                   <span className="w-5 h-5 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs">1</span>
                   <span>Copy Video URL from Browser</span>
                 </span>
                 <span className="text-slate-300">➔</span>
-                <span className="flex items-center gap-1.5 text-indigo-600">
+                <span className="flex items-center gap-1.5 text-indigo-700">
                   <span className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs">2</span>
                   <span>Paste on QukTik Web</span>
                 </span>
                 <span className="text-slate-300">➔</span>
-                <span className="flex items-center gap-1.5 text-emerald-600">
+                <span className="flex items-center gap-1.5 text-emerald-700">
                   <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">3</span>
                   <span>Save MP4 to PC / Mac Downloads!</span>
                 </span>
@@ -149,7 +149,7 @@ export default function HowToSection() {
                 key={idx}
                 className="relative p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300"
               >
-                <div className="absolute top-5 right-6 text-5xl font-black text-slate-100 select-none">
+                <div className="absolute top-5 right-6 text-5xl font-black text-slate-100 select-none" aria-hidden="true">
                   {item.step}
                 </div>
                 <div className="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-800 mb-6">
@@ -165,7 +165,7 @@ export default function HowToSection() {
         {/* Device specific tips */}
         <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 max-w-3xl mx-auto shadow-sm space-y-3">
           <h4 className="text-slate-900 font-bold text-base flex items-center gap-2">
-            <Check className="w-5 h-5 text-emerald-600" />
+            <Check className="w-5 h-5 text-emerald-700" />
             <span>{activeTab === 'mobile' ? 'Quick Tips for Mobile Users (iOS & Android):' : 'Quick Tips for Computer Users (PC, Mac, Linux):'}</span>
           </h4>
           {activeTab === 'mobile' ? (
