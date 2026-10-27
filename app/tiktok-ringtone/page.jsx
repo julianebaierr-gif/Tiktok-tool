@@ -213,8 +213,12 @@ export default function TikTokRingtonePage() {
 
         {/* Section 3: Creative Tone Ideas */}
         <section className="space-y-6">
-          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">You can also sample audio from 24-hour stories using our <Link href="/tiktok-story" className="text-rose-700 font-semibold hover:underline">TikTok Story Saver</Link> or convert trending Chinese audio from our <Link href="/douyin-downloader" className="text-rose-700 font-semibold hover:underline">Douyin Downloader</Link>. Creative Ideas for Your Custom TikTok Ringtones
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            Creative Ideas for Your Custom TikTok Ringtones
           </h2>
+          <p className="text-xs sm:text-sm text-slate-500 leading-relaxed mb-4">
+            You can also sample audio from 24-hour stories using our <Link href="/tiktok-story" className="text-rose-700 font-semibold hover:underline">TikTok Story Saver</Link> or convert trending Chinese audio from our <Link href="/douyin-downloader" className="text-rose-700 font-semibold hover:underline">Douyin Downloader</Link>.
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">

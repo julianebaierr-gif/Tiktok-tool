@@ -93,7 +93,7 @@ export default function RelatedTools({ currentSlug = '' }) {
             Explore More Free TikTok &amp; Douyin Tools
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600">
-            Switch seamlessly between our high-speed media processing tools. All tools are 100% free with no watermark.
+            Switch smoothly between our high-speed media processing tools. All tools are 100% free with no watermark.
           </p>
         </div>
 
