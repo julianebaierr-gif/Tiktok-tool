@@ -84,22 +84,6 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Support / Quick Links */}
-          <div className="hidden lg:flex items-center space-x-3">
-            <Link
-              href="/#how-to-use"
-              className="text-xs font-semibold uppercase tracking-wider text-slate-500 hover:text-slate-900 px-2.5 py-2 rounded-lg transition-colors"
-            >
-              How It Works
-            </Link>
-            <Link
-              href="/#faq"
-              className="text-xs font-semibold uppercase tracking-wider text-slate-500 hover:text-slate-900 px-2.5 py-2 rounded-lg transition-colors"
-            >
-              FAQ
-            </Link>
-          </div>
-
           {/* Mobile menu button */}
           <div className="flex md:hidden">
             <button

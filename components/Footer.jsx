@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowDownToLine, Shield, Mail } from 'lucide-react';
+import { ArrowDownToLine, Mail } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = 2026;
@@ -26,10 +26,6 @@ export default function Footer() {
             <p className="text-slate-600 text-sm leading-relaxed max-w-sm">
               TikFlow is a free, web-based tool designed to help you save short-form videos, MP3 audio tracks, and photo slideshows from TikTok and Douyin for personal archiving and offline viewing without watermarks.
             </p>
-            <div className="flex items-center space-x-2 text-xs text-slate-500 pt-1">
-              <Shield className="w-4 h-4 text-emerald-600" />
-              <span>SSL 256-bit Encrypted • Zero Video Storage</span>
-            </div>
           </div>
 
           {/* Core Tools */}
@@ -96,43 +92,15 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Global Supported Languages Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="font-semibold text-slate-700">Supported Languages:</span>
-            <span className="hover:text-slate-900 cursor-pointer">English</span>
-            <span>•</span>
-            <span className="hover:text-slate-900 cursor-pointer">Español</span>
-            <span>•</span>
-            <span className="hover:text-slate-900 cursor-pointer">Português</span>
-            <span>•</span>
-            <span className="hover:text-slate-900 cursor-pointer">Bahasa Indonesia</span>
-            <span>•</span>
-            <span className="hover:text-slate-900 cursor-pointer">العربية</span>
-            <span>•</span>
-            <span className="hover:text-slate-900 cursor-pointer">اردو</span>
-            <span>•</span>
-            <span className="hover:text-slate-900 cursor-pointer">Français</span>
-            <span>•</span>
-            <span className="hover:text-slate-900 cursor-pointer">Deutsch</span>
-          </div>
-          <div>
-            <span>Status: <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1 animate-pulse"></span> All Systems Operational</span>
-          </div>
-        </div>
-
         {/* Official DMCA Disclaimer */}
-        <div className="mt-6 p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-500 leading-relaxed shadow-sm">
+        <div className="mt-12 p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-500 leading-relaxed shadow-sm">
           <p>
             <strong className="text-slate-800">Disclaimer &amp; Trademark Notice:</strong> TikFlow is an independent web tool designed for personal, non-commercial, and fair-use archiving. TikFlow does not host or store copyrighted media files on its servers; all content streams directly from official content delivery network (CDN) endpoints. TikFlow is not affiliated with, endorsed by, or sponsored by TikTok, Douyin, ByteDance Ltd., Musical.ly, or any of their subsidiaries. All trademarks belong to their respective owners.
           </p>
         </div>
 
-        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+        <div className="mt-6 text-center sm:text-left text-xs text-slate-500">
           <p>© {currentYear} TikFlow. All rights reserved.</p>
-          <p className="flex items-center gap-1">
-            Fast, clean &amp; lightweight web utility
-          </p>
         </div>
 
       </div>
