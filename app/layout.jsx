@@ -20,7 +20,8 @@ export const metadata = {
     'snaptik alternative',
     'tiktokio alternative',
     'fasttik alternative',
-    'ssstik alternative'
+    'ssstik alternative',
+    'tikflow alternative'
   ],
   authors: [{ name: 'QukTik Team' }],
   creator: 'QukTik',
