@@ -6,26 +6,49 @@ import { Share2, Copy, Download, Smartphone, Laptop, Check } from 'lucide-react'
 export default function HowToSection() {
   const [activeTab, setActiveTab] = useState('mobile');
 
-  const steps = [
+  const mobileSteps = [
     {
       step: '01',
       icon: Share2,
       title: 'Copy the TikTok Link',
-      desc: 'Open the TikTok app on your phone or computer. Find the video you want to save, tap the Share button, and hit Copy Link.',
+      desc: 'Open the TikTok app on your iPhone or Android phone. Find the video you want to keep, tap the Share arrow, and tap Copy Link.',
     },
     {
       step: '02',
       icon: Copy,
       title: 'Paste It into TikFlow',
-      desc: 'Come over to TikFlow in your web browser. Paste the link into the search box at the top and press Download.',
+      desc: 'Open your mobile browser (Safari, Chrome) and visit TikFlow. Tap the Paste Link button and tap Download.',
     },
     {
       step: '03',
       icon: Download,
-      title: 'Save the Clean Video or Audio',
-      desc: 'Pick your preferred format: click Download MP4 for the watermark-free video, or Download MP3 for just the music.',
+      title: 'Save Clean Video to Gallery',
+      desc: 'Tap Download MP4 (No Watermark) or Download MP3. The clean media is saved directly to your Photos or Files.',
     },
   ];
+
+  const desktopSteps = [
+    {
+      step: '01',
+      icon: Share2,
+      title: 'Copy Video URL from Browser',
+      desc: 'Open tiktok.com on your PC or Mac. Copy the video link from the top browser address bar or click the Share > Copy link button.',
+    },
+    {
+      step: '02',
+      icon: Copy,
+      title: 'Paste into TikFlow Web',
+      desc: 'Head to TikFlow in Chrome, Edge, or Safari. Paste the copied TikTok URL into the search bar and click Download.',
+    },
+    {
+      step: '03',
+      icon: Download,
+      title: 'Save MP4 to Downloads Folder',
+      desc: 'Click Download Video (Without Watermark). The original 1080p MP4 file downloads straight to your PC or Mac Downloads folder.',
+    },
+  ];
+
+  const steps = activeTab === 'mobile' ? mobileSteps : desktopSteps;
 
   return (
     <section id="how-to-use" className="py-16 sm:py-20 bg-slate-50/80 border-y border-slate-200/80">
@@ -36,62 +59,84 @@ export default function HowToSection() {
             Simple 3-Step Guide
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
-            How to Download TikTok Videos on Your Phone or PC
+            {activeTab === 'mobile' ? 'How to Download TikTok Videos on Mobile (iPhone & Android)' : 'How to Download TikTok Videos on Computer (PC & Mac)'}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            You do not need to install extra apps or create an account. Here is the whole process:
+            You do not need to install extra software or sign up. Here is the entire step-by-step walkthrough:
           </p>
 
           {/* Device Tabs */}
           <div className="inline-flex p-1 rounded-2xl bg-white border border-slate-200 mt-6 shadow-sm">
             <button
               onClick={() => setActiveTab('mobile')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 activeTab === 'mobile'
-                  ? 'bg-slate-900 text-white shadow-sm'
+                  ? 'bg-slate-900 text-white shadow-md'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <Smartphone className="w-4 h-4" />
-              <span>Mobile Phone (iPhone & Android)</span>
+              <span>Mobile Phone (iPhone &amp; Android)</span>
             </button>
             <button
               onClick={() => setActiveTab('desktop')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 activeTab === 'desktop'
-                  ? 'bg-slate-900 text-white shadow-sm'
+                  ? 'bg-slate-900 text-white shadow-md'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <Laptop className="w-4 h-4" />
-              <span>Computer (PC & Mac)</span>
+              <span>Computer (PC &amp; Mac)</span>
             </button>
           </div>
         </div>
 
-        {/* 3D Visual Step-by-Step Illustration (Child-Friendly & Understandable Without Reading) */}
-        <div className="max-w-4xl mx-auto mb-12 overflow-hidden rounded-3xl border border-slate-200/90 shadow-xl bg-white">
+        {/* 3D Visual Step-by-Step Illustration (Child-Friendly & Dynamically Switches Between Mobile and Desktop) */}
+        <div className="max-w-4xl mx-auto mb-12 overflow-hidden rounded-3xl border border-slate-200/90 shadow-xl bg-white transition-all">
           <img
-            src="/images/how-to-download-3d.png"
-            alt="3D visual illustration showing how to copy TikTok link and download video"
-            className="w-full h-auto object-cover max-h-[380px]"
+            key={activeTab}
+            src={activeTab === 'mobile' ? '/images/how-to-download-3d.png' : '/images/how-to-download-desktop-3d.png'}
+            alt={activeTab === 'mobile' ? '3D visual illustration showing how to copy TikTok link on phone and download' : '3D visual illustration showing how to download TikTok videos on PC and Mac browser'}
+            className="w-full h-auto object-cover max-h-[380px] transition-opacity duration-300"
             loading="lazy"
           />
           <div className="p-4 bg-white border-t border-slate-100 flex flex-wrap items-center justify-around gap-2 text-xs sm:text-sm font-bold text-slate-700">
-            <span className="flex items-center gap-1.5 text-rose-600">
-              <span className="w-5 h-5 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs">1</span>
-              <span>Tap Share &gt; Copy Link</span>
-            </span>
-            <span className="text-slate-300">➔</span>
-            <span className="flex items-center gap-1.5 text-indigo-600">
-              <span className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs">2</span>
-              <span>Paste on TikFlow</span>
-            </span>
-            <span className="text-slate-300">➔</span>
-            <span className="flex items-center gap-1.5 text-emerald-600">
-              <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">3</span>
-              <span>Save HD Video to Gallery!</span>
-            </span>
+            {activeTab === 'mobile' ? (
+              <>
+                <span className="flex items-center gap-1.5 text-rose-600">
+                  <span className="w-5 h-5 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs">1</span>
+                  <span>Tap Share &gt; Copy Link</span>
+                </span>
+                <span className="text-slate-300">➔</span>
+                <span className="flex items-center gap-1.5 text-indigo-600">
+                  <span className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs">2</span>
+                  <span>Paste on TikFlow</span>
+                </span>
+                <span className="text-slate-300">➔</span>
+                <span className="flex items-center gap-1.5 text-emerald-600">
+                  <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">3</span>
+                  <span>Save HD Video to Gallery!</span>
+                </span>
+              </>
+            ) : (
+              <>
+                <span className="flex items-center gap-1.5 text-rose-600">
+                  <span className="w-5 h-5 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs">1</span>
+                  <span>Copy Video URL from Browser</span>
+                </span>
+                <span className="text-slate-300">➔</span>
+                <span className="flex items-center gap-1.5 text-indigo-600">
+                  <span className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs">2</span>
+                  <span>Paste on TikFlow Web</span>
+                </span>
+                <span className="text-slate-300">➔</span>
+                <span className="flex items-center gap-1.5 text-emerald-600">
+                  <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">3</span>
+                  <span>Save MP4 to PC / Mac Downloads!</span>
+                </span>
+              </>
+            )}
           </div>
         </div>
 

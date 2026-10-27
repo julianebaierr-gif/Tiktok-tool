@@ -11,7 +11,7 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: 'Home', icon: Home },
-    { href: '/#downloader', label: 'Video Downloader', icon: Video },
+    { href: '/tiktok-video-downloader', label: 'Video Downloader', icon: Video },
     { href: '/tiktok-mp3', label: 'Audio & MP3', icon: Music },
     { href: '/tiktok-photo', label: 'Photo Slides', icon: ImageIcon },
     { href: '/tiktok-story', label: 'Stories', icon: History },

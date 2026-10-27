@@ -33,7 +33,7 @@ export default function Footer() {
             <h3 className="text-slate-900 font-bold mb-4 text-xs tracking-wider uppercase">Free Tools</h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/" className="hover:text-rose-600 transition-colors">TikTok Video Downloader</Link>
+                <Link href="/tiktok-video-downloader" className="hover:text-rose-600 transition-colors">TikTok Video Downloader</Link>
               </li>
               <li>
                 <Link href="/tiktok-mp3" className="hover:text-rose-600 transition-colors">TikTok to MP3 Converter</Link>
