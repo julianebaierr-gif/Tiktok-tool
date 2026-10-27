@@ -22,6 +22,13 @@ export default function AboutPage() {
         </p>
       </div>
 
+      {/* Official Brand Identity Showcase */}
+      <div className="flex justify-center mb-12">
+        <div className="p-4 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex items-center justify-center hover:scale-[1.02] transition-transform">
+          <img src="/logo.svg" alt="QukTik Official Brand Logo" className="h-14 sm:h-18 w-auto max-w-full" />
+        </div>
+      </div>
+
       <div className="space-y-10 text-sm sm:text-base leading-relaxed">
         
         <section className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">

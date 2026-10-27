@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowDownToLine, Mail } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = 2026;
@@ -13,15 +12,20 @@ export default function Footer() {
           
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="flex items-center space-x-2.5">
-              <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-rose-500 to-indigo-600 p-0.5 shadow-sm">
-                <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center">
-                  <ArrowDownToLine className="w-5 h-5 text-rose-500" />
-                </div>
+            <Link href="/" className="flex items-center space-x-3 group">
+              <img 
+                src="/logo-icon.svg" 
+                alt="QukTik Logo" 
+                className="w-10 h-10 rounded-2xl shadow-md shadow-rose-500/15 group-hover:scale-105 transition-transform"
+              />
+              <div className="flex flex-col">
+                <span className="text-2xl font-black tracking-tight text-slate-900 leading-none">
+                  Quk<span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-indigo-600">Tik</span>
+                </span>
+                <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider mt-1">
+                  Fast TikTok &amp; Douyin Downloader
+                </span>
               </div>
-              <span className="text-xl font-black text-slate-900">
-                Quk<span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-indigo-600">Tik</span>
-              </span>
             </Link>
             <p className="text-slate-600 text-sm leading-relaxed max-w-sm">
               QukTik is a free, web-based tool designed to help you save short-form videos, MP3 audio tracks, and photo slideshows from TikTok and Douyin for personal archiving and offline viewing without watermarks.
