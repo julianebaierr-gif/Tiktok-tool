@@ -45,7 +45,7 @@ export default function AboutPage() {
         
         <section className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-rose-500" />
+            <Sparkles className="w-5 h-5 text-rose-700" />
             <span>Who We Are</span>
           </h2>
           <p>

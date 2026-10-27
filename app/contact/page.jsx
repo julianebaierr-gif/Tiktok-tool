@@ -43,7 +43,7 @@ export default function ContactPage() {
             <h3 className="text-lg font-bold text-slate-900 mb-1">Direct Channels</h3>
             
             <div className="flex items-start space-x-3 text-sm">
-              <Mail className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
+              <Mail className="w-5 h-5 text-rose-700 shrink-0 mt-0.5" />
               <div>
                 <p className="font-bold text-slate-900">Email Support</p>
                 <a href="mailto:support@quktik.com" className="text-rose-700 hover:underline">
@@ -72,7 +72,7 @@ export default function ContactPage() {
           </div>
 
           <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200 text-xs text-slate-600 leading-relaxed">
-            <h4 className="font-bold text-slate-900 mb-1">For Copyright Owners:</h4>
+            <h3 className="font-bold text-slate-900 mb-1">For Copyright Owners:</h3>
             <p>
               If you are a creator requesting a takedown of links to your content, please select &quot;DMCA Copyright Notice&quot; in the form and provide the direct URL along with proof of ownership for expedited review.
             </p>

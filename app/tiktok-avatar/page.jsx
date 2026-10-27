@@ -279,14 +279,14 @@ export default function TikTokAvatarPage() {
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Pixel Resolution</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">720x720 to 1080x1080 Master</td>
-                  <td className="p-4 sm:p-5 text-rose-500">80x80 to 100x100 Thumbnail</td>
+                  <td className="p-4 sm:p-5 text-rose-700">80x80 to 100x100 Thumbnail</td>
                   <td className="p-4 sm:p-5 text-slate-500">Pixelated sub-crop (~120x120)</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Canvas Framing</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">Complete Uncropped 1:1 Square</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Strict circular CSS mask</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Cropped circle with UI background</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Strict circular CSS mask</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Cropped circle with UI background</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Color Spectrum (Gamut)</td>
@@ -297,13 +297,13 @@ export default function TikTokAvatarPage() {
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Zoom Magnification</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">Full optical zoom on high-res pixels</td>
-                  <td className="p-4 sm:p-5 text-rose-500">No pinch-to-zoom supported</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Severely blurred digital interpolation</td>
+                  <td className="p-4 sm:p-5 text-rose-700">No pinch-to-zoom supported</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Severely blurred digital interpolation</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Download Availability</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">One-click uncompressed JPG/WebP</td>
-                  <td className="p-4 sm:p-5 text-rose-500">No native download option</td>
+                  <td className="p-4 sm:p-5 text-rose-700">No native download option</td>
                   <td className="p-4 sm:p-5 text-slate-500">Requires manual photo editing</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
@@ -378,28 +378,28 @@ export default function TikTokAvatarPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <h4 className="font-bold text-slate-900 text-base">Discord Server Avatars &amp; Nitro Profiles</h4>
+              <h3 className="font-bold text-slate-900 text-base">Discord Server Avatars &amp; Nitro Profiles</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Discord requires square 1:1 ratio images with a minimum resolution of 128x128 pixels, but recommends 512x512 pixels or higher for high-DPI desktop monitors. Because QukTik delivers uncropped 1080x1080 master files, your avatar remains razor-sharp inside Discord chat channels, voice lounges, and pop-up member cards.
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <h4 className="font-bold text-slate-900 text-base">Steam Community &amp; Gaming Clans</h4>
+              <h3 className="font-bold text-slate-900 text-base">Steam Community &amp; Gaming Clans</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Valve&apos;s Steam gaming platform displays profile images at 184x184 pixels inside stylized avatar frames. Screen captures from mobile phones distort when scaled into Steam frames, but uncropped TikTok master files fit perfectly into Steam&apos;s square canvas without visual clipping.
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <h4 className="font-bold text-slate-900 text-base">Twitter (X) &amp; Bluesky Identity</h4>
+              <h3 className="font-bold text-slate-900 text-base">Twitter (X) &amp; Bluesky Identity</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Twitter/X displays avatars as 400x400 circles. By starting with QukTik&apos;s uncropped 1080x1080 square image, you can pre-center the focal point in any basic photo editor before uploading, preventing the social network from awkwardly cropping out chin lines or headwear.
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <h4 className="font-bold text-slate-900 text-base">Apple iOS Contact Posters &amp; WhatsApp</h4>
+              <h3 className="font-bold text-slate-900 text-base">Apple iOS Contact Posters &amp; WhatsApp</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Pair downloaded high-res portrait photographs of family members, digital creators, or friends with modern iOS Contact Posters or WhatsApp contact icons. The high resolution prevents pixelation during incoming Full HD call displays.
               </p>
@@ -424,7 +424,7 @@ export default function TikTokAvatarPage() {
                   <Smartphone className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-lg">On iPhone, iPad &amp; Android</h4>
+                  <h3 className="font-bold text-slate-900 text-lg">On iPhone, iPad &amp; Android</h3>
                   <p className="text-xs text-slate-500">Safari, Google Chrome, Samsung Internet</p>
                 </div>
               </div>
@@ -444,7 +444,7 @@ export default function TikTokAvatarPage() {
                   <Monitor className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-lg">On Windows PC, Mac &amp; Linux</h4>
+                  <h3 className="font-bold text-slate-900 text-lg">On Windows PC, Mac &amp; Linux</h3>
                   <p className="text-xs text-slate-500">Chrome, Microsoft Edge, Firefox, Brave</p>
                 </div>
               </div>
@@ -463,7 +463,7 @@ export default function TikTokAvatarPage() {
         <section className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
           <div className="flex items-center gap-3 text-slate-900 font-bold text-lg">
             <ShieldCheck className="w-6 h-6 text-teal-700 shrink-0" />
-            <h4>Ethical Compliance, Likeness Rights &amp; Safe Personal Archiving</h4>
+            <h3 className="text-slate-900 font-bold text-lg">Ethical Compliance, Likeness Rights &amp; Safe Personal Archiving</h3>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             QukTik operates strictly as an educational inspection utility, personal archiving tool, and identity authentication resource. We believe in empowering consumers with transparency into public web assets. However, downloading an individual&apos;s profile photo comes with ethical responsibilities:

@@ -231,20 +231,20 @@ export default function TikTokStoryPage() {
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Story Token Routing</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">Specialized Story API Parser</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Fails (Hardcoded feed regex)</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Fails (Hardcoded feed regex)</td>
                   <td className="p-4 sm:p-5 text-slate-500">Manual capture required</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Viewer Anonymity</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">100% Anonymous (No Login)</td>
                   <td className="p-4 sm:p-5 text-slate-500">N/A (Link fails)</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Exposes name to creator&apos;s view list</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Exposes name to creator&apos;s view list</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Watermark Removal</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">Zero Watermark Clean Stream</td>
                   <td className="p-4 sm:p-5 text-slate-500">N/A</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Captures full screen &amp; UI buttons</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Captures full screen &amp; UI buttons</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Photo Story Support</td>
@@ -273,7 +273,7 @@ export default function TikTokStoryPage() {
                 <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
                   01
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Flash Discounts &amp; Promo Codes</h4>
+                <h3 className="font-bold text-slate-900 text-base">Flash Discounts &amp; Promo Codes</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 E-commerce brands and influencers frequently post 24-hour affiliate coupon codes and secret discount links on their stories that disappear before you have time to shop.
@@ -285,7 +285,7 @@ export default function TikTokStoryPage() {
                 <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
                   02
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Breaking Industry News &amp; Q&amp;As</h4>
+                <h3 className="font-bold text-slate-900 text-base">Breaking Industry News &amp; Q&amp;As</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Thought leaders, tech journalists, and educators often answer critical follower questions or share unfiltered industry breakdowns exclusively on their story feeds.
@@ -297,7 +297,7 @@ export default function TikTokStoryPage() {
                 <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
                   03
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Creator Competitive Analysis</h4>
+                <h3 className="font-bold text-slate-900 text-base">Creator Competitive Analysis</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Social media managers and marketing teams can monitor competitor campaigns, story formats, and engagement strategies without alerting their marketing departments.
@@ -309,7 +309,7 @@ export default function TikTokStoryPage() {
                 <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
                   04
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Personal Life Keepsakes</h4>
+                <h3 className="font-bold text-slate-900 text-base">Personal Life Keepsakes</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Save birthday greetings, wedding clips, and vacation moments posted by your close friends before they expire and get lost in social media history.
@@ -336,7 +336,7 @@ export default function TikTokStoryPage() {
                   iOS
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-lg">iPhone &amp; iPad (Safari)</h4>
+                  <h3 className="font-bold text-slate-900 text-lg">iPhone &amp; iPad (Safari)</h3>
                   <p className="text-xs text-slate-500">Direct Camera Roll Storage</p>
                 </div>
               </div>
@@ -355,7 +355,7 @@ export default function TikTokStoryPage() {
                   PC / Android
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-lg">Android, PC &amp; Mac</h4>
+                  <h3 className="font-bold text-slate-900 text-lg">Android, PC &amp; Mac</h3>
                   <p className="text-xs text-slate-500">Universal Web Browser</p>
                 </div>
               </div>
@@ -400,13 +400,13 @@ export default function TikTokStoryPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <h4 className="font-bold text-slate-900 text-base">Client-Side Tracking In-App</h4>
+              <h3 className="font-bold text-slate-900 text-base">Client-Side Tracking In-App</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Tapping a glowing story avatar inside the official app logs your user identity to the creator&apos;s engagement dashboard. If you have &ldquo;Profile Views&rdquo; activated, your visit is fully visible, exposing your viewing habits.
               </p>
             </div>
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <h4 className="font-bold text-slate-900 text-base">QukTik Cloud Proxy Isolation</h4>
+              <h3 className="font-bold text-slate-900 text-base">QukTik Cloud Proxy Isolation</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 QukTik decouples your device from the media request. Our cloud cluster queries public edge servers anonymously over TLS 1.3 without forwarding any user cookies, authentication headers, or personal identifiers. The creator&apos;s analytics interface registers zero viewer entries.
               </p>
@@ -471,7 +471,7 @@ export default function TikTokStoryPage() {
         <section className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
           <div className="flex items-center gap-3 text-slate-900 font-bold text-lg">
             <ShieldCheck className="w-6 h-6 text-purple-600" />
-            <h4>Privacy Ethics &amp; Creator Respect</h4>
+            <h3 className="text-slate-900 font-bold text-lg">Privacy Ethics &amp; Creator Respect</h3>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             QukTik Story Saver is engineered for personal, non-commercial archiving and fair-use research. Stories often contain candid personal moments; please treat creators with respect. Do not use downloaded story footage to harass, defame, impersonate, or infringe upon the privacy rights of creators. Always uphold ethical digital citizenship.

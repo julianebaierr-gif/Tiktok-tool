@@ -111,7 +111,7 @@ export default function RelatedTools({ currentSlug = '' }) {
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center border ${tool.lightColor}`}>
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200">
                       {tool.badge}
                     </span>
                   </div>

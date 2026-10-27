@@ -257,7 +257,7 @@ export default function TikTokMp3Page() {
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Bitrate Density</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">Up to 320 kbps (Constant Bitrate)</td>
                   <td className="p-4 sm:p-5 text-slate-500">64 kbps - 128 kbps (Low Fidelity)</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Variable / Compressed</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Variable / Compressed</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Frequency Response Range</td>
@@ -301,7 +301,7 @@ export default function TikTokMp3Page() {
                 <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
                   01
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Custom Phone Ringtones &amp; Alarms</h4>
+                <h3 className="font-bold text-slate-900 text-base">Custom Phone Ringtones &amp; Alarms</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Transform that hilarious viral comedy punchline or energetic melodic beat into your personal morning alarm or incoming call ringtone for iPhone and Android.
@@ -316,7 +316,7 @@ export default function TikTokMp3Page() {
                 <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
                   02
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Spotify Local Files Integration</h4>
+                <h3 className="font-bold text-slate-900 text-base">Spotify Local Files Integration</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Add unreleased TikTok acoustic sessions, live bootlegs, and DJ chops directly into your personal Spotify playlists using the native Local Files feature.
@@ -328,7 +328,7 @@ export default function TikTokMp3Page() {
                 <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
                   03
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Video Editing &amp; B-Roll Voiceovers</h4>
+                <h3 className="font-bold text-slate-900 text-base">Video Editing &amp; B-Roll Voiceovers</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Video editors working in Premiere Pro, Final Cut, or CapCut can import sound effects, speech synthesis lines, and ambient background music without watermark interference.
@@ -340,7 +340,7 @@ export default function TikTokMp3Page() {
                 <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
                   04
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Offline Podcast &amp; Speech Study</h4>
+                <h3 className="font-bold text-slate-900 text-base">Offline Podcast &amp; Speech Study</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Listen to long-form motivational speeches, philosophy breakdowns, language learning pronunciation drills, and financial advice while offline during flights or commutes.
@@ -363,7 +363,7 @@ export default function TikTokMp3Page() {
           </p>
 
           <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
-            <h4 className="font-bold text-slate-900 text-base">Spotify Local Files Setup Walkthrough:</h4>
+            <h3 className="font-bold text-slate-900 text-base">Spotify Local Files Setup Walkthrough:</h3>
             <ol className="space-y-3 text-xs sm:text-sm text-slate-600 list-decimal list-inside">
               <li>Convert and download your desired sound in 320kbps MP3 format using QukTik.</li>
               <li>Open the <strong>Spotify</strong> desktop app (or mobile app) and navigate to <strong>Settings</strong>.</li>
@@ -389,19 +389,19 @@ export default function TikTokMp3Page() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
-              <h4 className="font-bold text-slate-900 text-base">Sub-Bass Dynamics (20Hz – 120Hz)</h4>
+              <h3 className="font-bold text-slate-900 text-base">Sub-Bass Dynamics (20Hz – 120Hz)</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Critical for modern trap beats, electronic drops, and cinematic bass swells. Direct stream demuxing maintains full low-end punch without digital distortion or clipped wave peaks.
               </p>
             </div>
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
-              <h4 className="font-bold text-slate-900 text-base">Vocal Intelligibility (1kHz – 5kHz)</h4>
+              <h3 className="font-bold text-slate-900 text-base">Vocal Intelligibility (1kHz – 5kHz)</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 The core human vocal spectrum where dialogue, ASMR whispers, and spoken commentary live. Maintaining pure stereo separation prevents speech from sounding boxy or muffled.
               </p>
             </div>
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
-              <h4 className="font-bold text-slate-900 text-base">Acoustic Air &amp; Sparkle (10kHz – 20kHz)</h4>
+              <h3 className="font-bold text-slate-900 text-base">Acoustic Air &amp; Sparkle (10kHz – 20kHz)</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Subtle room acoustics, acoustic guitar fret noise, and hi-hat decay that give professional audio its spatial dimension and open stereo imaging.
               </p>
@@ -429,8 +429,8 @@ export default function TikTokMp3Page() {
         {/* Section 8: Copyright, Fair Use & AdSense Safety */}
         <section className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
           <div className="flex items-center gap-3 text-slate-900 font-bold text-lg">
-            <ShieldCheck className="w-6 h-6 text-rose-500" />
-            <h4>Audio Copyright Law, Fair Use &amp; Music Licensing Ethics</h4>
+            <ShieldCheck className="w-6 h-6 text-rose-700" />
+            <h3 className="text-slate-900 font-bold text-lg">Audio Copyright Law, Fair Use &amp; Music Licensing Ethics</h3>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             QukTik MP3 Converter is designed for personal offline study, sound backup, educational linguistic research, and non-commercial ringtone customization. Audio assets hosted on TikTok are the intellectual property of their respective creators, record labels, and licensing partners.
@@ -459,7 +459,7 @@ export default function TikTokMp3Page() {
               >
                 <summary className="font-bold text-base sm:text-lg text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
                   <span>{item.q}</span>
-                  <span className="text-rose-500 group-open:rotate-180 transition-transform text-xl font-black">
+                  <span className="text-rose-700 group-open:rotate-180 transition-transform text-xl font-black">
                     &darr;
                   </span>
                 </summary>

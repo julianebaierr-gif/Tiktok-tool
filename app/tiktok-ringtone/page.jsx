@@ -171,7 +171,7 @@ export default function TikTokRingtonePage() {
         {/* Section 1: The Ringtone Revolution & 3D Illustration */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider">
-            <Bell className="w-4 h-4 text-rose-500" />
+            <Bell className="w-4 h-4 text-rose-700" />
             <span>Personalized Acoustic Identity</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -233,7 +233,7 @@ export default function TikTokRingtonePage() {
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Maximum Ringtone Duration</td>
-                  <td className="p-4 sm:p-5 font-bold text-rose-500">Strictly 30 Seconds Limit</td>
+                  <td className="p-4 sm:p-5 font-bold text-rose-700">Strictly 30 Seconds Limit</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">Unlimited (Plays full track)</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
@@ -267,7 +267,7 @@ export default function TikTokRingtonePage() {
                 <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
                   01
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Energetic Morning Wake-Up Alarms</h4>
+                <h3 className="font-bold text-slate-900 text-base">Energetic Morning Wake-Up Alarms</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Replace jarring alarm beeps with motivational speech drops, upbeat EDM drops, or serene acoustic guitar melodies that wake you up refreshed.
@@ -279,7 +279,7 @@ export default function TikTokRingtonePage() {
                 <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
                   02
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Contact-Specific Ringtone Profiles</h4>
+                <h3 className="font-bold text-slate-900 text-base">Contact-Specific Ringtone Profiles</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Assign funny meme voice lines to your best friends, romantic ballads to your partner, and professional chime hooks to your boss or clients.
@@ -291,7 +291,7 @@ export default function TikTokRingtonePage() {
                 <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
                   03
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Custom Text &amp; WhatsApp Notifications</h4>
+                <h3 className="font-bold text-slate-900 text-base">Custom Text &amp; WhatsApp Notifications</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Trim a 2-second viral punchline or sound effect to serve as your SMS text alert or WhatsApp message ping, adding personality to daily chats.
@@ -303,7 +303,7 @@ export default function TikTokRingtonePage() {
                 <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
                   04
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Gym &amp; Workout Timers</h4>
+                <h3 className="font-bold text-slate-900 text-base">Gym &amp; Workout Timers</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Set high-intensity drop sounds as interval timers for HIIT workouts, ensuring you know exactly when to push without watching a clock screen.
@@ -330,7 +330,7 @@ export default function TikTokRingtonePage() {
                   iOS
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-lg">iPhone Ringtone (GarageBand)</h4>
+                  <h3 className="font-bold text-slate-900 text-lg">iPhone Ringtone (GarageBand)</h3>
                   <p className="text-xs text-slate-500">2-Minute Step-by-Step Method</p>
                 </div>
               </div>
@@ -353,7 +353,7 @@ export default function TikTokRingtonePage() {
                   Android
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-lg">Android Custom Tone Setup</h4>
+                  <h3 className="font-bold text-slate-900 text-lg">Android Custom Tone Setup</h3>
                   <p className="text-xs text-slate-500">Fast Native Assignment</p>
                 </div>
               </div>
@@ -384,13 +384,13 @@ export default function TikTokRingtonePage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <h4 className="font-bold text-slate-900 text-base">Low-End High-Pass Filtering</h4>
+              <h3 className="font-bold text-slate-900 text-base">Low-End High-Pass Filtering</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 By gently filtering out inaudible sub-bass frequencies below 100 Hz inside your audio editor or GarageBand, phone speakers focus all electrical power on audible mids, resulting in a significantly louder and clearer ringtone.
               </p>
             </div>
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <h4 className="font-bold text-slate-900 text-base">Mid-Range Presence Boost (2kHz – 4kHz)</h4>
+              <h3 className="font-bold text-slate-900 text-base">Mid-Range Presence Boost (2kHz – 4kHz)</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 The human ear is biologically tuned to detect frequencies between 2,000 Hz and 4,000 Hz. Enhancing this band ensures your ringtone cuts through noisy traffic, bustling cafes, and loud office environments without needing maximum volume.
               </p>
@@ -455,8 +455,8 @@ export default function TikTokRingtonePage() {
         {/* Section 9: Ethical & Copyright Considerations */}
         <section className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
           <div className="flex items-center gap-3 text-slate-900 font-bold text-lg">
-            <ShieldCheck className="w-6 h-6 text-rose-500" />
-            <h4>Fair Use Notice &amp; Respect for Sound Creators</h4>
+            <ShieldCheck className="w-6 h-6 text-rose-700" />
+            <h3 className="text-slate-900 font-bold text-lg">Fair Use Notice &amp; Respect for Sound Creators</h3>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             QukTik Ringtone Maker is provided solely for personal, non-commercial phone customization. Sound assets on TikTok belong to their original musical artists, voice actors, and copyright holders. Converting a clip into a personal phone ringtone or alarm falls under private fair use. Do not resell, distribute, or commercially exploit copyrighted sound clips. Support original artists on Spotify, Apple Music, and authorized streaming channels.
@@ -482,7 +482,7 @@ export default function TikTokRingtonePage() {
               >
                 <summary className="font-bold text-base sm:text-lg text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
                   <span>{item.q}</span>
-                  <span className="text-rose-500 group-open:rotate-180 transition-transform text-xl font-black">
+                  <span className="text-rose-700 group-open:rotate-180 transition-transform text-xl font-black">
                     &darr;
                   </span>
                 </summary>

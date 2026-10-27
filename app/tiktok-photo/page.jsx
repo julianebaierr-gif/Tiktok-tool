@@ -234,13 +234,13 @@ export default function TikTokPhotoPage() {
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Image Resolution</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">Full 1080x1920+ Native Source</td>
                   <td className="p-4 sm:p-5 text-slate-500">Screen resolution with status bar</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Downscaled 720p video frame</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Downscaled 720p video frame</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">UI Elements &amp; Overlays</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">100% Clean (Zero UI / No Icons)</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Covered by likes, comments, share icons</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Bouncing TikTok watermark</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Covered by likes, comments, share icons</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Bouncing TikTok watermark</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Aspect Ratio Integrity</td>
@@ -275,7 +275,7 @@ export default function TikTokPhotoPage() {
                 <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
                   01
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Travel Itineraries &amp; Offline Maps</h4>
+                <h3 className="font-bold text-slate-900 text-base">Travel Itineraries &amp; Offline Maps</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Save subway maps, restaurant menus, hiking trails, and hotel guides to your camera roll for fast offline access while traveling internationally without roaming data.
@@ -287,7 +287,7 @@ export default function TikTokPhotoPage() {
                 <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
                   02
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Culinary Recipes &amp; Ingredient Ratios</h4>
+                <h3 className="font-bold text-slate-900 text-base">Culinary Recipes &amp; Ingredient Ratios</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Keep cooking instructions and baking measurements right in your photo gallery so you can cook in the kitchen without keeping battery-draining video loops running.
@@ -299,7 +299,7 @@ export default function TikTokPhotoPage() {
                 <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
                   03
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Aesthetic Wallpapers &amp; Lock Screens</h4>
+                <h3 className="font-bold text-slate-900 text-base">Aesthetic Wallpapers &amp; Lock Screens</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Photographers and digital creators post stunning 9:16 vertical scenery, anime artwork, and minimalist typography that make perfect phone wallpapers.
@@ -311,7 +311,7 @@ export default function TikTokPhotoPage() {
                 <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
                   04
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Fashion Lookbooks &amp; Style Inspiration</h4>
+                <h3 className="font-bold text-slate-900 text-base">Fashion Lookbooks &amp; Style Inspiration</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Archive seasonal outfit pairings, thrift hauls, color matching guides, and hairstyle ideas to reference while shopping or getting ready.
@@ -338,7 +338,7 @@ export default function TikTokPhotoPage() {
                   iOS
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-lg">iPhone &amp; iPad (Safari)</h4>
+                  <h3 className="font-bold text-slate-900 text-lg">iPhone &amp; iPad (Safari)</h3>
                   <p className="text-xs text-slate-500">Save to Apple Photos</p>
                 </div>
               </div>
@@ -357,7 +357,7 @@ export default function TikTokPhotoPage() {
                   PC / Android
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-lg">Android &amp; Desktop Computers</h4>
+                  <h3 className="font-bold text-slate-900 text-lg">Android &amp; Desktop Computers</h3>
                   <p className="text-xs text-slate-500">Direct File Download</p>
                 </div>
               </div>
@@ -385,13 +385,13 @@ export default function TikTokPhotoPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <h4 className="font-bold text-slate-900 text-base">True 24-Bit sRGB Color Fidelity</h4>
+              <h3 className="font-bold text-slate-900 text-base">True 24-Bit sRGB Color Fidelity</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Screenshots captured on smartphones are altered by the device&apos;s display calibration—such as Apple&apos;s True Tone or Samsung&apos;s Vivid mode—resulting in inaccurate colors. QukTik retrieves the untouched 24-bit sRGB color space directly from the cloud CDN, ensuring pristine tonal balance and contrast.
               </p>
             </div>
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <h4 className="font-bold text-slate-900 text-base">Lossless Vertical 9:16 Aspect Ratio</h4>
+              <h3 className="font-bold text-slate-900 text-base">Lossless Vertical 9:16 Aspect Ratio</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Modern mobile cameras capture photos in 4:3 or 16:9 aspect ratios. When creators frame vertical 9:16 slideshows, screen grabs often clip important composition edges. QukTik preserves the exact pixel dimensions (1080x1920 or higher) uploaded by the artist without black bars or letterboxing.
               </p>
@@ -455,8 +455,8 @@ export default function TikTokPhotoPage() {
         {/* Section 9: Ethical & Copyright Considerations */}
         <section className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
           <div className="flex items-center gap-3 text-slate-900 font-bold text-lg">
-            <ShieldCheck className="w-6 h-6 text-rose-500" />
-            <h4>Photographer Copyright &amp; Ethical Re-use</h4>
+            <ShieldCheck className="w-6 h-6 text-rose-700" />
+            <h3 className="text-slate-900 font-bold text-lg">Photographer Copyright &amp; Ethical Re-use</h3>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             QukTik Photo Slideshow Downloader is intended strictly for personal archiving, educational research, and offline reference. Visual photography and artwork posted on TikTok remain the exclusive intellectual property of their original creators. Please do not re-upload, sell, or commercially utilize these photographs without obtaining explicit permission or a license from the copyright holder. You can also archive temporary photo stories with our <Link href="/tiktok-story" className="text-rose-700 font-semibold hover:underline">TikTok Story Saver</Link> or inspect creator profile pictures with the <Link href="/tiktok-avatar" className="text-rose-700 font-semibold hover:underline">Avatar Downloader</Link>. Review our <Link href="/disclaimer" className="text-rose-700 font-semibold hover:underline">DMCA Policy</Link>, <Link href="/privacy-policy" className="text-rose-700 font-semibold hover:underline">Privacy Policy</Link>, or reach us via <Link href="/contact" className="text-rose-700 font-semibold hover:underline">Contact Support</Link>.
@@ -482,7 +482,7 @@ export default function TikTokPhotoPage() {
               >
                 <summary className="font-bold text-base sm:text-lg text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
                   <span>{item.q}</span>
-                  <span className="text-rose-500 group-open:rotate-180 transition-transform text-xl font-black">
+                  <span className="text-rose-700 group-open:rotate-180 transition-transform text-xl font-black">
                     &darr;
                   </span>
                 </summary>

@@ -133,7 +133,7 @@ export default function TikTokVideoDownloaderPage() {
         {/* Section 1: The Engineering of Video Compression */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-4 h-4 text-rose-500" />
+            <Sparkles className="w-4 h-4 text-rose-700" />
             <span>High-Fidelity Video Processing</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -214,7 +214,7 @@ export default function TikTokVideoDownloaderPage() {
               <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
                 01
               </div>
-              <h4 className="font-bold text-slate-900 text-base">Algorithmic Reach</h4>
+              <h3 className="font-bold text-slate-900 text-base">Algorithmic Reach</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Clean MP4 files pass automated computer vision audits on Instagram and YouTube, qualifying your videos for full algorithmic distribution on Reels and Shorts feeds.
               </p>
@@ -224,7 +224,7 @@ export default function TikTokVideoDownloaderPage() {
               <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
                 02
               </div>
-              <h4 className="font-bold text-slate-900 text-base">Sponsor &amp; Client Standards</h4>
+              <h3 className="font-bold text-slate-900 text-base">Sponsor &amp; Client Standards</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Brand sponsors and corporate clients expect immaculate media deliverables. Presenting portfolio work or commercial case studies without watermarks elevates professionalism.
               </p>
@@ -234,7 +234,7 @@ export default function TikTokVideoDownloaderPage() {
               <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
                 03
               </div>
-              <h4 className="font-bold text-slate-900 text-base">Long-Term Digital Backup</h4>
+              <h3 className="font-bold text-slate-900 text-base">Long-Term Digital Backup</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Social platforms can experience sudden account suspensions, shadowbans, or accidental deletions. Saving high-bitrate master files to your local hard drive ensures your creative legacy is secure.
               </p>
@@ -270,7 +270,7 @@ export default function TikTokVideoDownloaderPage() {
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Watermark Removal Technique</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">Direct CDN Stream Extraction</td>
                   <td className="p-4 sm:p-5 text-slate-500">Edge cropping or blur filters</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Captures full watermark &amp; UI icons</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Captures full watermark &amp; UI icons</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Output Resolution</td>
@@ -282,7 +282,7 @@ export default function TikTokVideoDownloaderPage() {
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Audio-Video Lip Synchronization</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">Frame-Accurate AAC Stereo</td>
                   <td className="p-4 sm:p-5 text-slate-500">Audio drift / sync delay</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Microphone ambient noise risk</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Microphone ambient noise risk</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Download Speed</td>
@@ -328,7 +328,7 @@ export default function TikTokVideoDownloaderPage() {
                   iOS
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-lg">Apple iOS (iPhone &amp; iPad)</h4>
+                  <h3 className="font-bold text-slate-900 text-lg">Apple iOS (iPhone &amp; iPad)</h3>
                   <p className="text-xs text-slate-500">Safari on iOS 14, 15, 16, 17, 18+</p>
                 </div>
               </div>
@@ -347,7 +347,7 @@ export default function TikTokVideoDownloaderPage() {
                   Android
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-lg">Google Android</h4>
+                  <h3 className="font-bold text-slate-900 text-lg">Google Android</h3>
                   <p className="text-xs text-slate-500">Chrome, Samsung Internet, Firefox</p>
                 </div>
               </div>
@@ -458,14 +458,14 @@ export default function TikTokVideoDownloaderPage() {
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Ad Clutter &amp; Deceptive Popups</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">Zero Deceptive Buttons / Clean UI</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Heavy full-screen interstitial ads</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Invasive background notifications</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Heavy full-screen interstitial ads</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Invasive background notifications</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Security &amp; Device Permissions</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">No App Install, 100% Web Sandbox</td>
                   <td className="p-4 sm:p-5 text-slate-500">Browser cookie tracking</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Demands storage, contacts, GPS access</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Demands storage, contacts, GPS access</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Multi-Asset Support (Audio, Photos)</td>
@@ -485,8 +485,8 @@ export default function TikTokVideoDownloaderPage() {
         {/* Section 8: Legal, Fair Use & AdSense Compliance */}
         <section className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
           <div className="flex items-center gap-3 text-slate-900 font-bold text-lg">
-            <ShieldCheck className="w-6 h-6 text-rose-500" />
-            <h4>Intellectual Property Rights &amp; Fair Use Ethics</h4>
+            <ShieldCheck className="w-6 h-6 text-rose-700" />
+            <h3 className="text-slate-900 font-bold text-lg">Intellectual Property Rights &amp; Fair Use Ethics</h3>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             QukTik Video Downloader is intended strictly for personal archiving, academic study, research, and fair-use repurposing of your own original intellectual property. We do not support or condone the unauthorized re-uploading or commercial monetization of another creator&apos;s work without their explicit written permission.
@@ -515,7 +515,7 @@ export default function TikTokVideoDownloaderPage() {
               >
                 <summary className="font-bold text-base sm:text-lg text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
                   <span>{item.q}</span>
-                  <span className="text-rose-500 group-open:rotate-180 transition-transform text-xl font-black">
+                  <span className="text-rose-700 group-open:rotate-180 transition-transform text-xl font-black">
                     &darr;
                   </span>
                 </summary>

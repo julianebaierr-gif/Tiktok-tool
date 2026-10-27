@@ -170,7 +170,7 @@ export default function DouyinDownloaderPage() {
         {/* Section 1: The Douyin Phenomenon & 3D Illustration */}
         <section className="space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider">
-            <Globe2 className="w-4 h-4 text-rose-500" />
+            <Globe2 className="w-4 h-4 text-rose-700" />
             <span>ByteDance Domestic Ecosystem</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -231,17 +231,17 @@ export default function DouyinDownloaderPage() {
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Chinese Share Text Parsing</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">Regex filters Chinese characters instantly</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Throws &ldquo;Invalid URL&rdquo; error</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Throws &ldquo;Invalid URL&rdquo; error</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">v.douyin.com Redirects</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">Follows 302 redirects to master video ID</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Times out or rejects domain</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Times out or rejects domain</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">ByteDance China CDN Access</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">Direct authorized stream retrieval</td>
-                  <td className="p-4 sm:p-5 text-rose-500">Blocked by regional firewall</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Blocked by regional firewall</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Watermark Removal (无水印)</td>
@@ -269,7 +269,7 @@ export default function DouyinDownloaderPage() {
                 <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
                   01
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">JianYing (剪映) &amp; CapCut Editing</h4>
+                <h3 className="font-bold text-slate-900 text-base">JianYing (剪映) &amp; CapCut Editing</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Video editors use clean Douyin footage to study cutting-edge transition effects, 3D tracking templates, and visual storytelling methods created with ByteDance&apos;s JianYing suite.
@@ -281,7 +281,7 @@ export default function DouyinDownloaderPage() {
                 <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
                   02
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Viral BGM &amp; Traditional Instrumentals</h4>
+                <h3 className="font-bold text-slate-900 text-base">Viral BGM &amp; Traditional Instrumentals</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Douyin features an endless library of acoustic covers, oriental electronic music, Guzheng melodies, and trending Chinese pop hooks that you can extract in 320kbps MP3.
@@ -293,7 +293,7 @@ export default function DouyinDownloaderPage() {
                 <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
                   03
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">E-Commerce &amp; Product Showcases</h4>
+                <h3 className="font-bold text-slate-900 text-base">E-Commerce &amp; Product Showcases</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Dropshippers and product innovators study creative Chinese unboxing videos, demonstration angles, and consumer product showcases to design better marketing campaigns.
@@ -305,7 +305,7 @@ export default function DouyinDownloaderPage() {
                 <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
                   04
                 </div>
-                <h4 className="font-bold text-slate-900 text-base">Culinary Techniques &amp; Street Food</h4>
+                <h3 className="font-bold text-slate-900 text-base">Culinary Techniques &amp; Street Food</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Culinary chefs archive authentic regional Chinese wok skills, noodle stretching arts, dumpling folding methods, and night market culinary traditions for cooking inspiration.
@@ -332,7 +332,7 @@ export default function DouyinDownloaderPage() {
                   App
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-lg">Douyin Mobile App (iOS / Android)</h4>
+                  <h3 className="font-bold text-slate-900 text-lg">Douyin Mobile App (iOS / Android)</h3>
                   <p className="text-xs text-slate-500">Copy Share String</p>
                 </div>
               </div>
@@ -352,7 +352,7 @@ export default function DouyinDownloaderPage() {
                   PC
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-lg">Douyin Web (PC &amp; Mac)</h4>
+                  <h3 className="font-bold text-slate-900 text-lg">Douyin Web (PC &amp; Mac)</h3>
                   <p className="text-xs text-slate-500">Direct Browser Extraction</p>
                 </div>
               </div>
@@ -447,8 +447,8 @@ export default function DouyinDownloaderPage() {
         {/* Section 9: Ethical & Copyright Considerations */}
         <section className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
           <div className="flex items-center gap-3 text-slate-900 font-bold text-lg">
-            <ShieldCheck className="w-6 h-6 text-rose-500" />
-            <h4>Intellectual Property &amp; Cross-Border Fair Use</h4>
+            <ShieldCheck className="w-6 h-6 text-rose-700" />
+            <h3 className="text-slate-900 font-bold text-lg">Intellectual Property &amp; Cross-Border Fair Use</h3>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             QukTik Douyin Downloader is provided solely for personal archiving, language learning, cultural research, and educational analysis. Media published on Douyin belongs exclusively to the respective Chinese creators and ByteDance Ltd. Please do not re-upload creators&apos; work onto Western platforms like YouTube or Instagram to profit commercially without giving clear attribution and receiving proper creator consent. Review our <Link href="/disclaimer" className="text-rose-700 font-semibold hover:underline">DMCA &amp; Copyright Policy</Link>, <Link href="/terms-of-service" className="text-rose-700 font-semibold hover:underline">Terms of Service</Link>, and <Link href="/privacy-policy" className="text-rose-700 font-semibold hover:underline">Privacy Policy</Link>, or contact us on our <Link href="/contact" className="text-rose-700 font-semibold hover:underline">Contact Page</Link>. Learn more <Link href="/about" className="text-rose-700 font-semibold hover:underline">About QukTik</Link>.
@@ -474,7 +474,7 @@ export default function DouyinDownloaderPage() {
               >
                 <summary className="font-bold text-base sm:text-lg text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
                   <span>{item.q}</span>
-                  <span className="text-rose-500 group-open:rotate-180 transition-transform text-xl font-black">
+                  <span className="text-rose-700 group-open:rotate-180 transition-transform text-xl font-black">
                     &darr;
                   </span>
                 </summary>
