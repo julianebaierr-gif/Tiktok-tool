@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import React from 'react';
 import { Mail, Clock, Shield } from 'lucide-react';
@@ -29,8 +30,8 @@ export default function ContactPage() {
         <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-4">
           Contact QukTik Team
         </h1>
-        <p className="mt-3 text-sm sm:text-base text-slate-600">
-          Have a question, feedback, bug report, or DMCA inquiry? We are here to help.
+        <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+          Have a question, feedback, bug report, or DMCA inquiry? We are here to help. Before contacting, you can also review our <Link href="/disclaimer" className="text-rose-600 font-semibold hover:underline">DMCA Policy</Link>, <Link href="/privacy-policy" className="text-rose-600 font-semibold hover:underline">Privacy Policy</Link>, and <Link href="/terms-of-service" className="text-rose-600 font-semibold hover:underline">Terms of Service</Link>, or return to the <Link href="/" className="text-rose-600 font-semibold hover:underline">QukTik Downloader</Link>.
         </p>
       </div>
 

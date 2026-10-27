@@ -435,7 +435,7 @@ export default function TikTokStoryPage() {
             <span>Part 8: Personal Cloud Storage &amp; Organization</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            8. Organizing Ephemeral Archives: Cloud Synchronization and Metadata Tagging
+            8. To view full-resolution profile pictures of story authors, use our <Link href="/tiktok-avatar" className="text-rose-600 font-semibold hover:underline">TikTok Avatar Downloader</Link>, or save photo-based stories with our <Link href="/tiktok-photo" className="text-rose-600 font-semibold hover:underline">Photo Downloader</Link>. Organizing Ephemeral Archives: Cloud Synchronization and Metadata Tagging
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Because stories vanish so quickly, users who archive multiple stories per week can easily end up with a disorganized smartphone camera roll. Professional social media archivists and digital curators implement structured storage pipelines to ensure saved stories remain easily searchable:

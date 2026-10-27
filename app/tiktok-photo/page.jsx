@@ -128,7 +128,7 @@ export default function TikTokPhotoPage() {
             Why Use QukTik Photo Slideshow Downloader?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Say goodbye to low-resolution phone screenshots and UI clutter. Get the exact master photo files uploaded by creators.
+            Say goodbye to low-resolution phone screenshots and UI clutter. Get the exact master photo files uploaded by creators. If you need standard full-motion video clips, use our <Link href="/tiktok-video-downloader" className="text-rose-600 font-semibold hover:underline">TikTok Video Downloader</Link>, or extract accompanying audio stems with our <Link href="/tiktok-mp3" className="text-rose-600 font-semibold hover:underline">TikTok to MP3 Converter</Link>.
           </p>
         </div>
 
@@ -266,7 +266,7 @@ export default function TikTokPhotoPage() {
             <span>Part 3: Practical Use Cases</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            3. Valuable Real-World Applications for Saved Photo Carousels
+            3. Valuable Real-World Applications for Saved Photo Carousels (Also archive temporary status posts with our <Link href="/tiktok-story" className="text-rose-600 font-semibold hover:underline">TikTok Story Saver</Link> or check author profiles with our <Link href="/tiktok-avatar" className="text-rose-600 font-semibold hover:underline">Avatar Downloader</Link>)
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
@@ -459,7 +459,7 @@ export default function TikTokPhotoPage() {
             <h4>Photographer Copyright &amp; Ethical Re-use</h4>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            QukTik Photo Slideshow Downloader is intended strictly for personal archiving, educational research, and offline reference. Visual photography and artwork posted on TikTok remain the exclusive intellectual property of their original creators. Please do not re-upload, sell, or commercially utilize these photographs without obtaining explicit permission or a license from the copyright holder.
+            QukTik Photo Slideshow Downloader is intended strictly for personal archiving, educational research, and offline reference. Visual photography and artwork posted on TikTok remain the exclusive intellectual property of their original creators. Please do not re-upload, sell, or commercially utilize these photographs without obtaining explicit permission or a license from the copyright holder. You can also archive temporary photo stories with our <Link href="/tiktok-story" className="text-rose-600 font-semibold hover:underline">TikTok Story Saver</Link> or inspect creator profile pictures with the <Link href="/tiktok-avatar" className="text-rose-600 font-semibold hover:underline">Avatar Downloader</Link>. Review our <Link href="/disclaimer" className="text-rose-600 font-semibold hover:underline">DMCA Policy</Link>, <Link href="/privacy-policy" className="text-rose-600 font-semibold hover:underline">Privacy Policy</Link>, or reach us via <Link href="/contact" className="text-rose-600 font-semibold hover:underline">Contact Support</Link>.
           </p>
         </section>
 

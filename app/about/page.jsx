@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import React from 'react';
 import { Shield, Sparkles, Users } from 'lucide-react';
@@ -51,7 +52,7 @@ export default function AboutPage() {
             QukTik was created in 2024 by an independent group of creators and software developers who were tired of having jumping watermark logos ruin their short-form videos. Every time you save your own video inside TikTok, the app stamps that logo over captions and faces.
           </p>
           <p>
-            We built QukTik as a free, lightweight, web-only tool that lets anyone grab the clean, unbranded original video or audio file directly to their phone or computer in seconds.
+            We built QukTik as a free, lightweight, web-only tool that lets anyone grab the clean, unbranded original video or audio file directly to their phone or computer in seconds. Whether you need our <Link href="/tiktok-video-downloader" className="text-rose-600 font-semibold hover:underline">TikTok Video Downloader</Link>, high-fidelity <Link href="/tiktok-mp3" className="text-rose-600 font-semibold hover:underline">TikTok to MP3 converter</Link>, or multi-slide <Link href="/tiktok-photo" className="text-rose-600 font-semibold hover:underline">photo carousel saver</Link>, our web platform delivers instant results.
           </p>
         </section>
 
@@ -82,7 +83,7 @@ export default function AboutPage() {
             <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
               <h3 className="font-bold text-slate-900 mb-1">4. Creator Respect</h3>
               <p className="text-xs sm:text-sm text-slate-600">
-                We encourage ethical archiving and proper creator credits, and provide fast DMCA takedown channels.
+                We encourage ethical archiving and proper creator credits, and provide fast <Link href="/disclaimer" className="text-rose-600 font-semibold hover:underline">DMCA takedown</Link> channels. For inquiries, reach us via our <Link href="/contact" className="text-rose-600 font-semibold hover:underline">Contact Support</Link> or view our <Link href="/privacy-policy" className="text-rose-600 font-semibold hover:underline">Privacy Policy</Link>.
               </p>
             </div>
           </div>
@@ -99,7 +100,7 @@ export default function AboutPage() {
           <ul className="space-y-2 list-disc list-inside text-slate-600 text-sm sm:text-base">
             <li><strong>Content Creators:</strong> Saving their own videos to re-upload to Instagram Reels and YouTube Shorts without logo penalties.</li>
             <li><strong>Students &amp; Researchers:</strong> Archiving tutorials, news breakdowns, and educational videos for study.</li>
-            <li><strong>Everyday Viewers:</strong> Saving workout routines, recipes, travel ideas, and favorite songs for offline watching.</li>
+            <li><strong>Everyday Viewers:</strong> Saving workout routines, recipes, travel ideas, and favorite songs for offline watching using our <Link href="/tiktok-story" className="text-rose-600 font-semibold hover:underline">TikTok story saver</Link>, <Link href="/tiktok-ringtone" className="text-rose-600 font-semibold hover:underline">ringtone maker</Link>, and <Link href="/douyin-downloader" className="text-rose-600 font-semibold hover:underline">Douyin downloader</Link>.</li>
           </ul>
         </section>
 

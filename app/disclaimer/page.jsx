@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import React from 'react';
 import { ShieldAlert, Mail } from 'lucide-react';
@@ -80,7 +81,7 @@ export default function DisclaimerPage() {
             <span>DMCA Compliance Contact</span>
           </h3>
           <p className="text-sm text-slate-600">
-            Send all takedown notices directly to: <a href="mailto:dmca@quktik.com" className="text-rose-600 underline font-bold">dmca@quktik.com</a>
+            Send all takedown notices directly to: <a href="mailto:dmca@quktik.com" className="text-rose-600 underline font-bold">dmca@quktik.com</a> or submit via our online <Link href="/contact" className="text-rose-600 font-semibold hover:underline">Contact Form</Link>. See also our <Link href="/terms-of-service" className="text-rose-600 font-semibold hover:underline">Terms of Service</Link> and <Link href="/about" className="text-rose-600 font-semibold hover:underline">About QukTik</Link>.
           </p>
           <p className="text-xs text-slate-500">
             Valid takedown requests are typically handled and permanently blacklisted from our tool within 24 to 48 business hours.

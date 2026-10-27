@@ -127,7 +127,7 @@ export default function DouyinDownloaderPage() {
             Why Use QukTik Douyin (抖音) Downloader?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Western downloaders usually fail on Chinese URLs. QukTik provides a dedicated high-speed bridge to ByteDance&apos;s domestic Chinese servers.
+            While our global <Link href="/tiktok-video-downloader" className="text-rose-600 font-semibold hover:underline">TikTok Video Downloader</Link> handles international links, Western downloaders usually fail on Chinese Douyin URLs. QukTik provides a dedicated bridge to ByteDance&apos;s domestic Chinese servers. You can also extract viral Chinese audio hooks with our <Link href="/tiktok-mp3" className="text-rose-600 font-semibold hover:underline">TikTok to MP3 Converter</Link>, create alarms with the <Link href="/tiktok-ringtone" className="text-rose-600 font-semibold hover:underline">Ringtone Maker</Link>, or save photo carousels with the <Link href="/tiktok-photo" className="text-rose-600 font-semibold hover:underline">Photo Downloader</Link>.
           </p>
         </div>
 
@@ -451,7 +451,7 @@ export default function DouyinDownloaderPage() {
             <h4>Intellectual Property &amp; Cross-Border Fair Use</h4>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            QukTik Douyin Downloader is provided solely for personal archiving, language learning, cultural research, and educational analysis. Media published on Douyin belongs exclusively to the respective Chinese creators and ByteDance Ltd. Please do not re-upload creators&apos; work onto Western platforms like YouTube or Instagram to profit commercially without giving clear attribution and receiving proper creator consent.
+            QukTik Douyin Downloader is provided solely for personal archiving, language learning, cultural research, and educational analysis. Media published on Douyin belongs exclusively to the respective Chinese creators and ByteDance Ltd. Please do not re-upload creators&apos; work onto Western platforms like YouTube or Instagram to profit commercially without giving clear attribution and receiving proper creator consent. Review our <Link href="/disclaimer" className="text-rose-600 font-semibold hover:underline">DMCA &amp; Copyright Policy</Link>, <Link href="/terms-of-service" className="text-rose-600 font-semibold hover:underline">Terms of Service</Link>, and <Link href="/privacy-policy" className="text-rose-600 font-semibold hover:underline">Privacy Policy</Link>, or contact us on our <Link href="/contact" className="text-rose-600 font-semibold hover:underline">Contact Page</Link>. Learn more <Link href="/about" className="text-rose-600 font-semibold hover:underline">About QukTik</Link>.
           </p>
         </section>
 

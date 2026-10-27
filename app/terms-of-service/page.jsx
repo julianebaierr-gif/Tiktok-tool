@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import React from 'react';
 
@@ -5,7 +6,7 @@ export const metadata = {
   title: 'Terms of Service',
   description: 'QukTik Terms of Service governing the use of our online media downloader, intellectual property guidelines, and fair-use limitations.',
   alternates: {
-    canonical: 'https://quktik.com/terms-of-service',
+    canonical: '<Link href="/" className="text-rose-600 font-semibold hover:underline">https://quktik.com</Link>/terms-of-service',
   },
   openGraph: {
     title: 'Terms of Service',
@@ -78,6 +79,13 @@ export default function TermsOfServicePage() {
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">5. Disclaimer</h2>
           <p>
             QukTik is provided on an &quot;as is&quot; basis without warranties of any kind. We do not guarantee uninterrupted availability and are not liable for any third-party misuse of downloaded media.
+          </p>
+        </section>
+
+        <section className="space-y-3">
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900">6. Related Policies &amp; Contact</h2>
+          <p>
+            For information on how we handle data, please read our <Link href="/privacy-policy" className="text-rose-600 font-semibold hover:underline">Privacy Policy</Link>. To submit a copyright notice or review fair-use guidelines, consult our <Link href="/disclaimer" className="text-rose-600 font-semibold hover:underline">DMCA &amp; Copyright Disclaimer</Link>. If you have any inquiries regarding these terms, visit our <Link href="/contact" className="text-rose-600 font-semibold hover:underline">Contact Support</Link> page, learn more <Link href="/about" className="text-rose-600 font-semibold hover:underline">About QukTik</Link>, or return to the <Link href="/" className="text-rose-600 font-semibold hover:underline">QukTik Downloader</Link>.
           </p>
         </section>
 

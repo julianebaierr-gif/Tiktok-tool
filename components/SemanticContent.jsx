@@ -92,6 +92,10 @@ export default function SemanticContent() {
             <Link href="/tiktok-mp3" className="text-xs font-bold text-purple-600 hover:underline inline-flex items-center gap-1">
               Explore MP3 Converter &rarr;
             </Link>
+            <span className="text-slate-300 mx-1.5">•</span>
+            <Link href="/tiktok-ringtone" className="text-xs font-bold text-pink-600 hover:underline inline-flex items-center gap-1">
+              Ringtone Maker &rarr;
+            </Link>
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
@@ -566,7 +570,7 @@ export default function SemanticContent() {
           QukTik is an independent web utility built strictly for personal archiving, educational study, private backup, and fair-use creator repurposing of original user-generated content. All video, audio, photo, and trademark assets hosted on TikTok and Douyin remain the exclusive intellectual property of their original copyright owners and ByteDance Ltd. QukTik does not host, store, or archive copyrighted media files on its servers; all requests stream transiently through official public CDN endpoints.
         </p>
         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-          Users must obtain explicit written authorization before re-distributing, monetizing, or utilizing another creator&apos;s media assets in commercial advertising campaigns. QukTik strictly complies with Digital Millennium Copyright Act (DMCA) regulations. For copyright notices, inquiries, or takedown requests, please consult our official legal documentation.
+          Users must obtain explicit written authorization before re-distributing, monetizing, or utilizing another creator&apos;s media assets in commercial advertising campaigns. QukTik strictly complies with Digital Millennium Copyright Act (DMCA) regulations. For copyright notices, inquiries, or takedown requests, please consult our <Link href="/disclaimer" className="text-rose-600 font-semibold hover:underline">DMCA &amp; Copyright Policy</Link>, review our <Link href="/terms-of-service" className="text-rose-600 font-semibold hover:underline">Terms of Service</Link> and <Link href="/privacy-policy" className="text-rose-600 font-semibold hover:underline">Privacy Policy</Link>, or contact our compliance team directly via our <Link href="/contact" className="text-rose-600 font-semibold hover:underline">Contact Support form</Link>. Learn more about our team mission on the <Link href="/about" className="text-rose-600 font-semibold hover:underline">About QukTik</Link> page.
         </p>
       </section>
 

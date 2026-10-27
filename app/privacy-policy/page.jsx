@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import React from 'react';
 
@@ -39,10 +40,10 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-3">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">1. Introduction</h2>
           <p>
-            At <strong>QukTik</strong> (accessible at <code className="text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded text-xs">https://quktik.com</code>), your privacy is one of our top priorities. This Privacy Policy explains what information we receive when you visit our website and how it is handled.
+            At <strong>QukTik</strong> (accessible at <Link href="/" className="text-rose-600 font-semibold hover:underline">https://quktik.com</Link>), your privacy is one of our top priorities. Whether using our <Link href="/tiktok-video-downloader" className="text-rose-600 font-semibold hover:underline">video downloader</Link> or <Link href="/tiktok-mp3" className="text-rose-600 font-semibold hover:underline">MP3 converter</Link>, we collect minimal data. This Privacy Policy explains what information we receive when you visit our website and how it is handled.
           </p>
           <p>
-            If you have questions about this policy, feel free to reach out to us at <a href="mailto:privacy@quktik.com" className="text-rose-600 underline">privacy@quktik.com</a>.
+            If you have questions about this policy, feel free to reach out to us at <a href="mailto:privacy@quktik.com" className="text-rose-600 underline">privacy@quktik.com</a>, visit our <Link href="/contact" className="text-rose-600 font-semibold hover:underline">Contact Page</Link>, or read our <Link href="/terms-of-service" className="text-rose-600 font-semibold hover:underline">Terms of Service</Link> and <Link href="/disclaimer" className="text-rose-600 font-semibold hover:underline">DMCA Policy</Link>.
           </p>
         </section>
 

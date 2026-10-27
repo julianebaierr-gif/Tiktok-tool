@@ -137,7 +137,7 @@ export default function TikTokMp3Page() {
             </div>
             <h3 className="text-lg font-bold text-slate-900">Original Studio Bitrate (320kbps)</h3>
             <p className="text-sm text-slate-600 leading-relaxed">
-              We extract the original audio stream directly from TikTok servers without re-compressing, delivering clean sound at up to 320kbps bitrate with crisp highs and deep bass.
+              We extract the original audio stream directly from TikTok servers without re-compressing, delivering clean sound at up to 320kbps bitrate with crisp highs and deep bass. If you need the complete visual footage alongside the audio, simply use our <Link href="/tiktok-video-downloader" className="text-rose-600 font-semibold hover:underline">TikTok Video Downloader</Link>.
             </p>
           </div>
 
@@ -416,7 +416,7 @@ export default function TikTokMp3Page() {
             <span>Part 7: Mobile Workflows &amp; Educational Study</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            7. Offline Language Learning, Speech Drills &amp; Acoustic Practice
+            7. For multi-image posts, pair our audio extractor with the <Link href="/tiktok-photo" className="text-rose-600 font-semibold hover:underline">TikTok Photo Downloader</Link>, or extract audio from Chinese clips via the <Link href="/douyin-downloader" className="text-rose-600 font-semibold hover:underline">Douyin Downloader</Link>. Offline Language Learning, Speech Drills &amp; Acoustic Practice
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Millions of students and educators utilize TikTok as a micro-learning classroom for foreign language pronunciation, voice training, musical scales, and public speaking techniques. Relying on streaming video consumes high mobile data packets and forces the smartphone screen to remain powered on, draining battery life.
