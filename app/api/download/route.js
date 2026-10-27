@@ -3,13 +3,36 @@ import Tiktok from '@tobyg74/tiktok-api-dl';
 
 export const dynamic = 'force-dynamic';
 
-// Clean and extract valid TikTok or Douyin URL from user input or mobile share text
+// Clean and extract valid TikTok or Douyin URL from user input, shortened links, or mobile share text
 function cleanTikTokUrl(rawUrl) {
   if (!rawUrl || typeof rawUrl !== 'string') return null;
-  const trimmed = rawUrl.trim();
-  // Extract standard URL from raw input or text containing tiktok.com or douyin.com
-  const match = trimmed.match(/https?:\/\/(?:[a-zA-Z0-9_-]+\.)?(?:tiktok\.com|douyin\.com)\/[a-zA-Z0-9_\-\/?&=#%._~]+/i);
-  return match ? match[0].replace(/[.,;:!?]+$/, '') : null;
+  let str = rawUrl.trim();
+
+  // If user pasted without protocol (e.g., 'tiktok.com/@...' or 'vt.tiktok.com/...' or 'www.tiktok.com/...')
+  if (!/^https?:\/\//i.test(str)) {
+    const domainMatch = str.match(/((?:[a-zA-Z0-9_-]+\.)?(?:tiktok\.com|douyin\.com)\/[^\s]+)/i);
+    if (domainMatch) {
+      str = 'https://' + domainMatch[1];
+    }
+  }
+
+  // Regex that captures any URL containing tiktok.com or douyin.com
+  // Crucial: Must include @, ?, &, =, #, %, _, -, ~, :, ;, +, etc.
+  const match = str.match(/https?:\/\/(?:[a-zA-Z0-9_-]+\.)?(?:tiktok\.com|douyin\.com)\/[a-zA-Z0-9@_\-\/?&=#%._~:;+]+/i);
+  if (match) {
+    return match[0].replace(/[.,;:!?)\\]+$/, '');
+  }
+
+  // Fallback: If string contains tiktok.com or douyin.com anywhere, extract from that point onwards
+  const fallbackIndex = str.search(/(?:tiktok\.com|douyin\.com)/i);
+  if (fallbackIndex !== -1) {
+    let sub = str.slice(fallbackIndex);
+    const endSpace = sub.search(/\s/);
+    if (endSpace !== -1) sub = sub.slice(0, endSpace);
+    return 'https://' + sub.replace(/[.,;:!?)\\]+$/, '');
+  }
+
+  return null;
 }
 
 export async function POST(request) {
@@ -85,11 +108,17 @@ export async function POST(request) {
     // Standardize the response data for our UI
     const isImage = downloadResult.type === 'image' || (downloadResult.images && downloadResult.images.length > 0);
     const videoUrls = downloadResult.video?.playAddr || [];
-    const directVideoUrl = Array.isArray(videoUrls) ? videoUrls[0] : (typeof videoUrls === 'string' ? videoUrls : null);
-    const hdVideoUrl = Array.isArray(videoUrls) && videoUrls.length > 1 ? videoUrls[1] : directVideoUrl;
+    const directVideoUrl = Array.isArray(videoUrls) 
+      ? videoUrls[0] 
+      : (typeof videoUrls === 'string' ? videoUrls : (downloadResult.video?.noWatermark || downloadResult.video?.url || null));
+    const hdVideoUrl = Array.isArray(videoUrls) && videoUrls.length > 1 
+      ? videoUrls[1] 
+      : (downloadResult.video?.noWatermarkHd || directVideoUrl);
     
     const musicUrls = downloadResult.music?.playUrl || [];
-    const directMusicUrl = Array.isArray(musicUrls) ? musicUrls[0] : (typeof musicUrls === 'string' ? musicUrls : null);
+    const directMusicUrl = Array.isArray(musicUrls) 
+      ? musicUrls[0] 
+      : (typeof musicUrls === 'string' ? musicUrls : (downloadResult.music?.url || null));
 
     const authorAvatar = Array.isArray(downloadResult.author?.avatarMedium) 
       ? downloadResult.author.avatarMedium[0] 
