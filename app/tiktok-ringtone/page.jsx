@@ -26,7 +26,7 @@ import {
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'TikTok Ringtone Maker - Convert TikTok Audio to Phone Ringtones',
+  title: 'TikTok Ringtone Maker - Custom Audio Tones',
   description: 'Make custom phone ringtones from trending TikTok sounds and songs for iPhone (M4R/M4A) and Android (MP3). Free online ringtone creator.',
   alternates: {
     canonical: 'https://quktik.com/tiktok-ringtone',

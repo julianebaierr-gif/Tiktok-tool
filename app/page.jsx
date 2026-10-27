@@ -7,14 +7,14 @@ import SemanticContent from '../components/SemanticContent';
 import SiteSchema from '../components/SiteSchema';
 
 export const metadata = {
-  title: 'QukTik - Save TikTok Videos Without Watermark in HD (Free Online)',
-  description: 'Download TikTok and Douyin videos without watermark in HD MP4 quality and extract MP3 audio with QukTik. 100% free with no registration or apps required.',
+  title: 'QukTik - Download TikTok Videos (No Watermark)',
+  description: 'Download TikTok and Douyin videos without watermark in HD MP4 or MP3 audio. 100% free online tool with no app or sign-up needed.',
   alternates: {
     canonical: 'https://quktik.com',
   },
   openGraph: {
-    title: 'QukTik - Save TikTok Videos Without Watermark in HD (Free Online)',
-    description: 'Download TikTok and Douyin videos without watermark in HD MP4 quality and extract MP3 audio with QukTik. 100% free online.',
+    title: 'QukTik - Download TikTok Videos (No Watermark)',
+    description: 'Download TikTok and Douyin videos without watermark in HD MP4 or MP3 audio. 100% free online tool with no app or sign-up needed.',
     url: 'https://quktik.com',
     type: 'website',
   },

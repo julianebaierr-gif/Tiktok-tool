@@ -5,7 +5,7 @@ import ContactForm from '../../components/ContactForm';
 
 export const metadata = {
   title: 'Contact Support',
-  description: 'Get in touch with the QukTik support team for technical assistance, partnership opportunities, or copyright inquiries. We reply within 24 hours.',
+  description: 'Contact the QukTik support team for technical help, bug reports, and copyright inquiries. We reply to all messages within 24 hours.',
   alternates: {
     canonical: 'https://quktik.com/contact',
   },

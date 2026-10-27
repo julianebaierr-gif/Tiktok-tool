@@ -32,7 +32,7 @@ import {
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'TikTok Video Downloader Without Watermark in HD (1080p MP4)',
+  title: 'TikTok Video Downloader Without Watermark',
   description: 'Download TikTok videos without watermark in Full HD 1080p MP4 quality. Fast, free online video downloader with no apps or registration needed.',
   alternates: {
     canonical: 'https://quktik.com/tiktok-video-downloader',

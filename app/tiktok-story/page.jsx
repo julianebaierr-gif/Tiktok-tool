@@ -27,7 +27,7 @@ import {
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'TikTok Story Saver - Download TikTok Stories Anonymously in HD',
+  title: 'TikTok Story Saver - Download Stories in HD',
   description: 'Save and download 24-hour TikTok stories anonymously before they expire in HD MP4. 100% free online story viewer and downloader.',
   alternates: {
     canonical: 'https://quktik.com/tiktok-story',

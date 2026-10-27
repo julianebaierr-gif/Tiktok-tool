@@ -26,7 +26,7 @@ import {
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'TikTok Photo Downloader - Save Photo Slideshows & Carousels HD',
+  title: 'TikTok Photo Downloader - Save Slideshow HD',
   description: 'Download TikTok photo slideshows and carousel images in original high resolution without watermarks. Free batch image saver for TikTok slides.',
   alternates: {
     canonical: 'https://quktik.com/tiktok-photo',

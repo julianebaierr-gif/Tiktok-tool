@@ -5,10 +5,10 @@ import Footer from '../components/Footer';
 export const metadata = {
   metadataBase: new URL('https://quktik.com'),
   title: {
-    default: 'QukTik - Save TikTok Videos Without Watermark in HD (Free Online)',
+    default: 'QukTik - Download TikTok Videos (No Watermark)',
     template: '%s | QukTik'
   },
-  description: 'Clean, fast online tool to download TikTok videos without watermark in HD MP4 quality and extract MP3 audio. 100% free with no registration or apps required.',
+  description: 'Download TikTok and Douyin videos without watermark in HD MP4 or MP3 audio. 100% free online tool with no app or sign-up needed.',
   keywords: [
     'download tiktok video',
     'tiktok without watermark',

@@ -25,7 +25,7 @@ import {
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Douyin Downloader (抖音视频下载) - No Watermark HD Video Saver',
+  title: 'Douyin Downloader (抖音下载) - No Watermark',
   description: 'Download Chinese Douyin (抖音) videos without watermark in 1080p Full HD MP4. Works with all Douyin share links directly online for free.',
   alternates: {
     canonical: 'https://quktik.com/douyin-downloader',

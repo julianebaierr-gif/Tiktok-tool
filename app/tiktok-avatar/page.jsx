@@ -26,7 +26,7 @@ import {
 } from 'lucide-react';
 
 export const metadata = {
-  title: 'TikTok Avatar Downloader - View & Save Profile Pictures in Full HD',
+  title: 'TikTok Avatar Downloader - View Profile HD',
   description: 'View and download uncropped, full-resolution TikTok profile pictures and avatars (1080x1080 HD). 100% free online PFP viewer.',
   alternates: {
     canonical: 'https://quktik.com/tiktok-avatar',
