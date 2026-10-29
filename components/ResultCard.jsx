@@ -655,25 +655,40 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
               <div className="md:col-span-5 space-y-3">
                 <div className="relative aspect-[9/16] max-h-[390px] w-full mx-auto rounded-2xl overflow-hidden bg-slate-950 border border-slate-200 shadow-md group">
                   {isPlaying && video?.noWatermark ? (
-                    <video src={video.noWatermark} controls autoPlay className="w-full h-full object-contain bg-black" />
-                  ) : cover ? (
-                    <>
-                      <img src={cover} alt="Story preview" className="w-full h-full object-cover" />
+                    <video
+                      src={getProxyUrl(video.noWatermark, `story_preview_${id}.mp4`, 'video')}
+                      controls
+                      autoPlay
+                      className="w-full h-full object-contain bg-black"
+                    />
+                  ) : (
+                    <div className="relative w-full h-full">
+                      {cover ? (
+                        <img src={cover} alt="Story preview" className="w-full h-full object-cover" />
+                      ) : video?.noWatermark ? (
+                        <video
+                          src={getProxyUrl(video.noWatermark, `story_preview_${id}.mp4`, 'video')}
+                          preload="metadata"
+                          playsInline
+                          className="w-full h-full object-contain bg-black"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-slate-400">
+                          <Video className="w-16 h-16" />
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
                       {video?.noWatermark && (
                         <button
                           onClick={() => setIsPlaying(true)}
-                          className="absolute inset-0 flex items-center justify-center m-auto w-14 h-14 rounded-full bg-white/90 text-purple-700 shadow-lg hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                          className="absolute inset-0 flex items-center justify-center m-auto w-14 h-14 rounded-full bg-white/90 text-purple-700 shadow-lg hover:scale-110 active:scale-95 transition-all cursor-pointer z-10"
                         >
                           <Play className="w-6 h-6 fill-purple-600 ml-0.5" />
                         </button>
                       )}
-                    </>
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-slate-400">
-                      <Video className="w-16 h-16" />
                     </div>
                   )}
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-purple-600 text-white text-[11px] font-bold shadow-sm flex items-center gap-1.5">
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-purple-600 text-white text-[11px] font-bold shadow-sm flex items-center gap-1.5 z-20 pointer-events-none">
                     <Clock className="w-3 h-3" />
                     <span>Story Video (24h)</span>
                   </div>
@@ -814,7 +829,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                 <div className="relative aspect-[9/16] max-h-[420px] w-full mx-auto rounded-2xl overflow-hidden bg-slate-950 border border-slate-200 shadow-md group">
                   {isPlaying && video?.noWatermark ? (
                     <video
-                      src={video.noWatermark}
+                      src={getProxyUrl(video.noWatermark, `douyin_preview_${id}.mp4`, 'video')}
                       controls
                       autoPlay
                       className="w-full h-full object-contain bg-black"
@@ -1239,40 +1254,50 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
             
             {/* Media Thumbnail & Player */}
             <div className="md:col-span-5 space-y-4">
-              <div className="relative aspect-[9/16] max-h-[390px] w-full mx-auto rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md group">
+              <div className="relative aspect-[9/16] max-h-[390px] w-full mx-auto rounded-2xl overflow-hidden bg-slate-950 border border-slate-200 shadow-md group">
                 {isPlaying && video?.noWatermark ? (
                   <video
-                    src={video.noWatermark}
+                    src={getProxyUrl(video.noWatermark, `preview_${id}.mp4`, 'video')}
                     controls
                     autoPlay
                     className="w-full h-full object-contain bg-black"
                   />
-                ) : cover ? (
-                  <>
-                    <img
-                      src={cover}
-                      alt={title || 'TikTok Preview'}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
-                    
+                ) : (
+                  <div className="relative w-full h-full">
+                    {cover ? (
+                      <img
+                        src={cover}
+                        alt={title || 'TikTok Preview'}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : video?.noWatermark ? (
+                      <video
+                        src={getProxyUrl(video.noWatermark, `preview_${id}.mp4`, 'video')}
+                        preload="metadata"
+                        playsInline
+                        className="w-full h-full object-contain bg-black"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-slate-400">
+                        <Video className="w-16 h-16" />
+                      </div>
+                    )}
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+
                     {video?.noWatermark && (
                       <button
                         onClick={() => setIsPlaying(true)}
-                        className="absolute inset-0 flex items-center justify-center m-auto w-14 h-14 rounded-full bg-white/90 text-rose-700 shadow-lg hover:scale-110 active:scale-95 transition-all group-hover:bg-white"
+                        className="absolute inset-0 flex items-center justify-center m-auto w-14 h-14 rounded-full bg-white/90 text-rose-700 shadow-lg hover:scale-110 active:scale-95 transition-all group-hover:bg-white cursor-pointer z-10"
                         title="Play preview video"
                       >
                         <Play className="w-6 h-6 fill-rose-600 ml-0.5" />
                       </button>
                     )}
-                  </>
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-slate-400">
-                    <Video className="w-16 h-16" />
                   </div>
                 )}
-                
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 border border-white/80 text-[11px] font-bold text-rose-700 shadow-sm flex items-center gap-1.5 pointer-events-none">
+
+                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 border border-white/80 text-[11px] font-bold text-rose-700 shadow-sm flex items-center gap-1.5 pointer-events-none z-20">
                   <Sparkles className="w-3 h-3 text-rose-500" />
                   <span>No Watermark</span>
                 </div>

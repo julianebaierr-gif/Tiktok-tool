@@ -307,32 +307,35 @@ export async function POST(request) {
     let downloadResult = null;
     let versionUsed = 'fast-race';
 
-    // 3. Tier 1: High-Speed Concurrent Race (v2 & v1 without proxy for sub-second ~600ms speed for international TikTok)
+    // 3. Tier 1: Prioritize v1 (Tikwm) for rich metadata & Full HD Cover; fallback to v2 (SSSTik)
     try {
-      const winner = await Promise.any([
-        fetchProviderWithTimeout('v2', cleanUrl, {}, 7000),
-        fetchProviderWithTimeout('v1', cleanUrl, {}, 7000)
-      ]);
-      downloadResult = winner.result;
-      versionUsed = winner.version;
+      const v1Res = await fetchProviderWithTimeout('v1', cleanUrl, {}, 5000);
+      downloadResult = v1Res.result;
+      versionUsed = 'v1';
     } catch {
-      // 4. Tier 2: Webshare Multi-Region Geo-Unlocker (US / UK / JP Proxy)
-      // Automatically triggered if Tier 1 encounters a geo-restriction or IP rate-limit!
       try {
-        const activeProxy = getNextWebshareProxy();
-        const proxyWinner = await fetchProviderWithTimeout('v1', cleanUrl, { proxy: activeProxy }, 8000);
-        downloadResult = proxyWinner.result;
-        versionUsed = 'webshare-proxy-v1';
-      } catch (errProxy) {
-        console.warn('Webshare Tier 2 attempt failed, attempting Tier 3 fallback...', errProxy.message);
-        
-        // 5. Tier 3: MusicalDown fallback
+        const v2Res = await fetchProviderWithTimeout('v2', cleanUrl, {}, 6000);
+        downloadResult = v2Res.result;
+        versionUsed = 'v2';
+      } catch {
+        // 4. Tier 2: Webshare Multi-Region Geo-Unlocker (US / UK / JP Proxy)
+        // Automatically triggered if Tier 1 encounters a geo-restriction or IP rate-limit!
         try {
-          const v3 = await fetchProviderWithTimeout('v3', cleanUrl, {}, 8000);
-          downloadResult = v3.result;
-          versionUsed = 'v3';
-        } catch (errV3) {
-          console.warn('All tiers failed for:', cleanUrl, errV3.message);
+          const activeProxy = getNextWebshareProxy();
+          const proxyWinner = await fetchProviderWithTimeout('v1', cleanUrl, { proxy: activeProxy }, 8000);
+          downloadResult = proxyWinner.result;
+          versionUsed = 'webshare-proxy-v1';
+        } catch (errProxy) {
+          console.warn('Webshare Tier 2 attempt failed, attempting Tier 3 fallback...', errProxy.message);
+          
+          // 5. Tier 3: MusicalDown fallback
+          try {
+            const v3 = await fetchProviderWithTimeout('v3', cleanUrl, {}, 8000);
+            downloadResult = v3.result;
+            versionUsed = 'v3';
+          } catch (errV3) {
+            console.warn('All tiers failed for:', cleanUrl, errV3.message);
+          }
         }
       }
     }
@@ -366,9 +369,10 @@ export async function POST(request) {
       ? downloadResult.author.avatarMedium[0] 
       : (downloadResult.author?.avatar || downloadResult.author?.avatarThumb?.[0] || '');
 
-    const coverImage = Array.isArray(downloadResult.video?.cover) 
-      ? downloadResult.video.cover[0] 
-      : (downloadResult.video?.dynamicCover?.[0] || downloadResult.images?.[0] || '');
+    const rawCover = downloadResult.video?.cover || downloadResult.video?.originCover || downloadResult.video?.dynamicCover;
+    const coverImage = Array.isArray(rawCover) 
+      ? rawCover[0] 
+      : (typeof rawCover === 'string' ? rawCover : (downloadResult.images?.[0] || ''));
 
     const responsePayload = {
       success: true,
