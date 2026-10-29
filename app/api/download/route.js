@@ -216,6 +216,69 @@ function cleanTikTokUrl(rawUrl) {
   return null;
 }
 
+
+// Direct Tikwm Cloud API (High-speed metadata, cover image, and video stream)
+async function fetchTikwmDirect(url) {
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5500);
+    const res = await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`, {
+      signal: controller.signal,
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Accept': 'application/json',
+      },
+    });
+    clearTimeout(timeout);
+    if (!res.ok) return null;
+    const json = await res.json();
+    if (json.code === 0 && json.data) {
+      const d = json.data;
+      const isImg = Array.isArray(d.images) && d.images.length > 0;
+      const durSec = d.duration || 0;
+      const mins = Math.floor(durSec / 60);
+      const secs = durSec % 60;
+      const durationFormatted = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      return {
+        success: true,
+        provider: 'tikwm-direct',
+        type: isImg ? 'image' : 'video',
+        id: d.id || d.video_id || Date.now().toString(),
+        title: d.title || 'TikTok Video (No Watermark)',
+        duration: durSec,
+        durationFormatted,
+        author: {
+          username: d.author?.unique_id || 'TikTok Creator',
+          nickname: d.author?.nickname || 'Creator',
+          avatar: d.author?.avatar || '',
+        },
+        stats: {
+          likes: d.digg_count || 0,
+          comments: d.comment_count || 0,
+          shares: d.share_count || 0,
+          views: d.play_count || 0,
+        },
+        cover: d.cover || d.origin_cover || (isImg ? d.images[0] : ''),
+        dynamicCover: d.ai_dynamic_cover || '',
+        video: {
+          noWatermark: d.play || null,
+          noWatermarkHd: d.hdplay || d.play || null,
+          watermark: d.wmplay || null,
+        },
+        music: {
+          title: d.music_info?.title || 'Original Sound',
+          author: d.music_info?.author || d.author?.nickname || 'Audio',
+          url: d.music || d.music_info?.play || null,
+        },
+        images: d.images || [],
+      };
+    }
+  } catch (err) {
+    console.warn('Tikwm direct error:', err.message);
+  }
+  return null;
+}
+
 // Fast timeout wrapper
 function fetchProviderWithTimeout(version, url, options = {}, timeoutMs = 7000) {
   return new Promise((resolve, reject) => {
@@ -307,7 +370,14 @@ export async function POST(request) {
     let downloadResult = null;
     let versionUsed = 'fast-race';
 
-    // 3. Tier 1: Prioritize v1 (Tikwm) for rich metadata & Full HD Cover; fallback to v2 (SSSTik)
+    // 3. Tier 0: Direct Tikwm API for rich Full HD Cover, duration & metadata
+    const directTikwmResult = await fetchTikwmDirect(cleanUrl);
+    if (directTikwmResult && directTikwmResult.success) {
+      setCachedResult(cleanUrl, directTikwmResult);
+      return NextResponse.json(directTikwmResult);
+    }
+
+    // Tier 1: Fallback to v1 (Tikwm) or v2 (SSSTik)
     try {
       const v1Res = await fetchProviderWithTimeout('v1', cleanUrl, {}, 5000);
       downloadResult = v1Res.result;
@@ -391,7 +461,7 @@ export async function POST(request) {
         shares: downloadResult.statistics?.shareCount || 0,
         views: downloadResult.statistics?.playCount || 0,
       },
-      cover: coverImage,
+      cover: coverImage || authorAvatar || '',
       video: {
         noWatermark: directVideoUrl,
         noWatermarkHd: hdVideoUrl || directVideoUrl,
