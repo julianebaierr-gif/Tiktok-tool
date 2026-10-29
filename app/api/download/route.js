@@ -64,65 +64,75 @@ async function extractDouyinId(input) {
 
 async function fetchDouyinDetail(inputUrl) {
   const douyinId = await extractDouyinId(inputUrl);
-  if (!douyinId) return null;
+  if (!douyinId) return { success: false, error: 'Could not extract valid Douyin Video ID from link.' };
 
-  const res = await fetch('https://douyin-media-no-watermark1.p.rapidapi.com/v1/social/douyin/web/aweme/detail', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-rapidapi-host': RAPIDAPI_DOUYIN_HOST,
-      'x-rapidapi-key': RAPIDAPI_DOUYIN_KEY
-    },
-    body: JSON.stringify({ id: douyinId })
-  });
+  try {
+    const res = await fetch('https://douyin-media-no-watermark1.p.rapidapi.com/v1/social/douyin/web/aweme/detail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-rapidapi-host': RAPIDAPI_DOUYIN_HOST,
+        'x-rapidapi-key': RAPIDAPI_DOUYIN_KEY,
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+      },
+      body: JSON.stringify({ id: douyinId })
+    });
 
-  if (!res.ok) return null;
-  const data = await res.json();
-  const aweme = data?.aweme_detail;
-  if (!aweme) return null;
+    if (!res.ok) {
+      const errText = await res.text();
+      return { success: false, error: `RapidAPI error (${res.status}): ${errText.slice(0, 120)}` };
+    }
+    const data = await res.json();
+    const aweme = data?.aweme_detail;
+    if (!aweme) {
+      return { success: false, error: `Douyin video details unavailable (status: ${data?.status_code || 'empty'})` };
+    }
 
-  const playList = aweme.video?.play_addr?.url_list || [];
-  const h264List = aweme.video?.play_addr_h264?.url_list || [];
-  const downloadList = aweme.video?.download_addr?.url_list || [];
-  const bitRateList = (aweme.video?.bit_rate || []).flatMap(b => b.play_addr?.url_list || []);
+    const playList = aweme.video?.play_addr?.url_list || [];
+    const h264List = aweme.video?.play_addr_h264?.url_list || [];
+    const downloadList = aweme.video?.download_addr?.url_list || [];
+    const bitRateList = (aweme.video?.bit_rate || []).flatMap(b => b.play_addr?.url_list || []);
 
-  const cleanVideoUrl = playList[0] || h264List[0] || bitRateList[0] || null;
-  const hdVideoUrl = h264List[0] || playList[0] || cleanVideoUrl;
-  const watermarkUrl = downloadList[0] || null;
+    const cleanVideoUrl = playList[0] || h264List[0] || bitRateList[0] || null;
+    const hdVideoUrl = h264List[0] || playList[0] || cleanVideoUrl;
+    const watermarkUrl = downloadList[0] || null;
 
-  const isImage = aweme.images && aweme.images.length > 0;
-  const images = isImage ? aweme.images.map(img => img.url_list?.[0]).filter(Boolean) : [];
+    const isImage = aweme.images && aweme.images.length > 0;
+    const images = isImage ? aweme.images.map(img => img.url_list?.[0]).filter(Boolean) : [];
 
-  return {
-    success: true,
-    provider: 'douyin-rapidapi',
-    type: isImage ? 'image' : 'video',
-    id: aweme.aweme_id || douyinId,
-    title: aweme.desc || aweme.item_title || 'Douyin Video (No Watermark)',
-    author: {
-      username: aweme.author?.unique_id || aweme.author?.short_id || 'douyin_creator',
-      nickname: aweme.author?.nickname || 'Douyin Creator',
-      avatar: aweme.author?.avatar_thumb?.url_list?.[0] || '',
-    },
-    stats: {
-      likes: aweme.statistics?.digg_count || 0,
-      comments: aweme.statistics?.comment_count || 0,
-      shares: aweme.statistics?.share_count || 0,
-      views: aweme.statistics?.play_count || 0,
-    },
-    cover: aweme.video?.cover?.url_list?.[0] || aweme.video?.origin_cover?.url_list?.[0] || '',
-    video: {
-      noWatermark: cleanVideoUrl,
-      noWatermarkHd: hdVideoUrl,
-      watermark: watermarkUrl,
-    },
-    music: {
-      title: aweme.music?.title || 'Original Sound',
-      author: aweme.music?.author || aweme.author?.nickname || 'Douyin Audio',
-      url: aweme.music?.play_url?.url_list?.[0] || null,
-    },
-    images,
-  };
+    return {
+      success: true,
+      provider: 'douyin-rapidapi',
+      type: isImage ? 'image' : 'video',
+      id: aweme.aweme_id || douyinId,
+      title: aweme.desc || aweme.item_title || 'Douyin Video (No Watermark)',
+      author: {
+        username: aweme.author?.unique_id || aweme.author?.short_id || 'douyin_creator',
+        nickname: aweme.author?.nickname || 'Douyin Creator',
+        avatar: aweme.author?.avatar_thumb?.url_list?.[0] || '',
+      },
+      stats: {
+        likes: aweme.statistics?.digg_count || 0,
+        comments: aweme.statistics?.comment_count || 0,
+        shares: aweme.statistics?.share_count || 0,
+        views: aweme.statistics?.play_count || 0,
+      },
+      cover: aweme.video?.cover?.url_list?.[0] || aweme.video?.origin_cover?.url_list?.[0] || '',
+      video: {
+        noWatermark: cleanVideoUrl,
+        noWatermarkHd: hdVideoUrl,
+        watermark: watermarkUrl,
+      },
+      music: {
+        title: aweme.music?.title || 'Original Sound',
+        author: aweme.music?.author || aweme.author?.nickname || 'Douyin Audio',
+        url: aweme.music?.play_url?.url_list?.[0] || null,
+      },
+      images,
+    };
+  } catch (err) {
+    return { success: false, error: `RapidAPI connection failed: ${err.message}` };
+  }
 }
 
 // In-Memory Fast Cache (TTL: 15 minutes)
@@ -233,14 +243,18 @@ export async function POST(request) {
     // 2. Dedicated Douyin Handler (RapidAPI Gateway - ONLY triggered for Douyin links to protect free quota!)
     const isDouyin = cleanUrl.includes('douyin.com') || (typeof url === 'string' && (url.includes('douyin.com') || /[\u4e00-\u9fa5]/.test(url)));
     if (isDouyin) {
-      try {
-        const douyinResult = await fetchDouyinDetail(url || cleanUrl);
-        if (douyinResult && douyinResult.success) {
-          setCachedResult(cleanUrl, douyinResult);
-          return NextResponse.json(douyinResult);
-        }
-      } catch (errDouyin) {
-        console.warn('Douyin RapidAPI resolution failed:', errDouyin.message);
+      const douyinResult = await fetchDouyinDetail(url || cleanUrl);
+      if (douyinResult && douyinResult.success) {
+        setCachedResult(cleanUrl, douyinResult);
+        return NextResponse.json(douyinResult);
+      } else {
+        return NextResponse.json(
+          {
+            success: false,
+            error: douyinResult?.error || 'Unable to retrieve media from this Douyin link. The video may be private, deleted, or restricted.',
+          },
+          { status: 404 }
+        );
       }
     }
 
