@@ -3,6 +3,30 @@ import Tiktok from '@tobyg74/tiktok-api-dl';
 
 export const dynamic = 'force-dynamic';
 
+// In-Memory Fast Cache (TTL: 15 minutes)
+const mediaCache = new Map();
+const CACHE_TTL_MS = 15 * 60 * 1000;
+const MAX_CACHE_ENTRIES = 300;
+
+function getCachedResult(url) {
+  const entry = mediaCache.get(url);
+  if (!entry) return null;
+  if (Date.now() - entry.timestamp > CACHE_TTL_MS) {
+    mediaCache.delete(url);
+    return null;
+  }
+  return entry.data;
+}
+
+function setCachedResult(url, data) {
+  if (mediaCache.size >= MAX_CACHE_ENTRIES) {
+    // Evict oldest entry
+    const oldestKey = mediaCache.keys().next().value;
+    if (oldestKey) mediaCache.delete(oldestKey);
+  }
+  mediaCache.set(url, { timestamp: Date.now(), data });
+}
+
 // Clean and extract valid TikTok or Douyin URL from user input, shortened links, or mobile share text
 function cleanTikTokUrl(rawUrl) {
   if (!rawUrl || typeof rawUrl !== 'string') return null;
@@ -17,7 +41,6 @@ function cleanTikTokUrl(rawUrl) {
   }
 
   // Regex that captures any URL containing tiktok.com or douyin.com
-  // Crucial: Must include @, ?, &, =, #, %, _, -, ~, :, ;, +, etc.
   const match = str.match(/https?:\/\/(?:[a-zA-Z0-9_-]+\.)?(?:tiktok\.com|douyin\.com)\/[a-zA-Z0-9@_\-\/?&=#%._~:;+]+/i);
   if (match) {
     return match[0].replace(/[.,;:!?)\\]+$/, '');
@@ -33,6 +56,26 @@ function cleanTikTokUrl(rawUrl) {
   }
 
   return null;
+}
+
+// Fast timeout wrapper
+function fetchProviderWithTimeout(version, url, timeoutMs = 7000) {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error(`Timeout on ${version}`)), timeoutMs);
+    Tiktok.Downloader(url, { version })
+      .then((res) => {
+        clearTimeout(timer);
+        if (res && res.status === 'success' && res.result) {
+          resolve({ version, result: res.result });
+        } else {
+          reject(new Error(`Failed on ${version}: ${res?.message || 'no result'}`));
+        }
+      })
+      .catch((err) => {
+        clearTimeout(timer);
+        reject(err);
+      });
+  });
 }
 
 export async function POST(request) {
@@ -55,43 +98,31 @@ export async function POST(request) {
       );
     }
 
+    // 1. Check In-Memory Cache first (< 5ms response time)
+    const cached = getCachedResult(cleanUrl);
+    if (cached) {
+      return NextResponse.json({ ...cached, cached: true });
+    }
+
     let downloadResult = null;
-    let versionUsed = 'v1';
+    let versionUsed = 'fast-race';
 
-    // Step 1: Try Primary Native API Provider (V1)
+    // 2. High-Speed Concurrent Race: Run v2 (fastest ~600ms) and v1 concurrently!
     try {
-      const resV1 = await Tiktok.Downloader(cleanUrl, { version: 'v1' });
-      if (resV1 && resV1.status === 'success' && resV1.result) {
-        downloadResult = resV1.result;
-        versionUsed = 'v1';
-      }
-    } catch (errV1) {
-      console.warn('V1 attempt failed, falling back to V2...', errV1.message);
-    }
-
-    // Step 2: Fallback to SSSTik scraper provider (V2) if V1 failed
-    if (!downloadResult) {
+      const winner = await Promise.any([
+        fetchProviderWithTimeout('v2', cleanUrl, 7000),
+        fetchProviderWithTimeout('v1', cleanUrl, 7000)
+      ]);
+      downloadResult = winner.result;
+      versionUsed = winner.version;
+    } catch {
+      // 3. If both v2 and v1 fail, fallback to v3
       try {
-        const resV2 = await Tiktok.Downloader(cleanUrl, { version: 'v2' });
-        if (resV2 && resV2.status === 'success' && resV2.result) {
-          downloadResult = resV2.result;
-          versionUsed = 'v2';
-        }
-      } catch (errV2) {
-        console.warn('V2 attempt failed, falling back to V3...', errV2.message);
-      }
-    }
-
-    // Step 3: Fallback to MusicalDown scraper provider (V3)
-    if (!downloadResult) {
-      try {
-        const resV3 = await Tiktok.Downloader(cleanUrl, { version: 'v3' });
-        if (resV3 && resV3.status === 'success' && resV3.result) {
-          downloadResult = resV3.result;
-          versionUsed = 'v3';
-        }
+        const v3 = await fetchProviderWithTimeout('v3', cleanUrl, 8000);
+        downloadResult = v3.result;
+        versionUsed = 'v3';
       } catch (errV3) {
-        console.warn('V3 attempt failed', errV3.message);
+        console.warn('All providers failed for:', cleanUrl, errV3.message);
       }
     }
 
@@ -158,6 +189,9 @@ export async function POST(request) {
       },
       images: downloadResult.images || [],
     };
+
+    // Store in cache for ultra-fast instant future requests
+    setCachedResult(cleanUrl, responsePayload);
 
     return NextResponse.json(responsePayload);
   } catch (error) {
