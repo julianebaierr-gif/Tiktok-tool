@@ -114,7 +114,7 @@ export default function TikTokAvatarPage() {
       <ToolHero 
         title="TikTok Avatar HD Downloader (Full Size PFP Viewer)"
         subtitle="View, zoom, and download uncropped high-resolution profile pictures from any TikTok user in 1080p Full HD for free."
-        placeholder="Paste TikTok profile link or @username (e.g., https://www.tiktok.com/@creator or @username)..."
+        placeholder="Paste any TikTok video link to extract the creator's Full HD Avatar (e.g., https://vt.tiktok.com/...)"
         buttonText="View Full HD Avatar"
         badge="1080p Profile Photo Extractor"
         mode="avatar"

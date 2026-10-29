@@ -29,6 +29,7 @@ export default function HomePage() {
       <ToolHero 
         title="Download TikTok Videos Without Watermark in HD"
         subtitle="Save clean MP4 videos with no logo, extract crystal-clear MP3 music, and download full photo slideshows online for free."
+        mode="all"
       />
 
       {/* Clean Trust Highlights Banner */}

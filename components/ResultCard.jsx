@@ -32,7 +32,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-export default function ResultCard({ result, onReset, mode = "video" }) {
+export default function ResultCard({ result, onReset, mode = "all" }) {
   const [copied, setCopied] = useState(false);
   const [shareUrlCopied, setShareUrlCopied] = useState(false);
   const [showQr, setShowQr] = useState(false);
@@ -99,18 +99,18 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
       return { text: 'Douyin (抖音) All-in-One Suite Ready', icon: Globe2, color: 'text-rose-700 bg-rose-50 border-rose-200' };
     }
     switch (mode) {
+      case 'video':
+        return { text: 'Watermark-Free 1080p Video Ready', icon: Video, color: 'text-emerald-700 bg-emerald-50 border-emerald-200' };
       case 'mp3':
         return { text: 'MP3 Audio Extracted (320kbps Studio)', icon: Disc, color: 'text-rose-700 bg-rose-50 border-rose-200' };
       case 'ringtone':
         return { text: 'Custom Ringtone Ready (.M4A Universal)', icon: Bell, color: 'text-amber-700 bg-amber-50 border-amber-200' };
       case 'avatar':
-        return { text: 'Profile Avatar HD Extracted', icon: UserCheck, color: 'text-teal-700 bg-teal-50 border-teal-200' };
-      case 'douyin':
-        return { text: 'Douyin (抖音) Watermark Removed', icon: Globe2, color: 'text-rose-700 bg-rose-50 border-rose-200' };
+        return { text: 'Profile Avatar Full HD Extracted', icon: UserCheck, color: 'text-teal-700 bg-teal-50 border-teal-200' };
       case 'story':
         return { text: 'Story Video (Saved Before 24h Expiry)', icon: Clock, color: 'text-purple-700 bg-purple-50 border-purple-200' };
       case 'photo':
-        return { text: 'Photo Slideshow Gallery Extracted', icon: ImageIcon, color: 'text-indigo-700 bg-indigo-50 border-indigo-200' };
+        return { text: 'High-Resolution Photo Extractor Ready', icon: ImageIcon, color: 'text-indigo-700 bg-indigo-50 border-indigo-200' };
       default:
         return { text: 'All-in-One Master Suite • 1080p Ready', icon: CheckCircle2, color: 'text-emerald-700 bg-emerald-50 border-emerald-200' };
     }
@@ -154,7 +154,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
               className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold border border-rose-200 transition-all active:scale-95 shadow-xs cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5 text-rose-500" />
-              <span>Download Another Video</span>
+              <span>Download Another</span>
             </button>
           </div>
         </div>
@@ -608,92 +608,124 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
           </div>
         ) : (
           /* ============================================================= */
-          /* BRANCH 2: UNIFIED ALL-IN-ONE MASTER CARD FOR ALL TIKTOK PAGES */
-          /* (Home, /tiktok-video-downloader, /tiktok-mp3, /tiktok-ringtone,*/
-          /*  /tiktok-photo, /tiktok-story, /tiktok-avatar)                 */
+          /* BRANCH 2: UNIFIED 2-COLUMN CARD LAYOUT FOR ALL TIKTOK PAGES   */
+          /* - Homepage (mode === 'all'): Shows ALL-IN-ONE Suite           */
+          /* - Dedicated Pages (video, mp3, ringtone, photo, story, avatar)*/
+          /*   Show ONLY their specific job #1 FIRST + MP4 & MP3!          */
           /* ============================================================= */
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             
             {/* ----------------------------------------------------------- */}
-            {/* LEFT COLUMN: Media Preview, Cover & Avatar Download, Music */}
+            {/* LEFT COLUMN: Media Preview & Creator Profile                */}
             {/* ----------------------------------------------------------- */}
             <div className="md:col-span-5 space-y-4">
               
-              {/* Media Preview Box (FAIL-PROOF: Cover -> Proxied Video Frame -> Avatar) */}
-              <div className="relative aspect-[9/16] max-h-[420px] w-full mx-auto rounded-2xl overflow-hidden bg-slate-950 border border-slate-200 shadow-md group">
-                {isPlaying && video?.noWatermark ? (
-                  <video
-                    src={getProxyUrl(video.noWatermark, `preview_${id}.mp4`, 'video')}
-                    controls
-                    autoPlay
-                    className="w-full h-full object-contain bg-black"
-                  />
-                ) : (
-                  <div className="relative w-full h-full">
-                    {cover ? (
-                      <img
-                        src={cover}
-                        alt={title || 'TikTok Preview'}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        onError={(e) => {
-                          // If browser blocks direct image hotlinking, route through server proxy
-                          e.currentTarget.src = getProxyUrl(cover, `cover_${id}.jpg`, 'image');
-                        }}
-                      />
-                    ) : video?.noWatermark ? (
-                      <video
-                        src={`${getProxyUrl(video.noWatermark, `preview_${id}.mp4`, 'video')}#t=0.001`}
-                        preload="metadata"
-                        playsInline
-                        muted
-                        className="w-full h-full object-contain bg-black"
-                      />
-                    ) : author?.avatar ? (
-                      <img
-                        src={author.avatar}
-                        alt="Author Avatar"
-                        className="w-full h-full object-cover blur-xs opacity-75"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex flex-col items-center justify-center text-slate-400 gap-2">
-                        <Video className="w-16 h-16 text-slate-600" />
-                        <span className="text-xs text-slate-500 font-medium">TikTok Media Stream</span>
-                      </div>
-                    )}
-
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent pointer-events-none" />
-
-                    {/* Floating Center Play Button */}
-                    {video?.noWatermark && (
-                      <button
-                        onClick={() => setIsPlaying(true)}
-                        className="absolute inset-0 flex items-center justify-center m-auto w-14 h-14 rounded-full bg-white/95 text-rose-600 shadow-xl hover:scale-110 active:scale-95 transition-all group-hover:bg-white cursor-pointer z-10"
-                        title="Play preview video"
-                      >
-                        <Play className="w-6 h-6 fill-rose-600 ml-0.5" />
-                      </button>
-                    )}
-
-                    {/* Top-Left Badge */}
-                    <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 border border-white/80 text-[11px] font-bold text-rose-700 shadow-sm flex items-center gap-1.5 pointer-events-none z-20">
-                      <Sparkles className="w-3 h-3 text-rose-500" />
-                      <span>{isImagePost ? 'Photo Mode' : 'Clean 1080p'}</span>
+              {/* If mode === 'avatar', highlight the Full HD Uncropped Avatar in the Preview Box */}
+              {mode === 'avatar' ? (
+                <div className="relative aspect-square max-h-[380px] w-full mx-auto rounded-2xl overflow-hidden bg-slate-950 border-2 border-teal-200 shadow-md group">
+                  {author?.avatar ? (
+                    <img
+                      src={author.avatar}
+                      alt={author.nickname || 'TikTok Avatar HD'}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      onError={(e) => {
+                        e.currentTarget.src = getProxyUrl(author.avatar, `avatar_${id}.jpg`, 'image');
+                      }}
+                    />
+                  ) : cover ? (
+                    <img
+                      src={cover}
+                      alt="Profile preview"
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-white text-5xl font-black bg-teal-700">
+                      {author?.username?.charAt(0)?.toUpperCase() || 'U'}
                     </div>
-
-                    {/* Duration Badge */}
-                    {durationFormatted && (
-                      <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-white text-[11px] font-bold flex items-center gap-1.5 pointer-events-none z-20">
-                        <Clock className="w-3 h-3 text-rose-400" />
-                        <span>{durationFormatted}</span>
-                      </div>
-                    )}
+                  )}
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-teal-600 text-white text-[11px] font-bold shadow-sm flex items-center gap-1.5 pointer-events-none z-20">
+                    <UserCheck className="w-3.5 h-3.5" />
+                    <span>Uncropped Full HD Avatar</span>
                   </div>
-                )}
-              </div>
+                </div>
+              ) : (
+                /* Standard Video / Cover Preview Box (FAIL-PROOF: Cover -> Proxied Video Frame -> Avatar) */
+                <div className="relative aspect-[9/16] max-h-[420px] w-full mx-auto rounded-2xl overflow-hidden bg-slate-950 border border-slate-200 shadow-md group">
+                  {isPlaying && video?.noWatermark ? (
+                    <video
+                      src={getProxyUrl(video.noWatermark, `preview_${id}.mp4`, 'video')}
+                      controls
+                      autoPlay
+                      className="w-full h-full object-contain bg-black"
+                    />
+                  ) : (
+                    <div className="relative w-full h-full">
+                      {cover ? (
+                        <img
+                          src={cover}
+                          alt={title || 'TikTok Preview'}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          onError={(e) => {
+                            e.currentTarget.src = getProxyUrl(cover, `cover_${id}.jpg`, 'image');
+                          }}
+                        />
+                      ) : video?.noWatermark ? (
+                        <video
+                          src={`${getProxyUrl(video.noWatermark, `preview_${id}.mp4`, 'video')}#t=0.001`}
+                          preload="metadata"
+                          playsInline
+                          muted
+                          className="w-full h-full object-contain bg-black"
+                        />
+                      ) : author?.avatar ? (
+                        <img
+                          src={author.avatar}
+                          alt="Author Avatar"
+                          className="w-full h-full object-cover blur-xs opacity-75"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex flex-col items-center justify-center text-slate-400 gap-2">
+                          <Video className="w-16 h-16 text-slate-600" />
+                          <span className="text-xs text-slate-500 font-medium">TikTok Media Stream</span>
+                        </div>
+                      )}
 
-              {/* Download Full HD Video Cover (.jpg) Button */}
-              {(cover || (images && images.length > 0)) && (
+                      {/* Gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent pointer-events-none" />
+
+                      {/* Floating Center Play Button */}
+                      {video?.noWatermark && (
+                        <button
+                          onClick={() => setIsPlaying(true)}
+                          className="absolute inset-0 flex items-center justify-center m-auto w-14 h-14 rounded-full bg-white/95 text-rose-600 shadow-xl hover:scale-110 active:scale-95 transition-all group-hover:bg-white cursor-pointer z-10"
+                          title="Play preview video"
+                        >
+                          <Play className="w-6 h-6 fill-rose-600 ml-0.5" />
+                        </button>
+                      )}
+
+                      {/* Top-Left Badge */}
+                      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 border border-white/80 text-[11px] font-bold text-rose-700 shadow-sm flex items-center gap-1.5 pointer-events-none z-20">
+                        <Sparkles className="w-3 h-3 text-rose-500" />
+                        <span>
+                          {mode === 'story' ? '24h Story' : (isImagePost ? 'Photo Mode' : 'Clean 1080p')}
+                        </span>
+                      </div>
+
+                      {/* Duration Badge */}
+                      {durationFormatted && (
+                        <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-white text-[11px] font-bold flex items-center gap-1.5 pointer-events-none z-20">
+                          <Clock className="w-3 h-3 text-rose-400" />
+                          <span>{durationFormatted}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* ONLY ON HOMEPAGE ('all'): Extra Cover Download Button under preview */}
+              {mode === 'all' && (cover || (images && images.length > 0)) && (
                 <a
                   href={getProxyUrl(cover || images[0], `quktik_cover_${id}.jpg`, 'image')}
                   download={`quktik_cover_${id}.jpg`}
@@ -704,7 +736,7 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                 </a>
               )}
 
-              {/* Creator Profile Box with HD Avatar Download Option */}
+              {/* Creator Profile Box */}
               <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 space-y-2.5">
                 <div className="flex items-center space-x-3">
                   {author?.avatar ? (
@@ -724,8 +756,8 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                   </div>
                 </div>
 
-                {/* Instant Profile Avatar HD Download */}
-                {author?.avatar && (
+                {/* ONLY ON HOMEPAGE ('all'): Instant Profile Avatar HD Download inside Author Card */}
+                {mode === 'all' && author?.avatar && (
                   <a
                     href={getProxyUrl(author.avatar, `quktik_avatar_${author.username || id}.jpg`, 'image')}
                     download={`quktik_avatar_${author.username || id}.jpg`}
@@ -737,31 +769,10 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                 )}
               </div>
 
-              {/* Built-in Soundtrack / Audio Player Box */}
-              {music?.url && (
-                <div className="p-3.5 rounded-2xl bg-gradient-to-br from-rose-50/60 via-slate-50 to-indigo-50/60 border border-rose-100 space-y-2.5">
-                  <div className="flex items-center space-x-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-rose-500 text-white flex items-center justify-center shrink-0">
-                      <Disc className="w-4 h-4 animate-spin-slow" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <span className="text-[10px] font-bold text-rose-600 uppercase tracking-wider block">Soundtrack / Sound Hook</span>
-                      <h5 className="text-xs font-bold text-slate-900 truncate">{music.title || 'Original Sound'}</h5>
-                      <p className="text-[11px] text-slate-500 truncate">{music.author || author?.nickname || 'Audio'}</p>
-                    </div>
-                  </div>
-
-                  {/* HTML5 Audio Player for Instant Preview */}
-                  <audio controls className="w-full h-8 rounded-lg" src={music.url}>
-                    Your browser does not support audio playback.
-                  </audio>
-                </div>
-              )}
-
             </div>
 
             {/* ----------------------------------------------------------- */}
-            {/* RIGHT COLUMN: Title, Stats & ALL-IN-ONE Download Suite      */}
+            {/* RIGHT COLUMN: Title, Stats & Mode-Specific Download Actions */}
             {/* ----------------------------------------------------------- */}
             <div className="md:col-span-7 space-y-5">
               
@@ -771,18 +782,6 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                   {title || 'TikTok video description'}
                 </h3>
               </div>
-
-              {/* Hashtags Chips */}
-              {hashtags && hashtags.length > 0 && (
-                <div className="flex flex-wrap gap-1.5">
-                  {hashtags.slice(0, 8).map((tag, idx) => (
-                    <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-semibold">
-                      <Hash className="w-3 h-3 text-rose-500" />
-                      <span>{tag.replace(/^#/, '')}</span>
-                    </span>
-                  ))}
-                </div>
-              )}
 
               {/* Engagement Statistics */}
               <div className="grid grid-cols-4 gap-2 py-3 px-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-center">
@@ -813,216 +812,772 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
               </div>
 
               {/* ========================================================= */}
-              {/* ALL-IN-ONE DOWNLOAD ACTION BUTTONS (Clean, Bold & Clear)  */}
+              {/* MODE 1: VIDEO DOWNLOADER (/tiktok-video-downloader)       */}
+              {/* #1 Primary: Video (No Watermark) + HD Mirror              */}
+              {/* #2 Secondary: MP3 Audio                                   */}
               {/* ========================================================= */}
-              <div className="space-y-3 pt-1">
-                <div className="flex items-center justify-between">
-                  <h4 className="text-xs font-black text-slate-500 uppercase tracking-wider">Choose Download Option:</h4>
-                  <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                    Ready in 1080p Ultra HD
-                  </span>
+              {mode === 'video' && (
+                <div className="space-y-3 pt-1">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-xs font-black text-slate-500 uppercase tracking-wider">1. Primary Video Download (MP4):</h4>
+                    <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                      1080p Full HD
+                    </span>
+                  </div>
+
+                  {/* #1: Video Without Watermark */}
+                  {video?.noWatermark && (
+                    <a
+                      href={getProxyUrl(video.noWatermark, `quktik_video_nowm_${id}.mp4`, 'video')}
+                      download={`quktik_video_nowm_${id}.mp4`}
+                      className="w-full flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold transition-all shadow-md shadow-emerald-600/20 active:scale-[0.99] group cursor-pointer"
+                    >
+                      <div className="flex items-center gap-3.5 min-w-0">
+                        <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <Download className="w-5 h-5 text-white" />
+                        </div>
+                        <div className="text-left min-w-0">
+                          <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
+                            Download Video (Without Watermark)
+                          </span>
+                          <span className="text-xs text-emerald-100 font-medium block mt-0.5">
+                            Clean 1080p Ultra HD MP4 • Server 1
+                          </span>
+                        </div>
+                      </div>
+                      <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-white/20 text-white shrink-0 ml-2 uppercase">
+                        MP4 HD
+                      </span>
+                    </a>
+                  )}
+
+                  {/* Video HD Mirror (Server 2) */}
+                  {video?.noWatermarkHd && (
+                    <a
+                      href={getProxyUrl(video.noWatermarkHd, `quktik_video_hd_${id}.mp4`, 'video')}
+                      download={`quktik_video_hd_${id}.mp4`}
+                      className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200/90 transition-all shadow-xs hover:shadow active:scale-[0.99] group cursor-pointer"
+                    >
+                      <div className="flex items-center gap-3.5 min-w-0">
+                        <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center shrink-0">
+                          <Video className="w-5 h-5 text-indigo-600" />
+                        </div>
+                        <div className="text-left min-w-0">
+                          <span className="block font-bold text-slate-900 text-sm sm:text-base leading-tight">
+                            Download Video (HD Server 2 Mirror)
+                          </span>
+                          <span className="text-xs text-slate-500 font-normal block mt-0.5">
+                            Alternative High-Speed Mirror • 1080p MP4
+                          </span>
+                        </div>
+                      </div>
+                      <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-slate-200/80 text-slate-700 shrink-0 ml-2">
+                        Server 2
+                      </span>
+                    </a>
+                  )}
+
+                  {/* Also Include MP3 Audio */}
+                  {music?.url && (
+                    <div className="pt-2 space-y-2">
+                      <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider block">Also Available (MP3 Audio):</span>
+                      <a
+                        href={getProxyUrl(music.url, `quktik_audio_${id}.mp3`, 'audio')}
+                        download={`quktik_audio_${id}.mp3`}
+                        className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white shadow-sm hover:shadow transition-all active:scale-[0.99] group cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                            <Music className="w-4.5 h-4.5 text-white" />
+                          </div>
+                          <div className="text-left min-w-0">
+                            <div className="text-sm sm:text-base font-bold leading-tight">Download MP3 Audio</div>
+                            <div className="text-xs text-rose-100 font-medium mt-0.5">320kbps Studio Master Soundtrack</div>
+                          </div>
+                        </div>
+                        <span className="text-xs font-bold px-3 py-1 rounded-xl bg-white/20 text-white shrink-0 ml-2">
+                          MP3
+                        </span>
+                      </a>
+                    </div>
+                  )}
                 </div>
+              )}
 
-                {/* 1. PRIMARY: Download Video Without Watermark (Server 1) */}
-                {video?.noWatermark && (
-                  <a
-                    href={getProxyUrl(video.noWatermark, `quktik_video_nowm_${id}.mp4`, 'video')}
-                    download={`quktik_video_nowm_${id}.mp4`}
-                    className="w-full flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold transition-all shadow-md shadow-emerald-600/20 active:scale-[0.99] group border border-emerald-500/30 cursor-pointer"
-                  >
-                    <div className="flex items-center gap-3.5 min-w-0">
-                      <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                        <Download className="w-5 h-5 text-white" />
-                      </div>
-                      <div className="text-left min-w-0">
-                        <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
-                          Download Video (Without Watermark)
-                        </span>
-                        <span className="text-xs text-emerald-100 font-medium block mt-0.5">
-                          Clean 1080p Ultra HD MP4 • High-Speed Server 1
-                        </span>
-                      </div>
-                    </div>
-                    <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-white/20 text-white tracking-wide shrink-0 ml-2 uppercase">
-                      Server 1
+              {/* ========================================================= */}
+              {/* MODE 2: MP3 DOWNLOADER (/tiktok-mp3)                      */}
+              {/* #1 Primary: Audio Player + Download MP3 Audio (320kbps)   */}
+              {/* #2 Secondary: Download MP4 Video                          */}
+              {/* ========================================================= */}
+              {mode === 'mp3' && (
+                <div className="space-y-3.5 pt-1">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-xs font-black text-rose-600 uppercase tracking-wider">1. Primary MP3 Audio Download:</h4>
+                    <span className="text-[11px] font-bold text-rose-700 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200">
+                      320kbps Studio Master
                     </span>
-                  </a>
-                )}
+                  </div>
 
-                {/* 2. SECONDARY: Download Video HD Mirror (Server 2) */}
-                {video?.noWatermarkHd && (
-                  <a
-                    href={getProxyUrl(video.noWatermarkHd, `quktik_video_hd_${id}.mp4`, 'video')}
-                    download={`quktik_video_hd_${id}.mp4`}
-                    className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200/90 transition-all shadow-xs hover:shadow active:scale-[0.99] group cursor-pointer"
-                  >
-                    <div className="flex items-center gap-3.5 min-w-0">
-                      <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                        <Video className="w-5 h-5 text-indigo-600" />
+                  {/* Built-in Audio Preview Player */}
+                  {music?.url && (
+                    <div className="p-3.5 rounded-2xl bg-rose-50/70 border border-rose-200/80 space-y-2.5">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-lg bg-rose-600 text-white flex items-center justify-center shrink-0">
+                          <Music className="w-4 h-4" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-xs font-bold text-slate-900 truncate">{music.title || title || 'Original TikTok Sound'}</div>
+                          <div className="text-[11px] text-slate-500 truncate">Artist: {music.author || author?.nickname || 'Creator'}</div>
+                        </div>
                       </div>
-                      <div className="text-left min-w-0">
-                        <span className="block font-bold text-slate-900 text-sm sm:text-base leading-tight">
-                          Download Video (HD Mirror)
-                        </span>
-                        <span className="text-xs text-slate-500 font-normal block mt-0.5">
-                          Alternative High-Speed Mirror • 1080p MP4
-                        </span>
-                      </div>
+                      <audio controls className="w-full h-9 rounded-lg" src={music.url}>
+                        Your browser does not support audio playback.
+                      </audio>
                     </div>
-                    <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-slate-200/80 text-slate-700 shrink-0 ml-2">
-                      HD Mirror
-                    </span>
-                  </a>
-                )}
+                  )}
 
-                {/* 3 & 4. AUDIO & RINGTONE GRID (Both Available Side-by-Side) */}
-                {music?.url && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    
-                    {/* MP3 Audio Button */}
+                  {/* #1 PRIMARY BUTTON: Download MP3 Audio */}
+                  {music?.url && (
                     <a
                       href={getProxyUrl(music.url, `quktik_audio_${id}.mp3`, 'audio')}
                       download={`quktik_audio_${id}.mp3`}
-                      className="flex items-center justify-between p-3.5 rounded-2xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white shadow-sm hover:shadow transition-all active:scale-[0.98] group cursor-pointer"
+                      className="w-full flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white font-bold transition-all shadow-md shadow-rose-600/20 active:scale-[0.99] group cursor-pointer"
                     >
-                      <div className="flex items-center gap-3 min-w-0">
-                        <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                          <Music className="w-4.5 h-4.5 text-white" />
+                      <div className="flex items-center gap-3.5 min-w-0">
+                        <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <Music className="w-5 h-5 text-white" />
                         </div>
                         <div className="text-left min-w-0">
-                          <div className="text-sm font-bold leading-tight">Download MP3 Audio</div>
-                          <div className="text-[11px] text-rose-100 font-medium mt-0.5">320kbps Studio Master</div>
+                          <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
+                            Download MP3 Audio (320kbps)
+                          </span>
+                          <span className="text-xs text-rose-100 font-medium block mt-0.5">
+                            Isolated High-Bitrate Studio Master Track (.mp3)
+                          </span>
                         </div>
                       </div>
-                      <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center shrink-0 ml-2 group-hover:bg-white/30 transition-colors">
-                        <Download className="w-4 h-4 text-white" />
-                      </div>
+                      <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-white/20 text-white shrink-0 ml-2 uppercase">
+                        MP3 320k
+                      </span>
                     </a>
+                  )}
 
-                    {/* Phone Ringtone Button (.M4A format for iPhone & Android) */}
+                  {/* #2 SECONDARY: Also Include MP4 Video */}
+                  {video?.noWatermark && (
+                    <div className="pt-2 space-y-2">
+                      <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider block">Also Available (MP4 Video):</span>
+                      <a
+                        href={getProxyUrl(video.noWatermark, `quktik_video_nowm_${id}.mp4`, 'video')}
+                        download={`quktik_video_nowm_${id}.mp4`}
+                        className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm hover:shadow transition-all active:scale-[0.99] group cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                            <Video className="w-4.5 h-4.5 text-white" />
+                          </div>
+                          <div className="text-left min-w-0">
+                            <div className="text-sm sm:text-base font-bold leading-tight">Download Video (Without Watermark)</div>
+                            <div className="text-xs text-emerald-100 font-medium mt-0.5">Clean 1080p Full HD MP4</div>
+                          </div>
+                        </div>
+                        <span className="text-xs font-bold px-3 py-1 rounded-xl bg-white/20 text-white shrink-0 ml-2">
+                          MP4 HD
+                        </span>
+                      </a>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* ========================================================= */}
+              {/* MODE 3: RINGTONE DOWNLOADER (/tiktok-ringtone)            */}
+              {/* #1 Primary: Audio Player + Download Ringtone (.M4A)       */}
+              {/* #2 Secondary: MP4 Video & MP3 Audio                       */}
+              {/* ========================================================= */}
+              {mode === 'ringtone' && (
+                <div className="space-y-3.5 pt-1">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-xs font-black text-amber-700 uppercase tracking-wider">1. Primary Phone Ringtone Download:</h4>
+                    <span className="text-[11px] font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+                      iPhone &amp; Android Ready
+                    </span>
+                  </div>
+
+                  {/* Built-in Ringtone Sound Preview Player */}
+                  {music?.url && (
+                    <div className="p-3.5 rounded-2xl bg-amber-50/80 border border-amber-200/80 space-y-2.5">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-lg bg-amber-500 text-white flex items-center justify-center shrink-0">
+                          <Bell className="w-4 h-4" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-xs font-bold text-slate-900 truncate">Preview Ringtone: {music.title || 'TikTok Sound Hook'}</div>
+                          <div className="text-[11px] text-slate-500 truncate">Ready for Call Tone, Notification, or Alarm</div>
+                        </div>
+                      </div>
+                      <audio controls className="w-full h-9 rounded-lg" src={music.url}>
+                        Your browser does not support audio playback.
+                      </audio>
+                    </div>
+                  )}
+
+                  {/* #1 PRIMARY BUTTON: Download Ringtone (.M4A) */}
+                  {music?.url && (
                     <a
                       href={getProxyUrl(music.url, `quktik_ringtone_${id}.m4a`, 'audio')}
                       download={`quktik_ringtone_${id}.m4a`}
-                      className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white shadow-sm hover:shadow transition-all active:scale-[0.98] group border border-slate-800 cursor-pointer"
+                      className="w-full flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-600 hover:to-rose-700 text-white font-bold transition-all shadow-md shadow-orange-500/20 active:scale-[0.99] group cursor-pointer"
                     >
-                      <div className="flex items-center gap-3 min-w-0">
-                        <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                          <Bell className="w-4.5 h-4.5 text-white" />
+                      <div className="flex items-center gap-3.5 min-w-0">
+                        <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <Bell className="w-5 h-5 text-white" />
                         </div>
                         <div className="text-left min-w-0">
-                          <div className="text-sm font-bold leading-tight">Download Ringtone</div>
-                          <div className="text-[11px] text-slate-300 font-medium mt-0.5">.M4A (iPhone &amp; Android)</div>
+                          <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
+                            Download Ringtone (.M4A / iPhone &amp; Android)
+                          </span>
+                          <span className="text-xs text-amber-100 font-medium block mt-0.5">
+                            Universal Phone Call Ringtone, SMS Alert &amp; Alarm Tone
+                          </span>
                         </div>
                       </div>
-                      <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center shrink-0 ml-2 group-hover:bg-white/20 transition-colors">
-                        <Download className="w-4 h-4 text-white" />
-                      </div>
-                    </a>
-
-                  </div>
-                )}
-
-                {/* 5. MULTI-IMAGE SLIDESHOW GALLERY (Rendered if post contains photos) */}
-                {isImagePost && images && images.length > 0 && (
-                  <div className="mt-6 pt-5 border-t border-slate-200/90 space-y-4">
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                        <ImageIcon className="w-4 h-4 text-indigo-600" />
-                        <span>Photo Slideshow Gallery ({images.length} High-Res Images)</span>
-                      </h4>
-                      <span className="text-[11px] font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-200">
-                        Full HD Quality
+                      <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-white/20 text-white shrink-0 ml-2 uppercase">
+                        Ringtone
                       </span>
-                    </div>
+                    </a>
+                  )}
 
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                      {images.map((imgUrl, index) => (
-                        <div key={index} className="relative group rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 aspect-[9/16] shadow-xs">
-                          <img
-                            src={imgUrl}
-                            alt={`Photo slide ${index + 1}`}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                          <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-2 text-center">
-                            <span className="text-white text-xs font-bold mb-2">Photo #{index + 1}</span>
-                            <a
-                              href={getProxyUrl(imgUrl, `quktik_photo_${id}_${index + 1}.jpg`, 'image')}
-                              download={`quktik_photo_${id}_${index + 1}.jpg`}
-                              className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1 shadow-md active:scale-95 transition-all cursor-pointer"
-                            >
-                              <Download className="w-3.5 h-3.5" />
-                              <span>Save HD</span>
-                            </a>
+                  {/* #2 SECONDARY: MP4 Video & MP3 Audio */}
+                  <div className="pt-2 space-y-2">
+                    <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider block">Also Available (MP4 Video &amp; MP3 Audio):</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {video?.noWatermark && (
+                        <a
+                          href={getProxyUrl(video.noWatermark, `quktik_video_nowm_${id}.mp4`, 'video')}
+                          download={`quktik_video_nowm_${id}.mp4`}
+                          className="flex items-center justify-between p-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm hover:shadow transition-all active:scale-[0.98] group cursor-pointer"
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                              <Video className="w-4.5 h-4.5 text-white" />
+                            </div>
+                            <div className="text-left min-w-0">
+                              <div className="text-sm font-bold leading-tight">Download MP4 Video</div>
+                              <div className="text-[11px] text-emerald-100 font-medium mt-0.5">No Watermark (1080p)</div>
+                            </div>
                           </div>
-                          <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 text-white text-[10px] font-bold pointer-events-none">
-                            #{index + 1}
+                          <Download className="w-4 h-4 text-white shrink-0 ml-2" />
+                        </a>
+                      )}
+
+                      {music?.url && (
+                        <a
+                          href={getProxyUrl(music.url, `quktik_audio_${id}.mp3`, 'audio')}
+                          download={`quktik_audio_${id}.mp3`}
+                          className="flex items-center justify-between p-3.5 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white shadow-sm hover:shadow transition-all active:scale-[0.98] group cursor-pointer"
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                              <Music className="w-4.5 h-4.5 text-white" />
+                            </div>
+                            <div className="text-left min-w-0">
+                              <div className="text-sm font-bold leading-tight">Download MP3 Audio</div>
+                              <div className="text-[11px] text-rose-100 font-medium mt-0.5">320kbps Studio Master</div>
+                            </div>
+                          </div>
+                          <Download className="w-4 h-4 text-white shrink-0 ml-2" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* ========================================================= */}
+              {/* MODE 4: PHOTO DOWNLOADER (/tiktok-photo)                  */}
+              {/* #1 Primary: Photo Slideshow Gallery / HD Photo Download   */}
+              {/* #2 Secondary: MP4 Video & MP3 Audio                       */}
+              {/* ========================================================= */}
+              {mode === 'photo' && (
+                <div className="space-y-4 pt-1">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-xs font-black text-indigo-600 uppercase tracking-wider">
+                      1. Primary Photo / Slideshow Download:
+                    </h4>
+                    <span className="text-[11px] font-bold text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-full border border-indigo-200">
+                      Uncompressed HD JPG
+                    </span>
+                  </div>
+
+                  {/* If multi-image slideshow post, show Photo Gallery FIRST */}
+                  {images && images.length > 0 ? (
+                    <div className="space-y-3">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        {images.map((imgUrl, index) => (
+                          <div key={index} className="relative group rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 aspect-[9/16] shadow-xs">
+                            <img
+                              src={imgUrl}
+                              alt={`Photo slide ${index + 1}`}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                            <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-2 text-center">
+                              <span className="text-white text-xs font-bold mb-2">Photo #{index + 1}</span>
+                              <a
+                                href={getProxyUrl(imgUrl, `quktik_photo_${id}_${index + 1}.jpg`, 'image')}
+                                download={`quktik_photo_${id}_${index + 1}.jpg`}
+                                className="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold flex items-center gap-1 shadow-md active:scale-95 transition-all cursor-pointer"
+                              >
+                                <Download className="w-3.5 h-3.5" />
+                                <span>Save Photo #{index + 1}</span>
+                              </a>
+                            </div>
+                            <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 text-white text-[10px] font-bold pointer-events-none">
+                              #{index + 1}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+
+                  {/* #1 Primary Button: Download Main Photo / Cover HD */}
+                  {(cover || (images && images.length > 0)) && (
+                    <a
+                      href={getProxyUrl(images?.[0] || cover, `quktik_photo_hd_${id}.jpg`, 'image')}
+                      download={`quktik_photo_hd_${id}.jpg`}
+                      className="w-full flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white font-bold transition-all shadow-md shadow-indigo-600/20 active:scale-[0.99] group cursor-pointer"
+                    >
+                      <div className="flex items-center gap-3.5 min-w-0">
+                        <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <ImageIcon className="w-5 h-5 text-white" />
+                        </div>
+                        <div className="text-left min-w-0">
+                          <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
+                            Download Full HD Photo / Cover (.JPG)
+                          </span>
+                          <span className="text-xs text-indigo-100 font-medium block mt-0.5">
+                            Original Uncompressed Resolution • Zero Watermark
+                          </span>
+                        </div>
+                      </div>
+                      <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-white/20 text-white shrink-0 ml-2 uppercase">
+                        HD JPG
+                      </span>
+                    </a>
+                  )}
+
+                  {/* #2 SECONDARY: MP4 Video & MP3 Audio */}
+                  <div className="pt-2 space-y-2">
+                    <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider block">Also Available (MP4 Video &amp; MP3 Audio):</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {video?.noWatermark && (
+                        <a
+                          href={getProxyUrl(video.noWatermark, `quktik_video_nowm_${id}.mp4`, 'video')}
+                          download={`quktik_video_nowm_${id}.mp4`}
+                          className="flex items-center justify-between p-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm hover:shadow transition-all active:scale-[0.98] group cursor-pointer"
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                              <Video className="w-4.5 h-4.5 text-white" />
+                            </div>
+                            <div className="text-left min-w-0">
+                              <div className="text-sm font-bold leading-tight">Download MP4 Video</div>
+                              <div className="text-[11px] text-emerald-100 font-medium mt-0.5">No Watermark (1080p)</div>
+                            </div>
+                          </div>
+                          <Download className="w-4 h-4 text-white shrink-0 ml-2" />
+                        </a>
+                      )}
+
+                      {music?.url && (
+                        <a
+                          href={getProxyUrl(music.url, `quktik_audio_${id}.mp3`, 'audio')}
+                          download={`quktik_audio_${id}.mp3`}
+                          className="flex items-center justify-between p-3.5 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white shadow-sm hover:shadow transition-all active:scale-[0.98] group cursor-pointer"
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                              <Music className="w-4.5 h-4.5 text-white" />
+                            </div>
+                            <div className="text-left min-w-0">
+                              <div className="text-sm font-bold leading-tight">Download MP3 Audio</div>
+                              <div className="text-[11px] text-rose-100 font-medium mt-0.5">320kbps Studio Master</div>
+                            </div>
+                          </div>
+                          <Download className="w-4 h-4 text-white shrink-0 ml-2" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* ========================================================= */}
+              {/* MODE 5: STORY SAVER (/tiktok-story)                       */}
+              {/* #1 Primary: Save Story Video (Before 24h Expiry)          */}
+              {/* #2 Secondary: MP4 HD Mirror & MP3 Audio                   */}
+              {/* ========================================================= */}
+              {mode === 'story' && (
+                <div className="space-y-3.5 pt-1">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-xs font-black text-purple-700 uppercase tracking-wider">1. Primary 24h Story Download:</h4>
+                    <span className="text-[11px] font-bold text-purple-800 bg-purple-50 px-2.5 py-0.5 rounded-full border border-purple-200">
+                      100% Anonymous Save
+                    </span>
+                  </div>
+
+                  {/* #1 PRIMARY BUTTON: Download Story Without Watermark */}
+                  {video?.noWatermark && (
+                    <a
+                      href={getProxyUrl(video.noWatermark, `quktik_story_${id}.mp4`, 'video')}
+                      download={`quktik_story_${id}.mp4`}
+                      className="w-full flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold transition-all shadow-md shadow-purple-600/20 active:scale-[0.99] group cursor-pointer"
+                    >
+                      <div className="flex items-center gap-3.5 min-w-0">
+                        <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <Clock className="w-5 h-5 text-white" />
+                        </div>
+                        <div className="text-left min-w-0">
+                          <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
+                            Download Story Video (No Watermark)
+                          </span>
+                          <span className="text-xs text-purple-100 font-medium block mt-0.5">
+                            Saved Permanently in 1080p MP4 Before 24h Expiration
+                          </span>
+                        </div>
+                      </div>
+                      <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-white/20 text-white shrink-0 ml-2 uppercase">
+                        Story MP4
+                      </span>
+                    </a>
+                  )}
+
+                  {/* #2 SECONDARY: MP4 Mirror & MP3 Audio */}
+                  <div className="pt-2 space-y-2">
+                    <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider block">Also Available (MP4 Mirror &amp; MP3 Audio):</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {video?.noWatermarkHd && (
+                        <a
+                          href={getProxyUrl(video.noWatermarkHd, `quktik_story_hd_${id}.mp4`, 'video')}
+                          download={`quktik_story_hd_${id}.mp4`}
+                          className="flex items-center justify-between p-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm hover:shadow transition-all active:scale-[0.98] group cursor-pointer"
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                              <Video className="w-4.5 h-4.5 text-white" />
+                            </div>
+                            <div className="text-left min-w-0">
+                              <div className="text-sm font-bold leading-tight">Download MP4 (Mirror)</div>
+                              <div className="text-[11px] text-emerald-100 font-medium mt-0.5">Server 2 • 1080p HD</div>
+                            </div>
+                          </div>
+                          <Download className="w-4 h-4 text-white shrink-0 ml-2" />
+                        </a>
+                      )}
+
+                      {music?.url && (
+                        <a
+                          href={getProxyUrl(music.url, `quktik_story_audio_${id}.mp3`, 'audio')}
+                          download={`quktik_story_audio_${id}.mp3`}
+                          className="flex items-center justify-between p-3.5 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white shadow-sm hover:shadow transition-all active:scale-[0.98] group cursor-pointer"
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                              <Music className="w-4.5 h-4.5 text-white" />
+                            </div>
+                            <div className="text-left min-w-0">
+                              <div className="text-sm font-bold leading-tight">Download Story MP3</div>
+                              <div className="text-[11px] text-rose-100 font-medium mt-0.5">320kbps Studio Audio</div>
+                            </div>
+                          </div>
+                          <Download className="w-4 h-4 text-white shrink-0 ml-2" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* ========================================================= */}
+              {/* MODE 6: TIKTOK AVATAR DOWNLOADER (/tiktok-avatar)         */}
+              {/* #1 Primary: Download Full HD Profile Avatar (.JPG)        */}
+              {/* #2 Secondary: MP4 Video & MP3 Audio                       */}
+              {/* ========================================================= */}
+              {mode === 'avatar' && (
+                <div className="space-y-3.5 pt-1">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-xs font-black text-teal-700 uppercase tracking-wider">1. Primary Profile Avatar Download:</h4>
+                    <span className="text-[11px] font-bold text-teal-800 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200">
+                      Uncropped 1080x1080 HD
+                    </span>
+                  </div>
+
+                  {/* #1 PRIMARY BUTTON: Download Full HD Avatar */}
+                  {author?.avatar && (
+                    <a
+                      href={getProxyUrl(author.avatar, `quktik_avatar_${author.username || id}.jpg`, 'image')}
+                      download={`quktik_avatar_${author.username || id}.jpg`}
+                      className="w-full flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-bold transition-all shadow-md shadow-teal-600/20 active:scale-[0.99] group cursor-pointer"
+                    >
+                      <div className="flex items-center gap-3.5 min-w-0">
+                        <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <UserCheck className="w-5 h-5 text-white" />
+                        </div>
+                        <div className="text-left min-w-0">
+                          <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
+                            Download Full HD Profile Avatar (.JPG)
+                          </span>
+                          <span className="text-xs text-teal-100 font-medium block mt-0.5">
+                            Original Square Master Photo • No Circular Crop
+                          </span>
+                        </div>
+                      </div>
+                      <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-white/20 text-white shrink-0 ml-2 uppercase">
+                        HD Avatar
+                      </span>
+                    </a>
+                  )}
+
+                  {/* #2 SECONDARY: MP4 Video & MP3 Audio */}
+                  <div className="pt-2 space-y-2">
+                    <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider block">Also Available (Creator's MP4 Video &amp; MP3 Audio):</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {video?.noWatermark && (
+                        <a
+                          href={getProxyUrl(video.noWatermark, `quktik_video_nowm_${id}.mp4`, 'video')}
+                          download={`quktik_video_nowm_${id}.mp4`}
+                          className="flex items-center justify-between p-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm hover:shadow transition-all active:scale-[0.98] group cursor-pointer"
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                              <Video className="w-4.5 h-4.5 text-white" />
+                            </div>
+                            <div className="text-left min-w-0">
+                              <div className="text-sm font-bold leading-tight">Download MP4 Video</div>
+                              <div className="text-[11px] text-emerald-100 font-medium mt-0.5">No Watermark (1080p)</div>
+                            </div>
+                          </div>
+                          <Download className="w-4 h-4 text-white shrink-0 ml-2" />
+                        </a>
+                      )}
+
+                      {music?.url && (
+                        <a
+                          href={getProxyUrl(music.url, `quktik_audio_${id}.mp3`, 'audio')}
+                          download={`quktik_audio_${id}.mp3`}
+                          className="flex items-center justify-between p-3.5 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white shadow-sm hover:shadow transition-all active:scale-[0.98] group cursor-pointer"
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                              <Music className="w-4.5 h-4.5 text-white" />
+                            </div>
+                            <div className="text-left min-w-0">
+                              <div className="text-sm font-bold leading-tight">Download MP3 Audio</div>
+                              <div className="text-[11px] text-rose-100 font-medium mt-0.5">320kbps Studio Master</div>
+                            </div>
+                          </div>
+                          <Download className="w-4 h-4 text-white shrink-0 ml-2" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* ========================================================= */}
+              {/* MODE 7: HOMEPAGE ONLY ('all') - ALL-IN-ONE MASTER SUITE   */}
+              {/* (Shows Video Server 1 & 2, MP3, Ringtone, Photos, Cover)  */}
+              {/* ========================================================= */}
+              {!['video', 'mp3', 'ringtone', 'photo', 'story', 'avatar'].includes(mode) && (
+                <div className="space-y-3 pt-1">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-xs font-black text-slate-500 uppercase tracking-wider">All-in-One Download Options:</h4>
+                    <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                      Ready in 1080p Ultra HD
+                    </span>
+                  </div>
+
+                  {/* 1. PRIMARY: Download Video Without Watermark (Server 1) */}
+                  {video?.noWatermark && (
+                    <a
+                      href={getProxyUrl(video.noWatermark, `quktik_video_nowm_${id}.mp4`, 'video')}
+                      download={`quktik_video_nowm_${id}.mp4`}
+                      className="w-full flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold transition-all shadow-md shadow-emerald-600/20 active:scale-[0.99] group border border-emerald-500/30 cursor-pointer"
+                    >
+                      <div className="flex items-center gap-3.5 min-w-0">
+                        <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <Download className="w-5 h-5 text-white" />
+                        </div>
+                        <div className="text-left min-w-0">
+                          <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
+                            Download Video (Without Watermark)
+                          </span>
+                          <span className="text-xs text-emerald-100 font-medium block mt-0.5">
+                            Clean 1080p Ultra HD MP4 • High-Speed Server 1
+                          </span>
+                        </div>
+                      </div>
+                      <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-white/20 text-white tracking-wide shrink-0 ml-2 uppercase">
+                        Server 1
+                      </span>
+                    </a>
+                  )}
+
+                  {/* 2. SECONDARY: Download Video HD Mirror (Server 2) */}
+                  {video?.noWatermarkHd && (
+                    <a
+                      href={getProxyUrl(video.noWatermarkHd, `quktik_video_hd_${id}.mp4`, 'video')}
+                      download={`quktik_video_hd_${id}.mp4`}
+                      className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200/90 transition-all shadow-xs hover:shadow active:scale-[0.99] group cursor-pointer"
+                    >
+                      <div className="flex items-center gap-3.5 min-w-0">
+                        <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <Video className="w-5 h-5 text-indigo-600" />
+                        </div>
+                        <div className="text-left min-w-0">
+                          <span className="block font-bold text-slate-900 text-sm sm:text-base leading-tight">
+                            Download Video (HD Mirror)
+                          </span>
+                          <span className="text-xs text-slate-500 font-normal block mt-0.5">
+                            Alternative High-Speed Mirror • 1080p MP4
+                          </span>
+                        </div>
+                      </div>
+                      <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-slate-200/80 text-slate-700 shrink-0 ml-2">
+                        HD Mirror
+                      </span>
+                    </a>
+                  )}
+
+                  {/* 3 & 4. AUDIO & RINGTONE GRID */}
+                  {music?.url && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <a
+                        href={getProxyUrl(music.url, `quktik_audio_${id}.mp3`, 'audio')}
+                        download={`quktik_audio_${id}.mp3`}
+                        className="flex items-center justify-between p-3.5 rounded-2xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white shadow-sm hover:shadow transition-all active:scale-[0.98] group cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                            <Music className="w-4.5 h-4.5 text-white" />
+                          </div>
+                          <div className="text-left min-w-0">
+                            <div className="text-sm font-bold leading-tight">Download MP3 Audio</div>
+                            <div className="text-[11px] text-rose-100 font-medium mt-0.5">320kbps Studio Master</div>
                           </div>
                         </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                        <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center shrink-0 ml-2 group-hover:bg-white/30 transition-colors">
+                          <Download className="w-4 h-4 text-white" />
+                        </div>
+                      </a>
 
-                {/* All-in-One Format Conversion Suite Matrix */}
-                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2 mt-2">
-                  <div className="flex items-center justify-between text-xs font-bold text-slate-700">
-                    <span className="flex items-center gap-1.5 text-indigo-600">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      <span>All-in-One Media Suite:</span>
-                    </span>
-                    <span className="text-slate-400">Pristine Master Quality</span>
-                  </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                    <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
-                      <span className="font-bold text-slate-900 block">1080p MP4</span>
-                      <span className="text-[10px] text-emerald-700 font-semibold">Zero Watermark</span>
+                      <a
+                        href={getProxyUrl(music.url, `quktik_ringtone_${id}.m4a`, 'audio')}
+                        download={`quktik_ringtone_${id}.m4a`}
+                        className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white shadow-sm hover:shadow transition-all active:scale-[0.98] group border border-slate-800 cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                            <Bell className="w-4.5 h-4.5 text-white" />
+                          </div>
+                          <div className="text-left min-w-0">
+                            <div className="text-sm font-bold leading-tight">Download Ringtone</div>
+                            <div className="text-[11px] text-slate-300 font-medium mt-0.5">.M4A (iPhone &amp; Android)</div>
+                          </div>
+                        </div>
+                        <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center shrink-0 ml-2 group-hover:bg-white/20 transition-colors">
+                          <Download className="w-4 h-4 text-white" />
+                        </div>
+                      </a>
                     </div>
-                    <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
-                      <span className="font-bold text-slate-900 block">320kbps MP3</span>
-                      <span className="text-[10px] text-rose-700 font-semibold">Studio Stereo</span>
+                  )}
+
+                  {/* 5. MULTI-IMAGE SLIDESHOW GALLERY (If post contains photos) */}
+                  {isImagePost && images && images.length > 0 && (
+                    <div className="mt-6 pt-5 border-t border-slate-200/90 space-y-4">
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                          <ImageIcon className="w-4 h-4 text-indigo-600" />
+                          <span>Photo Slideshow Gallery ({images.length} High-Res Images)</span>
+                        </h4>
+                        <span className="text-[11px] font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-200">
+                          Full HD Quality
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        {images.map((imgUrl, index) => (
+                          <div key={index} className="relative group rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 aspect-[9/16] shadow-xs">
+                            <img
+                              src={imgUrl}
+                              alt={`Photo slide ${index + 1}`}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                            <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-2 text-center">
+                              <span className="text-white text-xs font-bold mb-2">Photo #{index + 1}</span>
+                              <a
+                                href={getProxyUrl(imgUrl, `quktik_photo_${id}_${index + 1}.jpg`, 'image')}
+                                download={`quktik_photo_${id}_${index + 1}.jpg`}
+                                className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1 shadow-md active:scale-95 transition-all cursor-pointer"
+                              >
+                                <Download className="w-3.5 h-3.5" />
+                                <span>Save HD</span>
+                              </a>
+                            </div>
+                            <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 text-white text-[10px] font-bold pointer-events-none">
+                              #{index + 1}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
-                      <span className="font-bold text-slate-900 block">Custom Tone</span>
-                      <span className="text-[10px] text-indigo-600 font-semibold">M4A / Alarm</span>
+                  )}
+
+                  {/* All-in-One Format Conversion Suite Matrix (Homepage only) */}
+                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2 mt-2">
+                    <div className="flex items-center justify-between text-xs font-bold text-slate-700">
+                      <span className="flex items-center gap-1.5 text-indigo-600">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>All-in-One Media Suite:</span>
+                      </span>
+                      <span className="text-slate-400">Pristine Master Quality</span>
                     </div>
-                    <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
-                      <span className="font-bold text-slate-900 block">Master Still</span>
-                      <span className="text-[10px] text-purple-600 font-semibold">JPG / WebP</span>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                      <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
+                        <span className="font-bold text-slate-900 block">1080p MP4</span>
+                        <span className="text-[10px] text-emerald-700 font-semibold">Zero Watermark</span>
+                      </div>
+                      <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
+                        <span className="font-bold text-slate-900 block">320kbps MP3</span>
+                        <span className="text-[10px] text-rose-700 font-semibold">Studio Stereo</span>
+                      </div>
+                      <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
+                        <span className="font-bold text-slate-900 block">Custom Tone</span>
+                        <span className="text-[10px] text-indigo-600 font-semibold">M4A / Alarm</span>
+                      </div>
+                      <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
+                        <span className="font-bold text-slate-900 block">Master Still</span>
+                        <span className="text-[10px] text-purple-600 font-semibold">JPG / WebP</span>
+                      </div>
                     </div>
                   </div>
                 </div>
+              )}
 
-                {/* Source Fallback Link */}
-                {video?.noWatermark && (
-                  <div className="pt-1 text-center">
-                    <a
-                      href={video.noWatermark}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-rose-700 transition-colors"
-                    >
-                      <span>Having trouble downloading? Click here to view source stream</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </div>
-                )}
-
-                {/* Reciprocal Douyin Interlink Notice (douyin alag hai) */}
-                <div className="mt-4 p-3.5 rounded-2xl bg-rose-50/50 border border-rose-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
-                  <div>
-                    <span className="font-bold text-slate-800 block mb-0.5">Looking for Chinese Douyin (抖音) Videos?</span>
-                    Chinese Douyin links are served through our dedicated Chinese CDN gateway.
-                  </div>
-                  <Link
-                    href="/douyin-downloader"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white hover:bg-rose-50 text-rose-700 font-bold border border-rose-200 shrink-0 shadow-xs transition-all"
+              {/* Source Fallback Link */}
+              {video?.noWatermark && (
+                <div className="pt-1 text-center">
+                  <a
+                    href={video.noWatermark}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-rose-700 transition-colors"
                   >
-                    <span>Open Douyin Tool</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-rose-600" />
-                  </Link>
+                    <span>Having trouble downloading? Click here to view source stream</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
                 </div>
-
-              </div>
+              )}
 
             </div>
 
