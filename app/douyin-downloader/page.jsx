@@ -116,6 +116,7 @@ export default function DouyinDownloaderPage() {
         buttonText="Download Douyin Video"
         badge="ByteDance China CDN Gateway"
         sampleUrl="https://www.douyin.com/video/7330964478051257627"
+        mode="douyin"
       />
 
       {/* Feature Highlights */}

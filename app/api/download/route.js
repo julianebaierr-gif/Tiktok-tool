@@ -100,24 +100,45 @@ async function fetchDouyinDetail(inputUrl) {
     const isImage = aweme.images && aweme.images.length > 0;
     const images = isImage ? aweme.images.map(img => img.url_list?.[0]).filter(Boolean) : [];
 
+    const durSec = Math.round((aweme.duration || 0) / 1000);
+    const mins = Math.floor(durSec / 60);
+    const secs = durSec % 60;
+    const durationFormatted = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+
+    const tagsFromExtra = (aweme.text_extra || []).map(t => t.hashtag_name ? `#${t.hashtag_name}` : null).filter(Boolean);
+    const tagsFromDesc = (aweme.desc?.match(/#[\w\u4e00-\u9fa5]+/g) || []);
+    const hashtags = Array.from(new Set([...tagsFromExtra, ...tagsFromDesc]));
+
+    const shareUrl = aweme.share_url || aweme.share_info?.share_url || `https://www.douyin.com/video/${douyinId}`;
+
     return {
       success: true,
       provider: 'douyin-rapidapi',
+      isDouyin: true,
       type: isImage ? 'image' : 'video',
       id: aweme.aweme_id || douyinId,
       title: aweme.desc || aweme.item_title || 'Douyin Video (No Watermark)',
+      duration: durSec,
+      durationFormatted,
+      shareUrl,
+      hashtags,
       author: {
         username: aweme.author?.unique_id || aweme.author?.short_id || 'douyin_creator',
         nickname: aweme.author?.nickname || 'Douyin Creator',
         avatar: aweme.author?.avatar_thumb?.url_list?.[0] || '',
+        signature: aweme.author?.signature || '',
+        followers: aweme.author?.follower_count || 0,
+        totalFavorited: aweme.author?.total_favorited || 0,
       },
       stats: {
         likes: aweme.statistics?.digg_count || 0,
         comments: aweme.statistics?.comment_count || 0,
         shares: aweme.statistics?.share_count || 0,
+        collects: aweme.statistics?.collect_count || 0,
         views: aweme.statistics?.play_count || 0,
       },
       cover: aweme.video?.cover?.url_list?.[0] || aweme.video?.origin_cover?.url_list?.[0] || '',
+      dynamicCover: aweme.video?.dynamic_cover?.url_list?.[0] || '',
       video: {
         noWatermark: cleanVideoUrl,
         noWatermarkHd: hdVideoUrl,
@@ -126,7 +147,8 @@ async function fetchDouyinDetail(inputUrl) {
       music: {
         title: aweme.music?.title || 'Original Sound',
         author: aweme.music?.author || aweme.author?.nickname || 'Douyin Audio',
-        url: aweme.music?.play_url?.url_list?.[0] || null,
+        cover: aweme.music?.cover_large?.url_list?.[0] || aweme.video?.cover?.url_list?.[0] || '',
+        url: aweme.music?.play_url?.url_list?.[0] || cleanVideoUrl,
       },
       images,
     };
@@ -217,7 +239,7 @@ function fetchProviderWithTimeout(version, url, options = {}, timeoutMs = 7000) 
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { url } = body;
+    const { url, platform } = body;
 
     if (!url) {
       return NextResponse.json(
@@ -234,6 +256,31 @@ export async function POST(request) {
       );
     }
 
+    const isDouyinLink = cleanUrl.includes('douyin.com') || (typeof url === 'string' && (url.includes('douyin.com') || /[\u4e00-\u9fa5]/.test(url)));
+
+    // Strict Platform Separation Check
+    if (platform === 'douyin' && cleanUrl.includes('tiktok.com')) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'This page is dedicated exclusively to Chinese Douyin (抖音) links. For international TikTok videos, please switch to our TikTok Downloader.',
+          wrongPlatform: 'tiktok'
+        },
+        { status: 400 }
+      );
+    }
+
+    if (platform === 'tiktok' && isDouyinLink) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'You entered a Chinese Douyin (抖音) link. Please use our specialized Douyin Downloader for fast Chinese CDN processing.',
+          wrongPlatform: 'douyin'
+        },
+        { status: 400 }
+      );
+    }
+
     // 1. Check In-Memory Cache first (< 5ms response time)
     const cached = getCachedResult(cleanUrl);
     if (cached) {
@@ -241,8 +288,7 @@ export async function POST(request) {
     }
 
     // 2. Dedicated Douyin Handler (RapidAPI Gateway - ONLY triggered for Douyin links to protect free quota!)
-    const isDouyin = cleanUrl.includes('douyin.com') || (typeof url === 'string' && (url.includes('douyin.com') || /[\u4e00-\u9fa5]/.test(url)));
-    if (isDouyin) {
+    if (isDouyinLink) {
       const douyinResult = await fetchDouyinDetail(url || cleanUrl);
       if (douyinResult && douyinResult.success) {
         setCachedResult(cleanUrl, douyinResult);

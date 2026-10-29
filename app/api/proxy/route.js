@@ -27,6 +27,10 @@ export async function GET(request) {
     const safeFilename = rawFilename.replace(/[^a-zA-Z0-9_\-\.]/g, '_').slice(0, 50);
     const finalFilename = safeFilename.endsWith(fileExtension) ? safeFilename : `${safeFilename}${fileExtension}`;
 
+    // Determine CDN origin for Referer
+    const isDouyinMedia = /douyin|byteimg|amemv|zijieapi|p3-pc/i.test(mediaUrl);
+    const referer = isDouyinMedia ? 'https://www.douyin.com/' : 'https://www.tiktok.com/';
+
     // Request the stream from the source CDN
     const response = await axios({
       method: 'GET',
@@ -34,7 +38,7 @@ export async function GET(request) {
       responseType: 'stream',
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Referer': 'https://www.tiktok.com/',
+        'Referer': referer,
       },
       timeout: 30000,
     });

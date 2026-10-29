@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import DownloaderForm from './DownloaderForm';
 import ResultCard from './ResultCard';
 
-export default function ToolHero({ title, subtitle, sampleUrl, placeholder, buttonText, badge }) {
+export default function ToolHero({ title, subtitle, sampleUrl, placeholder, buttonText, badge, mode = "video" }) {
   const [downloadResult, setDownloadResult] = useState(null);
 
   const handleResult = (data) => {
@@ -29,11 +29,13 @@ export default function ToolHero({ title, subtitle, sampleUrl, placeholder, butt
           sampleUrl={sampleUrl}
           buttonText={buttonText}
           badge={badge}
+          mode={mode}
         />
       ) : (
         <ResultCard 
           result={downloadResult} 
           onReset={handleReset} 
+          mode={mode}
         />
       )}
     </section>
