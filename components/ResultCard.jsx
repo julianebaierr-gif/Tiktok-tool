@@ -869,15 +869,24 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                   <a
                     href={getProxyUrl(video.noWatermark, `quktik_video_nowm_${id}.mp4`, 'video')}
                     download={`quktik_video_nowm_${id}.mp4`}
-                    className="w-full flex items-center justify-between px-6 py-4.5 rounded-2xl sm:rounded-3xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base shadow-sm hover:shadow transition-all active:scale-[0.98] group"
+                    className="w-full flex items-center justify-between p-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-all shadow-md shadow-emerald-600/15 hover:shadow-lg hover:shadow-emerald-600/25 active:scale-[0.99] group border border-emerald-500/30"
                   >
-                    <div className="flex items-center space-x-3.5">
-                      <div className="w-9 h-9 rounded-2xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="flex items-center gap-3.5 min-w-0">
+                      <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                         <Download className="w-5 h-5 text-white" />
                       </div>
-                      <span className="text-left font-black tracking-tight">Download Video (Without Watermark)</span>
+                      <div className="text-left min-w-0">
+                        <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
+                          Download Without Watermark
+                        </span>
+                        <span className="text-xs text-emerald-100 font-medium block mt-0.5">
+                          Clean MP4 • Ultra HD 1080p • Server 1
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-xs px-2.5 py-1 rounded-full bg-white/25 font-bold uppercase tracking-wider shrink-0">Server 1</span>
+                    <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-white/20 text-white tracking-wide shrink-0 ml-2">
+                      Server 1
+                    </span>
                   </a>
                 )}
 
@@ -885,13 +894,24 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                   <a
                     href={getProxyUrl(video.noWatermarkHd, `quktik_video_hd_${id}.mp4`, 'video')}
                     download={`quktik_video_hd_${id}.mp4`}
-                    className="w-full flex items-center justify-between px-6 py-3.5 rounded-2xl sm:rounded-3xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm border border-slate-200 active:scale-[0.98] transition-all group"
+                    className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200/90 transition-all shadow-xs hover:shadow active:scale-[0.99] group"
                   >
-                    <div className="flex items-center space-x-3.5">
-                      <Video className="w-5 h-5 text-indigo-600 shrink-0" />
-                      <span className="text-left font-bold">Download Video (HD Server 2)</span>
+                    <div className="flex items-center gap-3.5 min-w-0">
+                      <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                        <Video className="w-5 h-5 text-indigo-600" />
+                      </div>
+                      <div className="text-left min-w-0">
+                        <span className="block font-bold text-slate-900 text-sm leading-tight">
+                          Download Video (HD Mirror)
+                        </span>
+                        <span className="text-xs text-slate-500 font-normal block mt-0.5">
+                          Alternative Server 2 • 1080p MP4
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-xs text-slate-500 font-semibold">HD Mirror</span>
+                    <span className="text-xs font-semibold px-2.5 py-1 rounded-xl bg-slate-200/70 text-slate-700 shrink-0 ml-2">
+                      HD Mirror
+                    </span>
                   </a>
                 )}
 
@@ -900,25 +920,39 @@ export default function ResultCard({ result, onReset, mode = "video" }) {
                     <a
                       href={getProxyUrl(music.url, `quktik_audio_${id}.mp3`, 'audio')}
                       download={`quktik_audio_${id}.mp3`}
-                      className="flex items-center justify-between px-5 py-3.5 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-semibold text-sm shadow-sm hover:shadow transition-all active:scale-[0.98] group"
+                      className="flex items-center justify-between p-3.5 rounded-2xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white shadow-sm hover:shadow transition-all active:scale-[0.98] group"
                     >
-                      <div className="flex items-center space-x-2.5 truncate">
-                        <Music className="w-4 h-4 text-white shrink-0" />
-                        <span className="truncate">Download MP3 Audio</span>
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <Music className="w-4.5 h-4.5 text-white" />
+                        </div>
+                        <div className="text-left min-w-0">
+                          <div className="text-sm font-bold leading-tight whitespace-nowrap">MP3 Audio</div>
+                          <div className="text-[11px] text-rose-100 font-medium mt-0.5 whitespace-nowrap">320kbps Studio</div>
+                        </div>
                       </div>
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/25 font-bold uppercase tracking-wider shrink-0">320kbps</span>
+                      <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center shrink-0 ml-2 group-hover:bg-white/30 transition-colors">
+                        <Download className="w-4 h-4 text-white" />
+                      </div>
                     </a>
 
                     <a
                       href={getProxyUrl(music.url, `quktik_ringtone_${id}.m4a`, 'audio')}
                       download={`quktik_ringtone_${id}.m4a`}
-                      className="flex items-center justify-between px-5 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm shadow-sm hover:shadow transition-all active:scale-[0.98] group"
+                      className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white shadow-sm hover:shadow transition-all active:scale-[0.98] group border border-slate-800"
                     >
-                      <div className="flex items-center space-x-2.5 truncate">
-                        <Bell className="w-4 h-4 text-white shrink-0" />
-                        <span className="truncate">Download Ringtone</span>
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <Bell className="w-4.5 h-4.5 text-white" />
+                        </div>
+                        <div className="text-left min-w-0">
+                          <div className="text-sm font-bold leading-tight whitespace-nowrap">Ringtone</div>
+                          <div className="text-[11px] text-slate-300 font-medium mt-0.5 whitespace-nowrap">M4A (iPhone & Android)</div>
+                        </div>
                       </div>
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/25 font-bold uppercase tracking-wider shrink-0">iOS / Android</span>
+                      <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center shrink-0 ml-2 group-hover:bg-white/20 transition-colors">
+                        <Download className="w-4 h-4 text-white" />
+                      </div>
                     </a>
                   </div>
                 )}
