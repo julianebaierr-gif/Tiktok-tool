@@ -3,6 +3,23 @@ import Tiktok from '@tobyg74/tiktok-api-dl';
 
 export const dynamic = 'force-dynamic';
 
+// Webshare.io Verified High-Speed Multi-Region Proxy Pool
+// Countries: US (United States), GB (United Kingdom / London), JP (Japan / Tokyo), FR (France / Paris)
+const WEBSHARE_PROXIES = [
+  'http://jzoemevm:cxoms419j5eq@9.142.218.167:6831',   // US (Palo Alto)
+  'http://jzoemevm:cxoms419j5eq@195.40.133.198:6418',  // GB (London)
+  'http://jzoemevm:cxoms419j5eq@82.22.93.22:7729',     // JP (Tokyo)
+  'http://jzoemevm:cxoms419j5eq@31.98.7.105:6283',     // FR (Paris)
+  'http://jzoemevm:cxoms419j5eq@64.52.28.38:7725',     // US (New Jersey)
+];
+
+let proxyIndex = 0;
+function getNextWebshareProxy() {
+  const proxy = WEBSHARE_PROXIES[proxyIndex];
+  proxyIndex = (proxyIndex + 1) % WEBSHARE_PROXIES.length;
+  return proxy;
+}
+
 // In-Memory Fast Cache (TTL: 15 minutes)
 const mediaCache = new Map();
 const CACHE_TTL_MS = 15 * 60 * 1000;
@@ -20,7 +37,6 @@ function getCachedResult(url) {
 
 function setCachedResult(url, data) {
   if (mediaCache.size >= MAX_CACHE_ENTRIES) {
-    // Evict oldest entry
     const oldestKey = mediaCache.keys().next().value;
     if (oldestKey) mediaCache.delete(oldestKey);
   }
@@ -32,7 +48,7 @@ function cleanTikTokUrl(rawUrl) {
   if (!rawUrl || typeof rawUrl !== 'string') return null;
   let str = rawUrl.trim();
 
-  // If user pasted without protocol (e.g., 'tiktok.com/@...' or 'vt.tiktok.com/...' or 'www.tiktok.com/...')
+  // If user pasted without protocol
   if (!/^https?:\/\//i.test(str)) {
     const domainMatch = str.match(/((?:[a-zA-Z0-9_-]+\.)?(?:tiktok\.com|douyin\.com)\/[^\s]+)/i);
     if (domainMatch) {
@@ -40,13 +56,13 @@ function cleanTikTokUrl(rawUrl) {
     }
   }
 
-  // Regex that captures any URL containing tiktok.com or douyin.com
+  // Regex capturing any URL containing tiktok.com or douyin.com
   const match = str.match(/https?:\/\/(?:[a-zA-Z0-9_-]+\.)?(?:tiktok\.com|douyin\.com)\/[a-zA-Z0-9@_\-\/?&=#%._~:;+]+/i);
   if (match) {
     return match[0].replace(/[.,;:!?)\\]+$/, '');
   }
 
-  // Fallback: If string contains tiktok.com or douyin.com anywhere, extract from that point onwards
+  // Fallback string search
   const fallbackIndex = str.search(/(?:tiktok\.com|douyin\.com)/i);
   if (fallbackIndex !== -1) {
     let sub = str.slice(fallbackIndex);
@@ -59,10 +75,10 @@ function cleanTikTokUrl(rawUrl) {
 }
 
 // Fast timeout wrapper
-function fetchProviderWithTimeout(version, url, timeoutMs = 7000) {
+function fetchProviderWithTimeout(version, url, options = {}, timeoutMs = 7000) {
   return new Promise((resolve, reject) => {
     const timer = setTimeout(() => reject(new Error(`Timeout on ${version}`)), timeoutMs);
-    Tiktok.Downloader(url, { version })
+    Tiktok.Downloader(url, { version, ...options })
       .then((res) => {
         clearTimeout(timer);
         if (res && res.status === 'success' && res.result) {
@@ -107,22 +123,33 @@ export async function POST(request) {
     let downloadResult = null;
     let versionUsed = 'fast-race';
 
-    // 2. High-Speed Concurrent Race: Run v2 (fastest ~600ms) and v1 concurrently!
+    // 2. Tier 1: High-Speed Concurrent Race (v2 & v1 without proxy for sub-second ~600ms speed)
     try {
       const winner = await Promise.any([
-        fetchProviderWithTimeout('v2', cleanUrl, 7000),
-        fetchProviderWithTimeout('v1', cleanUrl, 7000)
+        fetchProviderWithTimeout('v2', cleanUrl, {}, 7000),
+        fetchProviderWithTimeout('v1', cleanUrl, {}, 7000)
       ]);
       downloadResult = winner.result;
       versionUsed = winner.version;
     } catch {
-      // 3. If both v2 and v1 fail, fallback to v3
+      // 3. Tier 2: Webshare Multi-Region Geo-Unlocker (US / UK / JP Proxy)
+      // Automatically triggered if Tier 1 encounters a geo-restriction or IP rate-limit!
       try {
-        const v3 = await fetchProviderWithTimeout('v3', cleanUrl, 8000);
-        downloadResult = v3.result;
-        versionUsed = 'v3';
-      } catch (errV3) {
-        console.warn('All providers failed for:', cleanUrl, errV3.message);
+        const activeProxy = getNextWebshareProxy();
+        const proxyWinner = await fetchProviderWithTimeout('v1', cleanUrl, { proxy: activeProxy }, 8000);
+        downloadResult = proxyWinner.result;
+        versionUsed = 'webshare-proxy-v1';
+      } catch (errProxy) {
+        console.warn('Webshare Tier 2 attempt failed, attempting Tier 3 fallback...', errProxy.message);
+        
+        // 4. Tier 3: MusicalDown fallback
+        try {
+          const v3 = await fetchProviderWithTimeout('v3', cleanUrl, {}, 8000);
+          downloadResult = v3.result;
+          versionUsed = 'v3';
+        } catch (errV3) {
+          console.warn('All tiers failed for:', cleanUrl, errV3.message);
+        }
       }
     }
 
@@ -130,7 +157,7 @@ export async function POST(request) {
       return NextResponse.json(
         {
           success: false,
-          error: 'Unable to retrieve media from this TikTok link. The video may be private, deleted, or region-restricted.',
+          error: 'Unable to retrieve media from this TikTok link. The video may be private, deleted, or restricted.',
         },
         { status: 404 }
       );
