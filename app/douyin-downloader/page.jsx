@@ -115,6 +115,7 @@ export default function DouyinDownloaderPage() {
         placeholder="Paste Douyin link or Chinese share text (e.g., https://v.douyin.com/...)"
         buttonText="Download Douyin Video"
         badge="ByteDance China CDN Gateway"
+        sampleUrl="https://www.douyin.com/video/7330964478051257627"
       />
 
       {/* Feature Highlights */}

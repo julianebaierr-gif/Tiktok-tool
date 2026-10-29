@@ -20,6 +20,111 @@ function getNextWebshareProxy() {
   return proxy;
 }
 
+// Douyin RapidAPI Configuration (Dedicated to Douyin links only to preserve quota)
+const RAPIDAPI_DOUYIN_KEY = 'aa1fc7507bmshd3bf23922c9fc6ep167696jsn10c882466832';
+const RAPIDAPI_DOUYIN_HOST = 'douyin-media-no-watermark1.p.rapidapi.com';
+
+async function extractDouyinId(input) {
+  if (!input || typeof input !== 'string') return null;
+  // 1. Direct ID match (18-20 consecutive digits)
+  const idMatch = input.match(/\b(\d{18,20})\b/);
+  if (idMatch) return idMatch[1];
+
+  // 2. douyin.com/video/ID or modal_id=ID or iesdouyin.com/share/video/ID
+  const videoMatch = input.match(/(?:video\/|modal_id=)(\d+)/);
+  if (videoMatch) return videoMatch[1];
+
+  // 3. Short URL resolution (v.douyin.com)
+  const shortMatch = input.match(/https?:\/\/v\.douyin\.com\/[a-zA-Z0-9_\-]+/i);
+  if (shortMatch) {
+    try {
+      const res = await fetch(shortMatch[0], {
+        method: 'HEAD',
+        redirect: 'follow',
+        headers: { 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X)' }
+      });
+      const finalUrl = res.url || '';
+      const finalId = finalUrl.match(/(?:video\/|modal_id=)(\d+)/) || finalUrl.match(/\b(\d{18,20})\b/);
+      if (finalId) return finalId[1];
+    } catch {
+      try {
+        const res = await fetch(shortMatch[0], {
+          method: 'GET',
+          redirect: 'follow',
+          headers: { 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X)' }
+        });
+        const finalUrl = res.url || '';
+        const finalId = finalUrl.match(/(?:video\/|modal_id=)(\d+)/) || finalUrl.match(/\b(\d{18,20})\b/);
+        if (finalId) return finalId[1];
+      } catch {}
+    }
+  }
+  return null;
+}
+
+async function fetchDouyinDetail(inputUrl) {
+  const douyinId = await extractDouyinId(inputUrl);
+  if (!douyinId) return null;
+
+  const res = await fetch('https://douyin-media-no-watermark1.p.rapidapi.com/v1/social/douyin/web/aweme/detail', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-rapidapi-host': RAPIDAPI_DOUYIN_HOST,
+      'x-rapidapi-key': RAPIDAPI_DOUYIN_KEY
+    },
+    body: JSON.stringify({ id: douyinId })
+  });
+
+  if (!res.ok) return null;
+  const data = await res.json();
+  const aweme = data?.aweme_detail;
+  if (!aweme) return null;
+
+  const playList = aweme.video?.play_addr?.url_list || [];
+  const h264List = aweme.video?.play_addr_h264?.url_list || [];
+  const downloadList = aweme.video?.download_addr?.url_list || [];
+  const bitRateList = (aweme.video?.bit_rate || []).flatMap(b => b.play_addr?.url_list || []);
+
+  const cleanVideoUrl = playList[0] || h264List[0] || bitRateList[0] || null;
+  const hdVideoUrl = h264List[0] || playList[0] || cleanVideoUrl;
+  const watermarkUrl = downloadList[0] || null;
+
+  const isImage = aweme.images && aweme.images.length > 0;
+  const images = isImage ? aweme.images.map(img => img.url_list?.[0]).filter(Boolean) : [];
+
+  return {
+    success: true,
+    provider: 'douyin-rapidapi',
+    type: isImage ? 'image' : 'video',
+    id: aweme.aweme_id || douyinId,
+    title: aweme.desc || aweme.item_title || 'Douyin Video (No Watermark)',
+    author: {
+      username: aweme.author?.unique_id || aweme.author?.short_id || 'douyin_creator',
+      nickname: aweme.author?.nickname || 'Douyin Creator',
+      avatar: aweme.author?.avatar_thumb?.url_list?.[0] || '',
+    },
+    stats: {
+      likes: aweme.statistics?.digg_count || 0,
+      comments: aweme.statistics?.comment_count || 0,
+      shares: aweme.statistics?.share_count || 0,
+      views: aweme.statistics?.play_count || 0,
+    },
+    cover: aweme.video?.cover?.url_list?.[0] || aweme.video?.origin_cover?.url_list?.[0] || '',
+    video: {
+      noWatermark: cleanVideoUrl,
+      noWatermarkHd: hdVideoUrl,
+      watermark: watermarkUrl,
+    },
+    music: {
+      title: aweme.music?.title || 'Original Sound',
+      author: aweme.music?.author || aweme.author?.nickname || 'Douyin Audio',
+      url: aweme.music?.play_url?.url_list?.[0] || null,
+    },
+    images,
+  };
+}
+
 // In-Memory Fast Cache (TTL: 15 minutes)
 const mediaCache = new Map();
 const CACHE_TTL_MS = 15 * 60 * 1000;
@@ -71,6 +176,11 @@ function cleanTikTokUrl(rawUrl) {
     return 'https://' + sub.replace(/[.,;:!?)\\]+$/, '');
   }
 
+  // If it's a numeric Douyin ID:
+  if (/^\d{18,20}$/.test(str)) {
+    return 'https://www.douyin.com/video/' + str;
+  }
+
   return null;
 }
 
@@ -101,7 +211,7 @@ export async function POST(request) {
 
     if (!url) {
       return NextResponse.json(
-        { success: false, error: 'Please provide a valid TikTok URL.' },
+        { success: false, error: 'Please provide a valid TikTok or Douyin URL.' },
         { status: 400 }
       );
     }
@@ -109,7 +219,7 @@ export async function POST(request) {
     const cleanUrl = cleanTikTokUrl(url);
     if (!cleanUrl) {
       return NextResponse.json(
-        { success: false, error: 'Invalid TikTok URL format. Please paste a standard TikTok video, photo, or music link.' },
+        { success: false, error: 'Invalid URL format. Please paste a standard TikTok or Douyin video link.' },
         { status: 400 }
       );
     }
@@ -120,10 +230,24 @@ export async function POST(request) {
       return NextResponse.json({ ...cached, cached: true });
     }
 
+    // 2. Dedicated Douyin Handler (RapidAPI Gateway - ONLY triggered for Douyin links to protect free quota!)
+    const isDouyin = cleanUrl.includes('douyin.com') || (typeof url === 'string' && (url.includes('douyin.com') || /[\u4e00-\u9fa5]/.test(url)));
+    if (isDouyin) {
+      try {
+        const douyinResult = await fetchDouyinDetail(url || cleanUrl);
+        if (douyinResult && douyinResult.success) {
+          setCachedResult(cleanUrl, douyinResult);
+          return NextResponse.json(douyinResult);
+        }
+      } catch (errDouyin) {
+        console.warn('Douyin RapidAPI resolution failed:', errDouyin.message);
+      }
+    }
+
     let downloadResult = null;
     let versionUsed = 'fast-race';
 
-    // 2. Tier 1: High-Speed Concurrent Race (v2 & v1 without proxy for sub-second ~600ms speed)
+    // 3. Tier 1: High-Speed Concurrent Race (v2 & v1 without proxy for sub-second ~600ms speed for international TikTok)
     try {
       const winner = await Promise.any([
         fetchProviderWithTimeout('v2', cleanUrl, {}, 7000),
@@ -132,7 +256,7 @@ export async function POST(request) {
       downloadResult = winner.result;
       versionUsed = winner.version;
     } catch {
-      // 3. Tier 2: Webshare Multi-Region Geo-Unlocker (US / UK / JP Proxy)
+      // 4. Tier 2: Webshare Multi-Region Geo-Unlocker (US / UK / JP Proxy)
       // Automatically triggered if Tier 1 encounters a geo-restriction or IP rate-limit!
       try {
         const activeProxy = getNextWebshareProxy();
@@ -142,7 +266,7 @@ export async function POST(request) {
       } catch (errProxy) {
         console.warn('Webshare Tier 2 attempt failed, attempting Tier 3 fallback...', errProxy.message);
         
-        // 4. Tier 3: MusicalDown fallback
+        // 5. Tier 3: MusicalDown fallback
         try {
           const v3 = await fetchProviderWithTimeout('v3', cleanUrl, {}, 8000);
           downloadResult = v3.result;
@@ -157,7 +281,7 @@ export async function POST(request) {
       return NextResponse.json(
         {
           success: false,
-          error: 'Unable to retrieve media from this TikTok link. The video may be private, deleted, or restricted.',
+          error: 'Unable to retrieve media from this link. The video may be private, deleted, or restricted.',
         },
         { status: 404 }
       );
