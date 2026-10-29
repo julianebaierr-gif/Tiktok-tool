@@ -116,6 +116,7 @@ export default function TikTokRingtonePage() {
         placeholder="Paste TikTok sound link to create custom ringtone..."
         buttonText="Create Ringtone"
         badge="Viral Audio to Ringtone Converter"
+        mode="ringtone"
       />
 
       {/* Feature Highlights */}

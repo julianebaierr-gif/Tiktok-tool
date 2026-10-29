@@ -117,6 +117,7 @@ export default function TikTokStoryPage() {
         placeholder="Paste TikTok story link here..."
         buttonText="Save Story in HD"
         badge="Anonymous 24-Hour Story Archiver"
+        mode="story"
       />
 
       {/* Feature Highlights */}

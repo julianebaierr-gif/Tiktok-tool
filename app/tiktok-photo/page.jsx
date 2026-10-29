@@ -116,6 +116,7 @@ export default function TikTokPhotoPage() {
         placeholder="Paste TikTok photo slideshow link here..."
         buttonText="Extract All Photos"
         badge="Multi-Image Carousel Extractor"
+        mode="photo"
       />
 
       {/* Feature Highlights */}

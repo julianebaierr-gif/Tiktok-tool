@@ -117,6 +117,7 @@ export default function TikTokAvatarPage() {
         placeholder="Paste TikTok profile link or @username (e.g., https://www.tiktok.com/@creator or @username)..."
         buttonText="View Full HD Avatar"
         badge="1080p Profile Photo Extractor"
+        mode="avatar"
       />
 
       {/* Feature Highlights Grid */}

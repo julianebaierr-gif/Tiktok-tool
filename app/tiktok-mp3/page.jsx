@@ -114,6 +114,9 @@ export default function TikTokMp3Page() {
         title="TikTok to MP3 Converter & Sound Ripper"
         subtitle="Extract crystal-clear 320kbps MP3 music tracks, audio hooks, and viral dialogue from any TikTok video instantly."
         placeholder="Paste TikTok video link to extract MP3 audio..."
+        buttonText="Convert to MP3"
+        badge="Dedicated 320kbps Audio Engine"
+        mode="mp3"
       />
 
       {/* Audio Engine Feature Cards */}

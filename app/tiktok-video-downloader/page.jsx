@@ -122,6 +122,7 @@ export default function TikTokVideoDownloaderPage() {
         placeholder="Paste TikTok video link here (e.g., https://www.tiktok.com/@user/video/...)"
         buttonText="Download HD Video"
         badge="100% Free Online Video Downloader"
+        mode="video"
       />
 
       {/* Visual Step-by-Step Tutorial with Mobile / Desktop Tab Toggle */}
