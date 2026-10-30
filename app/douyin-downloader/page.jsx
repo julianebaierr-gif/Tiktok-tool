@@ -51,8 +51,8 @@ export default function DouyinDownloaderPage() {
       a: "Yes! When you tap 'Copy Link' inside the Douyin app, it copies a complete Chinese modal share snippet containing text, emojis, and a short link (for example: '7.32 e@d.gZ 03/12 v.douyin.com/xyz/ 复制此链接打开抖音'). QukTik automatically parses the text, isolates the actual video URL, and processes the clean video stream without requiring you to manually delete Chinese characters."
     },
     {
-      q: "Does QukTik require a Chinese phone number, VPN, or Douyin account?",
-      a: "No! QukTik's cloud servers handle all network communication directly with ByteDance Chinese CDN nodes. You do not need a Chinese phone number, an active Douyin login, or a VPN service to download public videos and audio tracks."
+      q: "Does QukTik require a Chinese phone number or Douyin account registration?",
+      a: "No! QukTik's cloud servers handle all network communication directly with ByteDance Chinese CDN nodes. You do not need a Chinese phone number or an active Douyin account login to download public videos and audio tracks."
     },
     {
       q: "Are downloaded Douyin videos watermark-free and in 1080p Full HD?",
@@ -160,7 +160,7 @@ export default function DouyinDownloaderPage() {
             </div>
             <h3 className="text-lg font-bold text-slate-900">100% Watermark-Free (无水印)</h3>
             <p className="text-sm text-slate-600 leading-relaxed">
-              Strip away the bouncing Douyin logo and creator ID watermark completely, leaving pristine video frames ideal for creative editing in CapCut (剪映).
+              Save clean videos without the bouncing Douyin logo and creator ID watermark, leaving pristine video frames ideal for creative editing in CapCut (剪映).
             </p>
           </div>
         </div>

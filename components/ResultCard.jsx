@@ -1222,7 +1222,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                   <div className="flex items-center justify-between">
                     <h4 className="text-xs font-black text-purple-700 uppercase tracking-wider">1. Primary 24h Story Download:</h4>
                     <span className="text-[11px] font-bold text-purple-800 bg-purple-50 px-2.5 py-0.5 rounded-full border border-purple-200">
-                      100% Anonymous Save
+                      Direct HD Story Save
                     </span>
                   </div>
 

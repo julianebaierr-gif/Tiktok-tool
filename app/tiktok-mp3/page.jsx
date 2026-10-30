@@ -58,7 +58,7 @@ export default function TikTokMp3Page() {
     },
     {
       q: "Do I need to download the full video just to get the audio?",
-      a: "No! QukTik's dedicated audio engine performs demuxing directly on our cloud servers. Only the isolated audio track is delivered to your browser, saving your mobile data allowance and completing the download in under two seconds."
+      a: "No! QukTik's dedicated audio engine isolates the audio stream directly on our cloud servers. Only the isolated audio track is delivered to your browser, saving your mobile data allowance and completing the download in under two seconds."
     },
     {
       q: "Are downloaded TikTok MP3 tracks compatible with Spotify Local Files?",
@@ -148,7 +148,7 @@ export default function TikTokMp3Page() {
             <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 mb-2">
               <Radio className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900">Instant Demuxing in 2 Seconds</h3>
+            <h3 className="text-lg font-bold text-slate-900">Instant Audio Processing in 2 Seconds</h3>
             <p className="text-sm text-slate-600 leading-relaxed">
               No need to wait for heavy video processing. Our audio extraction engine grabs the pure audio stream in under two seconds without burning through your mobile data.
             </p>
@@ -171,13 +171,13 @@ export default function TikTokMp3Page() {
 
         {/* Section 1: The Sonic Culture of TikTok & 3D Illustration */}
         <section className="space-y-6">
-          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">Demuxing vs. Transcoding: How QukTik Preserves Pristine Acoustic Dynamics
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">Direct Audio Formatting vs. Re-Encoding: How QukTik Preserves Acoustic Quality
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Most generic online audio converters operate on an inefficient, lossy pipeline: they download the full video file to a temporary server, decode the video and audio frames simultaneously, and then run a secondary compression encoder to produce an MP3 file. This process introduces generational audio loss, flattens dynamic range, and introduces quantization distortion.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            QukTik uses a direct stream demultiplexing (demuxing) architecture:
+            QukTik uses a direct audio stream formatting architecture:
           </p>
           <ul className="list-disc list-inside space-y-3 pl-2 text-slate-600 text-sm sm:text-base">
             <li><strong>Packet Extraction:</strong> Rather than downloading the entire video track, our cloud parser isolates the specific audio elementary stream (<code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">audio_stream_url</code>) from ByteDance&apos;s media manifest.</li>
@@ -324,14 +324,14 @@ export default function TikTokMp3Page() {
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">Preserving Full Dynamic Range: Sub-Bass, Vocal Presences &amp; High-Frequency Air
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            When audio is compressed repeatedly through low-bitrate web converters or device screen recorders, the lossiest elements cut by psychoacoustic compression algorithms are the high frequencies and sub-bass transients. This causes muddy vocals and flat, lifeless percussion. QukTik&apos;s direct demuxing architecture preserves three primary frequency zones:
+            When audio is compressed repeatedly through low-bitrate web converters or device screen recorders, the lossiest elements cut by psychoacoustic compression algorithms are the high frequencies and sub-bass transients. This causes muddy vocals and flat, lifeless percussion. QukTik&apos;s direct audio formatting architecture preserves three primary frequency zones:
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
               <h3 className="font-bold text-slate-900 text-base">Sub-Bass Dynamics (20Hz – 120Hz)</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Critical for modern trap beats, electronic drops, and cinematic bass swells. Direct stream demuxing maintains full low-end punch without digital distortion or clipped wave peaks.
+                Critical for modern trap beats, electronic drops, and cinematic bass swells. Direct audio stream processing maintains full low-end punch without digital distortion or clipped wave peaks.
               </p>
             </div>
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">

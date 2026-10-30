@@ -35,7 +35,7 @@ export default function FeatureGrid() {
     },
     {
       icon: ShieldCheck,
-      title: 'Private & Anonymous',
+      title: 'Private & No Login Needed',
       description: 'No account registration, no credit cards, and no stored media logs. All media streams securely through an ephemeral browser sandbox.',
       badge: 'Safe & Secure',
     },

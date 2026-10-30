@@ -167,7 +167,7 @@ export default function SemanticContent() {
         </div>
       </div>
 
-      {/* Section 2: Technical Demuxing Architecture */}
+      {/* Section 2: Technical Media Processing Architecture */}
       <section className="space-y-6">
         <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">Cloud CDN Architecture: How Direct Stream Extraction Works
         </h3>
@@ -177,28 +177,28 @@ export default function SemanticContent() {
         <ul className="list-disc list-inside space-y-3 pl-2 text-slate-600">
           <li><strong>Untouched Source Master:</strong> When a content creator records or renders a video and hits upload, the original high-bitrate video stream is written to storage. This file contains pure pixel data without any overlays, account handles, or trailing end cards.</li>
           <li><strong>Post-Render Watermarked Container:</strong> To facilitate in-app sharing and enforce viral brand attribution, an automated server-side encoding queue burns the animated bouncing TikTok badge and creator ID into the frame stream, appending a 3-second black animated outro.</li>
-          <li><strong>Dynamic Demuxing Stream:</strong> Audio tracks are separated from video frames into independent MPEG-4 audio (<code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">.m4a</code> / <code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">.mp3</code>) representations to facilitate instant synchronization, multi-track audio mixing, and duet recording.</li>
+          <li><strong>Independent Audio Stream:</strong> Audio tracks are separated from video frames into independent MPEG-4 audio (<code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">.m4a</code> / <code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">.mp3</code>) representations to facilitate instant synchronization, multi-track audio mixing, and duet recording.</li>
         </ul>
         <p>
           <strong>Why Legacy Downloaders Fail:</strong> Many older web tools attempt to remove watermarks through destructive image processing—either by cropping the outer 15% of the video canvas (cutting off heads, subtitles, and logos) or applying a localized Gaussian blur filter that leaves a distracting smudge. QukTik operates on an entirely different architectural paradigm: our cloud routing engine accesses the authenticated source stream (<code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">play_addr</code>) directly before the watermark overlay pipeline executes. This ensures you receive the pristine 1080p source video with 100% frame integrity and color fidelity.
         </p>
       </section>
 
-      {/* Section 3: Deep Dive into Audio Demuxing & Sound Design */}
+      {/* Section 3: Deep Dive into Audio Separation & Sound Design */}
       <section className="space-y-6">
-        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">The Science of Digital Audio Demuxing in Short-Form Content
+        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">The Science of Digital Audio Separation in Short-Form Content
         </h3>
         <p>
           Sound design on TikTok represents half the emotional impact of any viral post. Whether it is an original ambient field recording, a spoken-word commentary track, or a masterfully produced 15-second acoustic hook, audio files are encoded with high dynamic range. However, when users rely on smartphone screen recording to capture sounds, the resulting file suffers from dual compression: first through the phone&apos;s internal audio mixer, and second through the screen recorder&apos;s lossy AAC codec.
         </p>
         <p>
-          QukTik&apos;s media extraction pipeline demuxes the original audio bitstream directly from the media container:
+          QukTik&apos;s media extraction pipeline isolates the original audio track directly from the media container:
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
             <h4 className="font-bold text-slate-900 text-base flex items-center gap-2">
               <span className="w-6 h-6 rounded-lg bg-slate-100 border border-slate-200/80 text-slate-700 flex items-center justify-center text-xs font-bold">1</span>
-              Lossless Bitstream Demuxing
+              Lossless Audio Track Separation
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               Instead of re-recording sound through a virtual soundcard, our cloud processors split the MP4 container into its elementary visual and acoustic elementary streams. The audio track is isolated in its native sample rate (44.1 kHz or 48 kHz) without generational transcoding losses.
@@ -369,7 +369,7 @@ export default function SemanticContent() {
               Zero Account Login or Cookie Sharing
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              You never need to log into TikTok, share personal account details, or connect social profiles. All media extraction operations occur through public open-graph and CDN endpoints, guaranteeing complete anonymity and data isolation.
+              You never need to log into TikTok, share personal account details, or connect social profiles. All media extraction operations occur through public open-graph and CDN endpoints, providing a fast, private, and no-login browser experience.
             </p>
           </div>
         </div>
@@ -482,7 +482,7 @@ export default function SemanticContent() {
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
             <h4 className="font-bold text-slate-900 text-base">Niche Passions &amp; Subcultures</h4>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Documenting enthusiast movements from trainspotter Francis Bourgeois to lifestyle collectives like MomTok, as well as creators like Tayler Holder, Topper Guild, Hailee and Kendra (haileeandkendra), Nevaaadaa, Breckie Hill, Slayeas, Limerince, Yellz0, and Kylayese.
+              Documenting enthusiast movements from trainspotter Francis Bourgeois to lifestyle collectives like MomTok, as well as creators like Zach King, Khaby Lame, Charli D'Amelio, Gordon Ramsay, and MrBeast.
             </p>
           </div>
         </div>

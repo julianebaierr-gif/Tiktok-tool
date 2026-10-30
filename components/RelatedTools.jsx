@@ -37,8 +37,8 @@ const ALL_TOOLS = [
   {
     slug: '/tiktok-story',
     title: 'TikTok Story Saver',
-    badge: '100% Anonymous',
-    description: 'Archive 24-hour disappearing TikTok stories before they vanish without creator notification.',
+    badge: 'No Login Needed',
+    description: 'Archive 24-hour disappearing public TikTok stories in HD before they expire.',
     icon: History,
   },
   {

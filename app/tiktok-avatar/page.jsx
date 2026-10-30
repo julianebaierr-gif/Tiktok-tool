@@ -58,7 +58,7 @@ export default function TikTokAvatarPage() {
     },
     {
       q: "Does the account owner receive any notification when I view or download their avatar?",
-      a: "No. Inspecting or saving a profile picture via QukTik is 100% anonymous and undetectable. QukTik does not connect to your personal TikTok account, nor does it log user identities. TikTok provides creator analytics exclusively for video impressions, profile visits while logged into the app with Profile Views enabled, and live stream engagement; it possesses zero tracking mechanisms for public CDN asset downloads."
+      a: "No. Inspecting or saving a public profile picture via QukTik requires no account login. QukTik does not connect to your personal TikTok account, nor does it log user identities. TikTok provides creator analytics exclusively for video impressions, profile visits while logged into the app with Profile Views enabled, and live stream engagement; it possesses zero tracking mechanisms for public CDN asset downloads."
     },
     {
       q: "What image formats and color profiles are delivered for TikTok avatars?",
@@ -159,9 +159,9 @@ export default function TikTokAvatarPage() {
             <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 mb-2">
               <UserCheck className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900">100% Anonymous Lookup</h3>
+            <h3 className="text-lg font-bold text-slate-900">No-Login Profile Lookup</h3>
             <p className="text-sm text-slate-600 leading-relaxed">
-              Zero TikTok login credentials required. Search any public profile handle and save the picture completely anonymously without leaving digital footprints.
+              Zero TikTok login credentials required. Search any public profile handle and save the public profile picture directly in your browser without logging in.
             </p>
           </div>
         </div>
@@ -199,7 +199,7 @@ export default function TikTokAvatarPage() {
                 <span>Full Square Frame View (80x80 ➔ 1080x1080 HD)</span>
               </span>
               <span className="flex items-center gap-1.5 text-emerald-700 font-bold">
-                <span>Full Uncropped JPG/WebP • 100% Anonymous Lookup</span>
+                <span>Full Uncropped JPG/WebP • No-Login Profile Lookup</span>
               </span>
             </div>
           </div>
@@ -224,7 +224,7 @@ export default function TikTokAvatarPage() {
                 Original Master Upload
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                When a creator uploads a photo from their camera roll, it usually originates from a 12MP, 48MP, or professionally exported square canvas (often 2048x2048 or 1080x1080 pixels). ByteDance servers receive this full square asset, strip unnecessary EXIF location tags for privacy, and generate an uncompressed master image stored across global edge servers.
+                When a creator uploads a photo from their camera roll, it usually originates from a 12MP, 48MP, or professionally exported square canvas (often 2048x2048 or 1080x1080 pixels). ByteDance servers receive this full square asset, remove unnecessary EXIF location tags for privacy, and generate an uncompressed master image stored across global edge servers.
               </p>
             </div>
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
@@ -308,8 +308,8 @@ export default function TikTokAvatarPage() {
                   <td className="p-4 sm:p-5 text-slate-500">Requires manual photo editing</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
-                  <td className="p-4 sm:p-5 font-semibold text-slate-900">Privacy &amp; Anonymity</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-700">100% Anonymous (No login needed)</td>
+                  <td className="p-4 sm:p-5 font-semibold text-slate-900">Account Requirement</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">No Account Login Needed</td>
                   <td className="p-4 sm:p-5 text-slate-500">May trigger Profile Views history</td>
                   <td className="p-4 sm:p-5 text-slate-500">Requires visiting profile in app</td>
                 </tr>

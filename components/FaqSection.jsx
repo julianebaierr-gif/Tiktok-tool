@@ -45,11 +45,11 @@ export default function FaqSection() {
     },
     {
       q: 'Do I need to install any app or browser extension?',
-      a: 'No applications, APKs, or browser extensions are required. QukTik functions entirely within your standard browser (Safari, Chrome, Firefox, Edge, Samsung Internet, Brave). This keeps your phone or computer completely safe from unwanted software and bloated apps.',
+      a: 'No mobile applications or browser extensions are required. QukTik functions entirely within your standard browser (Safari, Chrome, Firefox, Edge, Samsung Internet, Brave). This keeps your phone or computer completely safe from unwanted software and bloated apps.',
     },
     {
       q: 'Does downloading alert the creator that I saved their video?',
-      a: 'No. TikTok does not notify creators or accounts when their public video is downloaded through an external browser utility. All downloads are 100% anonymous and private.',
+      a: 'No. TikTok does not notify creators or accounts when their public video is downloaded through an external browser utility. All downloads are processed privately in your browser without requiring a login.',
     },
     {
       q: 'Is QukTik completely free with no download limits?',

@@ -1,5 +1,11 @@
 export async function GET() {
-  const robotsTxt = `User-agent: *
+  const robotsTxt = `User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: *
 Allow: /
 Disallow: /api/
 

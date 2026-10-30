@@ -28,13 +28,13 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'TikTok Story Saver - Download Stories in HD',
-  description: 'Save and download 24-hour TikTok stories anonymously before they expire in HD MP4. 100% free online story viewer and downloader.',
+  description: 'Save and download 24-hour TikTok stories in HD MP4 before they expire. 100% free online story viewer and downloader with no login required.',
   alternates: {
     canonical: 'https://quktik.com/tiktok-story',
   },
   openGraph: {
-    title: 'TikTok Story Saver - Download TikTok Stories Anonymously in HD',
-    description: 'Save and download 24-hour TikTok stories anonymously before they expire in HD MP4. 100% free online story viewer and downloader.',
+    title: 'TikTok Story Saver - Download TikTok Stories in HD (No Login)',
+    description: 'Save and download 24-hour TikTok stories in HD MP4 before they expire. 100% free online story viewer and downloader with no login required.',
     url: 'https://quktik.com/tiktok-story',
     type: 'website',
   },
@@ -45,8 +45,8 @@ export default function TikTokStoryPage() {
 
   const faqData = [
     {
-      q: "Can I download TikTok stories without the creator knowing?",
-      a: "Yes! When you view or download a TikTok story through QukTik, our cloud server requests the public media stream directly. You never log into your TikTok account, meaning your profile never appears on the creator's 'Viewers' or 'Seen' analytics list. It is 100% anonymous."
+      q: "Do I need to log into a TikTok account to save stories?",
+      a: "Yes! When you view or download a TikTok story through QukTik, our cloud server requests the public media stream directly. You never need to log into a TikTok account to preview or save public story clips in your web browser."
     },
     {
       q: "What happens after the 24-hour story expiration window?",
@@ -58,7 +58,7 @@ export default function TikTokStoryPage() {
     },
     {
       q: "Does QukTik remove the watermark on TikTok story videos?",
-      a: "Yes. Our extractor accesses the clean source stream directly from ByteDance's content delivery network, stripping the moving watermark logo and giving you the original, unblemished 1080p MP4 video file."
+      a: "Yes. Our extractor accesses the clean source stream directly from ByteDance's content delivery network, providing a clean version without the moving watermark logo and giving you the original, unblemished 1080p MP4 video file."
     },
     {
       q: "Can I download photo stories as well as video stories?",
@@ -113,10 +113,10 @@ export default function TikTokStoryPage() {
       <Breadcrumbs items={[{ name: 'TikTok Story Saver', url: '/tiktok-story' }]} />
       <ToolHero 
         title="TikTok Story Saver & Downloader (Save 24h Stories in HD)"
-        subtitle="Save disappearing TikTok stories before they vanish forever. Download clean, watermark-free 1080p MP4 videos 100% anonymously."
+        subtitle="Save disappearing TikTok stories before they vanish forever. Download clean, watermark-free 1080p MP4 videos with no login required."
         placeholder="Paste TikTok story link here..."
         buttonText="Save Story in HD"
-        badge="Anonymous 24-Hour Story Archiver"
+        badge="24-Hour Story Archiver (No Login)"
         mode="story"
       />
 
@@ -139,9 +139,9 @@ export default function TikTokStoryPage() {
             <div className="w-12 h-12 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center text-purple-600 mb-2">
               <Eye className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900">100% Anonymous Viewing</h3>
+            <h3 className="text-lg font-bold text-slate-900">No-Login Browser Viewing</h3>
             <p className="text-sm text-slate-600 leading-relaxed">
-              Download and watch stories without leaving a trace. The creator will never see your username in their story viewers analytics list.
+              Preview and save public stories directly in your browser without needing to sign into an account.
             </p>
           </div>
 
@@ -196,10 +196,10 @@ export default function TikTokStoryPage() {
                   <td className="p-4 sm:p-5 text-slate-500">Manual capture required</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
-                  <td className="p-4 sm:p-5 font-semibold text-slate-900">Viewer Anonymity</td>
-                  <td className="p-4 sm:p-5 font-bold text-emerald-700">100% Anonymous (No Login)</td>
+                  <td className="p-4 sm:p-5 font-semibold text-slate-900">Account Login Required</td>
+                  <td className="p-4 sm:p-5 font-bold text-emerald-700">No Login Required</td>
                   <td className="p-4 sm:p-5 text-slate-500">N/A (Link fails)</td>
-                  <td className="p-4 sm:p-5 text-rose-700">Exposes name to creator&apos;s view list</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Requires app sign-in</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Watermark Removal</td>
@@ -232,7 +232,7 @@ export default function TikTokStoryPage() {
                 <h3 className="font-bold text-slate-900 text-base">Flash Discounts &amp; Promo Codes</h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                E-commerce brands and influencers frequently post 24-hour affiliate coupon codes and secret discount links on their stories that disappear before you have time to shop.
+                E-commerce brands and influencers frequently post 24-hour affiliate coupon codes and limited-time promotional links on their stories that disappear before you have time to shop.
               </p>
             </div>
 
@@ -330,9 +330,9 @@ export default function TikTokStoryPage() {
           </p>
         </section>
 
-        {/* Section 6: Anonymity Architecture & Privacy Engineering */}
+        {/* Section 6: Browser-Based Privacy Engineering */}
         <section className="space-y-6">
-          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">How QukTik Delivers 100% Anonymous Story Viewing Without Digital Footprints
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">How QukTik Delivers Private Browser-Based Story Viewing
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             When you watch a story while signed into the mobile app, the platform records your view under the creator&apos;s viewer analytics list.
@@ -425,7 +425,7 @@ export default function TikTokStoryPage() {
               Frequently Asked Questions About TikTok Story Downloading
             </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600">
-              Clear answers regarding story expiration, anonymity, and device compatibility.
+              Clear answers regarding story expiration, privacy, and device compatibility.
             </p>
           </div>
 

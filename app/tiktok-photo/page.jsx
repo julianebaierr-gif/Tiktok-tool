@@ -69,7 +69,7 @@ export default function TikTokPhotoPage() {
     },
     {
       q: "Do I need to install any app to download TikTok carousels?",
-      a: "No apps, APKs, or software are required. QukTik is an entirely web-based utility that works reliably in Safari, Chrome, Edge, and Firefox across iOS, Android, macOS, Windows, and Linux over secure HTTPS."
+      a: "No mobile apps or extra software installations are required. QukTik is an entirely web-based utility that works reliably in Safari, Chrome, Edge, and Firefox across iOS, Android, macOS, Windows, and Linux over secure HTTPS."
     },
     {
       q: "What image formats are extracted from TikTok photo carousels?",
@@ -387,7 +387,7 @@ export default function TikTokPhotoPage() {
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">Preserving Master Carousel Quality: Why Specialized Photo Extraction Matters
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Extracting high-resolution still images instead of downscaled video conversions is essential for photography lovers, mood-board curators, and graphic designers. Many online tools convert photo carousels into a low-resolution MP4 video loop, stripping out the creator's high-definition stills and preventing users from saving individual slides.
+            Extracting high-resolution still images instead of downscaled video conversions is essential for photography lovers, mood-board curators, and graphic designers. Many online tools convert photo carousels into a low-resolution MP4 video loop, losing the creator's high-definition still frames and preventing users from saving individual slides.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             QukTik parses the raw multi-image manifest directly. Each slide is delivered as an uncompressed, individual JPG image without interface overlays, preserving color balance, sharp typography, and fine photographic detail.

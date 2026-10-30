@@ -6,7 +6,7 @@ export const metadata = {
   title: 'Terms of Service',
   description: 'QukTik Terms of Service governing the use of our online media downloader, intellectual property guidelines, and fair-use limitations.',
   alternates: {
-    canonical: '<Link href="/" className="text-rose-700 font-semibold hover:underline">https://quktik.com</Link>/terms-of-service',
+    canonical: 'https://quktik.com/terms-of-service',
   },
   openGraph: {
     title: 'Terms of Service',
@@ -69,7 +69,7 @@ export default function TermsOfServicePage() {
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">4. Misuse of the Service</h2>
           <p>You agree not to:</p>
           <ul className="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
-            <li>Launch automated bots or scripts aimed at overwhelming our servers.</li>
+            <li>Send excessive automated requests aimed at overwhelming our servers.</li>
             <li>Attempt to overload or disrupt website availability.</li>
             <li>Use the tool to violate the privacy or rights of any individual.</li>
           </ul>
