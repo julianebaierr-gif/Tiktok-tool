@@ -25,6 +25,7 @@ import {
   Disc,
   Globe2,
   Clock,
+  Calendar,
   Bookmark,
   Hash,
   Users,
@@ -56,8 +57,64 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
     durationFormatted,
     shareUrl,
     hashtags,
+    createTime,
     provider
   } = result;
+
+
+  // Compute exact Video Upload Date & Time (from API createTime or 64-bit Snowflake ID)
+  const getUploadTimeInfo = () => {
+    let unixSec = null;
+    if (createTime && Number(createTime) > 1400000000) {
+      const n = Number(createTime);
+      unixSec = n > 10000000000 ? Math.floor(n / 1000) : Math.floor(n);
+    } else if (id && /^\d{18,20}$/.test(String(id))) {
+      try {
+        const decoded = Number(BigInt(String(id)) >> 32n);
+        if (decoded > 1450000000 && decoded < 2200000000) {
+          unixSec = decoded;
+        }
+      } catch {}
+    }
+    if (!unixSec) return null;
+
+    const dateObj = new Date(unixSec * 1000);
+    const localDate = dateObj.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+    const localTime = dateObj.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true,
+    });
+    const utcString = dateObj.toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+
+    const diffSec = Math.max(0, Math.floor(Date.now() / 1000) - unixSec);
+    let relative = 'Just now';
+    if (diffSec >= 31536000) {
+      const yrs = Math.floor(diffSec / 31536000);
+      relative = `${yrs} year${yrs > 1 ? 's' : ''} ago`;
+    } else if (diffSec >= 2592000) {
+      const mos = Math.floor(diffSec / 2592000);
+      relative = `${mos} month${mos > 1 ? 's' : ''} ago`;
+    } else if (diffSec >= 86400) {
+      const days = Math.floor(diffSec / 86400);
+      relative = `${days} day${days > 1 ? 's' : ''} ago`;
+    } else if (diffSec >= 3600) {
+      const hrs = Math.floor(diffSec / 3600);
+      relative = `${hrs} hour${hrs > 1 ? 's' : ''} ago`;
+    } else if (diffSec >= 60) {
+      const mins = Math.floor(diffSec / 60);
+      relative = `${mins} min${mins > 1 ? 's' : ''} ago`;
+    }
+
+    return { localDate, localTime, utcString, relative };
+  };
+
+  const uploadInfo = getUploadTimeInfo();
 
   const isDouyinMode = mode === 'douyin' || isDouyin || provider === 'douyin-rapidapi';
   const isImagePost = type === 'image' || (images && images.length > 0);
@@ -345,10 +402,24 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
 
               {/* Right Column: Title, Hashtags, Stats & Download Options */}
               <div className="md:col-span-7 space-y-6">
-                <div>
+                                <div className="space-y-2.5">
                   <h3 className="text-slate-900 text-base sm:text-lg font-semibold leading-relaxed">
                     {title || 'Douyin Video Description'}
                   </h3>
+                  {uploadInfo && (
+                    <div className="flex flex-wrap items-center gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs">
+                      <span className="inline-flex items-center gap-1.5 font-bold text-slate-800">
+                        <Calendar className="w-3.5 h-3.5 text-rose-600 shrink-0" />
+                        <span>Uploaded (发布时间): {uploadInfo.localDate} • {uploadInfo.localTime}</span>
+                      </span>
+                      <span className="px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 font-bold text-[11px]">
+                        {uploadInfo.relative}
+                      </span>
+                      <span className="text-[11px] text-slate-500 font-mono sm:ml-auto">
+                        {uploadInfo.utcString}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {hashtags && hashtags.length > 0 && (
@@ -776,11 +847,25 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
             {/* ----------------------------------------------------------- */}
             <div className="md:col-span-7 space-y-5">
               
-              {/* Video Title / Description */}
-              <div>
+                            {/* Video Title / Description + Exact Upload Timestamp */}
+              <div className="space-y-2.5">
                 <h3 className="text-slate-900 text-base sm:text-lg font-bold leading-relaxed line-clamp-3">
                   {title || 'TikTok video description'}
                 </h3>
+                {uploadInfo && (
+                  <div className="flex flex-wrap items-center gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs">
+                    <span className="inline-flex items-center gap-1.5 font-bold text-slate-800">
+                      <Calendar className="w-3.5 h-3.5 text-rose-600 shrink-0" />
+                      <span>Uploaded: {uploadInfo.localDate} • {uploadInfo.localTime}</span>
+                    </span>
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[11px]">
+                      {uploadInfo.relative}
+                    </span>
+                    <span className="text-[11px] text-slate-500 font-mono sm:ml-auto">
+                      {uploadInfo.utcString}
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Engagement Statistics */}

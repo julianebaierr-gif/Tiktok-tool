@@ -24,6 +24,27 @@ function getNextWebshareProxy() {
 const RAPIDAPI_DOUYIN_KEY = 'aa1fc7507bmshd3bf23922c9fc6ep167696jsn10c882466832';
 const RAPIDAPI_DOUYIN_HOST = 'douyin-media-no-watermark1.p.rapidapi.com';
 
+// Extract exact Unix upload timestamp (seconds) from API field or 64-bit Snowflake Video ID
+function resolveCreateTime(apiTime, videoId, rawUrl) {
+  if (apiTime) {
+    const num = Number(apiTime);
+    if (!isNaN(num) && num > 1400000000) {
+      return num > 10000000000 ? Math.floor(num / 1000) : Math.floor(num);
+    }
+  }
+  const candidate = `${videoId || ''} ${rawUrl || ''}`;
+  const idMatch = candidate.match(/\b(\d{18,20})\b/);
+  if (idMatch) {
+    try {
+      const unixSec = Number(BigInt(idMatch[1]) >> 32n);
+      if (unixSec > 1450000000 && unixSec < 2200000000) {
+        return unixSec;
+      }
+    } catch {}
+  }
+  return null;
+}
+
 async function extractDouyinId(input) {
   if (!input || typeof input !== 'string') return null;
   // 1. Direct ID match (18-20 consecutive digits)
@@ -117,6 +138,7 @@ async function fetchDouyinDetail(inputUrl) {
       isDouyin: true,
       type: isImage ? 'image' : 'video',
       id: aweme.aweme_id || douyinId,
+      createTime: resolveCreateTime(aweme.create_time, aweme.aweme_id || douyinId, inputUrl),
       title: aweme.desc || aweme.item_title || 'Douyin Video (No Watermark)',
       duration: durSec,
       durationFormatted,
@@ -244,6 +266,7 @@ async function fetchTikwmDirect(url) {
         provider: 'tikwm-direct',
         type: isImg ? 'image' : 'video',
         id: d.id || d.video_id || Date.now().toString(),
+        createTime: resolveCreateTime(d.create_time, d.id || d.video_id, url),
         title: d.title || 'TikTok Video (No Watermark)',
         duration: durSec,
         durationFormatted,
@@ -449,6 +472,7 @@ export async function POST(request) {
       provider: versionUsed,
       type: isImage ? 'image' : 'video',
       id: downloadResult.id || Date.now().toString(),
+      createTime: resolveCreateTime(downloadResult.createTime || downloadResult.create_time, downloadResult.id, cleanUrl),
       title: downloadResult.desc || 'TikTok Video (No Watermark)',
       author: {
         username: downloadResult.author?.uniqueId || downloadResult.author?.username || 'TikTok Creator',
