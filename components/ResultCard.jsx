@@ -402,21 +402,31 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
 
               {/* Right Column: Title, Hashtags, Stats & Download Options */}
               <div className="md:col-span-7 space-y-6">
-                                <div className="space-y-2.5">
+                <div className="space-y-3">
                   <h3 className="text-slate-900 text-base sm:text-lg font-semibold leading-relaxed">
                     {title || 'Douyin Video Description'}
                   </h3>
                   {uploadInfo && (
-                    <div className="flex flex-wrap items-center gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs">
-                      <span className="inline-flex items-center gap-1.5 font-bold text-slate-800">
-                        <Calendar className="w-3.5 h-3.5 text-rose-600 shrink-0" />
-                        <span>Uploaded (发布时间): {uploadInfo.localDate} • {uploadInfo.localTime}</span>
-                      </span>
-                      <span className="px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 font-bold text-[11px]">
-                        {uploadInfo.relative}
-                      </span>
-                      <span className="text-[11px] text-slate-500 font-mono sm:ml-auto">
-                        {uploadInfo.utcString}
+                    <div className="flex items-center justify-between gap-3 p-3 rounded-2xl bg-gradient-to-r from-rose-50/60 via-slate-50 to-white border border-slate-200/90 shadow-2xs">
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="w-9 h-9 rounded-xl bg-rose-100/80 border border-rose-200 flex items-center justify-center text-rose-600 shrink-0">
+                          <Calendar className="w-4 h-4" />
+                        </div>
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-1.5 flex-wrap text-xs sm:text-[13px] leading-tight">
+                            <span className="font-bold text-slate-500">Uploaded:</span>
+                            <span className="font-extrabold text-slate-900">{uploadInfo.localDate}</span>
+                            <span className="text-slate-300 font-bold">•</span>
+                            <span className="font-bold text-rose-600">{uploadInfo.localTime}</span>
+                          </div>
+                          <p className="text-[11px] text-slate-500 font-mono mt-0.5 truncate">
+                            UTC: {uploadInfo.utcString.replace(' UTC', '')}
+                          </p>
+                        </div>
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-rose-50 text-rose-700 border border-rose-200 font-bold text-[11px] shrink-0 shadow-2xs">
+                        <Clock className="w-3 h-3 text-rose-500" />
+                        <span>{uploadInfo.relative}</span>
                       </span>
                     </div>
                   )}
@@ -847,22 +857,32 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
             {/* ----------------------------------------------------------- */}
             <div className="md:col-span-7 space-y-5">
               
-                            {/* Video Title / Description + Exact Upload Timestamp */}
-              <div className="space-y-2.5">
+              {/* Video Title / Description + Exact Upload Timestamp */}
+              <div className="space-y-3">
                 <h3 className="text-slate-900 text-base sm:text-lg font-bold leading-relaxed line-clamp-3">
                   {title || 'TikTok video description'}
                 </h3>
                 {uploadInfo && (
-                  <div className="flex flex-wrap items-center gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs">
-                    <span className="inline-flex items-center gap-1.5 font-bold text-slate-800">
-                      <Calendar className="w-3.5 h-3.5 text-rose-600 shrink-0" />
-                      <span>Uploaded: {uploadInfo.localDate} • {uploadInfo.localTime}</span>
-                    </span>
-                    <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[11px]">
-                      {uploadInfo.relative}
-                    </span>
-                    <span className="text-[11px] text-slate-500 font-mono sm:ml-auto">
-                      {uploadInfo.utcString}
+                  <div className="flex items-center justify-between gap-3 p-3 rounded-2xl bg-gradient-to-r from-slate-50 via-white to-slate-50/80 border border-slate-200/90 shadow-2xs">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-9 h-9 rounded-xl bg-rose-50 border border-rose-200/80 flex items-center justify-center text-rose-600 shrink-0">
+                        <Calendar className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-1.5 flex-wrap text-xs sm:text-[13px] leading-tight">
+                          <span className="font-bold text-slate-500">Uploaded:</span>
+                          <span className="font-extrabold text-slate-900">{uploadInfo.localDate}</span>
+                          <span className="text-slate-300 font-bold">•</span>
+                          <span className="font-bold text-rose-600">{uploadInfo.localTime}</span>
+                        </div>
+                        <p className="text-[11px] text-slate-500 font-mono mt-0.5 truncate">
+                          UTC: {uploadInfo.utcString.replace(' UTC', '')}
+                        </p>
+                      </div>
+                    </div>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold text-[11px] shrink-0 shadow-2xs">
+                      <Clock className="w-3 h-3 text-emerald-600" />
+                      <span>{uploadInfo.relative}</span>
                     </span>
                   </div>
                 )}
