@@ -70,7 +70,7 @@ export default function TermsOfServicePage() {
           <p>You agree not to:</p>
           <ul className="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
             <li>Launch automated bots or scripts aimed at overwhelming our servers.</li>
-            <li>Attempt to bypass rate limits or compromise server stability.</li>
+            <li>Attempt to overload or disrupt website availability.</li>
             <li>Use the tool to violate the privacy or rights of any individual.</li>
           </ul>
         </section>

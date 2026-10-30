@@ -327,7 +327,7 @@ export default function TikTokRingtonePage() {
 
         {/* Section 5: Acoustic EQ for Mobile Speakers */}
         <section className="space-y-6">
-          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">Speaker Optimization: Preventing Crackling on Smartphone Micro-Speakers
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">Speaker Optimization: Ensuring Clear Sound on Smartphone Micro-Speakers
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Smartphone micro-speakers feature physical speaker transducers measuring merely 10mm to 15mm across. When deep sub-bass frequencies (below 80 Hz) are pushed through phone speakers at maximum volume, the physical cone over-excursions, producing unpleasant rattling, buzzing, or distorted vocal harmonics.
@@ -394,7 +394,7 @@ export default function TikTokRingtonePage() {
             <h3 className="text-slate-900 font-bold text-lg">Fair Use Notice &amp; Respect for Sound Creators</h3>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            QukTik Ringtone Maker is provided solely for personal, non-commercial phone customization. Sound assets on TikTok belong to their original musical artists, voice actors, and copyright holders. Converting a clip into a personal phone ringtone or alarm falls under private fair use. Do not resell, distribute, or commercially exploit copyrighted sound clips. Support original artists on Spotify, Apple Music, and authorized streaming channels.
+            QukTik Ringtone Maker is provided solely for personal, non-commercial phone customization. Sound assets on TikTok belong to their original musical artists, voice actors, and copyright holders. Converting a clip into a personal phone ringtone or alarm falls under private fair use. Do not resell, distribute, or use copyrighted sound clips for commercial purposes. Support original artists on Spotify, Apple Music, and authorized streaming channels.
           </p>
         </section>
 

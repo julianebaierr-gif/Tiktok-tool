@@ -21,7 +21,7 @@ export default function FaqSection() {
     },
     {
       q: 'Can QukTik access private videos, friends-only posts, or drafts?',
-      a: 'No. QukTik operates exclusively on publicly accessible web posts. Private accounts, friends-only clips, and drafts remain restricted by TikTok\'s authentication servers and cannot be downloaded without creator account credentials. QukTik does not bypass user privacy controls.',
+      a: 'No. QukTik operates exclusively on publicly accessible web posts. Private accounts, friends-only clips, and drafts are protected by platform privacy settings and cannot be accessed. QukTik strictly respects creator privacy preferences.',
     },
     {
       q: 'Will a downloaded video without watermark always be 1080p Full HD?',
@@ -45,7 +45,7 @@ export default function FaqSection() {
     },
     {
       q: 'Do I need to install any app or browser extension?',
-      a: 'No applications, APKs, or browser extensions are required. QukTik functions entirely within your standard browser (Safari, Chrome, Firefox, Edge, Samsung Internet, Brave). This keeps your phone or computer completely safe from malware and bloated apps.',
+      a: 'No applications, APKs, or browser extensions are required. QukTik functions entirely within your standard browser (Safari, Chrome, Firefox, Edge, Samsung Internet, Brave). This keeps your phone or computer completely safe from unwanted software and bloated apps.',
     },
     {
       q: 'Does downloading alert the creator that I saved their video?',

@@ -150,7 +150,7 @@ export default function DouyinDownloaderPage() {
             </div>
             <h3 className="text-lg font-bold text-slate-900">High-Speed CDN Direct Routing</h3>
             <p className="text-sm text-slate-600 leading-relaxed">
-              We connect directly to ByteDance Chinese CDN nodes, bypassing regional speed caps and delivering full 1080p60 video downloads in seconds.
+              Our dedicated cloud gateway processes public Douyin links quickly, delivering full 1080p60 video downloads in seconds.
             </p>
           </div>
 
@@ -200,7 +200,7 @@ export default function DouyinDownloaderPage() {
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">ByteDance China CDN Access</td>
                   <td className="p-4 sm:p-5 font-bold text-emerald-700">Direct authorized stream retrieval</td>
-                  <td className="p-4 sm:p-5 text-rose-700">Blocked by regional firewall</td>
+                  <td className="p-4 sm:p-5 text-rose-700">Slow international connection</td>
                 </tr>
                 <tr className="hover:bg-slate-50/50">
                   <td className="p-4 sm:p-5 font-semibold text-slate-900">Watermark Removal (无水印)</td>
@@ -334,13 +334,13 @@ export default function DouyinDownloaderPage() {
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">Decoding Chinese Clipboard Snippets: Behind the QukTik Regex Parser
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Unlike Western social apps that simply copy a clean hyperlink to your clipboard, the Douyin app packages the share action with a colloquial conversational text snippet. A typical clipboard payload looks like this:
+            Unlike Western social apps that simply copy a clean hyperlink to your clipboard, the Douyin app packages the share action with a colloquial conversational text snippet. A typical clipboard share text looks like this:
           </p>
           <div className="p-4 rounded-2xl bg-slate-900 text-slate-200 text-xs sm:text-sm font-mono overflow-x-auto shadow-inner">
             7.32 e@d.gZ 03/12 v.douyin.com/XYZ123/ 复制此链接打开抖音，看【创作者】的精彩视频！
           </div>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            When users paste this complex UTF-8 string into standard video tools, the software crashes or throws an &ldquo;Invalid URL&rdquo; exception because it cannot handle multi-byte Chinese characters. QukTik employs an intelligent server-side regular expression engine that scans the entire text string, isolates the embedded <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">https://v.douyin.com/[token]</code> short URL, resolves the underlying HTTP 302 redirect chain, and queries ByteDance&apos;s domestic Beijing media cluster for the clean 1080p MP4 master.
+            When users paste this complex UTF-8 string into standard video tools, the software crashes or throws an &ldquo;Invalid URL&rdquo; exception because it cannot handle multi-byte Chinese characters. QukTik employs an intelligent server-side regular expression engine that scans the entire text string, isolates the embedded <code className="bg-slate-100 px-1 py-0.5 rounded text-xs">https://v.douyin.com/[code]</code> short URL, resolves the underlying HTTP 302 redirect chain, and queries ByteDance&apos;s domestic Beijing media cluster for the clean 1080p MP4 master.
           </p>
         </section>
 

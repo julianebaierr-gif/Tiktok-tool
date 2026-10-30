@@ -111,7 +111,7 @@ export default function TikTokMp3Page() {
       <SiteSchema />
       <Breadcrumbs items={[{ name: 'TikTok to MP3 Converter', url: '/tiktok-mp3' }]} />
       <ToolHero 
-        title="TikTok to MP3 Converter & Sound Ripper"
+        title="TikTok to MP3 Audio Converter (320kbps HD)"
         subtitle="Extract crystal-clear 320kbps MP3 music tracks, audio hooks, and viral dialogue from any TikTok video instantly."
         placeholder="Paste TikTok video link to extract MP3 audio..."
         buttonText="Convert to MP3"
@@ -182,7 +182,7 @@ export default function TikTokMp3Page() {
           <ul className="list-disc list-inside space-y-3 pl-2 text-slate-600 text-sm sm:text-base">
             <li><strong>Packet Extraction:</strong> Rather than downloading the entire video track, our cloud parser isolates the specific audio elementary stream (<code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs">audio_stream_url</code>) from ByteDance&apos;s media manifest.</li>
             <li><strong>Zero Re-compression Artifacts:</strong> The raw audio frames are packaged directly into a compliant MPEG Audio Layer III container with standard ID3v2 metadata tags, preserving the original sampling frequency (44,100 Hz or 48,000 Hz) and full dynamic range.</li>
-            <li><strong>Sub-Second Processing:</strong> Because video decoding is completely bypassed, conversion latency drops from 30 seconds down to under two seconds, consuming minimal mobile bandwidth.</li>
+            <li><strong>Sub-Second Processing:</strong> Because only the audio stream is processed, conversion latency drops from 30 seconds down to under two seconds, consuming minimal mobile bandwidth.</li>
           </ul>
         </section>
 
@@ -242,7 +242,7 @@ export default function TikTokMp3Page() {
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">Practical Ways Creators and Music Lovers Use Extracted MP3s
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Extracting clean audio files unlocks an expansive range of creative, academic, and personal productivity workflows:
+            Saving clean audio files supports a wide range of creative, academic, and personal productivity workflows:
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
@@ -324,7 +324,7 @@ export default function TikTokMp3Page() {
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">Preserving Full Dynamic Range: Sub-Bass, Vocal Presences &amp; High-Frequency Air
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            When audio is compressed repeatedly through informal web ripping tools or device screen recorders, the lossiest elements cut by psychoacoustic compression algorithms are the high frequencies and sub-bass transients. This causes muddy vocals and flat, lifeless percussion. QukTik&apos;s direct demuxing architecture preserves three primary frequency zones:
+            When audio is compressed repeatedly through low-bitrate web converters or device screen recorders, the lossiest elements cut by psychoacoustic compression algorithms are the high frequencies and sub-bass transients. This causes muddy vocals and flat, lifeless percussion. QukTik&apos;s direct demuxing architecture preserves three primary frequency zones:
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">

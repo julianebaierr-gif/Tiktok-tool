@@ -69,7 +69,7 @@ export default function DisclaimerPage() {
             <p>1. Identification of the copyrighted work claimed to have been infringed.</p>
             <p>2. The specific TikTok URL you wish to block from being processed.</p>
             <p>3. Your contact information (name, email, and phone number).</p>
-            <p>4. A statement of good-faith belief that use of the material is unauthorized.</p>
+            <p>4. A statement of good-faith belief that use of the material is not permitted by the copyright owner.</p>
             <p>5. An electronic or physical signature of the authorized copyright owner.</p>
           </div>
         </section>

@@ -19,7 +19,7 @@ export default function FeatureGrid() {
       icon: Music2,
       title: 'High-Bitrate MP3 Extraction',
       description: 'Isolate catchy background audio or viral dialogues into clean 320kbps MP3 tracks ready for offline listening or ringtones.',
-      badge: 'Audio Ripper',
+      badge: 'Audio Converter',
     },
     {
       icon: DownloadCloud,
@@ -51,7 +51,7 @@ export default function FeatureGrid() {
           Designed for Speed, Quality &amp; Privacy
         </h2>
         <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
-          Everything you need in a modern media utility. No ads injection, no apps required, and no destructive compression.
+          Everything you need in a modern media utility. Clean user experience, no apps required, and no destructive compression.
         </p>
       </div>
 

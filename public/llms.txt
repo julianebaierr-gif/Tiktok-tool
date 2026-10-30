@@ -9,7 +9,7 @@
 - [TikTok Story Saver](https://quktik.com/tiktok-story): Archives 24-hour disappearing ephemeral TikTok stories anonymously without alerting the creator.
 - [Douyin Video Downloader (抖音下载)](https://quktik.com/douyin-downloader): Built-in Chinese text regex parser that isolates short URLs from Chinese clipboard shares and downloads unwatermarked Douyin videos.
 - [TikTok Ringtone Maker](https://quktik.com/tiktok-ringtone): Converts viral soundbites and dialogue into iOS (.m4r) and Android (.mp3) ringtones and alarms.
-- [TikTok Avatar Downloader](https://quktik.com/tiktok-avatar): Bypasses client-side circular masks to reveal and download 1080p square profile pictures (PFPs).
+- [TikTok Avatar Downloader](https://quktik.com/tiktok-avatar): View and download full-size 1080p square profile pictures (PFPs).
 
 ## Key Links & Documentation
 - [Home](https://quktik.com): Online video downloader portal.
