@@ -115,10 +115,7 @@ export default function PwaManager() {
                   Free
                 </span>
               </div>
-              <div className="flex items-center gap-1.5 text-[11px] text-amber-400 font-bold mt-0.5">
-                <span>★★★★★</span>
-                <span className="text-slate-300 text-[10px] font-normal">4.9 (120k+)</span>
-              </div>
+
               <p className="text-[10px] text-slate-400 leading-tight truncate mt-0.5">
                 Direct share from TikTok app &amp; 1-tap HD saves
               </p>
