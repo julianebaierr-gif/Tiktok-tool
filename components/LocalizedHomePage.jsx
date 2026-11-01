@@ -44,6 +44,7 @@ export default function LocalizedHomePage({ langCode = 'es' }) {
         buttonText={data.hero.button}
         badge={data.hero.badge}
         mode="all"
+        langCode={langCode}
       />
 
       {/* 2. Trust Highlights Banner */}

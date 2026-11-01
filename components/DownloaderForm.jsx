@@ -14,7 +14,8 @@ export default function DownloaderForm({
   buttonText = "Download Video",
   sampleUrl = "https://www.tiktok.com/@scout2015/video/6718335390845095173",
   badge = "Fast, Free & Private",
-  mode = "video"
+  mode = "video",
+  langCode
 }) {
   const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
@@ -24,7 +25,8 @@ export default function DownloaderForm({
 
   const pathname = usePathname();
   const pathSegment = pathname?.split('/')[1] || '';
-  const t = TRANSLATIONS[pathSegment] || TRANSLATIONS.en;
+  const activeLang = langCode || (['es','pt','id','fr','ar','de','vi','tr','it','ru','ja'].includes(pathSegment) ? pathSegment : 'en');
+  const t = TRANSLATIONS[activeLang] || TRANSLATIONS.en;
 
   const effectivePlaceholder = placeholder || t.placeholder || "Paste your TikTok link here (e.g., https://vt.tiktok.com/...)";
   const effectiveButtonText = buttonText || t.downloadBtn || "Download Video";
@@ -75,8 +77,44 @@ export default function DownloaderForm({
   // Dedicated execution function for Submit, Paste & Go, and Global Ctrl+V
   const executeDownload = async (inputUrl) => {
     const trimmed = (inputUrl || url).trim();
+    const getPastePrompt = () => {
+      const msgs = {
+        es: mode === 'douyin' ? 'Pega un enlace de Douyin en el cuadro superior.' : 'Pega un enlace de TikTok en el cuadro superior para comenzar.',
+        pt: mode === 'douyin' ? 'Cole um link do Douyin na caixa acima.' : 'Cole um link do TikTok na caixa acima para começar.',
+        fr: mode === 'douyin' ? 'Veuillez coller un lien Douyin ci-dessus.' : 'Veuillez coller un lien TikTok dans la zone ci-dessus pour commencer.',
+        de: mode === 'douyin' ? 'Bitte fügen Sie oben einen Douyin-Link ein.' : 'Bitte fügen Sie oben einen TikTok-Link ein, um zu beginnen.',
+        ar: mode === 'douyin' ? 'يرجى لصق رابط دويين في المربع أعلاه.' : 'يرجى لصق رابط تيك توك في المربع أعلاه للبدء.',
+        it: mode === 'douyin' ? 'Incolla un link di Douyin nel campo sopra.' : 'Incolla un link di TikTok nel campo sopra per iniziare.',
+        id: mode === 'douyin' ? 'Silakan tempel tautan Douyin di kotak atas.' : 'Silakan tempel tautan TikTok di kotak atas untuk memulai.',
+        vi: mode === 'douyin' ? 'Vui lòng dán liên kết Douyin vào ô bên trên.' : 'Vui lòng dán liên kết TikTok vào ô bên trên để bắt đầu.',
+        tr: mode === 'douyin' ? 'Lütfen yukarıdaki kutuya bir Douyin bağlantısı yapıştırın.' : 'Başlamak için lütfen yukarıdaki kutuya bir TikTok bağlantısı yapıştırın.',
+        ru: mode === 'douyin' ? 'Пожалуйста, вставьте ссылку Douyin в поле выше.' : 'Пожалуйста, вставьте ссылку TikTok в поле выше, чтобы начать.',
+        ja: mode === 'douyin' ? '上のボックスにDouyinのリンクを貼り付けてください。' : '上のボックスにTikTokのリンクを貼り付けてください。',
+      };
+      return msgs[activeLang] || (mode === 'douyin' ? 'Please paste a Douyin link into the box above.' : 'Please paste a TikTok link into the box above to get started.');
+    };
+
+    const getInvalidPrompt = () => {
+      const msgs = {
+        es: 'Por favor, ingresa un enlace válido de TikTok (ej. https://vt.tiktok.com/...)',
+        pt: 'Por favor, insira um link válido do TikTok (ex: https://vt.tiktok.com/...)',
+        fr: 'Veuillez entrer un lien TikTok valide (ex: https://vt.tiktok.com/...)',
+        de: 'Bitte geben Sie einen gültigen TikTok-Link ein (z. B. https://vt.tiktok.com/...)',
+        ar: 'يرجى إدخال رابط تيك توك صحيح (مثال: https://vt.tiktok.com/...)',
+        it: 'Inserisci un link di TikTok valido (es. https://vt.tiktok.com/...)',
+        id: 'Harap masukkan tautan TikTok yang valid (contoh: https://vt.tiktok.com/...)',
+        vi: 'Vui lòng nhập liên kết TikTok hợp lệ (vd: https://vt.tiktok.com/...)',
+        tr: 'Lütfen geçerli bir TikTok bağlantısı girin (örn. https://vt.tiktok.com/...)',
+        ru: 'Пожалуйста, введите корректную ссылку TikTok (например, https://vt.tiktok.com/...)',
+        ja: '有効なTikTokのリンクを入力してください (例: https://vt.tiktok.com/...)',
+      };
+      return msgs[activeLang] || (mode === 'douyin'
+        ? 'Please enter a valid Douyin link (e.g., https://www.douyin.com/video/... or https://v.douyin.com/...)' 
+        : 'Please enter a valid TikTok link (e.g., https://www.tiktok.com/@user/video/... or https://vt.tiktok.com/...)');
+    };
+
     if (!trimmed) {
-      setError({ message: mode === 'douyin' ? 'Please paste a Douyin link into the box above.' : 'Please paste a TikTok link into the box above to get started.' });
+      setError({ message: getPastePrompt() });
       return;
     }
 
@@ -99,10 +137,7 @@ export default function DownloaderForm({
     }
 
     if (!trimmed.includes('tiktok.com') && !trimmed.includes('douyin.com') && !/^\d{18,20}$/.test(trimmed)) {
-      setError({ message: mode === 'douyin' 
-        ? 'Please enter a valid Douyin link (e.g., https://www.douyin.com/video/... or https://v.douyin.com/...)' 
-        : 'Please enter a valid TikTok link (e.g., https://www.tiktok.com/@user/video/... or https://vt.tiktok.com/...)' 
-      });
+      setError({ message: getInvalidPrompt() });
       return;
     }
 
@@ -222,14 +257,14 @@ export default function DownloaderForm({
           <div className="flex items-center gap-2.5 min-w-0">
             <Globe2 className="w-4 h-4 text-rose-600 shrink-0" />
             <div className="text-xs sm:text-sm text-slate-700 leading-snug">
-              <span className="font-bold">Need Chinese TikTok?</span> Want to download from Douyin (抖音)?
+              <span className="font-bold">{activeLang === 'es' ? '¿Buscas TikTok de China?' : activeLang === 'pt' ? 'Precisa do TikTok chinês?' : activeLang === 'fr' ? 'Besoin de TikTok chinois ?' : activeLang === 'de' ? 'Chinesisches TikTok gesucht?' : activeLang === 'ar' ? 'هل تبحث عن تيك توك الصيني؟' : activeLang === 'it' ? 'Cerchi il TikTok cinese?' : activeLang === 'id' ? 'Butuh TikTok versi Tiongkok?' : activeLang === 'vi' ? 'Cần tải TikTok Trung Quốc?' : activeLang === 'tr' ? 'Çin TikTok\'u mu lazım?' : activeLang === 'ru' ? 'Нужен китайский TikTok?' : activeLang === 'ja' ? '中国版TikTokをお探しですか？' : 'Need Chinese TikTok?'}</span> {activeLang === 'es' ? '¿Descargar de Douyin (抖音)?' : activeLang === 'pt' ? 'Baixar do Douyin (抖音)?' : activeLang === 'fr' ? 'Télécharger depuis Douyin (抖音) ?' : activeLang === 'de' ? 'Videos von Douyin (抖音) laden?' : activeLang === 'ar' ? 'تحميل من دويين (抖音)؟' : activeLang === 'it' ? 'Scaricare da Douyin (抖音)?' : activeLang === 'id' ? 'Download dari Douyin (抖音)?' : activeLang === 'vi' ? 'Tải từ Douyin (抖音)?' : activeLang === 'tr' ? 'Douyin\'den (抖音) indirmek ister misiniz?' : activeLang === 'ru' ? 'Скачать с Douyin (抖音)?' : activeLang === 'ja' ? 'Douyin（抖音）からダウンロード' : 'Want to download from Douyin (抖音)?'}
             </div>
           </div>
           <Link 
             href="/douyin-downloader" 
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-rose-50 text-rose-700 font-bold text-xs border border-slate-200 shadow-xs shrink-0 transition-all"
           >
-            <span>Open Douyin Downloader (抖音)</span>
+            <span>{activeLang === 'es' ? 'Abrir Descargador Douyin (抖音)' : activeLang === 'pt' ? 'Abrir Downloader Douyin (抖音)' : activeLang === 'fr' ? 'Ouvrir Téléchargeur Douyin (抖音)' : activeLang === 'de' ? 'Douyin Downloader öffnen (抖音)' : activeLang === 'ar' ? 'فتح محمل دويين (抖音)' : activeLang === 'it' ? 'Apri Downloader Douyin (抖音)' : activeLang === 'id' ? 'Buka Downloader Douyin (抖音)' : activeLang === 'vi' ? 'Mở Trình Tải Douyin (抖音)' : activeLang === 'tr' ? 'Douyin İndiriciyi Aç (抖音)' : activeLang === 'ru' ? 'Открыть загрузчик Douyin (抖音)' : activeLang === 'ja' ? 'Douyin保存ツールを開く (抖音)' : 'Open Douyin Downloader (抖音)'}</span>
             <ArrowRight className="w-3.5 h-3.5 text-rose-600" />
           </Link>
         </div>

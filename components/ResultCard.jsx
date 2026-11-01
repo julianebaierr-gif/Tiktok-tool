@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import JSZip from 'jszip';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { getResultTranslations } from '../lib/resultCardTranslations';
 import { 
   Download, 
   Music, 
@@ -36,7 +38,11 @@ import {
   Loader2
 } from 'lucide-react';
 
-export default function ResultCard({ result, onReset, mode = "all" }) {
+export default function ResultCard({ result, onReset, mode = "all", langCode: propLangCode }) {
+  const pathname = usePathname();
+  const pathSegment = pathname?.split("/")[1] || "";
+  const activeLang = propLangCode || (["es","pt","id","fr","ar","de","vi","tr","it","ru","ja"].includes(pathSegment) ? pathSegment : "en");
+  const t = getResultTranslations(activeLang);
   const [copied, setCopied] = useState(false);
   const [shareUrlCopied, setShareUrlCopied] = useState(false);
   const [showQr, setShowQr] = useState(false);
@@ -86,36 +92,55 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
     if (!unixSec) return null;
 
     const dateObj = new Date(unixSec * 1000);
-    const localDate = dateObj.toLocaleDateString('en-US', {
+    const localeMap = {
+      en: 'en-US', es: 'es-ES', pt: 'pt-BR', id: 'id-ID', fr: 'fr-FR',
+      ar: 'ar-SA', de: 'de-DE', vi: 'vi-VN', tr: 'tr-TR', it: 'it-IT',
+      ru: 'ru-RU', ja: 'ja-JP'
+    };
+    const locale = localeMap[activeLang] || 'en-US';
+    const localDate = dateObj.toLocaleDateString(locale, {
       year: 'numeric',
       month: 'short',
       day: 'numeric',
     });
-    const localTime = dateObj.toLocaleTimeString('en-US', {
+    const localTime = dateObj.toLocaleTimeString(locale, {
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
-      hour12: true,
+      hour12: !['de', 'fr', 'ru', 'it', 'vi'].includes(activeLang),
     });
     const utcString = dateObj.toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
 
     const diffSec = Math.max(0, Math.floor(Date.now() / 1000) - unixSec);
-    let relative = 'Just now';
+    const u = t.uploadInfo;
+    let relative = u.justNow;
+    const formatRel = (count, single, plural) => {
+      const unit = count > 1 ? plural : single;
+      if (['es', 'pt', 'fr'].includes(activeLang)) {
+        const prefix = activeLang === 'es' ? 'Hace' : activeLang === 'pt' ? 'Há' : 'Il y a';
+        return `${prefix} ${count} ${unit}`;
+      }
+      if (activeLang === 'ar') return `منذ ${count} ${unit}`;
+      if (activeLang === 'de') return `Vor ${count} ${unit}`;
+      if (activeLang === 'it') return `${count} ${unit} fa`;
+      return `${count} ${unit}`;
+    };
+
     if (diffSec >= 31536000) {
       const yrs = Math.floor(diffSec / 31536000);
-      relative = `${yrs} year${yrs > 1 ? 's' : ''} ago`;
+      relative = formatRel(yrs, u.yearAgo, u.yearsAgo);
     } else if (diffSec >= 2592000) {
       const mos = Math.floor(diffSec / 2592000);
-      relative = `${mos} month${mos > 1 ? 's' : ''} ago`;
+      relative = formatRel(mos, u.monthAgo, u.monthsAgo);
     } else if (diffSec >= 86400) {
       const days = Math.floor(diffSec / 86400);
-      relative = `${days} day${days > 1 ? 's' : ''} ago`;
+      relative = formatRel(days, u.dayAgo, u.daysAgo);
     } else if (diffSec >= 3600) {
       const hrs = Math.floor(diffSec / 3600);
-      relative = `${hrs} hour${hrs > 1 ? 's' : ''} ago`;
+      relative = formatRel(hrs, u.hourAgo, u.hoursAgo);
     } else if (diffSec >= 60) {
       const mins = Math.floor(diffSec / 60);
-      relative = `${mins} min${mins > 1 ? 's' : ''} ago`;
+      relative = formatRel(mins, u.minAgo, u.minsAgo);
     }
 
     return { localDate, localTime, utcString, relative };
@@ -249,23 +274,23 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
   // Mode-specific badge for the top bar
   const getModeBadge = () => {
     if (isDouyinMode) {
-      return { text: 'Douyin (抖音) All-in-One Suite Ready', icon: Globe2, color: 'text-rose-700 bg-rose-50 border-rose-200' };
+      return { text: t.badges.douyin, icon: Globe2, color: 'text-rose-700 bg-rose-50 border-rose-200' };
     }
     switch (mode) {
       case 'video':
-        return { text: 'Watermark-Free 1080p Video Ready', icon: Video, color: 'text-emerald-700 bg-emerald-50 border-emerald-200' };
+        return { text: t.badges.video, icon: Video, color: 'text-emerald-700 bg-emerald-50 border-emerald-200' };
       case 'mp3':
-        return { text: 'MP3 Audio Extracted (320kbps Studio)', icon: Disc, color: 'text-rose-700 bg-rose-50 border-rose-200' };
+        return { text: t.badges.mp3, icon: Disc, color: 'text-rose-700 bg-rose-50 border-rose-200' };
       case 'ringtone':
-        return { text: 'Custom Ringtone Ready (.M4A Universal)', icon: Bell, color: 'text-amber-700 bg-amber-50 border-amber-200' };
+        return { text: t.badges.ringtone, icon: Bell, color: 'text-amber-700 bg-amber-50 border-amber-200' };
       case 'avatar':
-        return { text: 'Profile Avatar Full HD Extracted', icon: UserCheck, color: 'text-teal-700 bg-teal-50 border-teal-200' };
+        return { text: t.badges.avatar, icon: UserCheck, color: 'text-teal-700 bg-teal-50 border-teal-200' };
       case 'story':
-        return { text: 'Story Video (Saved Before 24h Expiry)', icon: Clock, color: 'text-purple-700 bg-purple-50 border-purple-200' };
+        return { text: t.badges.story, icon: Clock, color: 'text-purple-700 bg-purple-50 border-purple-200' };
       case 'photo':
-        return { text: 'High-Resolution Photo Extractor Ready', icon: ImageIcon, color: 'text-indigo-700 bg-indigo-50 border-indigo-200' };
+        return { text: t.badges.photo, icon: ImageIcon, color: 'text-indigo-700 bg-indigo-50 border-indigo-200' };
       default:
-        return { text: 'All-in-One Master Suite • 1080p Ready', icon: CheckCircle2, color: 'text-emerald-700 bg-emerald-50 border-emerald-200' };
+        return { text: t.badges.all, icon: CheckCircle2, color: 'text-emerald-700 bg-emerald-50 border-emerald-200' };
     }
   };
 
@@ -290,7 +315,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
               title="Copy direct download link"
             >
               {copied ? <Check className="w-3.5 h-3.5 text-emerald-700" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
-              <span>{copied ? 'Link Copied!' : 'Copy Link'}</span>
+              <span>{copied ? t.topActions.linkCopied : t.topActions.copyLink}</span>
             </button>
 
             <button
@@ -299,7 +324,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
               title="Download to phone via QR code"
             >
               <QrCode className="w-3.5 h-3.5 text-rose-500" />
-              <span>Scan QR</span>
+              <span>{t.topActions.scanQr}</span>
             </button>
 
             <button
@@ -307,7 +332,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
               className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold border border-rose-200 transition-all active:scale-95 shadow-xs cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5 text-rose-500" />
-              <span>Download Another</span>
+              <span>{t.topActions.downloadAnother}</span>
             </button>
           </div>
         </div>
@@ -326,19 +351,17 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                    <span>Douyin All-in-One Media Suite (抖音全能下载)</span>
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 font-bold uppercase tracking-wider">China Mainland</span>
+                    <span>{t.douyin.suiteTitle}</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 font-bold uppercase tracking-wider">{t.douyin.mainland}</span>
                   </h4>
-                  <p className="text-xs text-slate-600 mt-0.5">
-                    Clean MP4 video, watermarked original, 320kbps BGM MP3, and creator profile metadata.
-                  </p>
+                  <p className="text-xs text-slate-600 mt-0.5">{t.douyin.sub}</p>
                 </div>
               </div>
               <Link
                 href="/tiktok-video-downloader"
                 className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-rose-600 text-xs font-bold border border-slate-200 shadow-xs shrink-0 transition-all"
               >
-                <span>Switch to Global TikTok</span>
+                <span>{t.douyin.switchToGlobal}</span>
                 <ArrowRight className="w-3.5 h-3.5 text-rose-600" />
               </Link>
             </div>
@@ -405,7 +428,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                     className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold border border-slate-200 transition-all shadow-xs"
                   >
                     <ImageIcon className="w-4 h-4 text-indigo-600" />
-                    <span>Download Full HD Video Cover (.jpg)</span>
+                    <span>{t.mediaPreview.downloadCover}</span>
                   </a>
                 )}
 
@@ -448,7 +471,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                     </div>
                     <div className="p-2 rounded-xl bg-white border border-slate-200/80">
                       <span className="text-[11px] text-slate-500 flex items-center justify-center gap-1 mb-0.5">
-                        <Flame className="w-3 h-3 text-rose-500" /> Total Likes
+                        <Flame className="w-3 h-3 text-rose-500" /> {t.douyin.totalLikes}
                       </span>
                       <span className="text-sm font-bold text-slate-900">{formatNumber(author?.totalFavorited)}</span>
                     </div>
@@ -469,7 +492,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                         )}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <span className="text-[10px] font-bold text-rose-600 uppercase tracking-wider block">BGM Soundtrack</span>
+                        <span className="text-[10px] font-bold text-rose-600 uppercase tracking-wider block">{t.douyin.bgmSoundtrack}</span>
                         <h5 className="text-xs font-bold text-slate-900 truncate">{music.title || 'Douyin Original Sound'}</h5>
                         <p className="text-[11px] text-slate-500 truncate">{music.author || author?.nickname || 'Douyin Audio'}</p>
                       </div>
@@ -488,7 +511,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                         className="w-full flex items-center justify-center gap-2 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold shadow-xs transition-all"
                       >
                         <Music className="w-3.5 h-3.5" />
-                        <span>Download BGM MP3 (320kbps)</span>
+                        <span>{t.douyin.downloadBgm}</span>
                       </a>
                     )}
                   </div>
@@ -512,7 +535,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                         title="Copy Video Caption"
                       >
                         {captionCopied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
-                        <span>{captionCopied ? 'Caption Copied!' : 'Copy Caption'}</span>
+                        <span>{captionCopied ? t.captionHashtags.captionCopied : t.captionHashtags.copyCaption}</span>
                       </button>
                     )}
                     {(hashtags?.length > 0 || /#/.test(title || '')) && (
@@ -523,7 +546,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                         title="Copy All Hashtags"
                       >
                         {hashtagsCopied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Hash className="w-3.5 h-3.5 text-rose-500" />}
-                        <span>{hashtagsCopied ? 'Hashtags Copied!' : 'Copy Hashtags'}</span>
+                        <span>{hashtagsCopied ? t.captionHashtags.hashtagsCopied : t.captionHashtags.copyHashtags}</span>
                       </button>
                     )}
                   </div>
@@ -535,7 +558,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                         </div>
                         <div className="min-w-0">
                           <div className="flex items-center gap-1.5 flex-wrap text-xs sm:text-[13px] leading-tight">
-                            <span className="font-bold text-slate-500">Uploaded:</span>
+                            <span className="font-bold text-slate-500">{t.uploadInfo.uploaded}</span>
                             <span className="font-extrabold text-slate-900">{uploadInfo.localDate}</span>
                             <span className="text-slate-300 font-bold">•</span>
                             <span className="font-bold text-rose-600">{uploadInfo.localTime}</span>
@@ -555,7 +578,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
 
                 {hashtags && hashtags.length > 0 && (
                   <div className="space-y-1.5">
-                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Video Hashtags / 话题标签:</span>
+                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">{t.douyin.hashtagsLabel}</span>
                     <div className="flex flex-wrap gap-1.5">
                       {hashtags.map((tag, idx) => (
                         <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-rose-50 text-rose-700 border border-rose-100 text-xs font-semibold hover:bg-rose-100 transition-colors">
@@ -571,31 +594,31 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                 <div className="grid grid-cols-5 gap-1.5 py-3 px-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-center">
                   <div>
                     <p className="text-[11px] text-slate-500 flex items-center justify-center gap-1 mb-1">
-                      <Heart className="w-3 h-3 text-rose-500" /> Likes
+                      <Heart className="w-3 h-3 text-rose-500" /> {t.stats.likes}
                     </p>
                     <p className="text-xs sm:text-sm font-bold text-slate-900">{formatNumber(stats?.likes)}</p>
                   </div>
                   <div>
                     <p className="text-[11px] text-slate-500 flex items-center justify-center gap-1 mb-1">
-                      <MessageCircle className="w-3 h-3 text-indigo-500" /> Comments
+                      <MessageCircle className="w-3 h-3 text-indigo-500" /> {t.stats.comments}
                     </p>
                     <p className="text-xs sm:text-sm font-bold text-slate-900">{formatNumber(stats?.comments)}</p>
                   </div>
                   <div>
                     <p className="text-[11px] text-slate-500 flex items-center justify-center gap-1 mb-1">
-                      <Share2 className="w-3 h-3 text-amber-500" /> Shares
+                      <Share2 className="w-3 h-3 text-amber-500" /> {t.stats.shares}
                     </p>
                     <p className="text-xs sm:text-sm font-bold text-slate-900">{formatNumber(stats?.shares)}</p>
                   </div>
                   <div>
                     <p className="text-[11px] text-slate-500 flex items-center justify-center gap-1 mb-1">
-                      <Bookmark className="w-3 h-3 text-emerald-500" /> Favs
+                      <Bookmark className="w-3 h-3 text-emerald-500" /> {t.stats.favs}
                     </p>
                     <p className="text-xs sm:text-sm font-bold text-slate-900">{formatNumber(stats?.collects)}</p>
                   </div>
                   <div>
                     <p className="text-[11px] text-slate-500 flex items-center justify-center gap-1 mb-1">
-                      <Eye className="w-3 h-3 text-purple-500" /> Plays
+                      <Eye className="w-3 h-3 text-purple-500" /> {t.stats.plays}
                     </p>
                     <p className="text-xs sm:text-sm font-bold text-slate-900">{formatNumber(stats?.views)}</p>
                   </div>
@@ -621,11 +644,11 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                           <Download className="w-5 h-5 text-white" />
                         </div>
                         <div className="text-left">
-                          <span className="block font-black tracking-tight leading-tight">Download Video (Without Watermark)</span>
+                          <span className="block font-black tracking-tight leading-tight">{t.downloadOptions.primaryVideo}</span>
                           <span className="text-xs text-emerald-100 font-normal">无水印高清原画 MP4</span>
                         </div>
                       </div>
-                      <span className="text-xs px-2.5 py-1 rounded-full bg-white/25 font-bold uppercase tracking-wider shrink-0">Server 1</span>
+                      <span className="text-xs px-2.5 py-1 rounded-full bg-white/25 font-bold uppercase tracking-wider shrink-0">{t.downloadOptions.server1}</span>
                     </a>
                   )}
 
@@ -637,7 +660,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                     >
                       <div className="flex items-center space-x-3.5">
                         <Video className="w-5 h-5 text-indigo-600 shrink-0" />
-                        <span className="text-left font-bold">Download Video (HD Server 2 Mirror)</span>
+                        <span className="text-left font-bold">{t.downloadOptions.videoMirror}</span>
                       </div>
                       <span className="text-xs text-slate-500 font-semibold">HD 1080p</span>
                     </a>
@@ -669,7 +692,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                       >
                         <div className="flex items-center space-x-2.5 truncate">
                           <Music className="w-4 h-4 text-white shrink-0" />
-                          <span className="truncate">Download MP3 Audio</span>
+                          <span className="truncate">{t.downloadOptions.downloadMp3}</span>
                         </div>
                         <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/25 font-bold uppercase tracking-wider shrink-0">320kbps</span>
                       </a>
@@ -681,7 +704,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                       >
                         <div className="flex items-center space-x-2.5 truncate">
                           <Bell className="w-4 h-4 text-white shrink-0" />
-                          <span className="truncate">Download Ringtone</span>
+                          <span className="truncate">{t.downloadOptions.downloadRingtone}</span>
                         </div>
                         <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/25 font-bold uppercase tracking-wider shrink-0">iOS / Android</span>
                       </a>
@@ -734,11 +757,11 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                     </div>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
                       <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
-                        <span className="font-bold text-slate-900 block">1080p MP4</span>
+                        <span className="font-bold text-slate-900 block">{t.mediaSuite.videoFormat}</span>
                         <span className="text-[10px] text-emerald-700 font-semibold">无水印原画</span>
                       </div>
                       <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
-                        <span className="font-bold text-slate-900 block">320kbps MP3</span>
+                        <span className="font-bold text-slate-900 block">{t.mediaSuite.audioFormat}</span>
                         <span className="text-[10px] text-rose-700 font-semibold">背景音乐 BGM</span>
                       </div>
                       <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
@@ -773,7 +796,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                           </div>
                           <div className="text-left">
                             <span className="block font-black text-sm sm:text-base leading-tight">
-                              {isZipping ? zipProgress : `Download All ${images.length} Photos as ZIP (.zip)`}
+                              {isZipping ? zipProgress : t.photoGallery.downloadAllZip.replace("{count}", images.length)}
                             </span>
                             <span className="text-xs text-rose-100 font-medium block mt-0.5">
                               1-Click Batch Save • Full HD Images + Soundtrack Bundled
@@ -812,14 +835,14 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                   {/* Bottom Interlink Banner to Global TikTok */}
                   <div className="mt-6 p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
                     <div>
-                      <span className="font-bold text-slate-800 block mb-0.5">Need International TikTok Videos?</span>
-                      Douyin (抖音) content is exclusive to Mainland China. For TikTok videos without watermark, use our Global TikTok tool.
+                      <span className="font-bold text-slate-800 block mb-0.5">{t.douyin.needInternational}</span>
+                      {t.douyin.needInternationalSub}
                     </div>
                     <Link
                       href="/tiktok-video-downloader"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-slate-100 text-rose-700 font-bold border border-slate-200 shrink-0 shadow-xs transition-all"
                     >
-                      <span>Open TikTok Downloader</span>
+                      <span>{t.douyin.openTikTokDownloader}</span>
                       <ArrowRight className="w-3.5 h-3.5 text-rose-600" />
                     </Link>
                   </div>
@@ -870,7 +893,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                   )}
                   <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-teal-600 text-white text-[11px] font-bold shadow-sm flex items-center gap-1.5 pointer-events-none z-20">
                     <UserCheck className="w-3.5 h-3.5" />
-                    <span>Uncropped Full HD Avatar</span>
+                    <span>{t.mediaPreview.uncroppedAvatar}</span>
                   </div>
                 </div>
               ) : (
@@ -933,7 +956,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                       <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 border border-white/80 text-[11px] font-bold text-rose-700 shadow-sm flex items-center gap-1.5 pointer-events-none z-20">
                         <Sparkles className="w-3 h-3 text-rose-500" />
                         <span>
-                          {mode === 'story' ? '24h Story' : (isImagePost ? 'Photo Mode' : 'Clean 1080p')}
+                          {mode === 'story' ? t.mediaPreview.storyBadge : (isImagePost ? t.mediaPreview.photoBadge : t.mediaPreview.clean1080p)}
                         </span>
                       </div>
 
@@ -989,7 +1012,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                     className="w-full flex items-center justify-center gap-1.5 py-1.5 px-2.5 rounded-xl bg-white hover:bg-teal-50 text-teal-800 text-[11px] font-bold border border-teal-200/90 transition-all shadow-xs cursor-pointer active:scale-[0.98]"
                   >
                     <UserCheck className="w-3.5 h-3.5 text-teal-600 shrink-0" />
-                    <span>Download Profile Avatar HD (.jpg)</span>
+                    <span>{t.mediaPreview.downloadAvatar}</span>
                   </a>
                 )}
               </div>
@@ -1039,7 +1062,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                       </div>
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5 flex-wrap text-xs sm:text-[13px] leading-tight">
-                          <span className="font-bold text-slate-500">Uploaded:</span>
+                          <span className="font-bold text-slate-500">{t.uploadInfo.uploaded}</span>
                           <span className="font-extrabold text-slate-900">{uploadInfo.localDate}</span>
                           <span className="text-slate-300 font-bold">•</span>
                           <span className="font-bold text-rose-600">{uploadInfo.localTime}</span>
@@ -1061,25 +1084,25 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
               <div className="grid grid-cols-4 gap-2 py-3 px-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-center">
                 <div>
                   <p className="text-[11px] text-slate-500 flex items-center justify-center gap-1 mb-1">
-                    <Heart className="w-3.5 h-3.5 text-rose-500" /> Likes
+                    <Heart className="w-3.5 h-3.5 text-rose-500" /> {t.stats.likes}
                   </p>
                   <p className="text-xs sm:text-sm font-bold text-slate-900">{formatNumber(stats?.likes)}</p>
                 </div>
                 <div>
                   <p className="text-[11px] text-slate-500 flex items-center justify-center gap-1 mb-1">
-                    <MessageCircle className="w-3.5 h-3.5 text-indigo-500" /> Comments
+                    <MessageCircle className="w-3.5 h-3.5 text-indigo-500" /> {t.stats.comments}
                   </p>
                   <p className="text-xs sm:text-sm font-bold text-slate-900">{formatNumber(stats?.comments)}</p>
                 </div>
                 <div>
                   <p className="text-[11px] text-slate-500 flex items-center justify-center gap-1 mb-1">
-                    <Share2 className="w-3.5 h-3.5 text-amber-500" /> Shares
+                    <Share2 className="w-3.5 h-3.5 text-amber-500" /> {t.stats.shares}
                   </p>
                   <p className="text-xs sm:text-sm font-bold text-slate-900">{formatNumber(stats?.shares)}</p>
                 </div>
                 <div>
                   <p className="text-[11px] text-slate-500 flex items-center justify-center gap-1 mb-1">
-                    <Eye className="w-3.5 h-3.5 text-emerald-500" /> Plays
+                    <Eye className="w-3.5 h-3.5 text-emerald-500" /> {t.stats.plays}
                   </p>
                   <p className="text-xs sm:text-sm font-bold text-slate-900">{formatNumber(stats?.views)}</p>
                 </div>
@@ -1112,10 +1135,10 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                         </div>
                         <div className="text-left min-w-0">
                           <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
-                            Download Video (Without Watermark)
+                            {t.downloadOptions.primaryVideo}
                           </span>
                           <span className="text-xs text-emerald-100 font-medium block mt-0.5">
-                            Clean 1080p Ultra HD MP4 • Server 1
+                            {t.downloadOptions.primaryVideoSub}
                           </span>
                         </div>
                       </div>
@@ -1138,10 +1161,10 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                         </div>
                         <div className="text-left min-w-0">
                           <span className="block font-bold text-slate-900 text-sm sm:text-base leading-tight">
-                            Download Video (HD Server 2 Mirror)
+                            {t.downloadOptions.videoMirror}
                           </span>
                           <span className="text-xs text-slate-500 font-normal block mt-0.5">
-                            Alternative High-Speed Mirror • 1080p MP4
+                            {t.downloadOptions.videoMirrorSub}
                           </span>
                         </div>
                       </div>
@@ -1165,8 +1188,8 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                             <Music className="w-4.5 h-4.5 text-white" />
                           </div>
                           <div className="text-left min-w-0">
-                            <div className="text-sm sm:text-base font-bold leading-tight">Download MP3 Audio</div>
-                            <div className="text-xs text-rose-100 font-medium mt-0.5">320kbps Studio Master Soundtrack</div>
+                            <div className="text-sm sm:text-base font-bold leading-tight">{t.downloadOptions.downloadMp3}</div>
+                            <div className="text-xs text-rose-100 font-medium mt-0.5">{t.downloadOptions.downloadMp3Sub} Soundtrack</div>
                           </div>
                         </div>
                         <span className="text-xs font-bold px-3 py-1 rounded-xl bg-white/20 text-white shrink-0 ml-2">
@@ -1180,7 +1203,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
 
               {/* ========================================================= */}
               {/* MODE 2: MP3 DOWNLOADER (/tiktok-mp3)                      */}
-              {/* #1 Primary: Audio Player + Download MP3 Audio (320kbps)   */}
+              {/* #1 Primary: Audio Player + {t.downloadOptions.downloadMp3} (320kbps)   */}
               {/* #2 Secondary: Download MP4 Video                          */}
               {/* ========================================================= */}
               {mode === 'mp3' && (
@@ -1188,7 +1211,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                   <div className="flex items-center justify-between">
                     <h4 className="text-xs font-black text-rose-600 uppercase tracking-wider">1. Primary MP3 Audio Download:</h4>
                     <span className="text-[11px] font-bold text-rose-700 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200">
-                      320kbps Studio Master
+                      {t.downloadOptions.downloadMp3Sub}
                     </span>
                   </div>
 
@@ -1210,7 +1233,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                     </div>
                   )}
 
-                  {/* #1 PRIMARY BUTTON: Download MP3 Audio */}
+                  {/* #1 PRIMARY BUTTON: {t.downloadOptions.downloadMp3} */}
                   {music?.url && (
                     <a
                       href={getProxyUrl(music.url, `quktik_audio_${id}.mp3`, 'audio')}
@@ -1223,7 +1246,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                         </div>
                         <div className="text-left min-w-0">
                           <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
-                            Download MP3 Audio (320kbps)
+                            {t.downloadOptions.downloadMp3} (320kbps)
                           </span>
                           <span className="text-xs text-rose-100 font-medium block mt-0.5">
                             Isolated High-Bitrate Studio Master Track (.mp3)
@@ -1250,7 +1273,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                             <Video className="w-4.5 h-4.5 text-white" />
                           </div>
                           <div className="text-left min-w-0">
-                            <div className="text-sm sm:text-base font-bold leading-tight">Download Video (Without Watermark)</div>
+                            <div className="text-sm sm:text-base font-bold leading-tight">{t.downloadOptions.primaryVideo}</div>
                             <div className="text-xs text-emerald-100 font-medium mt-0.5">Clean 1080p Full HD MP4</div>
                           </div>
                         </div>
@@ -1265,7 +1288,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
 
               {/* ========================================================= */}
               {/* MODE 3: RINGTONE DOWNLOADER (/tiktok-ringtone)            */}
-              {/* #1 Primary: Audio Player + Download Ringtone (.M4A)       */}
+              {/* #1 Primary: Audio Player + {t.downloadOptions.downloadRingtone} (.M4A)       */}
               {/* #2 Secondary: MP4 Video & MP3 Audio                       */}
               {/* ========================================================= */}
               {mode === 'ringtone' && (
@@ -1295,7 +1318,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                     </div>
                   )}
 
-                  {/* #1 PRIMARY BUTTON: Download Ringtone (.M4A) */}
+                  {/* #1 PRIMARY BUTTON: {t.downloadOptions.downloadRingtone} (.M4A) */}
                   {music?.url && (
                     <a
                       href={getProxyUrl(music.url, `quktik_ringtone_${id}.m4a`, 'audio')}
@@ -1308,7 +1331,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                         </div>
                         <div className="text-left min-w-0">
                           <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
-                            Download Ringtone (.M4A / iPhone &amp; Android)
+                            {t.downloadOptions.downloadRingtone} (.M4A / iPhone &amp; Android)
                           </span>
                           <span className="text-xs text-amber-100 font-medium block mt-0.5">
                             Universal Phone Call Ringtone, SMS Alert &amp; Alarm Tone
@@ -1355,8 +1378,8 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                               <Music className="w-4.5 h-4.5 text-white" />
                             </div>
                             <div className="text-left min-w-0">
-                              <div className="text-sm font-bold leading-tight">Download MP3 Audio</div>
-                              <div className="text-[11px] text-rose-100 font-medium mt-0.5">320kbps Studio Master</div>
+                              <div className="text-sm font-bold leading-tight">{t.downloadOptions.downloadMp3}</div>
+                              <div className="text-[11px] text-rose-100 font-medium mt-0.5">{t.downloadOptions.downloadMp3Sub}</div>
                             </div>
                           </div>
                           <Download className="w-4 h-4 text-white shrink-0 ml-2" />
@@ -1398,15 +1421,15 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                           </div>
                           <div className="text-left min-w-0">
                             <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
-                              {isZipping ? zipProgress : `Download All ${images.length} Photos as ZIP (.zip)`}
+                              {isZipping ? zipProgress : t.photoGallery.downloadAllZip.replace("{count}", images.length)}
                             </span>
                             <span className="text-xs text-indigo-100 font-medium block mt-0.5">
-                              Single Click Batch Save • All Full HD JPGs + MP3 Soundtrack Bundled
+                              {t.photoGallery.downloadAllZipSub}
                             </span>
                           </div>
                         </div>
                         <span className="text-xs font-black px-3.5 py-2 rounded-xl bg-white/20 text-white shrink-0 ml-2 uppercase tracking-wider">
-                          {isZipping ? 'ZIPPING' : 'BATCH ZIP'}
+                          {isZipping ? t.photoGallery.zipping : t.photoGallery.batchZipBadge}
                         </span>
                       </button>
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -1418,7 +1441,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             />
                             <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-2 text-center">
-                              <span className="text-white text-xs font-bold mb-2">Photo #{index + 1}</span>
+                              <span className="text-white text-xs font-bold mb-2">{t.photoGallery.photo} #{index + 1}</span>
                               <a
                                 href={getProxyUrl(imgUrl, `quktik_photo_${id}_${index + 1}.jpg`, 'image')}
                                 download={`quktik_photo_${id}_${index + 1}.jpg`}
@@ -1497,8 +1520,8 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                               <Music className="w-4.5 h-4.5 text-white" />
                             </div>
                             <div className="text-left min-w-0">
-                              <div className="text-sm font-bold leading-tight">Download MP3 Audio</div>
-                              <div className="text-[11px] text-rose-100 font-medium mt-0.5">320kbps Studio Master</div>
+                              <div className="text-sm font-bold leading-tight">{t.downloadOptions.downloadMp3}</div>
+                              <div className="text-[11px] text-rose-100 font-medium mt-0.5">{t.downloadOptions.downloadMp3Sub}</div>
                             </div>
                           </div>
                           <Download className="w-4 h-4 text-white shrink-0 ml-2" />
@@ -1551,7 +1574,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
 
                   {/* #2 SECONDARY: MP4 Mirror & MP3 Audio */}
                   <div className="pt-2 space-y-2">
-                    <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider block">Also Available (MP4 Mirror &amp; MP3 Audio):</span>
+                    <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider block">{t.downloadOptions.alsoAvailable}</span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {video?.noWatermarkHd && (
                         <a
@@ -1565,7 +1588,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                             </div>
                             <div className="text-left min-w-0">
                               <div className="text-sm font-bold leading-tight">Download MP4 (Mirror)</div>
-                              <div className="text-[11px] text-emerald-100 font-medium mt-0.5">Server 2 • 1080p HD</div>
+                              <div className="text-[11px] text-emerald-100 font-medium mt-0.5">{t.downloadOptions.downloadStorySub}</div>
                             </div>
                           </div>
                           <Download className="w-4 h-4 text-white shrink-0 ml-2" />
@@ -1583,8 +1606,8 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                               <Music className="w-4.5 h-4.5 text-white" />
                             </div>
                             <div className="text-left min-w-0">
-                              <div className="text-sm font-bold leading-tight">Download Story MP3</div>
-                              <div className="text-[11px] text-rose-100 font-medium mt-0.5">320kbps Studio Audio</div>
+                              <div className="text-sm font-bold leading-tight">{t.downloadOptions.downloadStoryAudio}</div>
+                              <div className="text-[11px] text-rose-100 font-medium mt-0.5">{t.downloadOptions.downloadStoryAudioSub}</div>
                             </div>
                           </div>
                           <Download className="w-4 h-4 text-white shrink-0 ml-2" />
@@ -1597,7 +1620,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
 
               {/* ========================================================= */}
               {/* MODE 6: TIKTOK AVATAR DOWNLOADER (/tiktok-avatar)         */}
-              {/* #1 Primary: Download Full HD Profile Avatar (.JPG)        */}
+              {/* #1 Primary: {t.downloadOptions.primaryAvatar}        */}
               {/* #2 Secondary: MP4 Video & MP3 Audio                       */}
               {/* ========================================================= */}
               {mode === 'avatar' && (
@@ -1609,7 +1632,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                     </span>
                   </div>
 
-                  {/* #1 PRIMARY BUTTON: Download Full HD Avatar */}
+                  {/* #1 PRIMARY BUTTON: Download Full {t.downloadOptions.avatarBadge} */}
                   {author?.avatar && (
                     <a
                       href={getProxyUrl(author.avatar, `quktik_avatar_${author.username || id}.jpg`, 'image')}
@@ -1622,22 +1645,22 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                         </div>
                         <div className="text-left min-w-0">
                           <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
-                            Download Full HD Profile Avatar (.JPG)
+                            {t.downloadOptions.primaryAvatar}
                           </span>
                           <span className="text-xs text-teal-100 font-medium block mt-0.5">
-                            Original Square Master Photo • No Circular Crop
+                            {t.downloadOptions.primaryAvatarSub}
                           </span>
                         </div>
                       </div>
                       <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-white/20 text-white shrink-0 ml-2 uppercase">
-                        HD Avatar
+                        {t.downloadOptions.avatarBadge}
                       </span>
                     </a>
                   )}
 
                   {/* #2 SECONDARY: MP4 Video & MP3 Audio */}
                   <div className="pt-2 space-y-2">
-                    <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider block">Also Available (Creator's MP4 Video &amp; MP3 Audio):</span>
+                    <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider block">{t.downloadOptions.alsoAvailable}</span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {video?.noWatermark && (
                         <a
@@ -1669,8 +1692,8 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                               <Music className="w-4.5 h-4.5 text-white" />
                             </div>
                             <div className="text-left min-w-0">
-                              <div className="text-sm font-bold leading-tight">Download MP3 Audio</div>
-                              <div className="text-[11px] text-rose-100 font-medium mt-0.5">320kbps Studio Master</div>
+                              <div className="text-sm font-bold leading-tight">{t.downloadOptions.downloadMp3}</div>
+                              <div className="text-[11px] text-rose-100 font-medium mt-0.5">{t.downloadOptions.downloadMp3Sub}</div>
                             </div>
                           </div>
                           <Download className="w-4 h-4 text-white shrink-0 ml-2" />
@@ -1688,9 +1711,9 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
               {!['video', 'mp3', 'ringtone', 'photo', 'story', 'avatar'].includes(mode) && (
                 <div className="space-y-3 pt-1">
                   <div className="flex items-center justify-between">
-                    <h4 className="text-xs font-black text-slate-500 uppercase tracking-wider">All-in-One Download Options:</h4>
+                    <h4 className="text-xs font-black text-slate-500 uppercase tracking-wider">{t.downloadOptions.heading}</h4>
                     <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                      Ready in 1080p Ultra HD
+                      {t.downloadOptions.readyBadge}
                     </span>
                   </div>
 
@@ -1707,10 +1730,10 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                         </div>
                         <div className="text-left min-w-0">
                           <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
-                            Download Video (Without Watermark)
+                            {t.downloadOptions.primaryVideo}
                           </span>
                           <span className="text-xs text-emerald-100 font-medium block mt-0.5">
-                            Clean 1080p Ultra HD MP4 • High-Speed Server 1
+                            {t.downloadOptions.primaryVideoSub}
                           </span>
                         </div>
                       </div>
@@ -1733,10 +1756,10 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                         </div>
                         <div className="text-left min-w-0">
                           <span className="block font-bold text-slate-900 text-sm sm:text-base leading-tight">
-                            Download Video (HD Mirror)
+                            {t.downloadOptions.videoMirror}
                           </span>
                           <span className="text-xs text-slate-500 font-normal block mt-0.5">
-                            Alternative High-Speed Mirror • 1080p MP4
+                            {t.downloadOptions.videoMirrorSub}
                           </span>
                         </div>
                       </div>
@@ -1759,8 +1782,8 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                             <Music className="w-4.5 h-4.5 text-white" />
                           </div>
                           <div className="text-left min-w-0">
-                            <div className="text-sm font-bold leading-tight">Download MP3 Audio</div>
-                            <div className="text-[11px] text-rose-100 font-medium mt-0.5">320kbps Studio Master</div>
+                            <div className="text-sm font-bold leading-tight">{t.downloadOptions.downloadMp3}</div>
+                            <div className="text-[11px] text-rose-100 font-medium mt-0.5">{t.downloadOptions.downloadMp3Sub}</div>
                           </div>
                         </div>
                         <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center shrink-0 ml-2 group-hover:bg-white/30 transition-colors">
@@ -1778,8 +1801,8 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                             <Bell className="w-4.5 h-4.5 text-white" />
                           </div>
                           <div className="text-left min-w-0">
-                            <div className="text-sm font-bold leading-tight">Download Ringtone</div>
-                            <div className="text-[11px] text-slate-300 font-medium mt-0.5">.M4A (iPhone &amp; Android)</div>
+                            <div className="text-sm font-bold leading-tight">{t.downloadOptions.downloadRingtone}</div>
+                            <div className="text-[11px] text-slate-300 font-medium mt-0.5">{t.downloadOptions.downloadRingtoneSub}</div>
                           </div>
                         </div>
                         <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center shrink-0 ml-2 group-hover:bg-white/20 transition-colors">
@@ -1795,7 +1818,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                       <div className="flex items-center justify-between">
                         <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
                           <ImageIcon className="w-4 h-4 text-indigo-600" />
-                          <span>Photo Slideshow Gallery ({images.length} High-Res Images)</span>
+                          <span>{t.photoGallery.title} ({images.length} {t.photoGallery.highRes})</span>
                         </h4>
                         <span className="text-[11px] font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-200">
                           Full HD Quality
@@ -1813,15 +1836,15 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                           </div>
                           <div className="text-left min-w-0">
                             <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
-                              {isZipping ? zipProgress : `Download All ${images.length} Photos as ZIP (.zip)`}
+                              {isZipping ? zipProgress : t.photoGallery.downloadAllZip.replace("{count}", images.length)}
                             </span>
                             <span className="text-xs text-indigo-100 font-medium block mt-0.5">
-                              Single Click Batch Save • All Full HD JPGs + MP3 Soundtrack Bundled
+                              {t.photoGallery.downloadAllZipSub}
                             </span>
                           </div>
                         </div>
                         <span className="text-xs font-black px-3.5 py-2 rounded-xl bg-white/20 text-white shrink-0 ml-2 uppercase tracking-wider">
-                          {isZipping ? 'ZIPPING' : 'BATCH ZIP'}
+                          {isZipping ? t.photoGallery.zipping : t.photoGallery.batchZipBadge}
                         </span>
                       </button>
 
@@ -1834,14 +1857,14 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             />
                             <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-2 text-center">
-                              <span className="text-white text-xs font-bold mb-2">Photo #{index + 1}</span>
+                              <span className="text-white text-xs font-bold mb-2">{t.photoGallery.photo} #{index + 1}</span>
                               <a
                                 href={getProxyUrl(imgUrl, `quktik_photo_${id}_${index + 1}.jpg`, 'image')}
                                 download={`quktik_photo_${id}_${index + 1}.jpg`}
                                 className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1 shadow-md active:scale-95 transition-all cursor-pointer"
                               >
                                 <Download className="w-3.5 h-3.5" />
-                                <span>Save HD</span>
+                                <span>{t.photoGallery.saveHd}</span>
                               </a>
                             </div>
                             <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 text-white text-[10px] font-bold pointer-events-none">
@@ -1858,26 +1881,26 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                     <div className="flex items-center justify-between text-xs font-bold text-slate-700">
                       <span className="flex items-center gap-1.5 text-indigo-600">
                         <Sparkles className="w-3.5 h-3.5" />
-                        <span>All-in-One Media Suite:</span>
+                        <span>{t.mediaSuite.title}</span>
                       </span>
-                      <span className="text-slate-400">Pristine Master Quality</span>
+                      <span className="text-slate-400">{t.mediaSuite.quality}</span>
                     </div>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
                       <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
-                        <span className="font-bold text-slate-900 block">1080p MP4</span>
-                        <span className="text-[10px] text-emerald-700 font-semibold">Zero Watermark</span>
+                        <span className="font-bold text-slate-900 block">{t.mediaSuite.videoFormat}</span>
+                        <span className="text-[10px] text-emerald-700 font-semibold">{t.mediaSuite.zeroWatermark}</span>
                       </div>
                       <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
-                        <span className="font-bold text-slate-900 block">320kbps MP3</span>
-                        <span className="text-[10px] text-rose-700 font-semibold">Studio Stereo</span>
+                        <span className="font-bold text-slate-900 block">{t.mediaSuite.audioFormat}</span>
+                        <span className="text-[10px] text-rose-700 font-semibold">{t.mediaSuite.studioStereo}</span>
                       </div>
                       <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
-                        <span className="font-bold text-slate-900 block">Custom Tone</span>
-                        <span className="text-[10px] text-indigo-600 font-semibold">M4A / Alarm</span>
+                        <span className="font-bold text-slate-900 block">{t.mediaSuite.customTone}</span>
+                        <span className="text-[10px] text-indigo-600 font-semibold">{t.mediaSuite.alarm}</span>
                       </div>
                       <div className="p-2 rounded-xl bg-white border border-slate-200 text-center">
-                        <span className="font-bold text-slate-900 block">Master Still</span>
-                        <span className="text-[10px] text-purple-600 font-semibold">JPG / WebP</span>
+                        <span className="font-bold text-slate-900 block">{t.mediaSuite.masterStill}</span>
+                        <span className="text-[10px] text-purple-600 font-semibold">{t.mediaSuite.stillFormats}</span>
                       </div>
                     </div>
                   </div>
@@ -1893,7 +1916,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                     rel="noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-rose-700 transition-colors"
                   >
-                    <span>Having trouble downloading? Click here to view source stream</span>
+                    <span>{t.troubleStream}</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
@@ -1919,10 +1942,8 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
             <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-700 flex items-center justify-center mx-auto mb-3">
               <QrCode className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-1">Scan to Download on Phone</h3>
-            <p className="text-xs text-slate-500 mb-4">
-              Open your iPhone or Android camera app and point it at the QR code below to download this video directly to your phone.
-            </p>
+            <h3 className="text-lg font-bold text-slate-900 mb-1">{t.qrModal.title}</h3>
+            <p className="text-xs text-slate-500 mb-4">{t.qrModal.desc}</p>
             <div className="p-3 bg-slate-50 rounded-2xl border border-slate-200 inline-block mb-3">
               <img
                 src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(directDownloadUrl || '')}`}
@@ -1930,7 +1951,7 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                 className="w-44 h-44 mx-auto rounded-lg"
               />
             </div>
-            <p className="text-[11px] text-slate-400">Fast, instant direct file save</p>
+            <p className="text-[11px] text-slate-400">{t.qrModal.sub}</p>
           </div>
         </div>
       )}

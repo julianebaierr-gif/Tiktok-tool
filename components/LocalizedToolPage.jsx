@@ -81,6 +81,7 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
         badge={hero.badge}
         mode={toolData.mode}
         sampleUrl={toolData.sampleUrl}
+        langCode={langCode}
       />
 
       {/* 2. Trust Highlights Banner (100% Localized) */}
