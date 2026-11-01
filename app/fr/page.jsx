@@ -2,7 +2,7 @@ import React from 'react';
 import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
-  title: "Télécharger TikTok Sans Filigrane QukTik",
+  title: { absolute: "Télécharger TikTok Sans Filigrane QukTik" },
   description: "Téléchargez des vidéos TikTok sans filigrane en HD MP4 et MP3 gratuitement en ligne. Rapide et simple sur mobile et ordinateur.",
   alternates: {
     canonical: 'https://quktik.com/fr',
@@ -33,3 +33,4 @@ export const metadata = {
 export default function FRPage() {
   return <LocalizedHomePage langCode="fr" />;
 }
+

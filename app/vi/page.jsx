@@ -2,7 +2,7 @@ import React from 'react';
 import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
-  title: "Tải Video TikTok Không Logo Mới Nhất | QukTik",
+  title: { absolute: "Tải Video TikTok Không Logo Mới Nhất | QukTik" },
   description: "Tải video TikTok không logo, không watermark chuẩn HD MP4 và MP3 miễn phí. Tải nhanh cho điện thoại và máy tính không cần cài app.",
   alternates: {
     canonical: 'https://quktik.com/vi',
@@ -33,3 +33,4 @@ export const metadata = {
 export default function VIPage() {
   return <LocalizedHomePage langCode="vi" />;
 }
+

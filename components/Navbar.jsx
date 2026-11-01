@@ -11,10 +11,12 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const pathSegment = pathname?.split('/')[1] || '';
-  const currentLang = LANGUAGES.find(l => l.code === pathSegment) || LANGUAGES[0];
+  const segments = (pathname || '').split('/').filter(Boolean);
+  const firstSegment = segments[0] || '';
+  const currentLang = LANGUAGES.find(l => l.code === firstSegment) || LANGUAGES[0];
   const t = TRANSLATIONS[currentLang.code] || TRANSLATIONS.en;
 
+  const prefix = currentLang.code === 'en' ? '' : `/${currentLang.code}`;
   const homeHref = currentLang.code === 'en' ? '/' : `/${currentLang.code}`;
 
   const triggerInstall = () => {
@@ -25,23 +27,39 @@ export default function Navbar() {
 
   const navLinks = [
     { href: homeHref, label: 'Home', icon: Home },
-    { href: '/tiktok-video-downloader', label: 'Video', icon: Video },
-    { href: '/tiktok-mp3', label: 'MP3 Audio', icon: Music },
-    { href: '/tiktok-photo', label: 'Photos', icon: ImageIcon },
-    { href: '/tiktok-story', label: 'Stories', icon: History },
-    { href: '/douyin-downloader', label: 'Douyin', icon: Globe2 },
-    { href: '/tiktok-ringtone', label: 'Ringtones', icon: Bell },
-    { href: '/tiktok-avatar', label: 'Avatar', icon: UserCheck },
+    { href: `${prefix}/tiktok-video-downloader`, label: 'Video', icon: Video },
+    { href: `${prefix}/tiktok-mp3`, label: 'MP3 Audio', icon: Music },
+    { href: `${prefix}/tiktok-photo`, label: 'Photos', icon: ImageIcon },
+    { href: `${prefix}/tiktok-story`, label: 'Stories', icon: History },
+    { href: `${prefix}/douyin-downloader`, label: 'Douyin', icon: Globe2 },
+    { href: `${prefix}/tiktok-ringtone`, label: 'Ringtones', icon: Bell },
+    { href: `${prefix}/tiktok-avatar`, label: 'Avatar', icon: UserCheck },
   ];
+
+  // Calculate destination URL while preserving tool slug for mobile menu
+  const getMobileTargetUrl = (targetLangCode) => {
+    let currentTool = '';
+    if (segments.length === 1 && !LANGUAGES.some(l => l.code === segments[0])) {
+      currentTool = segments[0];
+    } else if (segments.length >= 2 && LANGUAGES.some(l => l.code === segments[0])) {
+      currentTool = segments[1];
+    }
+
+    if (currentTool) {
+      return targetLangCode === 'en' ? `/${currentTool}` : `/${targetLangCode}/${currentTool}`;
+    }
+    return targetLangCode === 'en' ? '/' : `/${targetLangCode}`;
+  };
 
   const handleMobileLangSelect = (lang) => {
     setIsOpen(false);
+    const targetUrl = getMobileTargetUrl(lang.code);
     try {
       localStorage.setItem('quktik_preferred_lang', lang.code);
       document.cookie = `quktik_lang=${lang.code}; path=/; max-age=31536000; SameSite=Lax`;
     } catch (e) {}
-    if (typeof window !== 'undefined' && window.location.pathname !== lang.path) {
-      window.location.href = lang.path;
+    if (typeof window !== 'undefined' && window.location.pathname !== targetUrl) {
+      window.location.href = targetUrl;
     }
   };
 

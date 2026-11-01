@@ -2,7 +2,7 @@ import React from 'react';
 import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
-  title: "Scaricare Video TikTok Senza Watermark QukTik",
+  title: { absolute: "Scaricare Video TikTok Senza Watermark QukTik" },
   description: "Scarica video TikTok senza watermark in alta definizione MP4 e audio MP3 online gratis. Veloce e sicuro per cellulare e computer.",
   alternates: {
     canonical: 'https://quktik.com/it',
@@ -33,3 +33,4 @@ export const metadata = {
 export default function ITPage() {
   return <LocalizedHomePage langCode="it" />;
 }
+

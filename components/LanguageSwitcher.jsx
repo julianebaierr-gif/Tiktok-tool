@@ -10,9 +10,25 @@ export default function LanguageSwitcher() {
   const dropdownRef = useRef(null);
   const pathname = usePathname();
 
-  // Detect current language from pathname (e.g., /es -> 'es', / -> 'en')
-  const pathSegment = pathname?.split('/')[1] || '';
-  const currentLang = LANGUAGES.find(l => l.code === pathSegment) || LANGUAGES[0]; // fallback to 'en'
+  // Detect current language from pathname (e.g., /es -> 'es', /de/tiktok-avatar -> 'de')
+  const segments = (pathname || '').split('/').filter(Boolean);
+  const firstSegment = segments[0] || '';
+  const currentLang = LANGUAGES.find(l => l.code === firstSegment) || LANGUAGES[0]; // fallback to 'en'
+
+  // Calculate destination URL while preserving tool slug (e.g. /de/tiktok-avatar -> /fr/tiktok-avatar)
+  const getTargetUrl = (targetLangCode) => {
+    let currentTool = '';
+    if (segments.length === 1 && !LANGUAGES.some(l => l.code === segments[0])) {
+      currentTool = segments[0];
+    } else if (segments.length >= 2 && LANGUAGES.some(l => l.code === segments[0])) {
+      currentTool = segments[1];
+    }
+
+    if (currentTool) {
+      return targetLangCode === 'en' ? `/${currentTool}` : `/${targetLangCode}/${currentTool}`;
+    }
+    return targetLangCode === 'en' ? '/' : `/${targetLangCode}`;
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -34,7 +50,7 @@ export default function LanguageSwitcher() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const onLanguageClick = (lang) => {
+  const onLanguageClick = (lang, targetUrl) => {
     setIsOpen(false);
     try {
       localStorage.setItem('quktik_preferred_lang', lang.code);
@@ -42,8 +58,8 @@ export default function LanguageSwitcher() {
     } catch (e) {}
 
     // 100% reliable direct browser navigation
-    if (typeof window !== 'undefined' && window.location.pathname !== lang.path) {
-      window.location.href = lang.path;
+    if (typeof window !== 'undefined' && window.location.pathname !== targetUrl) {
+      window.location.href = targetUrl;
     }
   };
 
@@ -82,13 +98,14 @@ export default function LanguageSwitcher() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 max-h-80 overflow-y-auto p-0.5">
             {LANGUAGES.map((lang) => {
               const isSelected = currentLang.code === lang.code;
+              const targetUrl = getTargetUrl(lang.code);
               return (
                 <a
                   key={lang.code}
-                  href={lang.path}
+                  href={targetUrl}
                   onClick={(e) => {
                     e.preventDefault();
-                    onLanguageClick(lang);
+                    onLanguageClick(lang, targetUrl);
                   }}
                   className={`flex items-center justify-between px-3 py-2 rounded-xl text-left text-xs transition-all cursor-pointer ${
                     isSelected

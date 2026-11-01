@@ -2,7 +2,7 @@ import React from 'react';
 import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
-  title: "Descargar Videos de TikTok Sin Marca | QukTik",
+  title: { absolute: "Descargar Videos de TikTok Sin Marca | QukTik" },
   description: "Descarga videos de TikTok sin marca de agua en HD MP4 y MP3. Herramienta online gratis y rápida para móvil y PC sin registro.",
   alternates: {
     canonical: 'https://quktik.com/es',
@@ -33,3 +33,4 @@ export const metadata = {
 export default function ESPage() {
   return <LocalizedHomePage langCode="es" />;
 }
+

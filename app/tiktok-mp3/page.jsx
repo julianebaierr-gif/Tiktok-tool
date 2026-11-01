@@ -1,3 +1,4 @@
+import { getToolSeoMetadata } from '../../lib/tools';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
@@ -26,19 +27,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata = {
-  title: 'TikTok to MP3 Converter - Audio Download',
-  description: 'Extract and download crystal-clear 320kbps MP3 audio and songs from TikTok videos. 100% free online converter with no app needed.',
-  alternates: {
-    canonical: 'https://quktik.com/tiktok-mp3',
-  },
-  openGraph: {
-    title: 'TikTok to MP3 Converter - Download TikTok Audio & Songs (320kbps)',
-    description: 'Convert and extract high-bitrate 320kbps MP3 audio tracks and trending songs from TikTok videos. Free online TikTok MP3 converter with no app required.',
-    url: 'https://quktik.com/tiktok-mp3',
-    type: 'website',
-  },
-};
+export const metadata = getToolSeoMetadata('en', 'tiktok-mp3');
 
 export default function TikTokMp3Page() {
   

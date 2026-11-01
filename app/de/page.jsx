@@ -2,7 +2,7 @@ import React from 'react';
 import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
-  title: "TikTok Video Ohne Wasserzeichen | QukTik",
+  title: { absolute: "TikTok Video Ohne Wasserzeichen | QukTik" },
   description: "TikTok Videos ohne Wasserzeichen in HD MP4 oder MP3 kostenlos online herunterladen. Schnell und sicher für Handy und PC.",
   alternates: {
     canonical: 'https://quktik.com/de',
@@ -33,3 +33,4 @@ export const metadata = {
 export default function DEPage() {
   return <LocalizedHomePage langCode="de" />;
 }
+

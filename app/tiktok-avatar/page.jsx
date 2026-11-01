@@ -1,3 +1,4 @@
+import { getToolSeoMetadata } from '../../lib/tools';
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
@@ -26,19 +27,7 @@ import {
   Monitor
 } from 'lucide-react';
 
-export const metadata = {
-  title: 'TikTok Avatar Downloader - View Profile HD',
-  description: 'View and download uncropped, full-resolution TikTok profile pictures and avatars (1080x1080 HD). 100% free online PFP viewer.',
-  alternates: {
-    canonical: 'https://quktik.com/tiktok-avatar',
-  },
-  openGraph: {
-    title: 'TikTok Avatar Downloader - View & Save Profile Pictures in Full HD',
-    description: 'View and download uncropped, full-resolution TikTok profile pictures and avatars (1080x1080 HD). 100% free online PFP viewer.',
-    url: 'https://quktik.com/tiktok-avatar',
-    type: 'website',
-  },
-};
+export const metadata = getToolSeoMetadata('en', 'tiktok-avatar');
 
 export default function TikTokAvatarPage() {
   

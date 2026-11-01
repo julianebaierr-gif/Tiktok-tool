@@ -316,29 +316,7 @@ export default function LocalizedHomePage({ langCode = 'es' }) {
         </div>
       </section>
 
-      {/* 6. 300+ LSI & Semantic Keywords Cloud for Maximum SEO Indexing */}
-      {data.lsiKeywords && data.lsiKeywords.length > 0 && (
-        <section className="py-10 bg-slate-50 border-t border-slate-200">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <div className="flex items-center gap-2 mb-4 text-xs font-bold text-slate-500 uppercase tracking-wider">
-              <Tag className="w-4 h-4 text-rose-600" />
-              <span>{currentLang.label} • Semantic Search Terms &amp; LSI Keywords ({data.lsiKeywords.length}+):</span>
-            </div>
-            <div className="flex flex-wrap gap-1.5 max-h-48 overflow-y-auto p-3 rounded-2xl bg-white border border-slate-200 text-[11px] text-slate-600">
-              {data.lsiKeywords.map((kw, idx) => (
-                <span 
-                  key={idx}
-                  className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-rose-50 hover:text-rose-700 transition-colors cursor-default"
-                >
-                  {kw}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 7. Global Language Cross-Links Footer Banner */}
+      {/* 6. Global Language Cross-Links Footer Banner */}
       <section className="py-8 border-t border-slate-200/80 bg-white">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">

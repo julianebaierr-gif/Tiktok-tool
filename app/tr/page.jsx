@@ -2,7 +2,7 @@ import React from 'react';
 import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
-  title: "Filigransız TikTok Video İndir | QukTik",
+  title: { absolute: "Filigransız TikTok Video İndir | QukTik" },
   description: "TikTok videolarını filigransız ve logosuz HD MP4 veya MP3 olarak ücretsiz indirin. Telefon ve bilgisayar için hızlı online araç.",
   alternates: {
     canonical: 'https://quktik.com/tr',
@@ -33,3 +33,4 @@ export const metadata = {
 export default function TRPage() {
   return <LocalizedHomePage langCode="tr" />;
 }
+

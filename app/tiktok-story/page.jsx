@@ -1,3 +1,4 @@
+import { getToolSeoMetadata } from '../../lib/tools';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
@@ -26,19 +27,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata = {
-  title: 'TikTok Story Saver - Download Stories in HD',
-  description: 'Save and download 24-hour TikTok stories in HD MP4 before they expire. 100% free online story viewer and downloader with no login required.',
-  alternates: {
-    canonical: 'https://quktik.com/tiktok-story',
-  },
-  openGraph: {
-    title: 'TikTok Story Saver - Download TikTok Stories in HD (No Login)',
-    description: 'Save and download 24-hour TikTok stories in HD MP4 before they expire. 100% free online story viewer and downloader with no login required.',
-    url: 'https://quktik.com/tiktok-story',
-    type: 'website',
-  },
-};
+export const metadata = getToolSeoMetadata('en', 'tiktok-story');
 
 export default function TikTokStoryPage() {
   

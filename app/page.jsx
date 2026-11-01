@@ -7,7 +7,7 @@ import SemanticContent from '../components/SemanticContent';
 import SiteSchema from '../components/SiteSchema';
 
 export const metadata = {
-  title: 'Download TikTok Video No Watermark | QukTik',
+  title: { absolute: 'Download TikTok Video No Watermark | QukTik' },
   description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for mobile and PC with no app needed.',
   alternates: {
     canonical: 'https://quktik.com',
@@ -28,7 +28,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: 'Download TikTok Video No Watermark | QukTik',
+    title: { absolute: 'Download TikTok Video No Watermark | QukTik' },
     description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for mobile and PC with no app needed.',
     url: 'https://quktik.com',
     type: 'website',

@@ -2,7 +2,7 @@ import React from 'react';
 import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
-  title: "TikTok動画保存 透かしなし 無料ツール | QukTik",
+  title: { absolute: "TikTok動画保存 透かしなし 無料ツール | QukTik" },
   description: "TikTokの動画を透かし・ロゴなしで高画質MP4やMP3として無料ダウンロード保存。スマホやPCでアプリ不要ですぐ使えます。",
   alternates: {
     canonical: 'https://quktik.com/ja',
@@ -33,3 +33,4 @@ export const metadata = {
 export default function JAPage() {
   return <LocalizedHomePage langCode="ja" />;
 }
+

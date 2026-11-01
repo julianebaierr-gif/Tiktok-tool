@@ -2,7 +2,7 @@ import React from 'react';
 import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
-  title: "تحميل فيديو تيك توك بدون علامة مائية QukTik",
+  title: { absolute: "تحميل فيديو تيك توك بدون علامة مائية QukTik" },
   description: "تحميل فيديوهات تيك توك بدون علامة مائية بدقة عالية MP4 وموسيقى MP3 مجانا عبر الإنترنت للكمبيوتر والهاتف بدون برامج.",
   alternates: {
     canonical: 'https://quktik.com/ar',
@@ -33,3 +33,4 @@ export const metadata = {
 export default function ARPage() {
   return <LocalizedHomePage langCode="ar" />;
 }
+

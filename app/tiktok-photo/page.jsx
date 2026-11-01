@@ -1,3 +1,4 @@
+import { getToolSeoMetadata } from '../../lib/tools';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
@@ -25,19 +26,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata = {
-  title: 'TikTok Photo Downloader - Save Slideshow HD',
-  description: 'Download TikTok photo slideshows and carousel images in original high resolution without watermarks. Free batch image saver for TikTok slides.',
-  alternates: {
-    canonical: 'https://quktik.com/tiktok-photo',
-  },
-  openGraph: {
-    title: 'TikTok Photo Downloader - Save Photo Slideshows & Carousels HD',
-    description: 'Download TikTok photo slideshows and carousel images in original high resolution without watermarks. Free batch image saver for TikTok slides.',
-    url: 'https://quktik.com/tiktok-photo',
-    type: 'website',
-  },
-};
+export const metadata = getToolSeoMetadata('en', 'tiktok-photo');
 
 export default function TikTokPhotoPage() {
   

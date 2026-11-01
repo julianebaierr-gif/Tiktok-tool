@@ -2,7 +2,7 @@ import React from 'react';
 import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
-  title: "Скачать видео с Тик Тока без водяного знака",
+  title: { absolute: "Скачать видео с Тик Тока без водяного знака" },
   description: "Скачать видео с Тик Тока без водяного знака в HD MP4 и MP3 бесплатно. Быстрое сохранение на телефон и ПК без установки программ.",
   alternates: {
     canonical: 'https://quktik.com/ru',
@@ -33,3 +33,4 @@ export const metadata = {
 export default function RUPage() {
   return <LocalizedHomePage langCode="ru" />;
 }
+

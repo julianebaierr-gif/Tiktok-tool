@@ -1,3 +1,4 @@
+import { getToolSeoMetadata } from '../../lib/tools';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
@@ -31,19 +32,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata = {
-  title: 'TikTok Video Downloader Without Watermark',
-  description: 'Download TikTok videos without watermark in Full HD 1080p MP4 quality. Fast, free online video downloader with no apps or registration needed.',
-  alternates: {
-    canonical: 'https://quktik.com/tiktok-video-downloader',
-  },
-  openGraph: {
-    title: 'TikTok Video Downloader Without Watermark in HD (1080p MP4)',
-    description: 'Download TikTok videos without watermark in Full HD 1080p MP4 quality. Fast, free online video downloader with no apps or registration needed.',
-    url: 'https://quktik.com/tiktok-video-downloader',
-    type: 'website',
-  },
-};
+export const metadata = getToolSeoMetadata('en', 'tiktok-video-downloader');
 
 export default function TikTokVideoDownloaderPage() {
   

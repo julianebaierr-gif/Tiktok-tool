@@ -1,3 +1,5 @@
+import { VALID_TOOLS, VALID_LANGS } from '../../lib/tools';
+
 export async function GET() {
   const baseUrl = 'https://quktik.com';
   const currentDate = new Date().toISOString();
@@ -17,7 +19,7 @@ export async function GET() {
     { path: '/ru', changeFreq: 'daily', priority: '0.95' },
     { path: '/ja', changeFreq: 'daily', priority: '0.95' },
 
-    // Core Tools
+    // Core English Tools
     { path: '/tiktok-video-downloader', changeFreq: 'daily', priority: '1.0' },
     { path: '/tiktok-mp3', changeFreq: 'daily', priority: '0.9' },
     { path: '/tiktok-photo', changeFreq: 'daily', priority: '0.9' },
@@ -25,12 +27,27 @@ export async function GET() {
     { path: '/douyin-downloader', changeFreq: 'daily', priority: '0.9' },
     { path: '/tiktok-ringtone', changeFreq: 'weekly', priority: '0.8' },
     { path: '/tiktok-avatar', changeFreq: 'weekly', priority: '0.8' },
+  ];
+
+  // 11 Languages x 7 Tools = 77 Localized Routes
+  for (const lang of VALID_LANGS) {
+    for (const tool of VALID_TOOLS) {
+      routes.push({
+        path: `/${lang}/${tool}`,
+        changeFreq: 'daily',
+        priority: '0.85',
+      });
+    }
+  }
+
+  // Legal & Info Pages
+  routes.push(
     { path: '/about', changeFreq: 'monthly', priority: '0.5' },
     { path: '/contact', changeFreq: 'monthly', priority: '0.5' },
     { path: '/privacy-policy', changeFreq: 'monthly', priority: '0.4' },
     { path: '/terms-of-service', changeFreq: 'monthly', priority: '0.4' },
-    { path: '/disclaimer', changeFreq: 'monthly', priority: '0.4' },
-  ];
+    { path: '/disclaimer', changeFreq: 'monthly', priority: '0.4' }
+  );
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

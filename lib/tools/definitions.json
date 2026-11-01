@@ -1,0 +1,829 @@
+{
+  "tiktok-avatar": {
+    "mode": "avatar",
+    "badgeEn": "Full HD 1080p Profile Photo Extractor",
+    "titles": {
+      "en": "TikTok Avatar Downloader HD | QukTik",
+      "es": "Descargar Avatar de TikTok HD | QukTik",
+      "pt": "Baixar Avatar do TikTok HD | QukTik",
+      "id": "Download Foto Profil TikTok HD | QukTik",
+      "fr": "Télécharger Avatar TikTok HD | QukTik",
+      "ar": "تحميل صورة تيك توك الشخصية | QukTik",
+      "de": "TikTok Profilbild HD Downloader | QukTik",
+      "vi": "Tải Avatar TikTok HD Miễn Phí | QukTik",
+      "tr": "TikTok Profil Resmi İndirici | QukTik",
+      "it": "Scarica Avatar TikTok HD | QukTik",
+      "ru": "Скачать Аватарку Тик Ток HD | QukTik",
+      "ja": "TikTok プロフィール画像 保存 | QukTik"
+    },
+    "descs": {
+      "en": "Download full-size TikTok profile pictures and avatars in HD without circular cropping. Free online PFP viewer for mobile and PC.",
+      "es": "Descarga fotos de perfil de TikTok en alta resolución sin recorte circular. Gratis, anónimo y rápido para móvil y PC.",
+      "pt": "Baixe fotos de perfil do TikTok em resolução HD sem corte circular. Ferramenta online gratuita para celular e computador.",
+      "id": "Download foto profil TikTok resolusi penuh HD tanpa terpotong lingkaran. Gratis, cepat, dan aman untuk HP dan laptop.",
+      "fr": "Téléchargez les photos de profil TikTok en HD sans recadrage circulaire. Outil en ligne 100% gratuit et rapide pour mobile et PC.",
+      "ar": "تحميل وتكبير صورة الملف الشخصي في تيك توك بدقة عالية HD بدون قص دائري. أداة مجانية وسريعة للجوال والكمبيوتر.",
+      "de": "TikTok Profilbilder in voller HD Auflösung ohne Zuschnitt herunterladen. Kostenlos, anonym und ohne App auf PC und Handy.",
+      "vi": "Xem và tải ảnh đại diện TikTok full HD không bị cắt tròn. Công cụ trực tuyến miễn phí và nhanh chóng cho điện thoại, PC.",
+      "tr": "TikTok profil fotoğraflarını kırpılmadan tam çözünürlükte HD indirin. Mobil ve PC için tamamen ücretsiz çevrimiçi araç.",
+      "it": "Scarica le immagini del profilo TikTok in HD senza ritaglio circolare. Strumento online gratuito per PC e smartphone.",
+      "ru": "Скачивайте аватарки Тик Ток в полном HD разрешении без обрезки в круг. Бесплатно и быстро на телефон и компьютер.",
+      "ja": "TikTokのプロフィールアイコンを高画質HDで丸く切り取らずに保存。スマホやPCで完全無料で使えるPFPビューア。"
+    },
+    "hero": {
+      "en": {
+        "title": "TikTok Avatar HD Downloader & Profile Picture Viewer",
+        "subtitle": "View, zoom, and download uncropped high-resolution profile pictures from any TikTok creator in 1080p Full HD for free.",
+        "placeholder": "Paste TikTok video link to extract creator Full HD Avatar...",
+        "button": "View Full HD Avatar",
+        "badge": "1080p Profile Photo Extractor"
+      },
+      "es": {
+        "title": "Descargar Avatar de TikTok en HD y Ver Foto de Perfil Completa",
+        "subtitle": "Visualiza, amplía y descarga fotos de perfil de TikTok en resolución original 1080p sin recortes circulares gratis.",
+        "placeholder": "Pega el enlace del video de TikTok para ver el avatar...",
+        "button": "Ver Avatar en Full HD",
+        "badge": "Extractor de Foto de Perfil 1080p"
+      },
+      "pt": {
+        "title": "Baixar Foto de Perfil do TikTok em HD (PFP Viewer)",
+        "subtitle": "Veja, amplie e baixe a foto de perfil completa do TikTok sem corte circular em alta definição 1080p gratuitamente.",
+        "placeholder": "Cole o link do vídeo do TikTok para extrair o avatar...",
+        "button": "Ver Foto de Perfil HD",
+        "badge": "Visualizador de Avatar 1080p"
+      },
+      "id": {
+        "title": "Download Foto Profil TikTok HD (Lihat Avatar Ukuran Penuh)",
+        "subtitle": "Lihat, perbesar, dan unduh foto profil TikTok tanpa terpotong lingkaran dalam resolusi tinggi 1080p Full HD gratis.",
+        "placeholder": "Tempel link video TikTok untuk mengambil avatar...",
+        "button": "Lihat Avatar Full HD",
+        "badge": "Ekstraktor Avatar 1080p"
+      },
+      "fr": {
+        "title": "Télécharger Avatar TikTok HD et Photo de Profil Pleine Taille",
+        "subtitle": "Affichez, zoomez et téléchargez les photos de profil TikTok en haute résolution 1080p sans cercle de recadrage gratuitement.",
+        "placeholder": "Collez le lien de la vidéo TikTok pour extraire l’avatar...",
+        "button": "Voir l’Avatar en Full HD",
+        "badge": "Extracteur de Profil 1080p"
+      },
+      "ar": {
+        "title": "تحميل وتكبير صورة الملف الشخصي في تيك توك بجودة عالية HD",
+        "subtitle": "شاهد وحمّل صورة البروفايل الكاملة في تيك توك بدقة 1080p بدون قص دائري مجاناً على الجوال والكمبيوتر.",
+        "placeholder": "الصق رابط فيديو تيك توك لاستخراج الصورة الشخصية...",
+        "button": "عرض الصورة بدقة Full HD",
+        "badge": "مستخرج الصور الشخصية بدقة 1080p"
+      },
+      "de": {
+        "title": "TikTok Profilbild HD Downloader (Volle Größe PFP Viewer)",
+        "subtitle": "TikTok Profilbilder in voller 1080p Full HD Auflösung ohne runden Zuschnitt ansehen, vergrößern und kostenlos herunterladen.",
+        "placeholder": "TikTok Videolink einfügen, um das Profilbild zu laden...",
+        "button": "Profilbild in HD Anzeigen",
+        "badge": "1080p Profilbild Extrahierer"
+      },
+      "vi": {
+        "title": "Tải Avatar TikTok Full HD (Xem Ảnh Đại Diện Kích Thước Gốc)",
+        "subtitle": "Xem, phóng to và tải ảnh đại diện TikTok chất lượng cao 1080p không bị cắt viền tròn hoàn toàn miễn phí.",
+        "placeholder": "Dán link video TikTok để tải ảnh đại diện...",
+        "button": "Xem Avatar Full HD",
+        "badge": "Trình Tải Avatar 1080p"
+      },
+      "tr": {
+        "title": "TikTok Profil Resmi HD İndirici (Tam Boy PFP Görüntüleyici)",
+        "subtitle": "TikTok profil fotoğraflarını daire şeklinde kırpılmadan 1080p Full HD çözünürlükte ücretsiz görüntüleyin ve indirin.",
+        "placeholder": "Profil resmini almak için TikTok video bağlantısını yapıştırın...",
+        "button": "Full HD Avatarı Gör",
+        "badge": "1080p Profil Fotoğrafı İndirici"
+      },
+      "it": {
+        "title": "Scarica Immagine Profilo TikTok HD (Viewer PFP a Grandezza Naturale)",
+        "subtitle": "Visualizza, ingrandisci e scarica le immagini del profilo TikTok in Full HD 1080p senza ritaglio circolare gratis.",
+        "placeholder": "Incolla il link del video TikTok per estrarre l’avatar...",
+        "button": "Mostra Avatar Full HD",
+        "badge": "Estrattore Profilo 1080p"
+      },
+      "ru": {
+        "title": "Скачать Аватарку Тик Ток в Full HD (Просмотр Фото Профиля)",
+        "subtitle": "Просматривайте, увеличивайте и скачивайте аватарки из Тик Ток в полном разрешении 1080p без круглой обрезки бесплатно.",
+        "placeholder": "Вставьте ссылку на видео Тик Ток для скачивания аватарки...",
+        "button": "Посмотреть Аватарку HD",
+        "badge": "Загрузчик Аватарок 1080p"
+      },
+      "ja": {
+        "title": "TikTok プロフィール画像 HD 保存 (フルサイズ PFP ビューア)",
+        "subtitle": "TikTokユーザーのプロフィールアイコンを円形に切り取らず、1080pの高画質フルサイズで拡大表示・保存できます。",
+        "placeholder": "動画リンクを貼り付けてプロフィール画像を抽出...",
+        "button": "Full HD アバターを表示",
+        "badge": "1080p プロフィール画像抽出"
+      }
+    }
+  },
+  "tiktok-video-downloader": {
+    "mode": "video",
+    "badgeEn": "100% Free Online Video Downloader",
+    "titles": {
+      "en": "TikTok Video Downloader No Watermark | QukTik",
+      "es": "Descargar Videos TikTok Sin Marca | QukTik",
+      "pt": "Baixar Vídeos TikTok Sem Marca | QukTik",
+      "id": "Unduh Video TikTok Tanpa Watermark | QukTik",
+      "fr": "Télécharger Vidéo TikTok Sans Logo | QukTik",
+      "ar": "تحميل فيديو تيك توك بدون علامة مائية | QukTik",
+      "de": "TikTok Video Downloader Ohne Logo | QukTik",
+      "vi": "Tải Video TikTok Không Logo HD | QukTik",
+      "tr": "TikTok Video İndirici Filigransız | QukTik",
+      "it": "Scarica Video TikTok Senza Watermark | QukTik",
+      "ru": "Скачать Видео Тик Ток Без Знака | QukTik",
+      "ja": "TikTok 動画 保存 透かしなし | QukTik"
+    },
+    "descs": {
+      "en": "Download TikTok videos without watermark in original 1080p MP4. Free online tool for iPhone, Android, and PC with zero registration.",
+      "es": "Descarga videos de TikTok sin marca de agua en MP4 original 1080p. Herramienta online gratis para móvil y PC sin registro.",
+      "pt": "Baixe vídeos do TikTok sem marca d’água em MP4 1080p original. Ferramenta online grátis para celular e PC sem cadastro.",
+      "id": "Download video TikTok tanpa watermark dalam format MP4 1080p asli. Gratis dan cepat untuk Android, iPhone, dan PC.",
+      "fr": "Téléchargez les vidéos TikTok sans filigrane en MP4 HD 1080p originale. Outil gratuit en ligne pour mobile et PC sans inscription.",
+      "ar": "تحميل مقاطع تيك توك بدون علامة مائية بصيغة MP4 وبدقة 1080p الأصلية. أداة مجانية وسريعة للجوال والكمبيوتر بدون تسجيل.",
+      "de": "TikTok Videos ohne Wasserzeichen in originaler 1080p MP4 Qualität herunterladen. Kostenloses Online Tool für Handy und PC.",
+      "vi": "Tải video TikTok không logo, không watermark chuẩn MP4 1080p gốc. Công cụ trực tuyến miễn phí cho iPhone, Android và máy tính.",
+      "tr": "TikTok videolarını filigransız orijinal 1080p MP4 formatında indirin. Telefon ve bilgisayar için ücretsiz çevrimiçi araç.",
+      "it": "Scarica video TikTok senza filigrana in formato MP4 1080p originale. Strumento gratuito online per smartphone e computer.",
+      "ru": "Скачивайте видео Тик Ток без водяных знаков в оригинальном качестве 1080p MP4. Бесплатно на телефон и ПК без регистрации.",
+      "ja": "TikTokの動画をロゴ・透かしなしのオリジナル1080p MP4で保存。スマホやパソコンで完全無料、登録不要で利用可能。"
+    },
+    "hero": {
+      "en": {
+        "title": "TikTok Video Downloader Without Watermark in HD",
+        "subtitle": "Save original 1080p MP4 videos from TikTok without logos, stamps, or usernames. Fast, free, and unlimited for all devices.",
+        "placeholder": "Paste TikTok video link here (e.g., https://www.tiktok.com/@user/video/...)",
+        "button": "Download HD Video",
+        "badge": "100% Free Online Video Downloader"
+      },
+      "es": {
+        "title": "Descargar Videos de TikTok Sin Marca de Agua en HD",
+        "subtitle": "Guarda videos MP4 originales en 1080p sin logotipos, marcas ni nombres de usuario. Rápido, gratuito e ilimitado.",
+        "placeholder": "Pega el enlace del video de TikTok aquí...",
+        "button": "Descargar Video HD",
+        "badge": "Descargador de Video 100% Gratuito"
+      },
+      "pt": {
+        "title": "Baixar Vídeos do TikTok Sem Marca d’Água em HD",
+        "subtitle": "Salve vídeos MP4 1080p originais sem logotipos, selos ou nomes de usuário. Rápido, gratuito e ilimitado para qualquer aparelho.",
+        "placeholder": "Cole o link do vídeo do TikTok aqui...",
+        "button": "Baixar Vídeo HD",
+        "badge": "Baixador de Vídeo 100% Grátis"
+      },
+      "id": {
+        "title": "Download Video TikTok Tanpa Watermark Kualitas HD",
+        "subtitle": "Simpan video MP4 1080p asli tanpa logo, cap air, atau nama pengguna. Cepat, gratis, dan tanpa batas untuk semua perangkat.",
+        "placeholder": "Tempel link video TikTok di sini...",
+        "button": "Download Video HD",
+        "badge": "Pengunduh Video 100% Gratis"
+      },
+      "fr": {
+        "title": "Télécharger Vidéo TikTok Sans Filigrane en HD",
+        "subtitle": "Enregistrez des vidéos MP4 1080p originales sans logos, timbres ni noms d’utilisateur. Rapide, gratuit et sans limite.",
+        "placeholder": "Collez le lien de la vidéo TikTok ici...",
+        "button": "Télécharger la Vidéo HD",
+        "badge": "Téléchargeur de Vidéo 100% Gratuit"
+      },
+      "ar": {
+        "title": "تحميل فيديو تيك توك بدون علامة مائية بدقة عالية HD",
+        "subtitle": "احفظ فيديوهات MP4 بدقة 1080p الأصلية بدون شعار أو حقوق أو أسماء مستخدمين. سريع ومجاني وغير محدود لجميع الأجهزة.",
+        "placeholder": "الصق رابط فيديو تيك توك هنا...",
+        "button": "تحميل الفيديو بدقة HD",
+        "badge": "أداة تحميل مجانية 100%"
+      },
+      "de": {
+        "title": "TikTok Video Downloader Ohne Wasserzeichen in HD",
+        "subtitle": "Speichern Sie originale 1080p MP4 Videos ohne Logos, Stempel oder Benutzernamen. Schnell, kostenlos und unbegrenzt.",
+        "placeholder": "TikTok Videolink hier einfügen...",
+        "button": "HD Video Herunterladen",
+        "badge": "100% Kostenloser Video Downloader"
+      },
+      "vi": {
+        "title": "Tải Video TikTok Không Logo Không Watermark HD",
+        "subtitle": "Lưu video MP4 1080p chất lượng gốc không có logo, hình mờ hay tên tác giả. Nhanh chóng, miễn phí và không giới hạn.",
+        "placeholder": "Dán liên kết video TikTok vào đây...",
+        "button": "Tải Video HD Ngay",
+        "badge": "Trình Tải Video 100% Miễn Phí"
+      },
+      "tr": {
+        "title": "Filigransız TikTok Videosu İndirici HD",
+        "subtitle": "TikTok videolarını logo, yazı veya kullanıcı adı olmadan orijinal 1080p MP4 formatında kaydedin. Hızlı ve sınırsız.",
+        "placeholder": "TikTok video bağlantısını buraya yapıştırın...",
+        "button": "HD Videoyu İndir",
+        "badge": "%100 Ücretsiz Video İndirici"
+      },
+      "it": {
+        "title": "Scarica Video TikTok Senza Watermark in HD",
+        "subtitle": "Salva video MP4 1080p originali senza loghi, filigrane o nomi utente. Veloce, gratuito e illimitato per tutti i dispositivi.",
+        "placeholder": "Incolla il link del video TikTok qui...",
+        "button": "Scarica Video HD",
+        "badge": "Downloader Video 100% Gratuito"
+      },
+      "ru": {
+        "title": "Скачать Видео Тик Ток Без Водяного Знака в HD",
+        "subtitle": "Сохраняйте оригинальные MP4 видео в 1080p без логотипов, водяных знаков и ников. Быстро, бесплатно и без ограничений.",
+        "placeholder": "Вставьте ссылку на видео Тик Ток...",
+        "button": "Скачать Видео в HD",
+        "badge": "100% Бесплатный Загрузчик Видео"
+      },
+      "ja": {
+        "title": "TikTok 動画 保存 透かしなし 1080p Full HD",
+        "subtitle": "TikTokの動画を動くロゴやユーザー名なしの綺麗な1080p MP4で保存。スマホやパソコンで今すぐ無料ダウンロード。",
+        "placeholder": "TikTokの動画リンクをここに貼り付け...",
+        "button": "HD動画をダウンロード",
+        "badge": "完全無料オンライン動画保存ツール"
+      }
+    }
+  },
+  "tiktok-mp3": {
+    "mode": "mp3",
+    "badgeEn": "Dedicated 320kbps Audio Engine",
+    "titles": {
+      "en": "TikTok to MP3 Converter 320kbps | QukTik",
+      "es": "Convertidor TikTok a MP3 320kbps | QukTik",
+      "pt": "Converter TikTok para MP3 320kbps | QukTik",
+      "id": "Konversi TikTok ke MP3 320kbps | QukTik",
+      "fr": "Convertisseur TikTok en MP3 320kbps | QukTik",
+      "ar": "تحويل تيك توك إلى MP3 320kbps | QukTik",
+      "de": "TikTok in MP3 Konverter 320kbps | QukTik",
+      "vi": "Chuyển TikTok Sang MP3 320kbps | QukTik",
+      "tr": "TikTok MP3 Dönüştürücü 320kbps | QukTik",
+      "it": "Convertitore TikTok in MP3 320kbps | QukTik",
+      "ru": "Конвертер Тик Ток в MP3 320kbps | QukTik",
+      "ja": "TikTok MP3 変換 音楽保存 | QukTik"
+    },
+    "descs": {
+      "en": "Extract high-quality 320kbps MP3 audio from any TikTok video online. Free sound and music downloader for iPhone, Android, and PC.",
+      "es": "Extrae audio MP3 de alta calidad a 320kbps de cualquier video de TikTok. Descargador gratis de música y sonidos para móvil y PC.",
+      "pt": "Extraia áudio MP3 em 320kbps de alta qualidade de qualquer vídeo do TikTok. Baixador de músicas e sons gratuito para celular e PC.",
+      "id": "Ekstrak audio MP3 320kbps berkualitas tinggi dari video TikTok secara online. Download lagu dan suara TikTok gratis di HP dan laptop.",
+      "fr": "Extrayez de l’audio MP3 320kbps haute fidélité de n’importe quelle vidéo TikTok. Téléchargeur gratuit de musique pour mobile et PC.",
+      "ar": "استخراج صوت MP3 بجودة عالية 320kbps من أي فيديو تيك توك أونلاين. تحميل النغمات والموسيقى مجاناً للجوال والكمبيوتر.",
+      "de": "TikTok Audio in kristallklare 320kbps MP3 Musik extrahieren. Kostenloser Sound und Musik Downloader für Handy und PC.",
+      "vi": "Tách nhạc MP3 320kbps chất lượng cao từ video TikTok online. Tải âm thanh và nhạc chuông TikTok miễn phí cho điện thoại, PC.",
+      "tr": "TikTok videolarından yüksek kaliteli 320kbps MP3 ses ve müzik ayıklayın. Telefon ve bilgisayar için ücretsiz ses indirici.",
+      "it": "Estrai tracce audio MP3 a 320kbps da qualsiasi video TikTok online. Scarica musica e suoni gratis per smartphone e computer.",
+      "ru": "Конвертируйте видео Тик Ток в чистый MP3 звук 320kbps. Бесплатное скачивание музыки и треков на телефон и компьютер.",
+      "ja": "TikTok動画から高音質320kbpsのMP3音楽・音声をワンクリックで抽出。スマホやPCで完全無料で音声保存。"
+    },
+    "hero": {
+      "en": {
+        "title": "TikTok to MP3 Audio Converter (320kbps Studio Sound)",
+        "subtitle": "Extract crystal-clear 320kbps MP3 music tracks, audio hooks, and viral dialogue from any TikTok video instantly.",
+        "placeholder": "Paste TikTok video link to extract MP3 audio...",
+        "button": "Convert to MP3",
+        "badge": "Dedicated 320kbps Audio Engine"
+      },
+      "es": {
+        "title": "Convertidor de TikTok a MP3 (Audio Estudio 320kbps)",
+        "subtitle": "Extrae pistas de música MP3 a 320kbps nítidas, fragmentos de audio y diálogos virales de cualquier video de TikTok al instante.",
+        "placeholder": "Pega el enlace del video para extraer audio MP3...",
+        "button": "Convertir a MP3",
+        "badge": "Motor de Audio Dedicado 320kbps"
+      },
+      "pt": {
+        "title": "Converter TikTok para MP3 (Som de Estúdio 320kbps)",
+        "subtitle": "Extraia músicas MP3 em 320kbps cristalinas, efeitos de som e diálogos virais de qualquer vídeo do TikTok instantaneamente.",
+        "placeholder": "Cole o link do vídeo para extrair áudio MP3...",
+        "button": "Converter para MP3",
+        "badge": "Motor de Áudio Dedicado 320kbps"
+      },
+      "id": {
+        "title": "Konversi Video TikTok ke MP3 (Kualitas Studio 320kbps)",
+        "subtitle": "Ekstrak lagu MP3 320kbps jernih, cuplikan suara, dan tren audio dari video TikTok secara instan tanpa aplikasi.",
+        "placeholder": "Tempel link video TikTok untuk ambil MP3...",
+        "button": "Konversi ke MP3",
+        "badge": "Mesin Audio Khusus 320kbps"
+      },
+      "fr": {
+        "title": "Convertisseur TikTok en MP3 (Son Studio 320kbps)",
+        "subtitle": "Extrayez des pistes audio MP3 à 320kbps, des musiques virales et des sons originaux de n’importe quelle vidéo TikTok.",
+        "placeholder": "Collez le lien de la vidéo pour extraire le MP3...",
+        "button": "Convertir en MP3",
+        "badge": "Moteur Audio Dédié 320kbps"
+      },
+      "ar": {
+        "title": "تحويل فيديو تيك توك إلى MP3 (صوت استوديو نقي 320kbps)",
+        "subtitle": "استخرج الأغاني والملفات الصوتية والمؤثرات بنقاء 320kbps من أي مقطع تيك توك مباشرة بنقرة واحدة مجاناً.",
+        "placeholder": "الصق رابط الفيديو لتحويله إلى صوت MP3...",
+        "button": "تحويل إلى MP3",
+        "badge": "محرك صوتي عالي الدقة 320kbps"
+      },
+      "de": {
+        "title": "TikTok zu MP3 Audio Konverter (320kbps Studioqualität)",
+        "subtitle": "Extrahieren Sie kristallklare 320kbps MP3 Musikspuren, Audioschnipsel und Sounds aus jedem TikTok Video sofort online.",
+        "placeholder": "TikTok Videolink einfügen, um MP3 zu extrahieren...",
+        "button": "In MP3 Umwandeln",
+        "badge": "Dedizierte 320kbps Audio Engine"
+      },
+      "vi": {
+        "title": "Chuyển TikTok Sang MP3 (Âm Thanh Studio 320kbps)",
+        "subtitle": "Tách bài hát, hiệu ứng âm thanh và nhạc nền MP3 320kbps sắc nét từ bất kỳ video TikTok nào một cách dễ dàng.",
+        "placeholder": "Dán liên kết video TikTok để tách âm thanh MP3...",
+        "button": "Chuyển Sang MP3",
+        "badge": "Bộ Xử Lý Âm Thanh 320kbps"
+      },
+      "tr": {
+        "title": "TikTok MP3 Ses Dönüştürücü (320kbps Stüdyo Kalitesi)",
+        "subtitle": "TikTok videolarından kristal netliğinde 320kbps MP3 müzik parçalarını ve viral ses efektlerini anında ücretsiz ayıklayın.",
+        "placeholder": "MP3 ses çıkarmak için TikTok linkini yapıştırın...",
+        "button": "MP3 Olarak Dönüştür",
+        "badge": "Özel 320kbps Ses Motoru"
+      },
+      "it": {
+        "title": "Convertitore da TikTok a MP3 (Audio Studio 320kbps)",
+        "subtitle": "Estrai tracce audio MP3 a 320kbps cristalline, musica virale e dialoghi da qualsiasi video TikTok all’istante.",
+        "placeholder": "Incolla il link del video per estrarre il file MP3...",
+        "button": "Converti in MP3",
+        "badge": "Motore Audio Dedicato 320kbps"
+      },
+      "ru": {
+        "title": "Конвертер Тик Ток в MP3 (Студийный Звук 320kbps)",
+        "subtitle": "Извлекайте кристально чистые аудиодорожки MP3 320kbps, тренды и музыку из любых видео Тик Ток за пару секунд.",
+        "placeholder": "Вставьте ссылку на видео для извлечения MP3...",
+        "button": "Конвертировать в MP3",
+        "badge": "Высокоточный Аудиодвижок 320kbps"
+      },
+      "ja": {
+        "title": "TikTok MP3 変換 (最高音質 320kbps スタジオ品質)",
+        "subtitle": "TikTok動画からクリアな320kbpsのMP3音楽トラックや流行りの音源を瞬時に抽出して端末に保存できます。",
+        "placeholder": "動画リンクを貼り付けてMP3音楽を抽出...",
+        "button": "MP3に変換して保存",
+        "badge": "320kbps高音質オーディオエンジン"
+      }
+    }
+  },
+  "tiktok-photo": {
+    "mode": "photo",
+    "badgeEn": "Multi-Image Carousel ZIP Extractor",
+    "titles": {
+      "en": "TikTok Photo Slideshow Downloader | QukTik",
+      "es": "Descargar Fotos de TikTok en ZIP | QukTik",
+      "pt": "Baixar Fotos do TikTok em ZIP | QukTik",
+      "id": "Download Foto Slide TikTok ZIP | QukTik",
+      "fr": "Télécharger Photos TikTok en ZIP | QukTik",
+      "ar": "تحميل صور سلايد تيك توك ZIP | QukTik",
+      "de": "TikTok Foto Diashow ZIP Downloader | QukTik",
+      "vi": "Tải Ảnh Slide TikTok File ZIP | QukTik",
+      "tr": "TikTok Fotoğraf Slayt İndirici ZIP | QukTik",
+      "it": "Scarica Foto Slideshow TikTok ZIP | QukTik",
+      "ru": "Скачать Фото Слайдшоу Тик Ток ZIP | QukTik",
+      "ja": "TikTok 写真 スライドショー 保存 | QukTik"
+    },
+    "descs": {
+      "en": "Download all photos from TikTok slideshows and carousels in original HD resolution as a single ZIP archive or separate images. 100% free.",
+      "es": "Descarga todas las fotos de presentaciones de TikTok en HD como archivo ZIP o fotos individuales sin marcas de agua gratis.",
+      "pt": "Baixe todas as fotos de carrosséis do TikTok em alta resolução HD em arquivo ZIP único ou separadas sem marca d’água.",
+      "id": "Download semua foto slide dan carousel TikTok resolusi asli HD dalam satu file ZIP atau foto terpisah tanpa watermark.",
+      "fr": "Téléchargez toutes les photos des diaporamas TikTok en HD dans une archive ZIP unique ou séparément sans filigrane.",
+      "ar": "تحميل جميع صور سلايدات وألبومات تيك توك بدقة أصلية HD في ملف ZIP مضغوط بنقرة واحدة بدون علامة مائية.",
+      "de": "Laden Sie alle Fotos aus TikTok Diashows in voller HD Auflösung als ZIP Archiv oder Einzelbilder ohne Wasserzeichen herunter.",
+      "vi": "Tải tất cả ảnh từ slide ảnh TikTok chất lượng gốc HD dưới dạng file ZIP hoặc từng ảnh riêng lẻ không có logo miễn phí.",
+      "tr": "TikTok fotoğraf slaytlarındaki tüm resimleri filigransız orijinal HD kalitede tek bir ZIP dosyası olarak indirin.",
+      "it": "Scarica tutte le foto dei caroselli TikTok in alta risoluzione HD come archivio ZIP singolo o immagini separate gratis.",
+      "ru": "Скачивайте все фотографии из слайдшоу Тик Ток в исходном HD качестве в одном ZIP архиве без водяных знаков.",
+      "ja": "TikTokの写真スライドショーの全画像を透かしなしの高画質HDで一括ZIP保存。スマホやPCでまとめて保存可能。"
+    },
+    "hero": {
+      "en": {
+        "title": "TikTok Photo Slideshow Downloader (Save All Pictures in HD)",
+        "subtitle": "Download every high-resolution photo from TikTok carousels and slideshows without watermarks, compression, or black bars.",
+        "placeholder": "Paste TikTok photo slideshow link here...",
+        "button": "Extract All Photos (ZIP)",
+        "badge": "Multi-Image Carousel Extractor"
+      },
+      "es": {
+        "title": "Descargar Fotos de Presentaciones de TikTok (Guardar Todas en HD)",
+        "subtitle": "Descarga cada foto en alta resolución de carruseles de TikTok sin marcas de agua, sin compresión y en archivo ZIP único.",
+        "placeholder": "Pega el enlace de la presentación de fotos de TikTok...",
+        "button": "Descargar Todas las Fotos (ZIP)",
+        "badge": "Extractor de Carrusel Multi-Foto"
+      },
+      "pt": {
+        "title": "Baixar Fotos de Slideshow do TikTok (Salvar Todas em HD)",
+        "subtitle": "Baixe todas as fotos em alta resolução de carrosséis do TikTok sem marca d’água, sem compressão e em arquivo ZIP único.",
+        "placeholder": "Cole o link do carrossel de fotos do TikTok...",
+        "button": "Baixar Todas as Fotos (ZIP)",
+        "badge": "Extrator de Carrossel de Imagens"
+      },
+      "id": {
+        "title": "Download Foto Slide TikTok (Simpan Semua Gambar HD)",
+        "subtitle": "Unduh semua foto berkualitas tinggi dari album carousel TikTok tanpa watermark, tanpa kompresi dalam format ZIP.",
+        "placeholder": "Tempel link slide foto TikTok di sini...",
+        "button": "Unduh Semua Foto (ZIP)",
+        "badge": "Ekstraktor Carousel Multi-Foto"
+      },
+      "fr": {
+        "title": "Télécharger Diaporama Photos TikTok (Toutes les Images en HD)",
+        "subtitle": "Téléchargez chaque photo en haute résolution des carrousels TikTok sans filigrane ni compression dans une archive ZIP.",
+        "placeholder": "Collez le lien du diaporama photos TikTok...",
+        "button": "Télécharger Toutes les Photos (ZIP)",
+        "badge": "Extracteur de Diaporama Multi-Images"
+      },
+      "ar": {
+        "title": "تحميل صور سلايد وألبومات تيك توك (حفظ جميع الصور بدقة HD)",
+        "subtitle": "حمّل جميع الصور عالية الدقة من ألبومات تيك توك بدون علامات مائية وبدون ضغط في ملف مضغوط ZIP بنقرة واحدة.",
+        "placeholder": "الصق رابط ألبوم صور تيك توك هنا...",
+        "button": "تحميل جميع الصور (ZIP)",
+        "badge": "مستخرج ألبومات الصور المتعددة"
+      },
+      "de": {
+        "title": "TikTok Foto Diashow Downloader (Alle Bilder in HD Speichern)",
+        "subtitle": "Laden Sie jedes hochauflösende Foto aus TikTok Foto-Carousels ohne Wasserzeichen als praktische ZIP Datei herunter.",
+        "placeholder": "TikTok Foto-Diashow Link hier einfügen...",
+        "button": "Alle Fotos als ZIP Herunterladen",
+        "badge": "Multi-Bilder Diashow Extrahierer"
+      },
+      "vi": {
+        "title": "Tải Slide Ảnh TikTok (Lưu Tất Cả Ảnh HD Gốc)",
+        "subtitle": "Tải xuống mọi bức ảnh độ phân giải cao từ album ảnh TikTok không có hình mờ, nén ảnh trong một tệp ZIP tiện lợi.",
+        "placeholder": "Dán liên kết slide ảnh TikTok vào đây...",
+        "button": "Tải Tất Cả Ảnh (ZIP)",
+        "badge": "Bộ Tải Album Ảnh TikTok"
+      },
+      "tr": {
+        "title": "TikTok Fotoğraf Slayt İndirici (Tüm Resimleri HD Kaydet)",
+        "subtitle": "TikTok fotoğraf albümlerindeki her resmi filigransız ve sıkıştırmasız olarak tek tıkla ZIP arşivi halinde indirin.",
+        "placeholder": "TikTok fotoğraf slayt bağlantısını buraya yapıştırın...",
+        "button": "Tüm Fotoğrafları İndir (ZIP)",
+        "badge": "Çoklu Resim Albüm İndirici"
+      },
+      "it": {
+        "title": "Scarica Slideshow Foto TikTok (Salva Tutte le Foto in HD)",
+        "subtitle": "Scarica ogni foto ad alta risoluzione dai caroselli TikTok senza filigrane o compressioni in un unico archivio ZIP.",
+        "placeholder": "Incolla il link dello slideshow foto TikTok...",
+        "button": "Scarica Tutte le Foto (ZIP)",
+        "badge": "Estrattore Carosello Multi-Foto"
+      },
+      "ru": {
+        "title": "Скачать Фото Слайдшоу Тик Ток (Сохранить Все Фото в HD)",
+        "subtitle": "Скачивайте каждую фотографию из каруселей Тик Ток в максимальном разрешении без сжатия в удобном ZIP архиве.",
+        "placeholder": "Вставьте ссылку на фото-слайдшоу Тик Ток...",
+        "button": "Скачать Все Фото (ZIP)",
+        "badge": "Экстрактор Фото-Каруселей"
+      },
+      "ja": {
+        "title": "TikTok 写真スライドショー 保存 (全画像をHDで一括保存)",
+        "subtitle": "TikTokの写真スライドショーに含まれる全ての画像を透かしや圧縮なしで一括ZIPアーカイブとして保存できます。",
+        "placeholder": "TikTok写真スライドショーのリンクを貼り付け...",
+        "button": "全画像をZIPで一括保存",
+        "badge": "複数写真スライドショー抽出"
+      }
+    }
+  },
+  "tiktok-story": {
+    "mode": "story",
+    "badgeEn": "24-Hour Story Archiver (No Login)",
+    "titles": {
+      "en": "TikTok Story Downloader HD | QukTik",
+      "es": "Descargar Historias de TikTok HD | QukTik",
+      "pt": "Baixar Stories do TikTok HD | QukTik",
+      "id": "Download Story TikTok 24 Jam HD | QukTik",
+      "fr": "Télécharger Story TikTok HD | QukTik",
+      "ar": "تحميل ستوري تيك توك HD | QukTik",
+      "de": "TikTok Story Downloader HD | QukTik",
+      "vi": "Tải Story TikTok HD 24h | QukTik",
+      "tr": "TikTok Hikaye İndirici HD | QukTik",
+      "it": "Scarica Storie TikTok HD | QukTik",
+      "ru": "Скачать Истории Тик Ток HD | QukTik",
+      "ja": "TikTok ストーリー 保存 HD | QukTik"
+    },
+    "descs": {
+      "en": "Save expiring TikTok stories before the 24-hour window ends in 1080p Full HD MP4 without watermarks. Free online story viewer & saver.",
+      "es": "Guarda historias de TikTok antes de que desaparezcan en 24h en MP4 1080p sin marca de agua. Descargador gratis sin iniciar sesión.",
+      "pt": "Salve stories do TikTok antes que expirem em 24h em MP4 1080p sem marca d’água. Ferramenta gratuita sem precisar de login.",
+      "id": "Simpan story TikTok sebelum hilang dalam 24 jam dalam kualitas MP4 1080p tanpa watermark. Gratis dan tanpa perlu login.",
+      "fr": "Enregistrez les stories TikTok avant leur expiration de 24h en MP4 1080p sans filigrane. Téléchargeur gratuit sans connexion.",
+      "ar": "احفظ قصص وستوريات تيك توك المؤقتة قبل اختفائها خلال 24 ساعة بدقة 1080p بدون علامة مائية وبدون تسجيل دخول مجاناً.",
+      "de": "Speichern Sie vergängliche TikTok Stories vor Ablauf der 24 Stunden in 1080p MP4 ohne Wasserzeichen. Kostenlos und ohne Login.",
+      "vi": "Lưu story TikTok trước khi biến mất sau 24 giờ với chất lượng MP4 1080p không logo. Công cụ trực tuyến miễn phí không cần đăng nhập.",
+      "tr": "24 saat içinde kaybolan TikTok hikayelerini filigransız 1080p MP4 olarak kalıcı kaydedin. Giriş yapmadan ücretsiz indirin.",
+      "it": "Salva le storie TikTok prima della scadenza delle 24 ore in formato MP4 1080p senza watermark. Strumento gratuito senza login.",
+      "ru": "Сохраняйте исчезающие истории Тик Ток до истечения 24 часов в 1080p MP4 без водяных знаков. Бесплатно и без входа в аккаунт.",
+      "ja": "24時間で消えてしまうTikTokストーリー動画を期限切れ前に1080p MP4で透かしなし保存。ログイン不要の無料ツール。"
+    },
+    "hero": {
+      "en": {
+        "title": "TikTok Story Saver & Downloader (Save 24h Stories in HD)",
+        "subtitle": "Save disappearing TikTok stories before they vanish forever. Download clean, watermark-free 1080p MP4 videos with no login required.",
+        "placeholder": "Paste TikTok story link here...",
+        "button": "Save Story in HD",
+        "badge": "24-Hour Story Archiver (No Login)"
+      },
+      "es": {
+        "title": "Descargar Historias de TikTok (Guardar Stories en HD)",
+        "subtitle": "Guarda historias efímeras de TikTok antes de que desaparezcan. Descarga videos MP4 limpios en 1080p sin iniciar sesión.",
+        "placeholder": "Pega el enlace de la historia de TikTok aquí...",
+        "button": "Guardar Historia en HD",
+        "badge": "Archivador de Historias 24h (Sin Login)"
+      },
+      "pt": {
+        "title": "Baixar Stories do TikTok (Salvar Stories em HD)",
+        "subtitle": "Salve stories efêmeros do TikTok antes que desapareçam para sempre. Baixe vídeos MP4 limpos em 1080p sem login.",
+        "placeholder": "Cole o link do story do TikTok aqui...",
+        "button": "Salvar Story em HD",
+        "badge": "Arquivador de Stories 24h (Sem Login)"
+      },
+      "id": {
+        "title": "Pengunduh Story TikTok (Simpan Story 24 Jam HD)",
+        "subtitle": "Simpan story TikTok sebelum terhapus otomatis setelah 24 jam. Download video MP4 bersih tanpa watermark dan tanpa login.",
+        "placeholder": "Tempel link story TikTok di sini...",
+        "button": "Simpan Story HD",
+        "badge": "Penyimpan Story 24 Jam (Tanpa Akun)"
+      },
+      "fr": {
+        "title": "Télécharger Stories TikTok (Enregistrer Stories en HD)",
+        "subtitle": "Sauvegardez les stories éphémères de TikTok avant leur disparition. Téléchargez des vidéos MP4 1080p propres sans compte.",
+        "placeholder": "Collez le lien de la story TikTok ici...",
+        "button": "Enregistrer la Story en HD",
+        "badge": "Sauvegarde de Story 24h (Sans Connexion)"
+      },
+      "ar": {
+        "title": "تحميل قصص ستوري تيك توك (حفظ الستوريات بدقة HD)",
+        "subtitle": "احفظ القصص المؤقتة في تيك توك قبل أن تختفي للأبد. حمّل مقاطع فيديو MP4 نظيفة بدقة 1080p بدون تسجيل دخول.",
+        "placeholder": "الصق رابط ستوري تيك توك هنا...",
+        "button": "حفظ الستوري بدقة HD",
+        "badge": "أرشيف القصص المؤقتة (بدون تسجيل)"
+      },
+      "de": {
+        "title": "TikTok Story Saver & Downloader (Stories in HD Speichern)",
+        "subtitle": "Speichern Sie Stories vor dem Ablauf der 24 Stunden dauerhaft. Laden Sie saubere 1080p MP4 Videos ohne Login herunter.",
+        "placeholder": "TikTok Story Link hier einfügen...",
+        "button": "Story in HD Speichern",
+        "badge": "24-Stunden Story Archivierer (Ohne Login)"
+      },
+      "vi": {
+        "title": "Tải Story TikTok 24h (Lưu Tin TikTok Không Logo HD)",
+        "subtitle": "Lưu các tin story TikTok trước khi hết hạn 24 giờ. Tải video MP4 1080p sắc nét, sạch sẽ và hoàn toàn không cần tài khoản.",
+        "placeholder": "Dán liên kết story TikTok vào đây...",
+        "button": "Lưu Story HD Ngay",
+        "badge": "Trình Lưu Story 24 Giờ (Không Cần Đăng Nhập)"
+      },
+      "tr": {
+        "title": "TikTok Hikaye İndirici (24 Saatlik Hikayeleri HD Kaydet)",
+        "subtitle": "Kaybolan TikTok hikayelerini süreleri dolmadan önce kalıcı olarak arşivleyin. Giriş gerekmeden temiz 1080p MP4 indirin.",
+        "placeholder": "TikTok hikaye bağlantısını buraya yapıştırın...",
+        "button": "Hikayeyi HD Kaydet",
+        "badge": "24 Saatlik Hikaye Arşivleyici (Girişsiz)"
+      },
+      "it": {
+        "title": "Scarica Storie TikTok (Salva Stories in HD)",
+        "subtitle": "Salva le storie temporanee di TikTok prima che svaniscano per sempre. Scarica video MP4 1080p puliti senza dover accedere.",
+        "placeholder": "Incolla il link della storia TikTok qui...",
+        "button": "Salva Storia in HD",
+        "badge": "Archiviatore Storie 24h (Senza Login)"
+      },
+      "ru": {
+        "title": "Скачать Истории Тик Ток (Сохранить Истории в HD)",
+        "subtitle": "Сохраняйте исчезающие истории Тик Ток до того, как они пропадут. Чистые MP4 видео 1080p без входа в аккаунт.",
+        "placeholder": "Вставьте ссылку на историю Тик Ток...",
+        "button": "Сохранить Историю в HD",
+        "badge": "Архиватор Историй 24ч (Без Регистрации)"
+      },
+      "ja": {
+        "title": "TikTok ストーリー 保存 (24時間限定ストーリーをHD保存)",
+        "subtitle": "消えてしまう24時間限定のTikTokストーリーを期限切れ前に保存。ログイン不要で透かしなし1080p MP4をダウンロード。",
+        "placeholder": "TikTokストーリーのリンクを貼り付け...",
+        "button": "ストーリーをHD保存",
+        "badge": "24時間ストーリー保存ツール (ログイン不要)"
+      }
+    }
+  },
+  "douyin-downloader": {
+    "mode": "douyin",
+    "sampleUrl": "https://www.douyin.com/video/7330964478051257627",
+    "badgeEn": "ByteDance China CDN Gateway",
+    "titles": {
+      "en": "Douyin Downloader No Watermark | QukTik",
+      "es": "Descargar Videos de Douyin HD | QukTik",
+      "pt": "Baixar Vídeos do Douyin HD | QukTik",
+      "id": "Unduh Video Douyin Tanpa Watermark | QukTik",
+      "fr": "Télécharger Vidéo Douyin Sans Logo | QukTik",
+      "ar": "تحميل فيديو دوين Douyin الصيني | QukTik",
+      "de": "Douyin Downloader Ohne Wasserzeichen | QukTik",
+      "vi": "Tải Video Douyin Không Logo 抖音 | QukTik",
+      "tr": "Douyin Video İndirici Filigransız | QukTik",
+      "it": "Scarica Video Douyin Senza Watermark | QukTik",
+      "ru": "Скачать Видео Douyin Без Знака | QukTik",
+      "ja": "Douyin 抖音 動画 保存 透かしなし | QukTik"
+    },
+    "descs": {
+      "en": "Download Chinese TikTok (Douyin 抖音) videos and audio without watermark in 1080p Full HD. Fast Mainland China CDN gateway.",
+      "es": "Descarga videos de Douyin (TikTok Chino 抖音) sin marca de agua en 1080p Full HD. Procesamiento rápido directo desde servidores chinos.",
+      "pt": "Baixe vídeos do Douyin (TikTok Chinês 抖音) sem marca d’água em 1080p Full HD. Acesso rápido e gratuito aos servidores da China.",
+      "id": "Download video Douyin (TikTok China 抖音) tanpa watermark dalam format MP4 1080p Full HD. Cepat dan gratis tanpa aplikasi.",
+      "fr": "Téléchargez les vidéos Douyin (TikTok Chinois 抖音) sans filigrane en 1080p Full HD. Passerelle rapide vers les serveurs chinois.",
+      "ar": "تحميل فيديوهات دوين Douyin (تيك توك الصيني 抖音) بدون علامة مائية بدقة 1080p Full HD مع دعم الروابط والنصوص الصينية.",
+      "de": "Laden Sie chinesische TikTok (Douyin 抖音) Videos ohne Wasserzeichen in 1080p Full HD herunter. Schneller China CDN Zugriff.",
+      "vi": "Tải video Douyin (TikTok Trung Quốc 抖音) không logo, không watermark chuẩn 1080p Full HD. Dán link hoặc văn bản chia sẻ tiếng Trung.",
+      "tr": "Çin TikTok (Douyin 抖音) videolarını filigransız orijinal 1080p Full HD kalitesinde indirin. Hızlı Çin CDN sunucu desteği.",
+      "it": "Scarica video Douyin (TikTok Cinese 抖音) senza watermark in 1080p Full HD. Accesso diretto e veloce ai server cinesi.",
+      "ru": "Скачивайте видео из китайского Тик Ток (Douyin 抖音) без водяных знаков в 1080p Full HD. Быстрая загрузка с серверов Китая.",
+      "ja": "中国版TikTok（Douyin / 抖音）の動画をロゴ・透かしなしの1080p高画質で保存。中国語の共有テキストや短縮URLに対応。"
+    },
+    "hero": {
+      "en": {
+        "title": "Douyin Downloader (抖音视频无水印下载 - Chinese TikTok HD)",
+        "subtitle": "Download Chinese TikTok (Douyin 抖音) videos and audio without watermark in 1080p Full HD. Paste full Chinese share text or short links.",
+        "placeholder": "Paste Douyin link or Chinese share text (e.g., https://v.douyin.com/...)",
+        "button": "Download Douyin Video",
+        "badge": "ByteDance China CDN Gateway"
+      },
+      "es": {
+        "title": "Descargar Videos de Douyin (抖音 - TikTok Chino Sin Marca de Agua)",
+        "subtitle": "Descarga videos y música de Douyin en calidad original 1080p Full HD. Compatible con texto de compartir chino y enlaces cortos.",
+        "placeholder": "Pega el enlace de Douyin o texto en chino...",
+        "button": "Descargar Video Douyin",
+        "badge": "Pasarela CDN China ByteDance"
+      },
+      "pt": {
+        "title": "Baixar Vídeos do Douyin (抖音 - TikTok Chinês Sem Marca d’Água)",
+        "subtitle": "Baixe vídeos e áudios do Douyin em 1080p Full HD. Compatível com textos de compartilhamento em chinês e links curtos.",
+        "placeholder": "Cole o link do Douyin ou texto em chinês...",
+        "button": "Baixar Vídeo Douyin",
+        "badge": "Gateway CDN China ByteDance"
+      },
+      "id": {
+        "title": "Download Video Douyin (抖音 - TikTok China Tanpa Watermark)",
+        "subtitle": "Unduh video dan audio Douyin tanpa watermark dalam resolusi 1080p Full HD. Mendukung teks berbagi bahasa Mandarin.",
+        "placeholder": "Tempel link Douyin atau teks bahasa Mandarin...",
+        "button": "Download Video Douyin",
+        "badge": "Gerbang CDN China ByteDance"
+      },
+      "fr": {
+        "title": "Télécharger Vidéo Douyin (抖音 - TikTok Chinois Sans Filigrane)",
+        "subtitle": "Téléchargez des vidéos et musiques Douyin en 1080p Full HD. Compatible avec les textes de partage en chinois et liens courts.",
+        "placeholder": "Collez le lien Douyin ou texte en chinois...",
+        "button": "Télécharger Vidéo Douyin",
+        "badge": "Passerelle CDN Chine ByteDance"
+      },
+      "ar": {
+        "title": "تحميل فيديو دوين Douyin (تيك توك الصيني 抖音 بدون علامة مائية)",
+        "subtitle": "حمّل مقاطع فيديو وصوتيات من شبكة Douyin الصينية بدقة 1080p Full HD مع دعم النصوص الصينية الكاملة والروابط المختصرة.",
+        "placeholder": "الصق رابط Douyin أو نص المشاركة الصيني...",
+        "button": "تحميل فيديو Douyin",
+        "badge": "بوابة خوادم بايت دانس الصينية"
+      },
+      "de": {
+        "title": "Douyin Downloader (抖音 - Chinesisches TikTok Ohne Wasserzeichen)",
+        "subtitle": "Laden Sie chinesische Douyin Videos und Audios in 1080p Full HD herunter. Unterstützt chinesische Freigabetexte und Kurzlinks.",
+        "placeholder": "Douyin Link oder chinesischen Freigabetext einfügen...",
+        "button": "Douyin Video Herunterladen",
+        "badge": "ByteDance China CDN Gateway"
+      },
+      "vi": {
+        "title": "Tải Video Douyin (抖音 - TikTok Trung Quốc Không Logo HD)",
+        "subtitle": "Tải video và âm thanh Douyin không có hình mờ với chất lượng 1080p Full HD. Hỗ trợ dán toàn bộ văn bản chia sẻ tiếng Trung.",
+        "placeholder": "Dán liên kết Douyin hoặc đoạn văn bản chia sẻ tiếng Trung...",
+        "button": "Tải Video Douyin Ngay",
+        "badge": "Cổng Kết Nối CDN Trung Quốc ByteDance"
+      },
+      "tr": {
+        "title": "Douyin Video İndirici (抖音 - Çin TikTok Filigransız HD)",
+        "subtitle": "Çin TikTok (Douyin 抖音) video ve seslerini filigransız 1080p Full HD kalitede indirin. Çince paylaşım metinlerini destekler.",
+        "placeholder": "Douyin linkini veya Çince paylaşım metnini yapıştırın...",
+        "button": "Douyin Videoyu İndir",
+        "badge": "ByteDance Çin CDN Ağ Geçidi"
+      },
+      "it": {
+        "title": "Scarica Video Douyin (抖音 - TikTok Cinese Senza Watermark)",
+        "subtitle": "Scarica video e tracce audio da Douyin in 1080p Full HD senza watermark. Supporta testi di condivisione e link brevi in cinese.",
+        "placeholder": "Incolla il link Douyin o il testo di condivisione cinese...",
+        "button": "Scarica Video Douyin",
+        "badge": "Gateway CDN Cina ByteDance"
+      },
+      "ru": {
+        "title": "Скачать Видео Доуинь (抖音 - Китайский Тик Ток Без Водяного Знака)",
+        "subtitle": "Скачивайте видео и музыку из Douyin в 1080p Full HD без логотипов. Поддерживает ссылки и китайский текст «поделиться».",
+        "placeholder": "Вставьте ссылку на Douyin или китайский текст...",
+        "button": "Скачать Видео Douyin",
+        "badge": "Шлюз CDN Китая ByteDance"
+      },
+      "ja": {
+        "title": "Douyin 抖音 ダウンローダー (中国版TikTok 動画保存 透かしなし)",
+        "subtitle": "中国版TikTok（Douyin 抖音）の動画と音声を透かしなし1080p Full HDで保存。中国語の共有テキスト貼り付けにも対応。",
+        "placeholder": "Douyinのリンクまたは中国語の共有文を貼り付け...",
+        "button": "Douyin動画をダウンロード",
+        "badge": "ByteDance中国CDNゲートウェイ"
+      }
+    }
+  },
+  "tiktok-ringtone": {
+    "mode": "ringtone",
+    "badgeEn": "Viral Audio to Ringtone Converter",
+    "titles": {
+      "en": "TikTok Ringtone Maker Free | QukTik",
+      "es": "Crear Tonos de Llamada TikTok | QukTik",
+      "pt": "Criar Toques de Celular TikTok | QukTik",
+      "id": "Pembuat Nada Dering TikTok | QukTik",
+      "fr": "Créer Sonnerie TikTok Gratuite | QukTik",
+      "ar": "صانع نغمات رنين تيك توك | QukTik",
+      "de": "TikTok Klingelton Erstellen | QukTik",
+      "vi": "Tạo Nhạc Chuông TikTok Miễn Phí | QukTik",
+      "tr": "TikTok Zil Sesi Yapıcı | QukTik",
+      "it": "Crea Suonerie da TikTok | QukTik",
+      "ru": "Создать Рингтон из Тик Ток | QukTik",
+      "ja": "TikTok 着信音 作成 無料 | QukTik"
+    },
+    "descs": {
+      "en": "Turn viral TikTok music clips and sounds into custom ringtones, alarm tones, and notification alerts for iPhone and Android for free.",
+      "es": "Convierte canciones y audios virales de TikTok en tonos de llamada, alarmas y notificaciones para iPhone y Android gratis.",
+      "pt": "Transforme músicas e áudios virais do TikTok em toques de celular, alarmes e notificações para iPhone e Android gratuitamente.",
+      "id": "Ubah musik viral dan audio TikTok menjadi nada dering, alarm, dan nada notifikasi untuk HP Android dan iPhone secara gratis.",
+      "fr": "Transformez les musiques et sons TikTok en sonneries personnalisées, réveils et notifications pour iPhone et Android gratuitement.",
+      "ar": "حوّل أغاني ومؤثرات تيك توك إلى نغمات رنين ومنبهات ورسائل لهواتف آيفون وأندرويد بدقة صوتية عالية 320kbps مجاناً.",
+      "de": "Verwandeln Sie virale TikTok Sounds und Musik in eigene Klingeltöne, Wecktöne und Benachrichtigungen für iPhone und Android.",
+      "vi": "Biến các đoạn nhạc và âm thanh TikTok thành nhạc chuông, báo thức và âm thông báo cho iPhone, Android hoàn toàn miễn phí.",
+      "tr": "Viral TikTok müziklerini ve seslerini iPhone ve Android için özel zil sesi, alarm ve bildirim sesine dönüştürün.",
+      "it": "Trasforma clip musicali e suoni virali di TikTok in suonerie personalizzate, sveglie e notifiche per iPhone e Android gratis.",
+      "ru": "Создавайте собственные рингтоны, звуки будильника и уведомлений для iPhone и Android из вирусных звуков Тик Ток бесплатно.",
+      "ja": "TikTokで流行りの音楽や音源をiPhoneやAndroidのオリジナル着信音、アラーム、通知音に変換して無料ダウンロード。"
+    },
+    "hero": {
+      "en": {
+        "title": "TikTok Ringtone Maker (Custom iPhone & Android Tones)",
+        "subtitle": "Turn viral TikTok audio clips and music hooks into custom ringtones, text alerts, and morning alarms in studio 320kbps quality.",
+        "placeholder": "Paste TikTok sound link to create custom ringtone...",
+        "button": "Create Ringtone",
+        "badge": "Viral Audio to Ringtone Converter"
+      },
+      "es": {
+        "title": "Creador de Tonos de Llamada de TikTok (Para iPhone y Android)",
+        "subtitle": "Convierte fragmentos de audio y canciones virales de TikTok en tonos de llamada, alertas de mensaje y alarmas en calidad 320kbps.",
+        "placeholder": "Pega el enlace para crear tono de llamada...",
+        "button": "Crear Tono de Llamada",
+        "badge": "Convertidor de Audio Viral a Tono"
+      },
+      "pt": {
+        "title": "Criador de Toques de Celular do TikTok (Para iPhone e Android)",
+        "subtitle": "Transforme áudios e músicas virais do TikTok em toques de chamada personalizados, notificações e alarmes em 320kbps.",
+        "placeholder": "Cole o link para criar toque de chamada...",
+        "button": "Criar Toque de Celular",
+        "badge": "Conversor de Áudio em Toque"
+      },
+      "id": {
+        "title": "Pembuat Nada Dering TikTok (Untuk HP Android & iPhone)",
+        "subtitle": "Ubah cuplikan lagu viral dan audio tren TikTok menjadi nada dering panggilan, suara notifikasi, dan alarm berkualitas 320kbps.",
+        "placeholder": "Tempel link TikTok untuk buat nada dering...",
+        "button": "Buat Nada Dering",
+        "badge": "Konverter Audio ke Nada Dering"
+      },
+      "fr": {
+        "title": "Créateur de Sonneries TikTok (Pour iPhone et Android)",
+        "subtitle": "Transformez les musiques et sons viraux de TikTok en sonneries personnalisées, alertes SMS et réveils en qualité 320kbps.",
+        "placeholder": "Collez le lien pour créer une sonnerie...",
+        "button": "Créer une Sonnerie",
+        "badge": "Convertisseur Audio en Sonnerie"
+      },
+      "ar": {
+        "title": "صانع نغمات رنين تيك توك (نغمات مخصصة للآيفون والأندرويد)",
+        "subtitle": "حوّل المقاطع الصوتية والأغاني الرائجة في تيك توك إلى نغمات رنين وتنبيهات ورسائل بنقاء استوديو 320kbps بنقرة واحدة.",
+        "placeholder": "الصق رابط الصوت لإنشاء نغمة الرنين...",
+        "button": "إنشاء نغمة رنين",
+        "badge": "محول الصوتيات إلى نغمات رنين"
+      },
+      "de": {
+        "title": "TikTok Klingelton Maker (Individuelle Klingeltöne für iPhone & Android)",
+        "subtitle": "Verwandeln Sie virale TikTok Sounds und Musik in eigene Klingeltöne, Wecktöne und Benachrichtigungstöne in 320kbps.",
+        "placeholder": "TikTok Link einfügen, um Klingelton zu erstellen...",
+        "button": "Klingelton Erstellen",
+        "badge": "Viraler Sound zu Klingelton Konverter"
+      },
+      "vi": {
+        "title": "Tạo Nhạc Chuông TikTok (Tùy Chỉnh Cho iPhone & Android)",
+        "subtitle": "Biến các giai điệu âm nhạc và câu thoại hot trên TikTok thành nhạc chuông cuộc gọi, âm báo thức chuẩn âm thanh 320kbps.",
+        "placeholder": "Dán liên kết TikTok để tạo nhạc chuông...",
+        "button": "Tạo Nhạc Chuông Ngay",
+        "badge": "Bộ Chuyển Đổi Âm Thanh Thành Nhạc Chuông"
+      },
+      "tr": {
+        "title": "TikTok Zil Sesi Oluşturucu (iPhone ve Android İçin Özel Sesler)",
+        "subtitle": "Viral TikTok müziklerini ve seslerini stüdyo kalitesinde 320kbps özel zil seslerine, mesaj ve alarm tonlarına dönüştürün.",
+        "placeholder": "Zil sesi yapmak için TikTok linkini yapıştırın...",
+        "button": "Zil Sesi Oluştur",
+        "badge": "Viral Ses Zil Sesi Dönüştürücü"
+      },
+      "it": {
+        "title": "Crea Suonerie da TikTok (Personalizzate per iPhone e Android)",
+        "subtitle": "Trasforma clip audio e brani virali di TikTok in suonerie personalizzate, sveglie e avvisi di notifica in qualità 320kbps.",
+        "placeholder": "Incolla il link per creare la suoneria...",
+        "button": "Crea Suoneria",
+        "badge": "Convertitore Audio in Suoneria"
+      },
+      "ru": {
+        "title": "Создать Рингтон из Тик Ток (Для iPhone и Android)",
+        "subtitle": "Превращайте вирусные треки и звуки из Тик Ток в собственные рингтоны, звуки будильника и уведомлений в 320kbps.",
+        "placeholder": "Вставьте ссылку для создания рингтона...",
+        "button": "Создать Рингтон",
+        "badge": "Конвертер Звуков в Рингтоны"
+      },
+      "ja": {
+        "title": "TikTok 着信音 作成 (iPhone & Android 用 カスタム着信音)",
+        "subtitle": "TikTokで流行中のBGMや音声クリップを320kbpsのクリアな音質でiPhoneやAndroidの着信音・アラーム音に変換保存。",
+        "placeholder": "着信音にしたいTikTokリンクを貼り付け...",
+        "button": "着信音を作成",
+        "badge": "流行の音源を着信音に変換"
+      }
+    }
+  }
+}

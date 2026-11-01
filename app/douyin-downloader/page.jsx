@@ -1,3 +1,4 @@
+import { getToolSeoMetadata } from '../../lib/tools';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
@@ -24,19 +25,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata = {
-  title: 'Douyin Downloader (抖音下载) - No Watermark',
-  description: 'Download Chinese Douyin (抖音) videos without watermark in 1080p Full HD MP4. Works with all Douyin share links directly online for free.',
-  alternates: {
-    canonical: 'https://quktik.com/douyin-downloader',
-  },
-  openGraph: {
-    title: 'Douyin Downloader (抖音视频下载) - No Watermark HD Video Saver',
-    description: 'Download Chinese Douyin (抖音) videos without watermark in 1080p Full HD MP4. Works with all Douyin share links directly online for free.',
-    url: 'https://quktik.com/douyin-downloader',
-    type: 'website',
-  },
-};
+export const metadata = getToolSeoMetadata('en', 'douyin-downloader');
 
 export default function DouyinDownloaderPage() {
   

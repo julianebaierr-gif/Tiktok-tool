@@ -1,3 +1,4 @@
+import { getToolSeoMetadata } from '../../lib/tools';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
@@ -25,19 +26,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata = {
-  title: 'TikTok Ringtone Maker - Custom Audio Tones',
-  description: 'Make custom phone ringtones from trending TikTok sounds and songs for iPhone (M4R/M4A) and Android (MP3). Free online ringtone creator.',
-  alternates: {
-    canonical: 'https://quktik.com/tiktok-ringtone',
-  },
-  openGraph: {
-    title: 'TikTok Ringtone Maker - Convert TikTok Audio to Phone Ringtones',
-    description: 'Make custom phone ringtones from trending TikTok sounds and songs for iPhone (M4R/M4A) and Android (MP3). Free online ringtone creator.',
-    url: 'https://quktik.com/tiktok-ringtone',
-    type: 'website',
-  },
-};
+export const metadata = getToolSeoMetadata('en', 'tiktok-ringtone');
 
 export default function TikTokRingtonePage() {
   
