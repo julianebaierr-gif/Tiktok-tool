@@ -4,171 +4,293 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import ToolHero from './ToolHero';
 import SiteSchema from './SiteSchema';
-import { TRANSLATIONS, LANGUAGES } from '../lib/translations';
-import { Sparkles, Zap, Music2, DownloadCloud, ChevronDown, CheckCircle2, ShieldCheck, HelpCircle } from 'lucide-react';
+import { CONTENT_MAP } from '../lib/content';
+import { LANGUAGES } from '../lib/translations';
+import { 
+  Sparkles, Zap, Music2, DownloadCloud, ChevronDown, CheckCircle2, 
+  HelpCircle, Smartphone, Monitor, ShieldCheck, AlertCircle, FileText, Check, Tag
+} from 'lucide-react';
 
-export default function LocalizedHomePage({ langCode = 'en' }) {
-  const t = TRANSLATIONS[langCode] || TRANSLATIONS.en;
-  const currentLang = LANGUAGES.find(l => l.code === langCode) || LANGUAGES[0];
+export default function LocalizedHomePage({ langCode = 'es' }) {
+  const data = CONTENT_MAP[langCode] || CONTENT_MAP.es;
+  const currentLang = LANGUAGES.find(l => l.code === langCode) || LANGUAGES[1];
   const isRtl = currentLang.dir === 'rtl';
 
   // FAQ accordion state
   const [openFaq, setOpenFaq] = useState(null);
   const toggleFaq = (idx) => setOpenFaq(openFaq === idx ? null : idx);
 
-  const features = [
-    {
-      icon: Sparkles,
-      title: t.feat1Title,
-      description: t.feat1Desc,
-      badge: t.badgeNoWatermark,
-    },
-    {
-      icon: Zap,
-      title: t.feat2Title,
-      description: t.feat2Desc,
-      badge: t.badgeSourceQuality,
-    },
-    {
-      icon: Music2,
-      title: t.feat3Title,
-      description: t.feat3Desc,
-      badge: t.badgeStudioAudio,
-    },
-    {
-      icon: DownloadCloud,
-      title: t.feat4Title,
-      description: t.feat4Desc,
-      badge: 'ZIP Album',
-    },
-  ];
-
-  const steps = [
-    { num: '1', title: t.step1Title, desc: t.step1Desc },
-    { num: '2', title: t.step2Title, desc: t.step2Desc },
-    { num: '3', title: t.step3Title, desc: t.step3Desc },
-  ];
-
-  const faqs = [
-    { q: t.faq1Q, a: t.faq1A },
-    { q: t.faq2Q, a: t.faq2A },
-    { q: t.faq3Q, a: t.faq3A },
-    { q: t.faq4Q, a: t.faq4A },
-  ];
+  // Active Device Guide Tab (ios, android, pc)
+  const [activeDeviceTab, setActiveDeviceTab] = useState('ios');
 
   return (
     <div className={`relative overflow-hidden ${isRtl ? 'rtl' : 'ltr'}`} dir={currentLang.dir}>
       <SiteSchema />
 
-      {/* Downloader Hero with Translated UI Strings */}
+      {/* 1. Downloader Hero */}
       <ToolHero
-        title={t.heroTitle}
-        subtitle={t.heroSubtitle}
-        placeholder={t.placeholder}
-        buttonText={t.downloadBtn}
-        badge={t.badgeNoWatermark}
+        title={data.hero.title}
+        subtitle={data.hero.subtitle}
+        placeholder={data.hero.placeholder}
+        buttonText={data.hero.button}
+        badge={data.hero.badge}
         mode="all"
       />
 
-      {/* Trust Highlights Banner */}
+      {/* 2. Trust Highlights Banner */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 p-3 sm:p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs text-center">
-          <div className="p-3 rounded-xl bg-slate-50/70 border border-slate-100">
-            <span className="text-xl sm:text-2xl font-extrabold text-slate-900 block">100%</span>
-            <span className="text-xs font-medium text-slate-500">{t.badgeNoWatermark}</span>
-          </div>
-          <div className="p-3 rounded-xl bg-slate-50/70 border border-slate-100">
-            <span className="text-xl sm:text-2xl font-extrabold text-slate-900 block">1080p</span>
-            <span className="text-xs font-medium text-slate-500">{t.badgeSourceQuality}</span>
-          </div>
-          <div className="p-3 rounded-xl bg-slate-50/70 border border-slate-100">
-            <span className="text-xl sm:text-2xl font-extrabold text-slate-900 block">320kbps</span>
-            <span className="text-xs font-medium text-slate-500">{t.badgeStudioAudio}</span>
-          </div>
-          <div className="p-3 rounded-xl bg-slate-50/70 border border-slate-100">
-            <span className="text-xl sm:text-2xl font-extrabold text-slate-900 block">0 Login</span>
-            <span className="text-xs font-medium text-slate-500">{t.badgePrivacy}</span>
-          </div>
+          {data.stats.map((stat, idx) => (
+            <div key={idx} className="p-3 rounded-xl bg-slate-50/70 border border-slate-100">
+              <span className="text-xl sm:text-2xl font-extrabold text-slate-900 block">{stat.value}</span>
+              <span className="text-xs font-medium text-slate-500">{stat.label}</span>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Core Features Section */}
+      {/* 3. 6 Core Capabilities Features Grid */}
       <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-xs font-semibold uppercase tracking-wider text-slate-700 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
-            {currentLang.label} • QukTik
+          <span className="text-xs font-semibold uppercase tracking-wider text-rose-700 bg-rose-50 px-3 py-1 rounded-full border border-rose-200">
+            {currentLang.label} • QukTik HD Downloader
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-3">
-            {t.featTitle}
+            {data.hero.title}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
-            {t.featSubtitle}
+            {data.hero.subtitle}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {features.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div 
-                key={idx}
-                className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-rose-200 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.description}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {data.features.map((item, idx) => (
+            <div 
+              key={idx}
+              className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-rose-200 transition-all flex flex-col justify-between"
+            >
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-4">
+                  {idx === 0 && <Sparkles className="w-6 h-6" />}
+                  {idx === 1 && <Zap className="w-6 h-6" />}
+                  {idx === 2 && <Music2 className="w-6 h-6" />}
+                  {idx === 3 && <DownloadCloud className="w-6 h-6" />}
+                  {idx === 4 && <ShieldCheck className="w-6 h-6" />}
+                  {idx === 5 && <CheckCircle2 className="w-6 h-6" />}
                 </div>
-                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-xs font-bold text-rose-600">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>{item.badge}</span>
-                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.desc}</p>
               </div>
-            );
-          })}
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-xs font-bold text-rose-600">
+                <Check className="w-3.5 h-3.5" />
+                <span>{item.badge}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* How to Use Tutorial */}
-      <section className="py-12 bg-slate-50/70 border-y border-slate-200/80">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-              {t.howToTitle}
+      {/* 4. Deep-Dive Editorial Guide (1500+ Words Quality) */}
+      <section className="py-14 bg-slate-50/70 border-y border-slate-200/80">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-12">
+          
+          {/* Header & Intro */}
+          <div className="space-y-4">
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
+              Editorial Guide • {currentLang.label}
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              {data.deepDive.heading}
             </h2>
+            <div className="prose prose-slate max-w-none text-sm sm:text-base leading-relaxed text-slate-700 whitespace-pre-line">
+              {data.deepDive.intro}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {steps.map((step, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-2xs relative">
-                <div className="w-9 h-9 rounded-xl bg-slate-900 text-white font-black text-sm flex items-center justify-center mb-3">
-                  {step.num}
-                </div>
-                <h3 className="text-base font-bold text-slate-900 mb-2">{step.title}</h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
+          {/* Section 1: Extraction Technology */}
+          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+              <Zap className="w-5 h-5 text-rose-600 shrink-0" />
+              <span>{data.deepDive.section1Title}</span>
+            </h3>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
+              {data.deepDive.section1Text}
+            </p>
           </div>
+
+          {/* Section 2: Step-by-Step Multi-Device Masterclass */}
+          <div className="space-y-6">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+                {data.deepDive.section2Title}
+              </h3>
+              {/* Device Tabs */}
+              <div className="inline-flex p-1 rounded-2xl bg-white border border-slate-200 shadow-2xs">
+                <button
+                  type="button"
+                  onClick={() => setActiveDeviceTab('ios')}
+                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                    activeDeviceTab === 'ios'
+                      ? 'bg-rose-600 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <Smartphone className="w-3.5 h-3.5" />
+                  <span>iOS / iPhone</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveDeviceTab('android')}
+                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                    activeDeviceTab === 'android'
+                      ? 'bg-rose-600 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <Smartphone className="w-3.5 h-3.5" />
+                  <span>Android</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveDeviceTab('pc')}
+                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                    activeDeviceTab === 'pc'
+                      ? 'bg-rose-600 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <Monitor className="w-3.5 h-3.5" />
+                  <span>PC / Mac</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Tab Contents */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm">
+              {activeDeviceTab === 'ios' && (
+                <div className="space-y-3">
+                  <h4 className="text-lg font-bold text-slate-900 text-rose-600">
+                    {data.deepDive.iosGuideTitle}
+                  </h4>
+                  <div className="text-sm text-slate-600 leading-relaxed whitespace-pre-line space-y-2">
+                    {data.deepDive.iosGuideText}
+                  </div>
+                </div>
+              )}
+
+              {activeDeviceTab === 'android' && (
+                <div className="space-y-3">
+                  <h4 className="text-lg font-bold text-slate-900 text-rose-600">
+                    {data.deepDive.androidGuideTitle}
+                  </h4>
+                  <div className="text-sm text-slate-600 leading-relaxed whitespace-pre-line space-y-2">
+                    {data.deepDive.androidGuideText}
+                  </div>
+                </div>
+              )}
+
+              {activeDeviceTab === 'pc' && (
+                <div className="space-y-3">
+                  <h4 className="text-lg font-bold text-slate-900 text-rose-600">
+                    {data.deepDive.pcGuideTitle}
+                  </h4>
+                  <div className="text-sm text-slate-600 leading-relaxed whitespace-pre-line space-y-2">
+                    {data.deepDive.pcGuideText}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Section 3: Technical Comparison Table */}
+          <div className="space-y-4">
+            <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+              {data.deepDive.section3Title}
+            </h3>
+            <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-xs">
+              <table className="w-full text-left text-xs sm:text-sm">
+                <thead className="bg-slate-50 border-b border-slate-200 text-slate-700 font-bold uppercase text-[11px] tracking-wider">
+                  <tr>
+                    {data.deepDive.tableHeaders.map((head, idx) => (
+                      <th key={idx} className="p-3 sm:p-4">{head}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {data.deepDive.tableRows.map((row, rIdx) => (
+                    <tr key={rIdx} className={rIdx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
+                      {row.map((cell, cIdx) => (
+                        <td key={cIdx} className={`p-3 sm:p-4 ${cIdx === 1 ? 'font-bold text-rose-600' : 'text-slate-600'}`}>
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Section 4: Content Creator Workflow & Fair Use */}
+          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white via-rose-50/30 to-white border border-rose-100 shadow-sm space-y-3">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-rose-600 shrink-0" />
+              <span>{data.deepDive.creatorAdviseTitle}</span>
+            </h3>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
+              {data.deepDive.creatorAdviseText}
+            </p>
+          </div>
+
+          {/* Section 5: Troubleshooting 4 Issues */}
+          <div className="space-y-4">
+            <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+              {data.deepDive.troubleshootingTitle}
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {data.deepDive.troubleshootingItems.map((item, idx) => (
+                <div key={idx} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-2">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                      {item.problem}
+                    </h4>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed pl-6">
+                    {item.solution}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Optional Additional Technical Analysis if present */}
+          {data.deepDive.additionalAnalysis && (
+            <div className="p-6 rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm text-slate-600 leading-relaxed whitespace-pre-line">
+              {data.deepDive.additionalAnalysis}
+            </div>
+          )}
+
         </div>
       </section>
 
-      {/* FAQ Accordion */}
-      <section className="py-14 max-w-4xl mx-auto px-4 sm:px-6">
+      {/* 5. EXACTLY 12 FAQs ACCORDION */}
+      <section className="py-14 sm:py-18 max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold mb-2">
             <HelpCircle className="w-3.5 h-3.5 text-rose-600" />
-            <span>FAQ ({currentLang.label})</span>
+            <span>12 FAQs • {currentLang.label}</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-            {t.faqTitle}
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900">
+            {currentLang.label} FAQ ({data.faqs.length})
           </h2>
-          <p className="text-sm text-slate-600 mt-2">{t.faqSubtitle}</p>
+          <p className="text-sm text-slate-600 mt-2">
+            Everything you need to know about downloading TikTok & Douyin videos safely without watermark.
+          </p>
         </div>
 
         <div className="space-y-3">
-          {faqs.map((faq, idx) => {
+          {data.faqs.map((faq, idx) => {
             const isOpen = openFaq === idx;
             return (
               <div 
@@ -180,7 +302,7 @@ export default function LocalizedHomePage({ langCode = 'en' }) {
                   onClick={() => toggleFaq(idx)}
                   className="w-full flex items-center justify-between p-4 sm:p-5 text-left text-sm sm:text-base font-bold text-slate-900 hover:text-rose-600 transition-colors"
                 >
-                  <span className="pr-4">{faq.q}</span>
+                  <span className="pr-4">{idx + 1}. {faq.q}</span>
                   <ChevronDown className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {isOpen && (
@@ -194,7 +316,29 @@ export default function LocalizedHomePage({ langCode = 'en' }) {
         </div>
       </section>
 
-      {/* Global Language Cross-Links Banner */}
+      {/* 6. 300+ LSI & Semantic Keywords Cloud for Maximum SEO Indexing */}
+      {data.lsiKeywords && data.lsiKeywords.length > 0 && (
+        <section className="py-10 bg-slate-50 border-t border-slate-200">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <div className="flex items-center gap-2 mb-4 text-xs font-bold text-slate-500 uppercase tracking-wider">
+              <Tag className="w-4 h-4 text-rose-600" />
+              <span>Semantic Search Terms &amp; LSI Keywords ({data.lsiKeywords.length}+):</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5 max-h-48 overflow-y-auto p-3 rounded-2xl bg-white border border-slate-200 text-[11px] text-slate-600">
+              {data.lsiKeywords.map((kw, idx) => (
+                <span 
+                  key={idx}
+                  className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-rose-50 hover:text-rose-700 transition-colors cursor-default"
+                >
+                  {kw}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 7. Global Language Cross-Links Footer Banner */}
       <section className="py-8 border-t border-slate-200/80 bg-white">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">
