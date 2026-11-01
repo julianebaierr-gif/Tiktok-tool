@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { Globe, Check, ChevronDown } from 'lucide-react';
 import { LANGUAGES } from '../lib/translations';
 
@@ -10,11 +9,10 @@ export default function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const pathname = usePathname();
-  const router = useRouter();
 
-  // Detect current language from pathname
-  const currentLangCode = pathname?.split('/')[1];
-  const currentLang = LANGUAGES.find(l => l.code === currentLangCode) || LANGUAGES[0]; // fallback to 'en'
+  // Detect current language from pathname (e.g., /es -> 'es', / -> 'en')
+  const pathSegment = pathname?.split('/')[1] || '';
+  const currentLang = LANGUAGES.find(l => l.code === pathSegment) || LANGUAGES[0]; // fallback to 'en'
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -23,8 +21,8 @@ export default function LanguageSwitcher() {
         setIsOpen(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('pointerdown', handleClickOutside);
+    return () => document.removeEventListener('pointerdown', handleClickOutside);
   }, []);
 
   // Close on Escape key
@@ -36,12 +34,17 @@ export default function LanguageSwitcher() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const handleSelect = (lang) => {
+  const onLanguageClick = (lang) => {
     setIsOpen(false);
     try {
       localStorage.setItem('quktik_preferred_lang', lang.code);
+      document.cookie = `quktik_lang=${lang.code}; path=/; max-age=31536000; SameSite=Lax`;
     } catch (e) {}
-    router.push(lang.path);
+
+    // 100% reliable direct browser navigation
+    if (typeof window !== 'undefined' && window.location.pathname !== lang.path) {
+      window.location.href = lang.path;
+    }
   };
 
   return (
@@ -50,7 +53,7 @@ export default function LanguageSwitcher() {
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-slate-900 border border-slate-200/90 text-xs font-bold transition-all active:scale-95 shadow-2xs"
+        className="inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-slate-900 border border-slate-200/90 text-xs font-bold transition-all active:scale-95 shadow-2xs cursor-pointer"
         aria-expanded={isOpen}
         aria-haspopup="true"
         title="Change Language / Cambiar Idioma"
@@ -64,15 +67,15 @@ export default function LanguageSwitcher() {
       {/* Floating Language Menu */}
       {isOpen && (
         <div 
-          className="absolute right-0 mt-2 w-64 sm:w-72 rounded-2xl bg-white shadow-xl shadow-slate-900/10 border border-slate-200 p-2 z-50 animate-in fade-in zoom-in-95 duration-150"
+          className="absolute right-0 mt-2 w-64 sm:w-72 rounded-2xl bg-white shadow-2xl shadow-slate-900/15 border border-slate-200 p-2 z-50 animate-in fade-in zoom-in-95 duration-150"
           role="menu"
         >
           <div className="px-3 py-2 border-b border-slate-100 mb-1 flex items-center justify-between">
-            <span className="text-[11px] font-black uppercase tracking-wider text-slate-400">
-              Select Language (12)
+            <span className="text-[11px] font-black uppercase tracking-wider text-slate-500">
+              Languages / Idiomas (12)
             </span>
             <span className="text-[10px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full border border-rose-100">
-              Global SEO
+              Global
             </span>
           </div>
 
@@ -80,10 +83,13 @@ export default function LanguageSwitcher() {
             {LANGUAGES.map((lang) => {
               const isSelected = currentLang.code === lang.code;
               return (
-                <button
+                <a
                   key={lang.code}
-                  type="button"
-                  onClick={() => handleSelect(lang)}
+                  href={lang.path}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onLanguageClick(lang);
+                  }}
                   className={`flex items-center justify-between px-3 py-2 rounded-xl text-left text-xs transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-rose-50 text-rose-900 font-bold border border-rose-200'
@@ -96,7 +102,7 @@ export default function LanguageSwitcher() {
                     <span className="truncate">{lang.label}</span>
                   </div>
                   {isSelected && <Check className="w-3.5 h-3.5 text-rose-600 shrink-0 ml-1" />}
-                </button>
+                </a>
               );
             })}
           </div>

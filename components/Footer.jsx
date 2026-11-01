@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { LANGUAGES } from '../lib/translations';
@@ -106,15 +108,23 @@ export default function Footer() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 text-xs">
             {LANGUAGES.map((lang) => (
-              <Link
+              <a
                 key={lang.code}
                 href={lang.path}
-                className="flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-rose-50/70 border border-slate-200 hover:border-rose-200 text-slate-700 hover:text-rose-700 transition-all font-medium group shadow-2xs"
+                onClick={(e) => {
+                  e.preventDefault();
+                  try {
+                    localStorage.setItem('quktik_preferred_lang', lang.code);
+                    document.cookie = `quktik_lang=${lang.code}; path=/; max-age=31536000; SameSite=Lax`;
+                  } catch (err) {}
+                  window.location.href = lang.path;
+                }}
+                className="flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-rose-50/70 border border-slate-200 hover:border-rose-200 text-slate-700 hover:text-rose-700 transition-all font-medium group shadow-2xs cursor-pointer"
                 title={`${lang.label} - QukTik TikTok Downloader`}
               >
                 <span className="text-base leading-none group-hover:scale-110 transition-transform">{lang.flag}</span>
                 <span className="truncate">{lang.label}</span>
-              </Link>
+              </a>
             ))}
           </div>
         </div>

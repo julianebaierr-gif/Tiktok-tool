@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import ToolHero from './ToolHero';
 import SiteSchema from './SiteSchema';
@@ -16,12 +16,20 @@ export default function LocalizedHomePage({ langCode = 'es' }) {
   const currentLang = LANGUAGES.find(l => l.code === langCode) || LANGUAGES[1];
   const isRtl = currentLang.dir === 'rtl';
 
-  // FAQ accordion state
-  const [openFaq, setOpenFaq] = useState(null);
+  // FAQ accordion state (first open by default)
+  const [openFaq, setOpenFaq] = useState(0);
   const toggleFaq = (idx) => setOpenFaq(openFaq === idx ? null : idx);
 
   // Active Device Guide Tab (ios, android, pc)
   const [activeDeviceTab, setActiveDeviceTab] = useState('ios');
+
+  // Sync DOM <html> lang and dir attributes dynamically
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = langCode;
+      document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+    }
+  }, [langCode, isRtl]);
 
   return (
     <div className={`relative overflow-hidden ${isRtl ? 'rtl' : 'ltr'}`} dir={currentLang.dir}>
@@ -165,40 +173,34 @@ export default function LocalizedHomePage({ langCode = 'es' }) {
               </div>
             </div>
 
-            {/* Tab Contents */}
+            {/* Tab Contents (All 3 rendered in DOM for 100% SEO indexing) */}
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm">
-              {activeDeviceTab === 'ios' && (
-                <div className="space-y-3">
-                  <h4 className="text-lg font-bold text-slate-900 text-rose-600">
-                    {data.deepDive.iosGuideTitle}
-                  </h4>
-                  <div className="text-sm text-slate-600 leading-relaxed whitespace-pre-line space-y-2">
-                    {data.deepDive.iosGuideText}
-                  </div>
+              <div className={activeDeviceTab === 'ios' ? 'block space-y-3' : 'hidden'}>
+                <h4 className="text-lg font-bold text-slate-900 text-rose-600">
+                  {data.deepDive.iosGuideTitle}
+                </h4>
+                <div className="text-sm text-slate-600 leading-relaxed whitespace-pre-line space-y-2">
+                  {data.deepDive.iosGuideText}
                 </div>
-              )}
+              </div>
 
-              {activeDeviceTab === 'android' && (
-                <div className="space-y-3">
-                  <h4 className="text-lg font-bold text-slate-900 text-rose-600">
-                    {data.deepDive.androidGuideTitle}
-                  </h4>
-                  <div className="text-sm text-slate-600 leading-relaxed whitespace-pre-line space-y-2">
-                    {data.deepDive.androidGuideText}
-                  </div>
+              <div className={activeDeviceTab === 'android' ? 'block space-y-3' : 'hidden'}>
+                <h4 className="text-lg font-bold text-slate-900 text-rose-600">
+                  {data.deepDive.androidGuideTitle}
+                </h4>
+                <div className="text-sm text-slate-600 leading-relaxed whitespace-pre-line space-y-2">
+                  {data.deepDive.androidGuideText}
                 </div>
-              )}
+              </div>
 
-              {activeDeviceTab === 'pc' && (
-                <div className="space-y-3">
-                  <h4 className="text-lg font-bold text-slate-900 text-rose-600">
-                    {data.deepDive.pcGuideTitle}
-                  </h4>
-                  <div className="text-sm text-slate-600 leading-relaxed whitespace-pre-line space-y-2">
-                    {data.deepDive.pcGuideText}
-                  </div>
+              <div className={activeDeviceTab === 'pc' ? 'block space-y-3' : 'hidden'}>
+                <h4 className="text-lg font-bold text-slate-900 text-rose-600">
+                  {data.deepDive.pcGuideTitle}
+                </h4>
+                <div className="text-sm text-slate-600 leading-relaxed whitespace-pre-line space-y-2">
+                  {data.deepDive.pcGuideText}
                 </div>
-              )}
+              </div>
             </div>
           </div>
 
@@ -305,11 +307,9 @@ export default function LocalizedHomePage({ langCode = 'es' }) {
                   <span className="pr-4">{idx + 1}. {faq.q}</span>
                   <ChevronDown className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
                 </button>
-                {isOpen && (
-                  <div className="px-4 pb-4 sm:px-5 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-                    {faq.a}
-                  </div>
-                )}
+                <div className={`px-4 pb-4 sm:px-5 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3 ${isOpen ? 'block' : 'hidden'}`}>
+                  {faq.a}
+                </div>
               </div>
             );
           })}
@@ -322,7 +322,7 @@ export default function LocalizedHomePage({ langCode = 'es' }) {
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="flex items-center gap-2 mb-4 text-xs font-bold text-slate-500 uppercase tracking-wider">
               <Tag className="w-4 h-4 text-rose-600" />
-              <span>Semantic Search Terms &amp; LSI Keywords ({data.lsiKeywords.length}+):</span>
+              <span>{currentLang.label} • Semantic Search Terms &amp; LSI Keywords ({data.lsiKeywords.length}+):</span>
             </div>
             <div className="flex flex-wrap gap-1.5 max-h-48 overflow-y-auto p-3 rounded-2xl bg-white border border-slate-200 text-[11px] text-slate-600">
               {data.lsiKeywords.map((kw, idx) => (
@@ -346,10 +346,18 @@ export default function LocalizedHomePage({ langCode = 'es' }) {
           </span>
           <div className="flex flex-wrap items-center justify-center gap-2">
             {LANGUAGES.map((l) => (
-              <Link
+              <a
                 key={l.code}
                 href={l.path}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all ${
+                onClick={(e) => {
+                  e.preventDefault();
+                  try {
+                    localStorage.setItem('quktik_preferred_lang', l.code);
+                    document.cookie = `quktik_lang=${l.code}; path=/; max-age=31536000; SameSite=Lax`;
+                  } catch (err) {}
+                  window.location.href = l.path;
+                }}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
                   l.code === langCode
                     ? 'bg-rose-50 text-rose-700 border-rose-300 font-bold shadow-2xs'
                     : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200 hover:border-slate-300'
@@ -357,7 +365,7 @@ export default function LocalizedHomePage({ langCode = 'es' }) {
               >
                 <span>{l.flag}</span>
                 <span>{l.label}</span>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
