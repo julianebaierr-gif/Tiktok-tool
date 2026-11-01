@@ -502,6 +502,31 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                   <h3 className="text-slate-900 text-base sm:text-lg font-semibold leading-relaxed">
                     {title || 'Douyin Video Description'}
                   </h3>
+                  {/* 1-Click Copy Caption & Hashtags */}
+                  <div className="flex items-center gap-2 pt-0.5 flex-wrap">
+                    {title && (
+                      <button
+                        type="button"
+                        onClick={handleCopyCaption}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200 transition-all cursor-pointer active:scale-95 shadow-2xs"
+                        title="Copy Video Caption"
+                      >
+                        {captionCopied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
+                        <span>{captionCopied ? 'Caption Copied!' : 'Copy Caption'}</span>
+                      </button>
+                    )}
+                    {(hashtags?.length > 0 || /#/.test(title || '')) && (
+                      <button
+                        type="button"
+                        onClick={handleCopyHashtags}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold border border-rose-200 transition-all cursor-pointer active:scale-95 shadow-2xs"
+                        title="Copy All Hashtags"
+                      >
+                        {hashtagsCopied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Hash className="w-3.5 h-3.5 text-rose-500" />}
+                        <span>{hashtagsCopied ? 'Hashtags Copied!' : 'Copy Hashtags'}</span>
+                      </button>
+                    )}
+                  </div>
                   {uploadInfo && (
                     <div className="flex items-center justify-between gap-3 p-3 rounded-2xl bg-gradient-to-r from-rose-50/60 via-slate-50 to-white border border-slate-200/90 shadow-2xs">
                       <div className="flex items-center gap-3 min-w-0">
@@ -981,6 +1006,31 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                 <h3 className="text-slate-900 text-base sm:text-lg font-bold leading-relaxed line-clamp-3">
                   {title || 'TikTok video description'}
                 </h3>
+                {/* 1-Click Copy Caption & Hashtags */}
+                <div className="flex items-center gap-2 pt-0.5 flex-wrap">
+                  {title && (
+                    <button
+                      type="button"
+                      onClick={handleCopyCaption}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200 transition-all cursor-pointer active:scale-95 shadow-2xs"
+                      title="Copy Video Caption"
+                    >
+                      {captionCopied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
+                      <span>{captionCopied ? 'Caption Copied!' : 'Copy Caption'}</span>
+                    </button>
+                  )}
+                  {(hashtags?.length > 0 || /#/.test(title || '')) && (
+                    <button
+                      type="button"
+                      onClick={handleCopyHashtags}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold border border-rose-200 transition-all cursor-pointer active:scale-95 shadow-2xs"
+                      title="Copy All Hashtags"
+                    >
+                      {hashtagsCopied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Hash className="w-3.5 h-3.5 text-rose-500" />}
+                      <span>{hashtagsCopied ? 'Hashtags Copied!' : 'Copy Hashtags'}</span>
+                    </button>
+                  )}
+                </div>
                 {uploadInfo && (
                   <div className="flex items-center justify-between gap-3 p-3 rounded-2xl bg-gradient-to-r from-slate-50 via-white to-slate-50/80 border border-slate-200/90 shadow-2xs">
                     <div className="flex items-center gap-3 min-w-0">
