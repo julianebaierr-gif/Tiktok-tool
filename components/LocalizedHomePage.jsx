@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import ToolHero from './ToolHero';
 import SiteSchema from './SiteSchema';
+import { FormattedCreatorAdvice, FormattedTechnicalAnalysis } from './FormattedEditorial';
 import { CONTENT_MAP } from '../lib/content';
 import { LANGUAGES } from '../lib/translations';
 import { 
@@ -234,15 +235,10 @@ export default function LocalizedHomePage({ langCode = 'es' }) {
           </div>
 
           {/* Section 4: Content Creator Workflow & Fair Use */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white via-rose-50/30 to-white border border-rose-100 shadow-sm space-y-3">
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-rose-600 shrink-0" />
-              <span>{data.deepDive.creatorAdviseTitle}</span>
-            </h3>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
-              {data.deepDive.creatorAdviseText}
-            </p>
-          </div>
+          <FormattedCreatorAdvice 
+            title={data.deepDive.creatorAdviseTitle} 
+            text={data.deepDive.creatorAdviseText} 
+          />
 
           {/* Section 5: Troubleshooting 4 Issues */}
           <div className="space-y-4">
@@ -266,11 +262,9 @@ export default function LocalizedHomePage({ langCode = 'es' }) {
             </div>
           </div>
 
-          {/* Optional Additional Technical Analysis if present */}
+          {/* Section 6: In-Depth Technical Architecture & Top 20 Competitor Gap Analysis */}
           {data.deepDive.additionalAnalysis && (
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm text-slate-600 leading-relaxed whitespace-pre-line">
-              {data.deepDive.additionalAnalysis}
-            </div>
+            <FormattedTechnicalAnalysis text={data.deepDive.additionalAnalysis} />
           )}
 
         </div>
@@ -313,39 +307,6 @@ export default function LocalizedHomePage({ langCode = 'es' }) {
               </div>
             );
           })}
-        </div>
-      </section>
-
-      {/* 6. Global Language Cross-Links Footer Banner */}
-      <section className="py-8 border-t border-slate-200/80 bg-white">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">
-            🌍 Global TikTok Downloader in 12 Languages:
-          </span>
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            {LANGUAGES.map((l) => (
-              <a
-                key={l.code}
-                href={l.path}
-                onClick={(e) => {
-                  e.preventDefault();
-                  try {
-                    localStorage.setItem('quktik_preferred_lang', l.code);
-                    document.cookie = `quktik_lang=${l.code}; path=/; max-age=31536000; SameSite=Lax`;
-                  } catch (err) {}
-                  window.location.href = l.path;
-                }}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
-                  l.code === langCode
-                    ? 'bg-rose-50 text-rose-700 border-rose-300 font-bold shadow-2xs'
-                    : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200 hover:border-slate-300'
-                }`}
-              >
-                <span>{l.flag}</span>
-                <span>{l.label}</span>
-              </a>
-            ))}
-          </div>
         </div>
       </section>
     </div>

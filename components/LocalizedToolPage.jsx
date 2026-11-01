@@ -5,6 +5,7 @@ import Link from 'next/link';
 import ToolHero from './ToolHero';
 import Breadcrumbs from './Breadcrumbs';
 import SiteSchema from './SiteSchema';
+import { FormattedCreatorAdvice, FormattedCompetitorGap } from './FormattedEditorial';
 import { TOOL_DEFINITIONS, VALID_TOOLS } from '../lib/tools';
 import { LANGUAGES } from '../lib/translations';
 import { DEVICE_STEPS, TOOL_FAQS, UI_STRINGS } from '../lib/tools/localizedContent';
@@ -252,15 +253,10 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
           </div>
 
           {/* Section 4: Content Creator Workflow & Fair Use */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white via-rose-50/30 to-white border border-rose-100 shadow-sm space-y-3">
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-rose-600 shrink-0" />
-              <span>{edit.creatorHeading}</span>
-            </h3>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
-              {edit.creatorText}
-            </p>
-          </div>
+          <FormattedCreatorAdvice 
+            title={edit.creatorHeading} 
+            text={edit.creatorText} 
+          />
 
           {/* Section 5: Troubleshooting 4 Issues */}
           <div className="space-y-4">
@@ -285,15 +281,10 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
           </div>
 
           {/* Section 6: Competitor Gap Analysis vs Top 20 Global Competitors */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-rose-600 shrink-0" />
-              <span>{edit.competitorGapHeading}</span>
-            </h3>
-            <div className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
-              {edit.competitorGapText}
-            </div>
-          </div>
+          <FormattedCompetitorGap 
+            heading={edit.competitorGapHeading} 
+            text={edit.competitorGapText} 
+          />
 
         </div>
       </section>
@@ -368,43 +359,6 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Global Language Cross-Links for THIS Specific Tool */}
-      <section className="py-8 border-t border-slate-200/80 bg-white">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">
-            🌍 {hero.badge} {ui.inLangs}:
-          </span>
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            {LANGUAGES.map((l) => {
-              const targetHref = l.code === 'en' ? `/${toolSlug}` : `/${l.code}/${toolSlug}`;
-              const isCurrent = l.code === langCode;
-              return (
-                <a
-                  key={l.code}
-                  href={targetHref}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    try {
-                      localStorage.setItem('quktik_preferred_lang', l.code);
-                      document.cookie = `quktik_lang=${l.code}; path=/; max-age=31536000; SameSite=Lax`;
-                    } catch (err) {}
-                    window.location.href = targetHref;
-                  }}
-                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
-                    isCurrent
-                      ? 'bg-rose-50 text-rose-700 border-rose-300 font-bold shadow-2xs'
-                      : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200 hover:border-slate-300'
-                  }`}
-                >
-                  <span>{l.flag}</span>
-                  <span>{l.label}</span>
-                </a>
               );
             })}
           </div>
