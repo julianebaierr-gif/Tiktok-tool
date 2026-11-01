@@ -8,10 +8,11 @@ import SiteSchema from './SiteSchema';
 import { TOOL_DEFINITIONS, VALID_TOOLS } from '../lib/tools';
 import { LANGUAGES } from '../lib/translations';
 import { DEVICE_STEPS, TOOL_FAQS, UI_STRINGS } from '../lib/tools/localizedContent';
+import { TOOL_EDITORIAL } from '../lib/tools/toolEditorial';
 import { 
   Sparkles, Zap, Music2, DownloadCloud, ChevronDown, CheckCircle2, 
   HelpCircle, Smartphone, Monitor, ShieldCheck, AlertCircle, ArrowRight, Check, Image as ImageIcon,
-  History, Globe2, Bell, UserCheck, Video
+  History, Globe2, Bell, UserCheck, Video, FileText, Layers, RefreshCw
 } from 'lucide-react';
 
 export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-avatar' }) {
@@ -20,10 +21,11 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
   const isRtl = currentLang.dir === 'rtl';
   const hero = toolData.hero[langCode] || toolData.hero.en;
 
-  // Localized UI strings, FAQs, and Device Steps
+  // Localized UI strings, FAQs, Device Steps, and Editorial Content
   const ui = UI_STRINGS[langCode] || UI_STRINGS.en;
   const toolFaqs = TOOL_FAQS[langCode] || TOOL_FAQS.en;
   const devSteps = DEVICE_STEPS[langCode] || DEVICE_STEPS.en;
+  const edit = TOOL_EDITORIAL[langCode] || TOOL_EDITORIAL.en;
 
   // FAQ accordion state
   const [openFaq, setOpenFaq] = useState(0);
@@ -102,95 +104,197 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
         </div>
       </div>
 
-      {/* 3. Multi-Device Masterclass (iPhone, Android, PC) (100% Localized) */}
+      {/* 3. Deep-Dive Editorial Handbook (2000+ Words Quality) */}
       <section className="py-14 bg-slate-50/70 border-y border-slate-200/80">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-8">
-          <div className="text-center max-w-2xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-3 py-1 rounded-full border border-rose-200">
-              {currentLang.label} • {hero.badge}
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-12">
+          
+          {/* Header & Comprehensive Introduction */}
+          <div className="space-y-4">
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
+              {currentLang.label} • {hero.badge} • Editorial Masterclass
             </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
-              {ui.guideTitle}
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              {edit.introHeading}
             </h2>
-          </div>
-
-          {/* Device Tabs */}
-          <div className="flex justify-center">
-            <div className="inline-flex p-1 rounded-2xl bg-white border border-slate-200 shadow-2xs">
-              <button
-                type="button"
-                onClick={() => setActiveDeviceTab('ios')}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                  activeDeviceTab === 'ios'
-                    ? 'bg-rose-600 text-white shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <Smartphone className="w-3.5 h-3.5" />
-                <span>iOS / iPhone</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveDeviceTab('android')}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                  activeDeviceTab === 'android'
-                    ? 'bg-rose-600 text-white shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <Smartphone className="w-3.5 h-3.5" />
-                <span>Android</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveDeviceTab('pc')}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                  activeDeviceTab === 'pc'
-                    ? 'bg-rose-600 text-white shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <Monitor className="w-3.5 h-3.5" />
-                <span>PC / Mac</span>
-              </button>
+            <div className="prose prose-slate max-w-none text-sm sm:text-base leading-relaxed text-slate-700 whitespace-pre-line">
+              {edit.introText}
             </div>
           </div>
 
-          {/* Tab Contents (Rendered in DOM for 100% SEO indexing) */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm max-w-3xl mx-auto">
-            <div className={activeDeviceTab === 'ios' ? 'block space-y-3' : 'hidden'}>
-              <h4 className="text-lg font-bold text-slate-900 text-rose-600">
-                {devSteps.iosTitle}
-              </h4>
-              <ol className="list-decimal list-inside space-y-2 text-sm text-slate-600 leading-relaxed">
-                {devSteps.ios.map((step, idx) => (
-                  <li key={idx}>{step}</li>
-                ))}
-              </ol>
+          {/* Section 1: Extraction Technology & Codec Architecture */}
+          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+              <Zap className="w-5 h-5 text-rose-600 shrink-0" />
+              <span>{edit.techHeading}</span>
+            </h3>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
+              {edit.techText}
+            </p>
+          </div>
+
+          {/* Section 2: Step-by-Step Multi-Device Masterclass (iPhone, Android, PC) */}
+          <div className="space-y-6">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+                {ui.guideTitle}
+              </h3>
+              {/* Device Tabs */}
+              <div className="inline-flex p-1 rounded-2xl bg-white border border-slate-200 shadow-2xs">
+                <button
+                  type="button"
+                  onClick={() => setActiveDeviceTab('ios')}
+                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                    activeDeviceTab === 'ios'
+                      ? 'bg-rose-600 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <Smartphone className="w-3.5 h-3.5" />
+                  <span>iOS / iPhone</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveDeviceTab('android')}
+                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                    activeDeviceTab === 'android'
+                      ? 'bg-rose-600 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <Smartphone className="w-3.5 h-3.5" />
+                  <span>Android</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveDeviceTab('pc')}
+                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                    activeDeviceTab === 'pc'
+                      ? 'bg-rose-600 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <Monitor className="w-3.5 h-3.5" />
+                  <span>PC / Mac</span>
+                </button>
+              </div>
             </div>
 
-            <div className={activeDeviceTab === 'android' ? 'block space-y-3' : 'hidden'}>
-              <h4 className="text-lg font-bold text-slate-900 text-rose-600">
-                {devSteps.androidTitle}
-              </h4>
-              <ol className="list-decimal list-inside space-y-2 text-sm text-slate-600 leading-relaxed">
-                {devSteps.android.map((step, idx) => (
-                  <li key={idx}>{step}</li>
-                ))}
-              </ol>
-            </div>
+            {/* Tab Contents (All in DOM for SEO Indexing) */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm">
+              <div className={activeDeviceTab === 'ios' ? 'block space-y-3' : 'hidden'}>
+                <h4 className="text-lg font-bold text-slate-900 text-rose-600">
+                  {devSteps.iosTitle}
+                </h4>
+                <ol className="list-decimal list-inside space-y-2 text-sm text-slate-600 leading-relaxed">
+                  {devSteps.ios.map((step, idx) => (
+                    <li key={idx}>{step}</li>
+                  ))}
+                </ol>
+              </div>
 
-            <div className={activeDeviceTab === 'pc' ? 'block space-y-3' : 'hidden'}>
-              <h4 className="text-lg font-bold text-slate-900 text-rose-600">
-                {devSteps.pcTitle}
-              </h4>
-              <ol className="list-decimal list-inside space-y-2 text-sm text-slate-600 leading-relaxed">
-                {devSteps.pc.map((step, idx) => (
-                  <li key={idx}>{step}</li>
-                ))}
-              </ol>
+              <div className={activeDeviceTab === 'android' ? 'block space-y-3' : 'hidden'}>
+                <h4 className="text-lg font-bold text-slate-900 text-rose-600">
+                  {devSteps.androidTitle}
+                </h4>
+                <ol className="list-decimal list-inside space-y-2 text-sm text-slate-600 leading-relaxed">
+                  {devSteps.android.map((step, idx) => (
+                    <li key={idx}>{step}</li>
+                  ))}
+                </ol>
+              </div>
+
+              <div className={activeDeviceTab === 'pc' ? 'block space-y-3' : 'hidden'}>
+                <h4 className="text-lg font-bold text-slate-900 text-rose-600">
+                  {devSteps.pcTitle}
+                </h4>
+                <ol className="list-decimal list-inside space-y-2 text-sm text-slate-600 leading-relaxed">
+                  {devSteps.pc.map((step, idx) => (
+                    <li key={idx}>{step}</li>
+                  ))}
+                </ol>
+              </div>
             </div>
           </div>
+
+          {/* Section 3: Technical Comparison Table */}
+          <div className="space-y-4">
+            <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+              {langCode === 'es' ? 'Comparativa Técnica: QukTik vs Descargadores Tradicionales' :
+               langCode === 'pt' ? 'Comparativo Técnico: QukTik vs Métodos Tradicionais' :
+               langCode === 'fr' ? 'Comparatif Technique : QukTik face aux Outils Traditionnels' :
+               langCode === 'de' ? 'Technischer Vergleich: QukTik vs. Herkömmliche Downloader' :
+               langCode === 'ar' ? 'المقارنة الفنية: موقع QukTik في مواجهة أدوات التحميل التقليدية' :
+               langCode === 'ja' ? '技術性能比較：QukTikと従来ツールの機能比較表' :
+               'Technical Comparison: QukTik vs Traditional Downloaders'}
+            </h3>
+            <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-xs">
+              <table className="w-full text-left text-xs sm:text-sm">
+                <thead className="bg-slate-50 border-b border-slate-200 text-slate-700 font-bold uppercase text-[11px] tracking-wider">
+                  <tr>
+                    {edit.tableHeaders.map((head, idx) => (
+                      <th key={idx} className="p-3 sm:p-4">{head}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {edit.tableRows.map((row, rIdx) => (
+                    <tr key={rIdx} className={rIdx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
+                      {row.map((cell, cIdx) => (
+                        <td key={cIdx} className={`p-3 sm:p-4 ${cIdx === 1 ? 'font-bold text-rose-600' : 'text-slate-600'}`}>
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Section 4: Content Creator Workflow & Fair Use */}
+          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white via-rose-50/30 to-white border border-rose-100 shadow-sm space-y-3">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-rose-600 shrink-0" />
+              <span>{edit.creatorHeading}</span>
+            </h3>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
+              {edit.creatorText}
+            </p>
+          </div>
+
+          {/* Section 5: Troubleshooting 4 Issues */}
+          <div className="space-y-4">
+            <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+              {edit.troubleHeading}
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {edit.troubleItems.map((item, idx) => (
+                <div key={idx} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-2">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                      {item.problem}
+                    </h4>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed pl-6">
+                    {item.solution}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Section 6: Competitor Gap Analysis vs Top 20 Global Competitors */}
+          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-rose-600 shrink-0" />
+              <span>{edit.competitorGapHeading}</span>
+            </h3>
+            <div className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
+              {edit.competitorGapText}
+            </div>
+          </div>
+
         </div>
       </section>
 
