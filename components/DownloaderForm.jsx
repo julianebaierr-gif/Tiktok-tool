@@ -192,6 +192,34 @@ export default function DownloaderForm({
     return () => window.removeEventListener('paste', handleGlobalPaste);
   }, [mode]);
 
+  // Web Share Target API Auto-Processing (?text=... or ?url=... or ?title=...)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const search = window.location.search;
+        if (search) {
+          const params = new URLSearchParams(search);
+          const incoming = params.get('url') || params.get('text') || params.get('title') || '';
+          if (incoming) {
+            const urlMatch = incoming.match(/(https?:\/\/[^\s]+)/);
+            if (urlMatch && urlMatch[0]) {
+              const detectedUrl = urlMatch[0];
+              setUrl(detectedUrl);
+              // Clean address bar without reload
+              window.history.replaceState({}, '', window.location.pathname);
+              // Auto-trigger download
+              setTimeout(() => {
+                executeDownload(detectedUrl);
+              }, 300);
+            }
+          }
+        }
+      } catch (e) {
+        console.warn('Web Share Target API parsing error:', e);
+      }
+    }
+  }, []);
+
   // Mobile / Quick 1-Tap "Paste & Go"
   const handlePasteAndGo = async () => {
     try {

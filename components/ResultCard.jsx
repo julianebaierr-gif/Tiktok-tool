@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import JSZip from 'jszip';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import AudioTrimmer from './AudioTrimmer';
+import GifConverter from './GifConverter';
 import { getResultTranslations } from '../lib/resultCardTranslations';
 import { 
   Download, 
@@ -35,7 +37,9 @@ import {
   Flame,
   ArrowRight,
   FolderArchive,
-  Loader2
+  Loader2,
+  Scissors,
+  Film
 } from 'lucide-react';
 
 export default function ResultCard({ result, onReset, mode = "all", langCode: propLangCode }) {
@@ -51,6 +55,8 @@ export default function ResultCard({ result, onReset, mode = "all", langCode: pr
   const [hashtagsCopied, setHashtagsCopied] = useState(false);
   const [isZipping, setIsZipping] = useState(false);
   const [zipProgress, setZipProgress] = useState('');
+  const [showTrimmer, setShowTrimmer] = useState(false);
+  const [showGifMaker, setShowGifMaker] = useState(false);
 
   if (!result) return null;
 
@@ -683,6 +689,44 @@ export default function ResultCard({ result, onReset, mode = "all", langCode: pr
                     </a>
                   )}
 
+                  {/* Douyin Make Animated GIF Option */}
+                  {video?.noWatermark && (
+                    <div className="space-y-2">
+                      <button
+                        onClick={() => setShowGifMaker(!showGifMaker)}
+                        className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-gradient-to-r from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 text-purple-900 border border-purple-200/80 transition-all shadow-xs active:scale-[0.99] group cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3.5 min-w-0">
+                          <div className="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+                            <Film className="w-5 h-5 text-white" />
+                          </div>
+                          <div className="text-left min-w-0">
+                            <span className="block font-bold text-slate-900 text-sm sm:text-base leading-tight flex items-center gap-2">
+                              <span>Make Animated GIF (制作动态GIF)</span>
+                              <span className="text-[10px] px-2 py-0.5 rounded-full bg-purple-600 text-white font-extrabold uppercase">5s Clip</span>
+                            </span>
+                            <span className="text-xs text-purple-700 font-medium block mt-0.5">
+                              Convert best 5 seconds for WhatsApp stickers, WeChat &amp; memes
+                            </span>
+                          </div>
+                        </div>
+                        <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-white text-purple-800 border border-purple-200 shrink-0 ml-2">
+                          {showGifMaker ? 'Close' : 'Create GIF'}
+                        </span>
+                      </button>
+
+                      {showGifMaker && (
+                        <GifConverter
+                          videoUrl={video.noWatermark}
+                          title={title}
+                          id={id}
+                          langCode={activeLang}
+                          onClose={() => setShowGifMaker(false)}
+                        />
+                      )}
+                    </div>
+                  )}
+
                   {music?.url && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <a
@@ -708,6 +752,45 @@ export default function ResultCard({ result, onReset, mode = "all", langCode: pr
                         </div>
                         <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/25 font-bold uppercase tracking-wider shrink-0">iOS / Android</span>
                       </a>
+                    </div>
+                  )}
+
+                  {/* Douyin Audio & Ringtone Trimmer */}
+                  {music?.url && (
+                    <div className="space-y-2">
+                      <button
+                        onClick={() => setShowTrimmer(!showTrimmer)}
+                        className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-slate-100 hover:bg-slate-200/80 text-slate-800 border border-slate-300/80 transition-all shadow-xs active:scale-[0.99] group cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3.5 min-w-0">
+                          <div className="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+                            <Scissors className="w-5 h-5 text-white" />
+                          </div>
+                          <div className="text-left min-w-0">
+                            <span className="block font-bold text-slate-900 text-sm sm:text-base leading-tight flex items-center gap-2">
+                              <span>Cut Custom Ringtone / Alarm (剪切铃声)</span>
+                              <span className="text-[10px] px-2 py-0.5 rounded-full bg-rose-600 text-white font-extrabold uppercase">Audio Cutter</span>
+                            </span>
+                            <span className="text-xs text-slate-600 font-medium block mt-0.5">
+                              Trim 15-30s snippet for custom iPhone &amp; Android ringtone
+                            </span>
+                          </div>
+                        </div>
+                        <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-white text-slate-800 border border-slate-300 shrink-0 ml-2">
+                          {showTrimmer ? 'Close' : 'Trim Audio'}
+                        </span>
+                      </button>
+
+                      {showTrimmer && (
+                        <AudioTrimmer
+                          audioUrl={music.url}
+                          title={music.title || title}
+                          author={music.author || author?.nickname}
+                          id={id}
+                          langCode={activeLang}
+                          onClose={() => setShowTrimmer(false)}
+                        />
+                      )}
                     </div>
                   )}
 
@@ -1769,6 +1852,44 @@ export default function ResultCard({ result, onReset, mode = "all", langCode: pr
                     </a>
                   )}
 
+                  {/* Make Animated GIF Option */}
+                  {video?.noWatermark && (
+                    <div className="space-y-2">
+                      <button
+                        onClick={() => setShowGifMaker(!showGifMaker)}
+                        className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-gradient-to-r from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 text-purple-900 border border-purple-200/80 transition-all shadow-xs active:scale-[0.99] group cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3.5 min-w-0">
+                          <div className="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+                            <Film className="w-5 h-5 text-white" />
+                          </div>
+                          <div className="text-left min-w-0">
+                            <span className="block font-bold text-slate-900 text-sm sm:text-base leading-tight flex items-center gap-2">
+                              <span>Make Animated GIF</span>
+                              <span className="text-[10px] px-2 py-0.5 rounded-full bg-purple-600 text-white font-extrabold uppercase">5s Clip</span>
+                            </span>
+                            <span className="text-xs text-purple-700 font-medium block mt-0.5">
+                              Convert best 5 seconds for WhatsApp stickers, Discord &amp; memes
+                            </span>
+                          </div>
+                        </div>
+                        <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-white text-purple-800 border border-purple-200 shrink-0 ml-2">
+                          {showGifMaker ? 'Close' : 'Create GIF'}
+                        </span>
+                      </button>
+
+                      {showGifMaker && (
+                        <GifConverter
+                          videoUrl={video.noWatermark}
+                          title={title}
+                          id={id}
+                          langCode={activeLang}
+                          onClose={() => setShowGifMaker(false)}
+                        />
+                      )}
+                    </div>
+                  )}
+
                   {/* 3 & 4. AUDIO & RINGTONE GRID */}
                   {music?.url && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -1809,6 +1930,45 @@ export default function ResultCard({ result, onReset, mode = "all", langCode: pr
                           <Download className="w-4 h-4 text-white" />
                         </div>
                       </a>
+                    </div>
+                  )}
+
+                  {/* Built-in Audio & Ringtone Trimmer */}
+                  {music?.url && (
+                    <div className="space-y-2">
+                      <button
+                        onClick={() => setShowTrimmer(!showTrimmer)}
+                        className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-slate-100 hover:bg-slate-200/80 text-slate-800 border border-slate-300/80 transition-all shadow-xs active:scale-[0.99] group cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3.5 min-w-0">
+                          <div className="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+                            <Scissors className="w-5 h-5 text-white" />
+                          </div>
+                          <div className="text-left min-w-0">
+                            <span className="block font-bold text-slate-900 text-sm sm:text-base leading-tight flex items-center gap-2">
+                              <span>Cut Custom Ringtone / Alarm (15s - 30s)</span>
+                              <span className="text-[10px] px-2 py-0.5 rounded-full bg-rose-600 text-white font-extrabold uppercase">Audio Cutter</span>
+                            </span>
+                            <span className="text-xs text-slate-600 font-medium block mt-0.5">
+                              Choose your favourite 15-30s snippet for custom iPhone &amp; Android ringtone
+                            </span>
+                          </div>
+                        </div>
+                        <span className="text-xs font-bold px-3 py-1.5 rounded-xl bg-white text-slate-800 border border-slate-300 shrink-0 ml-2">
+                          {showTrimmer ? 'Close' : 'Trim Audio'}
+                        </span>
+                      </button>
+
+                      {showTrimmer && (
+                        <AudioTrimmer
+                          audioUrl={music.url}
+                          title={music.title || title}
+                          author={music.author || author?.nickname}
+                          id={id}
+                          langCode={activeLang}
+                          onClose={() => setShowTrimmer(false)}
+                        />
+                      )}
                     </div>
                   )}
 

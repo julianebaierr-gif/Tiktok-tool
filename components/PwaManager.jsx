@@ -99,24 +99,34 @@ export default function PwaManager() {
     <>
       {/* Floating Bottom-Right or Top-Right Quick Install Pill (Mobile/Desktop) */}
       {showBanner && (
-        <div className="fixed bottom-4 right-4 z-40 max-w-sm animate-in fade-in slide-in-from-bottom-5 duration-300">
-          <div className="flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl bg-slate-900 text-white shadow-2xl border border-slate-800">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-pink-500 flex items-center justify-center shrink-0 shadow-sm">
-              <Smartphone className="w-5 h-5 text-white" />
-            </div>
+        <div className="fixed bottom-4 right-4 z-40 max-w-sm w-[calc(100%-2rem)] sm:w-auto animate-in fade-in slide-in-from-bottom-5 duration-300">
+          <div className="flex items-center gap-3 p-3.5 sm:p-4 rounded-3xl bg-slate-900/95 backdrop-blur-md text-white shadow-2xl border border-slate-700/80">
+            <img 
+              src="/logo-icon.svg" 
+              alt="QukTik App Icon" 
+              className="w-11 h-11 rounded-2xl shadow-md shrink-0 border border-white/20"
+            />
             <div className="min-w-0 flex-1">
-              <h4 className="text-xs sm:text-sm font-bold leading-tight flex items-center gap-1.5">
-                <span>Install QukTik App</span>
-                <span className="text-[10px] px-1.5 py-0.2 rounded-md bg-rose-500 text-white font-extrabold uppercase">Free</span>
-              </h4>
-              <p className="text-[11px] text-slate-300 leading-tight mt-0.5">
-                Add to your home screen for 1-tap saves. Zero APK needed.
+              <div className="flex items-center gap-1.5">
+                <h4 className="text-xs sm:text-sm font-extrabold leading-tight text-white truncate">
+                  Install QukTik App
+                </h4>
+                <span className="text-[9px] px-1.5 py-0.2 rounded-md bg-rose-600 text-white font-extrabold uppercase shrink-0">
+                  Free
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5 text-[11px] text-amber-400 font-bold mt-0.5">
+                <span>★★★★★</span>
+                <span className="text-slate-300 text-[10px] font-normal">4.9 (120k+)</span>
+              </div>
+              <p className="text-[10px] text-slate-400 leading-tight truncate mt-0.5">
+                Direct share from TikTok app &amp; 1-tap HD saves
               </p>
             </div>
             <div className="flex items-center gap-1.5 shrink-0">
               <button
                 onClick={handleInstallClick}
-                className="px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold transition-all shadow-xs active:scale-95"
+                className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-bold transition-all shadow-md active:scale-95"
               >
                 Install
               </button>

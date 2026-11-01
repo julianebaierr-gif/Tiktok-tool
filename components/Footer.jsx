@@ -59,6 +59,12 @@ export default function Footer() {
               <li>
                 <Link href="/tiktok-avatar" className="hover:text-rose-700 transition-colors">TikTok Avatar / PFP HD</Link>
               </li>
+              <li>
+                <Link href="/tiktok-bulk-downloader" className="hover:text-rose-700 transition-colors font-semibold text-rose-600">Bulk ZIP Downloader (Multi-URL)</Link>
+              </li>
+              <li>
+                <Link href="/trending-sounds" className="hover:text-rose-700 transition-colors font-semibold text-rose-600">Trending TikTok Sounds MP3</Link>
+              </li>
             </ul>
           </div>
 

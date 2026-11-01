@@ -2,6 +2,15 @@
   "name": "QukTik - TikTok & Douyin Video Downloader",
   "short_name": "QukTik",
   "start_url": "/",
+  "share_target": {
+    "action": "/",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
   "icons": [
     {
       "src": "/favicon-48x48.png",

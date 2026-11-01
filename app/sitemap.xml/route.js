@@ -25,6 +25,8 @@ export async function GET() {
     { path: '/tiktok-photo', changeFreq: 'daily', priority: '0.9' },
     { path: '/tiktok-story', changeFreq: 'daily', priority: '0.8' },
     { path: '/douyin-downloader', changeFreq: 'daily', priority: '0.9' },
+    { path: '/tiktok-bulk-downloader', changeFreq: 'daily', priority: '0.95' },
+    { path: '/trending-sounds', changeFreq: 'daily', priority: '0.95' },
     { path: '/tiktok-ringtone', changeFreq: 'weekly', priority: '0.8' },
     { path: '/tiktok-avatar', changeFreq: 'weekly', priority: '0.8' },
   ];

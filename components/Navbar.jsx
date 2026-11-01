@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Music, Image as ImageIcon, Video, History, Menu, X, Globe2, Bell, UserCheck, Smartphone, Globe, Check } from 'lucide-react';
+import { Home, Music, Image as ImageIcon, Video, History, Menu, X, Globe2, Bell, UserCheck, Smartphone, Globe, Check, FolderArchive, Flame } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { LANGUAGES, TRANSLATIONS } from '../lib/translations';
 
@@ -28,10 +28,11 @@ export default function Navbar() {
   const navLinks = [
     { href: homeHref, label: 'Home', icon: Home },
     { href: `${prefix}/tiktok-video-downloader`, label: 'Video', icon: Video },
-    { href: `${prefix}/tiktok-mp3`, label: 'MP3 Audio', icon: Music },
+    { href: `${prefix}/tiktok-mp3`, label: 'MP3', icon: Music },
     { href: `${prefix}/tiktok-photo`, label: 'Photos', icon: ImageIcon },
-    { href: `${prefix}/tiktok-story`, label: 'Stories', icon: History },
     { href: `${prefix}/douyin-downloader`, label: 'Douyin', icon: Globe2 },
+    { href: '/tiktok-bulk-downloader', label: 'Bulk ZIP', icon: FolderArchive, badge: 'Batch' },
+    { href: '/trending-sounds', label: 'Trending', icon: Flame, badge: 'Viral' },
     { href: `${prefix}/tiktok-ringtone`, label: 'Ringtones', icon: Bell },
     { href: `${prefix}/tiktok-avatar`, label: 'Avatar', icon: UserCheck },
   ];
@@ -102,6 +103,11 @@ export default function Navbar() {
                 >
                   <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-rose-600' : 'text-slate-400'}`} />
                   <span>{link.label}</span>
+                  {link.badge && (
+                    <span className="text-[9px] px-1.5 py-0.2 rounded-md bg-rose-100 text-rose-700 font-extrabold uppercase">
+                      {link.badge}
+                    </span>
+                  )}
                 </Link>
               );
             })}
@@ -186,6 +192,11 @@ export default function Navbar() {
                 >
                   <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-rose-600' : 'text-slate-400'}`} />
                   <span>{link.label}</span>
+                  {link.badge && (
+                    <span className="text-[9px] px-1.5 py-0.2 rounded-md bg-rose-100 text-rose-700 font-extrabold uppercase">
+                      {link.badge}
+                    </span>
+                  )}
                 </Link>
               );
             })}
