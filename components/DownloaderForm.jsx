@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Clipboard, X, Loader2, AlertCircle, ArrowRight, Globe2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Clipboard, X, Loader2, AlertCircle, ArrowRight, Globe2, Zap, History, Trash2, Clock, Play } from 'lucide-react';
 import Link from 'next/link';
 
 export default function DownloaderForm({ 
@@ -17,6 +17,148 @@ export default function DownloaderForm({
   const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [history, setHistory] = useState([]);
+  const [showHistory, setShowHistory] = useState(false);
+
+  // Load local history on mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('quktik_recent_history');
+      if (saved) {
+        setHistory(JSON.parse(saved));
+      }
+    } catch (e) {}
+  }, []);
+
+  // Save successful result to local history (Max 10 items)
+  const saveToHistory = (item) => {
+    try {
+      const prev = JSON.parse(localStorage.getItem('quktik_recent_history') || '[]');
+      const filtered = prev.filter(x => x.id !== item.id && x.title !== item.title);
+      const updated = [
+        {
+          id: item.id,
+          title: item.title,
+          cover: item.cover,
+          author: item.author?.nickname || item.author?.username || 'Creator',
+          avatar: item.author?.avatar,
+          type: item.type,
+          duration: item.durationFormatted,
+          timestamp: Date.now(),
+          rawResult: item,
+        },
+        ...filtered,
+      ].slice(0, 10);
+      setHistory(updated);
+      localStorage.setItem('quktik_recent_history', JSON.stringify(updated));
+    } catch (e) {}
+  };
+
+  const handleClearHistory = () => {
+    try {
+      localStorage.removeItem('quktik_recent_history');
+      setHistory([]);
+      setShowHistory(false);
+    } catch (e) {}
+  };
+
+  // Dedicated execution function for Submit, Paste & Go, and Global Ctrl+V
+  const executeDownload = async (inputUrl) => {
+    const trimmed = (inputUrl || url).trim();
+    if (!trimmed) {
+      setError({ message: mode === 'douyin' ? 'Please paste a Douyin link into the box above.' : 'Please paste a TikTok link into the box above to get started.' });
+      return;
+    }
+
+    if (mode === 'douyin') {
+      if (trimmed.includes('tiktok.com')) {
+        setError({
+          wrongPlatform: 'tiktok',
+          message: '⚠️ This page only downloads Chinese Douyin (抖音) videos. For international TikTok, please switch to our Global TikTok Downloader.'
+        });
+        return;
+      }
+    } else {
+      if (trimmed.includes('douyin.com')) {
+        setError({
+          wrongPlatform: 'douyin',
+          message: '🇨🇳 You entered a Chinese Douyin (抖音) link. Please use our specialized Douyin Downloader for fast Chinese CDN processing.'
+        });
+        return;
+      }
+    }
+
+    if (!trimmed.includes('tiktok.com') && !trimmed.includes('douyin.com') && !/^\d{18,20}$/.test(trimmed)) {
+      setError({ message: mode === 'douyin' 
+        ? 'Please enter a valid Douyin link (e.g., https://www.douyin.com/video/... or https://v.douyin.com/...)' 
+        : 'Please enter a valid TikTok link (e.g., https://www.tiktok.com/@user/video/... or https://vt.tiktok.com/...)' 
+      });
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch('/api/download', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          url: trimmed,
+          platform: mode === 'douyin' ? 'douyin' : 'tiktok'
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        if (data.wrongPlatform) {
+          setError({ wrongPlatform: data.wrongPlatform, message: data.error });
+        } else {
+          setError({ message: data.error || 'Could not fetch this media. Please ensure the link is public and try again.' });
+        }
+        return;
+      }
+
+      saveToHistory(data);
+      if (onResult) {
+        onResult(data);
+      }
+    } catch (err) {
+      setError({ message: err.message || 'Something went wrong while connecting to the server. Please check your link.' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Smart Desktop Keyboard Listener (Ctrl+V or Cmd+V anywhere on page)
+  useEffect(() => {
+    const handleGlobalPaste = (e) => {
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
+      const pasted = e.clipboardData?.getData('text');
+      if (pasted && (pasted.includes('tiktok.com') || pasted.includes('douyin.com') || /^\d{18,20}$/.test(pasted.trim()))) {
+        e.preventDefault();
+        setUrl(pasted.trim());
+        executeDownload(pasted.trim());
+      }
+    };
+
+    window.addEventListener('paste', handleGlobalPaste);
+    return () => window.removeEventListener('paste', handleGlobalPaste);
+  }, [mode]);
+
+  // Mobile / Quick 1-Tap "Paste & Go"
+  const handlePasteAndGo = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (text) {
+        setUrl(text.trim());
+        executeDownload(text.trim());
+      }
+    } catch (err) {
+      console.warn('Clipboard read failed:', err);
+    }
+  };
 
   const handlePaste = async () => {
     try {
@@ -37,72 +179,7 @@ export default function DownloaderForm({
 
   const handleSubmit = async (e) => {
     if (e) e.preventDefault();
-    setError(null);
-
-    const trimmedUrl = url.trim();
-    if (!trimmedUrl) {
-      setError({ message: mode === 'douyin' ? 'Please paste a Douyin link into the box above.' : 'Please paste a TikTok link into the box above to get started.' });
-      return;
-    }
-
-    // Strict Platform Guard on Client-Side
-    if (mode === 'douyin') {
-      if (trimmedUrl.includes('tiktok.com')) {
-        setError({
-          wrongPlatform: 'tiktok',
-          message: '⚠️ This page only downloads Chinese Douyin (抖音) videos. For international TikTok, please switch to our Global TikTok Downloader.'
-        });
-        return;
-      }
-    } else {
-      if (trimmedUrl.includes('douyin.com')) {
-        setError({
-          wrongPlatform: 'douyin',
-          message: '🇨🇳 You entered a Chinese Douyin (抖音) link. Please use our specialized Douyin Downloader for fast Chinese CDN processing.'
-        });
-        return;
-      }
-    }
-
-    if (!trimmedUrl.includes('tiktok.com') && !trimmedUrl.includes('douyin.com') && !/^\d{18,20}$/.test(trimmedUrl)) {
-      setError({ message: mode === 'douyin' 
-        ? 'Please enter a valid Douyin link (e.g., https://www.douyin.com/video/... or https://v.douyin.com/...)' 
-        : 'Please enter a valid TikTok link (e.g., https://www.tiktok.com/@user/video/... or https://vt.tiktok.com/...)' 
-      });
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const res = await fetch('/api/download', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          url: trimmedUrl,
-          platform: mode === 'douyin' ? 'douyin' : 'tiktok'
-        }),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok || !data.success) {
-        if (data.wrongPlatform) {
-          setError({ wrongPlatform: data.wrongPlatform, message: data.error });
-        } else {
-          setError({ message: data.error || 'Could not fetch this media. Please ensure the link is public and try again.' });
-        }
-        return;
-      }
-
-      if (onResult) {
-        onResult(data);
-      }
-    } catch (err) {
-      setError({ message: err.message || 'Something went wrong while connecting to the server. Please check your link.' });
-    } finally {
-      setLoading(false);
-    }
+    executeDownload(url);
   };
 
   const loadSampleUrl = () => {
@@ -205,14 +282,25 @@ export default function DownloaderForm({
                   <span>Clear</span>
                 </button>
               ) : (
-                <button
-                  type="button"
-                  onClick={handlePaste}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm border border-slate-200/80 transition-all active:scale-95"
-                >
-                  <Clipboard className="w-3.5 h-3.5 text-slate-600" />
-                  <span>Paste Link</span>
-                </button>
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={handlePasteAndGo}
+                    className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-xs border border-amber-200 transition-all active:scale-95 shadow-2xs"
+                    title="Paste from clipboard & download immediately in 1 tap"
+                  >
+                    <Zap className="w-3.5 h-3.5 text-amber-600" />
+                    <span>Paste &amp; Go</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handlePaste}
+                    className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm border border-slate-200/80 transition-all active:scale-95"
+                  >
+                    <Clipboard className="w-3.5 h-3.5 text-slate-600" />
+                    <span>Paste</span>
+                  </button>
+                </div>
               )}
             </div>
           </div>
@@ -237,17 +325,103 @@ export default function DownloaderForm({
           </button>
         </div>
 
-        {/* Subtle sample link helper */}
-        <div className="mt-3.5 flex items-center justify-center gap-1.5 text-xs sm:text-sm text-slate-500">
-          <span>Need an example?</span>
+        {/* Helpers: Sample Link, Paste & Go (Mobile), Recent History */}
+        <div className="mt-3.5 flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-slate-500">
+          <div className="flex items-center gap-1.5">
+            <span>Need an example?</span>
+            <button
+              type="button"
+              onClick={loadSampleUrl}
+              className="text-slate-700 hover:text-rose-600 font-semibold underline underline-offset-4 cursor-pointer"
+            >
+              Try sample link
+            </button>
+          </div>
+
+          <span className="text-slate-300 hidden sm:inline">•</span>
+
           <button
             type="button"
-            onClick={loadSampleUrl}
-            className="text-slate-700 hover:text-rose-600 font-semibold underline underline-offset-4 cursor-pointer"
+            onClick={handlePasteAndGo}
+            className="sm:hidden inline-flex items-center gap-1 text-amber-700 font-bold hover:underline cursor-pointer"
           >
-            Try with a sample link
+            <Zap className="w-3.5 h-3.5 text-amber-600" />
+            <span>1-Tap Paste &amp; Go</span>
           </button>
+
+          {history && history.length > 0 && (
+            <>
+              <span className="text-slate-300">•</span>
+              <button
+                type="button"
+                onClick={() => setShowHistory(!showHistory)}
+                className="inline-flex items-center gap-1 text-slate-700 hover:text-rose-600 font-bold cursor-pointer transition-colors"
+              >
+                <History className="w-3.5 h-3.5 text-rose-500" />
+                <span>Recent Saves ({history.length})</span>
+              </button>
+            </>
+          )}
         </div>
+
+        {/* 🕒 Expandable Recent Downloads History Drawer */}
+        {showHistory && history && history.length > 0 && (
+          <div className="mt-5 p-4 sm:p-5 rounded-3xl bg-white border border-slate-200 shadow-xl text-left max-w-2xl mx-auto animate-in fade-in zoom-in-95 duration-200">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
+              <div className="flex items-center gap-2">
+                <History className="w-4 h-4 text-rose-600" />
+                <h4 className="text-sm font-bold text-slate-900">Your Recent Saves (Stored Privately)</h4>
+              </div>
+              <button
+                type="button"
+                onClick={handleClearHistory}
+                className="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-rose-600 font-semibold transition-colors cursor-pointer"
+              >
+                <Trash2 className="w-3 h-3" />
+                <span>Clear History</span>
+              </button>
+            </div>
+
+            <div className="space-y-2 max-h-72 overflow-y-auto pr-1">
+              {history.map((item, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => onResult && onResult(item.rawResult)}
+                  className="flex items-center justify-between gap-3 p-2.5 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all cursor-pointer group"
+                >
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-12 h-12 rounded-xl overflow-hidden bg-slate-900 shrink-0 relative border border-slate-200">
+                      {item.cover ? (
+                        <img src={item.cover} alt="Cover" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-rose-400 font-bold text-xs">
+                          {item.type === 'image' ? 'IMG' : 'MP4'}
+                        </div>
+                      )}
+                    </div>
+                    <div className="min-w-0">
+                      <h5 className="text-xs sm:text-sm font-bold text-slate-900 truncate group-hover:text-rose-600 transition-colors">
+                        {item.title || 'Saved Media'}
+                      </h5>
+                      <p className="text-[11px] text-slate-500 flex items-center gap-1.5 mt-0.5 truncate">
+                        <span>@{item.author || 'creator'}</span>
+                        {item.duration && (
+                          <>
+                            <span>•</span>
+                            <span>{item.duration}</span>
+                          </>
+                        )}
+                      </p>
+                    </div>
+                  </div>
+                  <span className="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-700 text-xs font-bold shrink-0 group-hover:bg-rose-600 group-hover:text-white transition-all shadow-2xs">
+                    Re-Open
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </form>
 
       {/* Error Notice with Smart Platform Switcher */}

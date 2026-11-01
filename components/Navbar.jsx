@@ -3,11 +3,17 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Music, Image as ImageIcon, Video, History, Menu, X, Globe2, Bell, UserCheck } from 'lucide-react';
+import { Home, Music, Image as ImageIcon, Video, History, Menu, X, Globe2, Bell, UserCheck, Smartphone } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+
+  const triggerInstall = () => {
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new Event('quktik-trigger-pwa-install'));
+    }
+  };
 
   const navLinks = [
     { href: '/', label: 'Home', icon: Home },
@@ -62,6 +68,15 @@ export default function Navbar() {
                 </Link>
               );
             })}
+
+            <button
+              onClick={triggerInstall}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold border border-rose-200 transition-all cursor-pointer active:scale-95 shadow-2xs ml-2"
+              title="Install QukTik App on Phone or PC"
+            >
+              <Smartphone className="w-3.5 h-3.5 text-rose-600" />
+              <span>Install App</span>
+            </button>
           </nav>
 
           {/* Tablet screen navigation fallback (md:flex lg:hidden) */}
@@ -86,8 +101,15 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Mobile menu button */}
-          <div className="flex md:hidden">
+          {/* Mobile menu button & quick install */}
+          <div className="flex md:hidden items-center gap-2">
+            <button
+              onClick={triggerInstall}
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-rose-50 text-rose-700 text-xs font-bold border border-rose-200 shadow-2xs active:scale-95"
+            >
+              <Smartphone className="w-3.5 h-3.5 text-rose-600" />
+              <span>App</span>
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none"
@@ -121,6 +143,17 @@ export default function Navbar() {
               </Link>
             );
           })}
+
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              triggerInstall();
+            }}
+            className="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-sm font-bold text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 transition-all mt-2"
+          >
+            <Smartphone className="w-4 h-4 text-rose-600" />
+            <span>Install QukTik App (Free)</span>
+          </button>
         </div>
       )}
     </header>

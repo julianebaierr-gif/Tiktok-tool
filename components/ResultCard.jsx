@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import JSZip from 'jszip';
 import Link from 'next/link';
 import { 
   Download, 
@@ -30,7 +31,9 @@ import {
   Hash,
   Users,
   Flame,
-  ArrowRight
+  ArrowRight,
+  FolderArchive,
+  Loader2
 } from 'lucide-react';
 
 export default function ResultCard({ result, onReset, mode = "all" }) {
@@ -38,6 +41,10 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
   const [shareUrlCopied, setShareUrlCopied] = useState(false);
   const [showQr, setShowQr] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [captionCopied, setCaptionCopied] = useState(false);
+  const [hashtagsCopied, setHashtagsCopied] = useState(false);
+  const [isZipping, setIsZipping] = useState(false);
+  const [zipProgress, setZipProgress] = useState('');
 
   if (!result) return null;
 
@@ -141,6 +148,95 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
   const directDownloadUrl = video?.noWatermark 
     ? (typeof window !== 'undefined' ? `${window.location.origin}${getProxyUrl(video.noWatermark, `quktik_${id}.mp4`)}` : video.noWatermark)
     : '';
+
+
+  const handleCopyCaption = () => {
+    if (!title) return;
+    navigator.clipboard.writeText(title).then(() => {
+      setCaptionCopied(true);
+      setTimeout(() => setCaptionCopied(false), 2000);
+    });
+  };
+
+  const handleCopyHashtags = () => {
+    let tags = [];
+    if (Array.isArray(hashtags) && hashtags.length > 0) {
+      tags = hashtags.map(t => (t.startsWith('#') ? t : `#${t}`));
+    } else if (title) {
+      const extracted = title.match(/#[\w\u4e00-\u9fa5]+/g);
+      if (extracted) tags = extracted;
+    }
+    const textToCopy = tags.length > 0 ? tags.join(' ') : (title || '');
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      setHashtagsCopied(true);
+      setTimeout(() => setHashtagsCopied(false), 2000);
+    });
+  };
+
+  const handleDownloadAllZip = async () => {
+    if (!images || images.length === 0 || isZipping) return;
+    setIsZipping(true);
+    setZipProgress('Starting...');
+
+    try {
+      const zip = new JSZip();
+      const folderName = `quktik_${id || 'photos'}`;
+      const imgFolder = zip.folder(folderName);
+
+      for (let i = 0; i < images.length; i++) {
+        setZipProgress(`Downloading photo ${i + 1}/${images.length}...`);
+        try {
+          const proxyUrl = getProxyUrl(images[i], `photo_${i + 1}.jpg`, 'image');
+          const res = await fetch(proxyUrl);
+          if (res.ok) {
+            const blob = await res.blob();
+            imgFolder.file(`photo_${String(i + 1).padStart(2, '0')}.jpg`, blob);
+          }
+        } catch (err) {
+          console.warn(`Failed to fetch image ${i + 1} for zip:`, err);
+        }
+      }
+
+      if (music?.url) {
+        setZipProgress('Adding BGM audio...');
+        try {
+          const audioProxy = getProxyUrl(music.url, `audio_${id}.mp3`, 'audio');
+          const audioRes = await fetch(audioProxy);
+          if (audioRes.ok) {
+            const audioBlob = await audioRes.blob();
+            imgFolder.file(`soundtrack_${id || 'bgm'}.mp3`, audioBlob);
+          }
+        } catch (err) {
+          console.warn('Failed to fetch audio for zip:', err);
+        }
+      }
+
+      setZipProgress('Packing ZIP file...');
+      const zipBlob = await zip.generateAsync({ type: 'blob' }, (metadata) => {
+        setZipProgress(`Compressing ${Math.round(metadata.percent)}%...`);
+      });
+
+      const downloadUrl = URL.createObjectURL(zipBlob);
+      const a = document.createElement('a');
+      a.href = downloadUrl;
+      a.download = `quktik_${id || 'slideshow'}_all_photos.zip`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(downloadUrl), 10000);
+
+      setZipProgress('Downloaded!');
+      setTimeout(() => {
+        setIsZipping(false);
+        setZipProgress('');
+      }, 2500);
+    } catch (err) {
+      console.error('ZIP generation error:', err);
+      alert('Could not create ZIP. You can still download individual photos below.');
+      setIsZipping(false);
+      setZipProgress('');
+    }
+  };
 
   const handleCopyLink = () => {
     if (!directDownloadUrl) return;
@@ -640,6 +736,29 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                           <span>Douyin Photo Gallery ({images.length} High-Res Photos)</span>
                         </h4>
                       </div>
+                      {/* ZIP Download All Button */}
+                      <button
+                        onClick={handleDownloadAllZip}
+                        disabled={isZipping}
+                        className="w-full flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-rose-600 via-pink-600 to-rose-700 hover:from-rose-700 hover:to-pink-700 text-white font-bold transition-all shadow-md active:scale-[0.99] cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                            {isZipping ? <Loader2 className="w-5 h-5 animate-spin text-white" /> : <FolderArchive className="w-5 h-5 text-white" />}
+                          </div>
+                          <div className="text-left">
+                            <span className="block font-black text-sm sm:text-base leading-tight">
+                              {isZipping ? zipProgress : `Download All ${images.length} Photos as ZIP (.zip)`}
+                            </span>
+                            <span className="text-xs text-rose-100 font-medium block mt-0.5">
+                              1-Click Batch Save • Full HD Images + Soundtrack Bundled
+                            </span>
+                          </div>
+                        </div>
+                        <span className="text-xs font-extrabold px-3 py-1.5 rounded-xl bg-white/20 text-white shrink-0 ml-2 uppercase">
+                          {isZipping ? 'PACKING' : 'ALL IN 1 ZIP'}
+                        </span>
+                      </button>
 
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         {images.map((imgUrl, index) => (
@@ -1217,6 +1336,29 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                   {/* If multi-image slideshow post, show Photo Gallery FIRST */}
                   {images && images.length > 0 ? (
                     <div className="space-y-3">
+                      {/* 1-CLICK ZIP DOWNLOAD ALL PHOTOS */}
+                      <button
+                        onClick={handleDownloadAllZip}
+                        disabled={isZipping}
+                        className="w-full flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white font-bold transition-all shadow-md shadow-indigo-600/25 active:scale-[0.99] cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3.5 min-w-0">
+                          <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                            {isZipping ? <Loader2 className="w-5 h-5 animate-spin text-white" /> : <FolderArchive className="w-6 h-6 text-white" />}
+                          </div>
+                          <div className="text-left min-w-0">
+                            <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
+                              {isZipping ? zipProgress : `Download All ${images.length} Photos as ZIP (.zip)`}
+                            </span>
+                            <span className="text-xs text-indigo-100 font-medium block mt-0.5">
+                              Single Click Batch Save • All Full HD JPGs + MP3 Soundtrack Bundled
+                            </span>
+                          </div>
+                        </div>
+                        <span className="text-xs font-black px-3.5 py-2 rounded-xl bg-white/20 text-white shrink-0 ml-2 uppercase tracking-wider">
+                          {isZipping ? 'ZIPPING' : 'BATCH ZIP'}
+                        </span>
+                      </button>
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         {images.map((imgUrl, index) => (
                           <div key={index} className="relative group rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 aspect-[9/16] shadow-xs">
@@ -1609,6 +1751,29 @@ export default function ResultCard({ result, onReset, mode = "all" }) {
                           Full HD Quality
                         </span>
                       </div>
+                      {/* 1-CLICK ZIP DOWNLOAD ALL PHOTOS */}
+                      <button
+                        onClick={handleDownloadAllZip}
+                        disabled={isZipping}
+                        className="w-full flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white font-bold transition-all shadow-md shadow-indigo-600/25 active:scale-[0.99] cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3.5 min-w-0">
+                          <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                            {isZipping ? <Loader2 className="w-5 h-5 animate-spin text-white" /> : <FolderArchive className="w-6 h-6 text-white" />}
+                          </div>
+                          <div className="text-left min-w-0">
+                            <span className="block font-black text-base sm:text-lg leading-tight tracking-tight">
+                              {isZipping ? zipProgress : `Download All ${images.length} Photos as ZIP (.zip)`}
+                            </span>
+                            <span className="text-xs text-indigo-100 font-medium block mt-0.5">
+                              Single Click Batch Save • All Full HD JPGs + MP3 Soundtrack Bundled
+                            </span>
+                          </div>
+                        </div>
+                        <span className="text-xs font-black px-3.5 py-2 rounded-xl bg-white/20 text-white shrink-0 ml-2 uppercase tracking-wider">
+                          {isZipping ? 'ZIPPING' : 'BATCH ZIP'}
+                        </span>
+                      </button>
 
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         {images.map((imgUrl, index) => (

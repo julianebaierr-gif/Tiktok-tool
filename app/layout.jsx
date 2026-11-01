@@ -1,6 +1,7 @@
 import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import PwaManager from '../components/PwaManager';
 
 export const metadata = {
   metadataBase: new URL('https://quktik.com'),
@@ -87,6 +88,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer />
+        <PwaManager />
       </body>
     </html>
   );
