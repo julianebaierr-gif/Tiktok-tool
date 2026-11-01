@@ -1,0 +1,107 @@
+'use client';
+
+import React, { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import { Globe, Check, ChevronDown } from 'lucide-react';
+import { LANGUAGES } from '../lib/translations';
+
+export default function LanguageSwitcher() {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  // Detect current language from pathname
+  const currentLangCode = pathname?.split('/')[1];
+  const currentLang = LANGUAGES.find(l => l.code === currentLangCode) || LANGUAGES[0]; // fallback to 'en'
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Close on Escape key
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') setIsOpen(false);
+    }
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  const handleSelect = (lang) => {
+    setIsOpen(false);
+    try {
+      localStorage.setItem('quktik_preferred_lang', lang.code);
+    } catch (e) {}
+    router.push(lang.path);
+  };
+
+  return (
+    <div className="relative inline-block text-left" ref={dropdownRef}>
+      {/* Trigger Button */}
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className="inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-slate-900 border border-slate-200/90 text-xs font-bold transition-all active:scale-95 shadow-2xs"
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        title="Change Language / Cambiar Idioma"
+      >
+        <Globe className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+        <span className="text-sm leading-none">{currentLang.flag}</span>
+        <span className="hidden sm:inline font-semibold text-xs text-slate-800">{currentLang.label}</span>
+        <ChevronDown className={`w-3 h-3 text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+
+      {/* Floating Language Menu */}
+      {isOpen && (
+        <div 
+          className="absolute right-0 mt-2 w-64 sm:w-72 rounded-2xl bg-white shadow-xl shadow-slate-900/10 border border-slate-200 p-2 z-50 animate-in fade-in zoom-in-95 duration-150"
+          role="menu"
+        >
+          <div className="px-3 py-2 border-b border-slate-100 mb-1 flex items-center justify-between">
+            <span className="text-[11px] font-black uppercase tracking-wider text-slate-400">
+              Select Language (12)
+            </span>
+            <span className="text-[10px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full border border-rose-100">
+              Global SEO
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 max-h-80 overflow-y-auto p-0.5">
+            {LANGUAGES.map((lang) => {
+              const isSelected = currentLang.code === lang.code;
+              return (
+                <button
+                  key={lang.code}
+                  type="button"
+                  onClick={() => handleSelect(lang)}
+                  className={`flex items-center justify-between px-3 py-2 rounded-xl text-left text-xs transition-all cursor-pointer ${
+                    isSelected
+                      ? 'bg-rose-50 text-rose-900 font-bold border border-rose-200'
+                      : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 font-medium'
+                  }`}
+                  role="menuitem"
+                >
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span className="text-base leading-none shrink-0">{lang.flag}</span>
+                    <span className="truncate">{lang.label}</span>
+                  </div>
+                  {isSelected && <Check className="w-3.5 h-3.5 text-rose-600 shrink-0 ml-1" />}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

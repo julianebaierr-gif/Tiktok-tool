@@ -4,6 +4,20 @@ export async function GET() {
 
   const routes = [
     { path: '', changeFreq: 'daily', priority: '1.0' },
+    // 11 International Localized Landing Pages
+    { path: '/es', changeFreq: 'daily', priority: '0.95' },
+    { path: '/pt', changeFreq: 'daily', priority: '0.95' },
+    { path: '/id', changeFreq: 'daily', priority: '0.95' },
+    { path: '/fr', changeFreq: 'daily', priority: '0.95' },
+    { path: '/ar', changeFreq: 'daily', priority: '0.95' },
+    { path: '/de', changeFreq: 'daily', priority: '0.95' },
+    { path: '/vi', changeFreq: 'daily', priority: '0.95' },
+    { path: '/tr', changeFreq: 'daily', priority: '0.95' },
+    { path: '/it', changeFreq: 'daily', priority: '0.95' },
+    { path: '/ru', changeFreq: 'daily', priority: '0.95' },
+    { path: '/ja', changeFreq: 'daily', priority: '0.95' },
+
+    // Core Tools
     { path: '/tiktok-video-downloader', changeFreq: 'daily', priority: '1.0' },
     { path: '/tiktok-mp3', changeFreq: 'daily', priority: '0.9' },
     { path: '/tiktok-photo', changeFreq: 'daily', priority: '0.9' },

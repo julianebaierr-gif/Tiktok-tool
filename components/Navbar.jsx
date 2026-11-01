@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Home, Music, Image as ImageIcon, Video, History, Menu, X, Globe2, Bell, UserCheck, Smartphone } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -69,9 +70,15 @@ export default function Navbar() {
               );
             })}
 
+            {/* Language Switcher in Header */}
+            <div className="ml-1.5">
+              <LanguageSwitcher />
+            </div>
+
+            {/* Install PWA App Button */}
             <button
               onClick={triggerInstall}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold border border-rose-200 transition-all cursor-pointer active:scale-95 shadow-2xs ml-2"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold border border-rose-200 transition-all cursor-pointer active:scale-95 shadow-2xs ml-1"
               title="Install QukTik App on Phone or PC"
             >
               <Smartphone className="w-3.5 h-3.5 text-rose-600" />
@@ -80,15 +87,15 @@ export default function Navbar() {
           </nav>
 
           {/* Tablet screen navigation fallback (md:flex lg:hidden) */}
-          <nav className="hidden md:flex lg:hidden items-center space-x-0.5 shrink-0">
-            {navLinks.map((link) => {
+          <nav className="hidden md:flex lg:hidden items-center space-x-1 shrink-0">
+            {navLinks.slice(0, 5).map((link) => {
               const Icon = link.icon;
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
+                  className={`flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
                     isActive
                       ? 'bg-slate-100 text-slate-900 font-bold border border-slate-200'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
@@ -99,10 +106,12 @@ export default function Navbar() {
                 </Link>
               );
             })}
+            <LanguageSwitcher />
           </nav>
 
           {/* Mobile menu button & quick install */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex md:hidden items-center gap-1.5">
+            <LanguageSwitcher />
             <button
               onClick={triggerInstall}
               className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-rose-50 text-rose-700 text-xs font-bold border border-rose-200 shadow-2xs active:scale-95"

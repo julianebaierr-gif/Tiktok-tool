@@ -6,10 +6,10 @@ import PwaManager from '../components/PwaManager';
 export const metadata = {
   metadataBase: new URL('https://quktik.com'),
   title: {
-    default: 'QukTik - Download TikTok Videos (No Watermark)',
+    default: 'Download TikTok Video No Watermark | QukTik',
     template: '%s | QukTik'
   },
-  description: 'Download TikTok and Douyin videos without watermark in HD MP4 or MP3 audio. 100% free online tool with no app or sign-up needed.',
+  description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for mobile and PC with no app needed.',
   keywords: [
     'download tiktok video',
     'tiktok without watermark',
@@ -26,6 +26,24 @@ export const metadata = {
   ],
   creator: 'QukTik',
   publisher: 'QukTik',
+  alternates: {
+    canonical: 'https://quktik.com',
+    languages: {
+      'x-default': 'https://quktik.com',
+      'en': 'https://quktik.com',
+      'es': 'https://quktik.com/es',
+      'pt': 'https://quktik.com/pt',
+      'id': 'https://quktik.com/id',
+      'fr': 'https://quktik.com/fr',
+      'ar': 'https://quktik.com/ar',
+      'de': 'https://quktik.com/de',
+      'vi': 'https://quktik.com/vi',
+      'tr': 'https://quktik.com/tr',
+      'it': 'https://quktik.com/it',
+      'ru': 'https://quktik.com/ru',
+      'ja': 'https://quktik.com/ja',
+    },
+  },
   robots: {
     index: true,
     follow: true,
@@ -42,8 +60,8 @@ export const metadata = {
     locale: 'en_US',
     url: 'https://quktik.com',
     siteName: 'QukTik',
-    title: 'QukTik - TikTok & Douyin Video Downloader',
-    description: 'Clean, fast online tool to download TikTok and Douyin videos without watermark in HD MP4 quality and extract MP3 audio. 100% free with no registration required.',
+    title: 'Download TikTok Video No Watermark | QukTik',
+    description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for mobile and PC with no app needed.',
     images: [
       {
         url: 'https://quktik.com/og-image.png',
@@ -55,8 +73,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'QukTik - TikTok & Douyin Video Downloader',
-    description: 'Save TikTok and Douyin videos without watermark in HD MP4 and MP3 audio instantly.',
+    title: 'Download TikTok Video No Watermark | QukTik',
+    description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for mobile and PC with no app needed.',
     images: ['https://quktik.com/og-image.png'],
   },
   verification: {

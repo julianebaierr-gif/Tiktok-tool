@@ -7,14 +7,29 @@ import SemanticContent from '../components/SemanticContent';
 import SiteSchema from '../components/SiteSchema';
 
 export const metadata = {
-  title: 'QukTik - Download TikTok Videos (No Watermark)',
-  description: 'Download TikTok and Douyin videos without watermark in HD MP4 or MP3 audio. 100% free online tool with no app or sign-up needed.',
+  title: 'Download TikTok Video No Watermark | QukTik',
+  description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for mobile and PC with no app needed.',
   alternates: {
     canonical: 'https://quktik.com',
+    languages: {
+      'x-default': 'https://quktik.com',
+      'en': 'https://quktik.com',
+      'es': 'https://quktik.com/es',
+      'pt': 'https://quktik.com/pt',
+      'id': 'https://quktik.com/id',
+      'fr': 'https://quktik.com/fr',
+      'ar': 'https://quktik.com/ar',
+      'de': 'https://quktik.com/de',
+      'vi': 'https://quktik.com/vi',
+      'tr': 'https://quktik.com/tr',
+      'it': 'https://quktik.com/it',
+      'ru': 'https://quktik.com/ru',
+      'ja': 'https://quktik.com/ja',
+    },
   },
   openGraph: {
-    title: 'QukTik - Download TikTok Videos (No Watermark)',
-    description: 'Download TikTok and Douyin videos without watermark in HD MP4 or MP3 audio. 100% free online tool with no app or sign-up needed.',
+    title: 'Download TikTok Video No Watermark | QukTik',
+    description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for mobile and PC with no app needed.',
     url: 'https://quktik.com',
     type: 'website',
   },

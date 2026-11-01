@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import { LANGUAGES } from '../lib/translations';
+import { Globe } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = 2026;
@@ -96,8 +98,29 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Global Multi-Language SEO Footer Grid */}
+        <div className="mt-12 pt-8 border-t border-slate-200">
+          <div className="flex items-center gap-2 mb-4 text-xs font-bold text-slate-500 uppercase tracking-wider">
+            <Globe className="w-4 h-4 text-rose-600" />
+            <span>QukTik Global Languages / Idiomas / Langues (12):</span>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 text-xs">
+            {LANGUAGES.map((lang) => (
+              <Link
+                key={lang.code}
+                href={lang.path}
+                className="flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-rose-50/70 border border-slate-200 hover:border-rose-200 text-slate-700 hover:text-rose-700 transition-all font-medium group shadow-2xs"
+                title={`${lang.label} - QukTik TikTok Downloader`}
+              >
+                <span className="text-base leading-none group-hover:scale-110 transition-transform">{lang.flag}</span>
+                <span className="truncate">{lang.label}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
         {/* Official DMCA Disclaimer */}
-        <div className="mt-12 p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-500 leading-relaxed shadow-sm">
+        <div className="mt-8 p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-500 leading-relaxed shadow-sm">
           <p>
             <strong className="text-slate-800">Disclaimer &amp; Trademark Notice:</strong> QukTik is an independent web tool designed for personal, non-commercial, and fair-use archiving. QukTik does not host or store copyrighted media files on its servers; all content streams directly from official content delivery network (CDN) endpoints. QukTik is not affiliated with, endorsed by, or sponsored by TikTok, Douyin, ByteDance Ltd., Musical.ly, or any of their subsidiaries. All trademarks belong to their respective owners.
           </p>
