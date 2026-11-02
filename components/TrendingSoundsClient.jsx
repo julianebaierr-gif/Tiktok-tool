@@ -211,66 +211,50 @@ export default function TrendingSoundsClient({ langCode = "en" }) {
         className="hidden" 
       />
 
-      {/* 1. Regional Country Switcher Bar (Dual Combo) */}
-      <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white shadow-xl border border-slate-800 space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-rose-600 to-pink-500 flex items-center justify-center shrink-0 shadow-md">
-              <Globe className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2 flex-wrap">
-                <h3 className="text-sm sm:text-base font-extrabold leading-tight text-white">
-                  Trending TikTok Charts by Country
-                </h3>
-                {detectedGeo && (
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-[10px] font-bold">
-                    <span>{detectedGeo.flag}</span>
-                    <span>Detected: {detectedGeo.label}</span>
-                  </span>
-                )}
-              </div>
-              <p className="text-xs text-slate-400 mt-0.5">
-                {currentRegionData.subheading || 'Select your country to explore localized viral sounds & dance challenge audio.'}
-              </p>
-            </div>
+      {/* 1. Sleek Auto-Updated Chart Header (Weekly + Daily Auto-Sync Engine) */}
+      <div className="p-4 sm:p-5 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-600 to-pink-500 text-white flex items-center justify-center text-2xl shrink-0 shadow-md">
+            <span>{currentRegionData.flag}</span>
           </div>
-
-          <div className="flex items-center gap-2 shrink-0">
-            <span className="text-[11px] text-slate-400">Current Market:</span>
-            <span className="px-3 py-1 rounded-xl bg-rose-600/30 border border-rose-500/50 text-rose-300 text-xs font-black flex items-center gap-1.5">
-              <span>{currentRegionData.flag}</span>
-              <span>{currentRegionData.name}</span>
-            </span>
+          <div className="min-w-0">
+            <div className="flex items-center gap-2 flex-wrap">
+              <h2 className="text-sm sm:text-base font-extrabold text-slate-900 leading-tight">
+                {currentRegionData.name} • Top Viral Sounds
+              </h2>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Auto-Updated: {currentRegionData.meta?.lastWeeklyUpdate || 'Weekly'}</span>
+              </span>
+            </div>
+            <p className="text-xs text-slate-500 mt-0.5 truncate">
+              {currentRegionData.subheading}
+            </p>
           </div>
         </div>
 
-        {/* 12 Country Tabs Slider */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none pt-1">
-          {AVAILABLE_REGIONS.map((region) => {
-            const isSelected = selectedRegion === region.id;
-            return (
-              <button
-                key={region.id}
-                onClick={() => {
-                  setSelectedRegion(region.id);
-                  if (audioPlayerRef.current) {
-                    audioPlayerRef.current.pause();
-                  }
-                  setPlayingId(null);
-                  setTrimmingTrack(null);
-                }}
-                className={`flex items-center gap-2 px-3.5 py-2 rounded-2xl text-xs font-bold whitespace-nowrap transition-all shrink-0 active:scale-95 ${
-                  isSelected
-                    ? 'bg-rose-600 text-white shadow-lg shadow-rose-600/40 ring-2 ring-white/30 font-extrabold'
-                    : 'bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 hover:text-white border border-slate-700/60'
-                }`}
-              >
-                <span className="text-base leading-none">{region.flag}</span>
-                <span>{region.name}</span>
-              </button>
-            );
-          })}
+        {/* Clean, Non-Intrusive Market Switcher */}
+        <div className="flex items-center gap-2 self-start sm:self-auto shrink-0 bg-slate-50 px-3 py-1.5 rounded-2xl border border-slate-200">
+          <Globe className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-[11px] text-slate-500 font-bold">Market:</span>
+          <select
+            value={selectedRegion}
+            onChange={(e) => {
+              setSelectedRegion(e.target.value);
+              if (audioPlayerRef.current) {
+                audioPlayerRef.current.pause();
+              }
+              setPlayingId(null);
+              setTrimmingTrack(null);
+            }}
+            className="bg-transparent text-xs font-bold text-slate-900 focus:outline-hidden cursor-pointer"
+          >
+            {AVAILABLE_REGIONS.map((region) => (
+              <option key={region.id} value={region.id}>
+                {region.flag} {region.name}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 
