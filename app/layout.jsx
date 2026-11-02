@@ -43,6 +43,9 @@ export const metadata = {
       'ru': 'https://quktik.com/ru',
       'ja': 'https://quktik.com/ja',
     },
+    types: {
+      'application/rss+xml': 'https://quktik.com/feed.xml',
+    },
   },
   robots: {
     index: true,
@@ -96,6 +99,10 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         
+        {/* RSS 2.0 & Atom Feed Auto-Discovery for Googlebot & Aggregators */}
+        <link rel="alternate" type="application/rss+xml" title="QukTik RSS Feed" href="https://quktik.com/feed.xml" />
+        <link rel="alternate" type="application/atom+xml" title="QukTik Atom Feed" href="https://quktik.com/feed.xml" />
+
         {/* Google Search Console HTML Verification Tag */}
         <meta name="google-site-verification" content="google-site-verification-quktik" />
         <meta name="theme-color" content="#0F172A" />

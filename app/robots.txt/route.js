@@ -4,9 +4,18 @@ Allow: /
 
 User-agent: Googlebot
 Allow: /
+Allow: /feed.xml
+Allow: /rss.xml
+Allow: /sitemap.xml
+
+User-agent: Bingbot
+Allow: /
 
 User-agent: *
 Allow: /
+Allow: /feed.xml
+Allow: /rss.xml
+Allow: /api/audio-download
 Disallow: /api/
 
 Sitemap: https://quktik.com/sitemap.xml
@@ -14,7 +23,7 @@ Sitemap: https://quktik.com/sitemap.xml
 
   return new Response(robotsTxt, {
     headers: {
-      'Content-Type': 'text/plain',
+      'Content-Type': 'text/plain; charset=utf-8',
       'Cache-Control': 'public, max-age=86400',
     },
   });

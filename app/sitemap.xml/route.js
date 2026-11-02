@@ -1,4 +1,6 @@
-import { VALID_TOOLS, VALID_LANGS } from '../../lib/tools';
+import { VALID_TOOLS, VALID_LANGS } from '../../lib/tools/index.js';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
   const baseUrl = 'https://quktik.com';
@@ -31,7 +33,7 @@ export async function GET() {
     { path: '/tiktok-avatar', changeFreq: 'weekly', priority: '0.8' },
   ];
 
-  // 11 Languages x 7 Tools = 77 Localized Routes
+  // 11 Languages x 9 Tools = 99 Localized Routes
   for (const lang of VALID_LANGS) {
     for (const tool of VALID_TOOLS) {
       routes.push({
@@ -68,7 +70,7 @@ export async function GET() {
 
   return new Response(sitemapXml.trim(), {
     headers: {
-      'Content-Type': 'application/xml',
+      'Content-Type': 'application/xml; charset=utf-8',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400',
     },
   });
