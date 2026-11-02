@@ -20,23 +20,29 @@ export default function PwaManager() {
 
     // 2. Check if already installed in standalone mode
     if (typeof window !== 'undefined') {
-      const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-      if (isStandalone) {
-        setIsInstalled(true);
-        return;
-      }
+      try {
+        const isStandalone = (typeof window.matchMedia === 'function' && window.matchMedia('(display-mode: standalone)')?.matches) || window.navigator?.standalone;
+        if (isStandalone) {
+          setIsInstalled(true);
+          return;
+        }
+      } catch (e) {}
 
       // Check iOS Safari
-      const userAgent = window.navigator.userAgent.toLowerCase();
-      const isIosDevice = /iphone|ipad|ipod/.test(userAgent);
-      setIsIos(isIosDevice);
+      let isIosDevice = false;
+      try {
+        const userAgent = (window.navigator?.userAgent || '').toLowerCase();
+        isIosDevice = /iphone|ipad|ipod/.test(userAgent);
+        setIsIos(isIosDevice);
+      } catch (e) {}
 
       // Listen for Android / Chrome / Edge install prompt
       const handleBeforeInstall = (e) => {
-        e.preventDefault();
-        setDeferredPrompt(e);
-        // Show install button after 2 seconds
-        setTimeout(() => setShowBanner(true), 2000);
+        try {
+          e.preventDefault();
+          setDeferredPrompt(e);
+          setTimeout(() => setShowBanner(true), 2000);
+        } catch (err) {}
       };
 
       window.addEventListener('beforeinstallprompt', handleBeforeInstall);
@@ -49,9 +55,11 @@ export default function PwaManager() {
       });
 
       // For iOS, show banner if not already dismissed in this session
-      if (isIosDevice && !sessionStorage.getItem('quktik_ios_banner_dismissed')) {
-        setTimeout(() => setShowBanner(true), 2500);
-      }
+      try {
+        if (isIosDevice && sessionStorage.getItem('quktik_ios_banner_dismissed') !== 'true') {
+          setTimeout(() => setShowBanner(true), 2500);
+        }
+      } catch (e) {}
 
       // Listen for custom trigger from Navbar or Footer
       const handleCustomTrigger = () => {
@@ -88,9 +96,11 @@ export default function PwaManager() {
 
   const dismissBanner = () => {
     setShowBanner(false);
-    if (typeof window !== 'undefined') {
-      sessionStorage.setItem('quktik_ios_banner_dismissed', 'true');
-    }
+    try {
+      if (typeof window !== 'undefined' && window.sessionStorage) {
+        sessionStorage.setItem('quktik_ios_banner_dismissed', 'true');
+      }
+    } catch (e) {}
   };
 
   if (isInstalled) return null;

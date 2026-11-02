@@ -1,5 +1,20 @@
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+Allow: /feed.xml
+Allow: /rss.xml
+Allow: /sitemap.xml
+
+User-agent: Bingbot
+Allow: /
+
 User-agent: *
 Allow: /
+Allow: /feed.xml
+Allow: /rss.xml
+Allow: /api/audio-download
 Disallow: /api/
 
 Sitemap: https://www.quktik.com/sitemap.xml

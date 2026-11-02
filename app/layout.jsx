@@ -81,7 +81,7 @@ export const metadata = {
     images: ['https://www.quktik.com/og-image.png'],
   },
   verification: {
-    google: 'google-site-verification-quktik',
+    google: 'WpOnaC_Bx-CQQ4GgBUBm45-uWHXJSNeU-m90IRFWv-I',
     other: {
       'ahrefs-site-verification': '6280d6ffc889f33450faf4b4e2b42b8f54cb5c65bc96be932da9f4d0d51726d4',
     },
@@ -123,25 +123,17 @@ export default function RootLayout({ children }) {
         <link rel="alternate" type="application/atom+xml" title="QukTik Atom Feed" href="https://www.quktik.com/feed.xml" />
 
         {/* Google Search Console HTML Verification Tag */}
-        <meta name="google-site-verification" content="google-site-verification-quktik" />
+        <meta name="google-site-verification" content="WpOnaC_Bx-CQQ4GgBUBm45-uWHXJSNeU-m90IRFWv-I" />
 
         {/* Ahrefs Webmaster Tools Verification */}
         <meta name="ahrefs-site-verification" content="6280d6ffc889f33450faf4b4e2b42b8f54cb5c65bc96be932da9f4d0d51726d4" />
 
-        {/* Ahrefs Analytics (Dynamic client-side asynchronous insertion) */}
+        {/* Ahrefs Analytics */}
         <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){
-              if(typeof window !== 'undefined'){
-                var s = document.createElement('script');
-                s.async = true;
-                s.src = 'https://analytics.ahrefs.com/analytics.js';
-                s.setAttribute('data-key', 'NIXg5dEvOn43YTeKNu6i8A');
-                document.head.appendChild(s);
-              }
-            })();`,
-          }}
-        />
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="NIXg5dEvOn43YTeKNu6i8A"
+          async
+        ></script>
 
         <meta name="theme-color" content="#0F172A" />
       </head>
