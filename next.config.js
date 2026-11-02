@@ -15,6 +15,54 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Consolidate duplicate homepage URLs (Accessible index page resolution)
+      {
+        source: '/index.html',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/index.php',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/index',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/default.html',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/default.php',
+        destination: '/',
+        permanent: true,
+      },
+      // Localized duplicate homepage URLs
+      {
+        source: '/:lang(es|pt|id|fr|ar|de|vi|tr|it|ru|ja)/index.html',
+        destination: '/:lang',
+        permanent: true,
+      },
+      {
+        source: '/:lang(es|pt|id|fr|ar|de|vi|tr|it|ru|ja)/index.php',
+        destination: '/:lang',
+        permanent: true,
+      },
+      {
+        source: '/:lang(es|pt|id|fr|ar|de|vi|tr|it|ru|ja)/index',
+        destination: '/:lang',
+        permanent: true,
+      },
+      // Legacy tool aliases
       {
         source: '/photo-downloader',
         destination: '/tiktok-photo',
