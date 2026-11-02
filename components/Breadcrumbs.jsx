@@ -5,6 +5,20 @@ import { ChevronRight, Home } from 'lucide-react';
 export default function Breadcrumbs({ items = [] }) {
   if (!items || items.length === 0) return null;
 
+  // Filter out any redundant 'Home' entry if passed in items, so 'Home > Home' can NEVER happen anywhere on the site
+  const normalizedItems = items.filter((item, idx) => {
+    if (idx === 0) {
+      const isHomeUrl = item.url === '/' || item.url === 'https://www.quktik.com' || item.url === 'https://www.quktik.com/';
+      const isHomeName = typeof item.name === 'string' && item.name.trim().toLowerCase() === 'home';
+      if (isHomeUrl || isHomeName) {
+        return false;
+      }
+    }
+    return true;
+  });
+
+  if (normalizedItems.length === 0) return null;
+
   // Build full URLs for JSON-LD schema
   const baseUrl = 'https://www.quktik.com';
   const schemaList = [
@@ -14,7 +28,7 @@ export default function Breadcrumbs({ items = [] }) {
       name: 'Home',
       item: baseUrl,
     },
-    ...items.map((item, idx) => ({
+    ...normalizedItems.map((item, idx) => ({
       '@type': 'ListItem',
       position: idx + 2,
       name: item.name,
@@ -49,8 +63,8 @@ export default function Breadcrumbs({ items = [] }) {
             </Link>
           </li>
 
-          {items.map((item, index) => {
-            const isLast = index === items.length - 1;
+          {normalizedItems.map((item, index) => {
+            const isLast = index === normalizedItems.length - 1;
             return (
               <li key={item.url || index} className="inline-flex items-center gap-1.5 sm:gap-2">
                 <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />

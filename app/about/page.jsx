@@ -38,7 +38,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-slate-50/50 pb-20 text-slate-700">
       {/* Breadcrumbs Navigation */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'About Us', url: '/about' }]} />
+        <Breadcrumbs items={[{ name: 'About Us', url: '/about' }]} />
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
