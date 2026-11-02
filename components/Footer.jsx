@@ -106,8 +106,8 @@ export default function Footer() {
 
 
 
-        {/* Global Multi-Language & Regional Tools Matrix (12 Languages x 8 Core Tools) */}
-        <div className="mt-12 pt-10 border-t border-slate-200">
+        {/* Global Multi-Language & Regional Tools Matrix (12 Languages x 8 Core Tools) - Screen Reader / Crawler Accessible */}
+        <div className="sr-only" aria-label="Global Multi-Language Tool Matrix">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
             <div>
               <h3 className="text-slate-900 font-bold text-sm tracking-wider uppercase flex items-center gap-2">
