@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export const metadata = {
-  title: 'Privacy Policy & Data Protection Declaration | QukTik',
+  title: { absolute: 'Privacy Policy & Data Protection Declaration | QukTik' },
   description: 'Official QukTik Privacy Policy: zero-PII data minimization, Google AdSense cookie compliance, GDPR, CCPA/CPRA rights, and security standards.',
   alternates: {
     canonical: 'https://www.quktik.com/privacy-policy',
@@ -382,7 +382,7 @@ export default function PrivacyPolicyPage() {
             <div className="p-4 rounded-2xl bg-slate-800/80 border border-slate-700 text-xs sm:text-sm space-y-1.5 text-slate-300">
               <p><strong className="text-white">Designated Officer:</strong> Data Protection &amp; Compliance Team</p>
               <p><strong className="text-white">Direct Privacy Email:</strong> <a href="mailto:privacy@quktik.com" className="text-indigo-400 font-bold hover:underline">privacy@quktik.com</a></p>
-              <p><strong className="text-white">Interactive Help Center:</strong> <Link href="/contact" className="text-indigo-400 font-bold hover:underline">https://www.quktik.com/contact</Link></p>
+              <p><strong className="text-white">Interactive Help Center:</strong> <Link href="/contact" className="text-indigo-400 font-bold hover:underline" aria-label="Official QukTik Contact and Support Portal">Official QukTik Contact &amp; Support Portal</Link></p>
               <p><strong className="text-white">Official Website:</strong> <Link href="/" className="text-indigo-400 font-bold hover:underline">https://www.quktik.com</Link></p>
             </div>
             <p className="text-[11px] text-slate-400 pt-1">

@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export const metadata = {
-  title: 'DMCA Policy & Copyright Disclaimer | QukTik',
+  title: { absolute: 'DMCA Policy & Copyright Disclaimer | QukTik' },
   description: 'Official DMCA Takedown Policy, Copyright Disclaimer, Safe Harbor Protections under 17 U.S.C. § 512, and Trademark Non-Affiliation Notice for QukTik.',
   alternates: {
     canonical: 'https://www.quktik.com/disclaimer',
@@ -346,7 +346,7 @@ export default function DisclaimerPage() {
             <div className="p-4 rounded-2xl bg-slate-800/80 border border-slate-700 text-xs sm:text-sm space-y-1.5 text-slate-300">
               <p><strong className="text-white">Designated Agent:</strong> QukTik Legal &amp; Copyright Compliance Team</p>
               <p><strong className="text-white">Official Notice Email:</strong> <a href="mailto:dmca@quktik.com" className="text-rose-400 font-bold hover:underline">dmca@quktik.com</a></p>
-              <p><strong className="text-white">Online Portal:</strong> <Link href="/contact" className="text-rose-400 font-bold hover:underline">https://www.quktik.com/contact</Link></p>
+              <p><strong className="text-white">Online Portal:</strong> <Link href="/contact" className="text-rose-400 font-bold hover:underline" aria-label="Official QukTik Contact and Support Portal">Official QukTik Contact &amp; Support Portal</Link></p>
               <p><strong className="text-white">Standard Notice Processing SLA:</strong> Within 24 to 48 business hours</p>
             </div>
             <p className="text-[11px] text-slate-400 pt-1">

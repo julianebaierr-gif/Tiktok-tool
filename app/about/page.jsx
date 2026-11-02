@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 
 export const metadata = {
-  title: 'About QukTik | Mission, Technology & Creator Transparency',
+  title: { absolute: 'About QukTik | Mission, Technology & Creator Transparency' },
   description: 'Learn about QukTik: direct CDN manifest extraction technology, stateless zero-storage privacy, and our mission for ethical media archiving.',
   alternates: {
     canonical: 'https://www.quktik.com/about',

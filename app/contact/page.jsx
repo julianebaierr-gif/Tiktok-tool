@@ -23,7 +23,7 @@ import {
 import ContactForm from '../../components/ContactForm';
 
 export const metadata = {
-  title: 'Contact Support & Help Center | QukTik',
+  title: { absolute: 'Contact Support & Help Center | QukTik' },
   description: 'Connect with QukTik support for technical assistance, bug reports, DMCA copyright takedown requests, and self-service diagnostics.',
   alternates: {
     canonical: 'https://www.quktik.com/contact',

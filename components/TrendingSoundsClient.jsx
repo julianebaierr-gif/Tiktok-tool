@@ -248,7 +248,7 @@ export default function TrendingSoundsClient({ langCode = "en" }) {
               </h2>
               <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-bold">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>Auto-Updated: {currentRegionData.meta?.lastWeeklyUpdate || 'Weekly'}</span>
+                <span>{ui.autoUpdated || 'Auto-Updated: Weekly'}</span>
               </span>
             </div>
             <p className="text-xs text-slate-500 mt-0.5 truncate">
@@ -260,7 +260,7 @@ export default function TrendingSoundsClient({ langCode = "en" }) {
         {/* Clean, Non-Intrusive Market Switcher */}
         <div className="flex items-center gap-2 self-start sm:self-auto shrink-0 bg-slate-50 px-3 py-1.5 rounded-2xl border border-slate-200">
           <Globe className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-[11px] text-slate-500 font-bold">Market:</span>
+          <span className="text-[11px] text-slate-500 font-bold">{ui.market || 'Market'}:</span>
           <select
             value={selectedRegion}
             onChange={(e) => {
@@ -290,10 +290,10 @@ export default function TrendingSoundsClient({ langCode = "en" }) {
           </div>
           <div>
             <h3 className="text-base sm:text-lg font-extrabold text-slate-900 leading-tight">
-              Extract Custom Audio from Any TikTok or Douyin Link
+              {ui.extractorTitle || 'Extract Custom Audio from Any TikTok or Douyin Link'}
             </h3>
             <p className="text-xs text-slate-500 mt-0.5">
-              Have a specific TikTok video with audio you love? Paste the URL below to isolate the 320kbps MP3.
+              {ui.extractorDesc || 'Have a specific TikTok video with audio you love? Paste the URL below to isolate the 320kbps MP3.'}
             </p>
           </div>
         </div>

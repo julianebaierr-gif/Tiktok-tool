@@ -269,10 +269,10 @@ export default function BulkDownloader({ langCode = "en" }) {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200/80 text-rose-700 text-xs font-bold mb-2">
               <FolderArchive className="w-4 h-4 text-rose-600" />
-              <span>Multi-URL Agency Suite</span>
+              <span>{ui.agencySuite || 'Multi-URL Agency Suite'}</span>
             </div>
             <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-              Paste 5 to 10 TikTok &amp; Douyin Links Below
+              {ui.pasteHeading || 'Paste 5 to 10 TikTok & Douyin Links Below'}
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
               {ui.subtitle}
@@ -285,7 +285,7 @@ export default function BulkDownloader({ langCode = "en" }) {
               disabled={isProcessing}
               className="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all border border-slate-200 disabled:opacity-50"
             >
-              Demo Links
+              {ui.demoLinks || 'Demo Links'}
             </button>
             {(inputUrls.length > 0 || results.length > 0) && (
               <button
@@ -311,7 +311,7 @@ export default function BulkDownloader({ langCode = "en" }) {
             className="w-full p-4 rounded-2xl bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:bg-white focus:outline-hidden text-slate-900 font-mono text-xs sm:text-sm leading-relaxed transition-all resize-y placeholder:text-slate-400 disabled:opacity-50"
           />
           <div className="absolute bottom-3 right-3 text-[11px] font-bold px-2 py-0.5 rounded-md bg-white border border-slate-200 text-slate-500 shadow-2xs">
-            {totalUrlsCount} / 10 Links
+            {totalUrlsCount} / 10 {ui.linksCount || 'Links'}
           </div>
         </div>
 
@@ -361,13 +361,13 @@ export default function BulkDownloader({ langCode = "en" }) {
             <div>
               <div className="flex items-center gap-2 text-rose-400 text-xs font-bold uppercase tracking-wider">
                 <Sparkles className="w-4 h-4" />
-                <span>Batch Ready ({successCount} of {results.length} Videos Available)</span>
+                <span>{ui.batchReady || 'Batch Ready'} ({successCount} / {results.length})</span>
               </div>
               <h3 className="text-lg sm:text-xl font-black text-white mt-1">
-                One-Click Single ZIP Downloads
+                {ui.singleZipTitle || 'One-Click Single ZIP Downloads'}
               </h3>
               <p className="text-xs text-slate-400 mt-0.5">
-                Save hours of manual downloading. Clean 1080p MP4s &amp; 320kbps MP3s packaged together.
+                {ui.singleZipDesc || 'Save hours of manual downloading. Clean 1080p MP4s & 320kbps MP3s packaged together.'}
               </p>
             </div>
 
@@ -385,7 +385,7 @@ export default function BulkDownloader({ langCode = "en" }) {
                 ) : (
                   <>
                     <FolderArchive className="w-4 h-4" />
-                    <span>Download All Videos (.ZIP)</span>
+                    <span>{ui.downloadVideosZip || 'Download All Videos (.ZIP)'}</span>
                   </>
                 )}
               </button>
@@ -403,7 +403,7 @@ export default function BulkDownloader({ langCode = "en" }) {
                 ) : (
                   <>
                     <Music className="w-4 h-4 text-pink-400" />
-                    <span>Download All Audio (.ZIP)</span>
+                    <span>{ui.downloadAudioZip || 'Download All Audio (.ZIP)'}</span>
                   </>
                 )}
               </button>
@@ -418,7 +418,7 @@ export default function BulkDownloader({ langCode = "en" }) {
                   <div key={idx} className="p-4 rounded-2xl bg-white border border-red-200 shadow-xs space-y-2">
                     <div className="flex items-center gap-2 text-red-600 text-xs font-bold">
                       <AlertCircle className="w-4 h-4 shrink-0" />
-                      <span>Item #{idx + 1} Failed</span>
+                      <span>{ui.itemFailed || 'Item Failed'} #{idx + 1}</span>
                     </div>
                     <p className="text-xs text-slate-500 font-mono truncate">{res.originalUrl}</p>
                     <p className="text-xs text-red-600 bg-red-50 p-2 rounded-lg font-medium">{res.error}</p>

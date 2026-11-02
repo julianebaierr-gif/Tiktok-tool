@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export const metadata = {
-  title: 'Terms of Service & User Agreement | QukTik',
+  title: { absolute: 'Terms of Service & User Agreement | QukTik' },
   description: 'Official Terms of Service, Acceptable Use Policy, and Legal User Agreement for QukTik online video and audio downloader.',
   alternates: {
     canonical: 'https://www.quktik.com/terms-of-service',
@@ -344,7 +344,7 @@ export default function TermsOfServicePage() {
             <div className="p-4 rounded-2xl bg-slate-800/80 border border-slate-700 text-xs sm:text-sm space-y-1.5 text-slate-300">
               <p><strong className="text-white">Legal Inquiry Email:</strong> <a href="mailto:support@quktik.com" className="text-rose-400 font-bold hover:underline">support@quktik.com</a></p>
               <p><strong className="text-white">DMCA Copyright Notices:</strong> <a href="mailto:dmca@quktik.com" className="text-rose-400 font-bold hover:underline">dmca@quktik.com</a></p>
-              <p><strong className="text-white">Online Help Desk:</strong> <Link href="/contact" className="text-rose-400 font-bold hover:underline">https://www.quktik.com/contact</Link></p>
+              <p><strong className="text-white">Online Help Desk:</strong> <Link href="/contact" className="text-rose-400 font-bold hover:underline" aria-label="Official QukTik Help Desk and Contact Portal">Official QukTik Help Desk &amp; Contact Portal</Link></p>
             </div>
             <p className="text-[11px] text-slate-400 pt-1">
               For information regarding how we handle privacy, see our <Link href="/privacy-policy" className="text-slate-300 underline font-semibold">Privacy Policy</Link>. For technical information on our architecture, read <Link href="/about" className="text-slate-300 underline font-semibold">About QukTik</Link>.
