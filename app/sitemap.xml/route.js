@@ -3,7 +3,7 @@ import { VALID_TOOLS, VALID_LANGS } from '../../lib/tools/index.js';
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  const baseUrl = 'https://quktik.com';
+  const baseUrl = 'https://www.quktik.com';
   const currentDate = new Date().toISOString();
 
   const routes = [

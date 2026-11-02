@@ -18,7 +18,7 @@ Allow: /rss.xml
 Allow: /api/audio-download
 Disallow: /api/
 
-Sitemap: https://quktik.com/sitemap.xml
+Sitemap: https://www.quktik.com/sitemap.xml
 `;
 
   return new Response(robotsTxt, {

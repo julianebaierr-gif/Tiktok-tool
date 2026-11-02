@@ -7,12 +7,12 @@ export const metadata = {
   title: 'DMCA & Copyright Disclaimer',
   description: 'QukTik DMCA Copyright Takedown Policy and Disclaimer regarding third-party platforms and content ownership.',
   alternates: {
-    canonical: 'https://quktik.com/disclaimer',
+    canonical: 'https://www.quktik.com/disclaimer',
   },
   openGraph: {
     title: 'DMCA & Copyright Disclaimer',
     description: 'QukTik DMCA Copyright Takedown Policy and Disclaimer.',
-    url: 'https://quktik.com/disclaimer',
+    url: 'https://www.quktik.com/disclaimer',
     type: 'website',
   },
 };

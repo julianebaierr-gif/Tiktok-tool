@@ -169,7 +169,7 @@ export default function TikTokAvatarPage() {
           <div className="my-8 rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white">
             <img
               src="/images/avatar-downloader-3d.png"
-              alt="3D visual illustration showing TikTok profile picture uncropping and HD zoom extraction into crisp 1080p JPG"
+              alt="TikTok profile picture uncropping and HD avatar zoom into 1080p JPG"
               className="w-full h-auto object-cover max-h-[420px]"
               width={1200} height={675} loading="lazy"
             />

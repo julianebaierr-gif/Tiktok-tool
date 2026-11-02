@@ -8,12 +8,12 @@ export const metadata = {
   title: 'Contact Support',
   description: 'Contact the QukTik support team for technical help, bug reports, and copyright inquiries. We reply to all messages within 24 hours.',
   alternates: {
-    canonical: 'https://quktik.com/contact',
+    canonical: 'https://www.quktik.com/contact',
   },
   openGraph: {
     title: 'Contact QukTik Support',
     description: 'Get in touch with the QukTik support team for technical assistance or copyright inquiries.',
-    url: 'https://quktik.com/contact',
+    url: 'https://www.quktik.com/contact',
     type: 'website',
   },
 };

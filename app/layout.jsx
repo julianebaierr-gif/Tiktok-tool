@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import PwaManager from '../components/PwaManager';
 
 export const metadata = {
-  metadataBase: new URL('https://quktik.com'),
+  metadataBase: new URL('https://www.quktik.com'),
   title: {
     default: 'Download TikTok Video No Watermark | QukTik',
     template: '%s | QukTik'
@@ -27,24 +27,24 @@ export const metadata = {
   creator: 'QukTik',
   publisher: 'QukTik',
   alternates: {
-    canonical: 'https://quktik.com',
+    canonical: 'https://www.quktik.com',
     languages: {
-      'x-default': 'https://quktik.com',
-      'en': 'https://quktik.com',
-      'es': 'https://quktik.com/es',
-      'pt': 'https://quktik.com/pt',
-      'id': 'https://quktik.com/id',
-      'fr': 'https://quktik.com/fr',
-      'ar': 'https://quktik.com/ar',
-      'de': 'https://quktik.com/de',
-      'vi': 'https://quktik.com/vi',
-      'tr': 'https://quktik.com/tr',
-      'it': 'https://quktik.com/it',
-      'ru': 'https://quktik.com/ru',
-      'ja': 'https://quktik.com/ja',
+      'x-default': 'https://www.quktik.com',
+      'en': 'https://www.quktik.com',
+      'es': 'https://www.quktik.com/es',
+      'pt': 'https://www.quktik.com/pt',
+      'id': 'https://www.quktik.com/id',
+      'fr': 'https://www.quktik.com/fr',
+      'ar': 'https://www.quktik.com/ar',
+      'de': 'https://www.quktik.com/de',
+      'vi': 'https://www.quktik.com/vi',
+      'tr': 'https://www.quktik.com/tr',
+      'it': 'https://www.quktik.com/it',
+      'ru': 'https://www.quktik.com/ru',
+      'ja': 'https://www.quktik.com/ja',
     },
     types: {
-      'application/rss+xml': 'https://quktik.com/feed.xml',
+      'application/rss+xml': 'https://www.quktik.com/feed.xml',
     },
   },
   robots: {
@@ -61,13 +61,13 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://quktik.com',
+    url: 'https://www.quktik.com',
     siteName: 'QukTik',
     title: 'Download TikTok Video No Watermark | QukTik',
     description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for mobile and PC with no app needed.',
     images: [
       {
-        url: 'https://quktik.com/og-image.png',
+        url: 'https://www.quktik.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'QukTik - TikTok & Douyin Video Downloader',
@@ -78,7 +78,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Download TikTok Video No Watermark | QukTik',
     description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for mobile and PC with no app needed.',
-    images: ['https://quktik.com/og-image.png'],
+    images: ['https://www.quktik.com/og-image.png'],
   },
   verification: {
     google: 'google-site-verification-quktik',
@@ -100,8 +100,8 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/site.webmanifest" />
         
         {/* RSS 2.0 & Atom Feed Auto-Discovery for Googlebot & Aggregators */}
-        <link rel="alternate" type="application/rss+xml" title="QukTik RSS Feed" href="https://quktik.com/feed.xml" />
-        <link rel="alternate" type="application/atom+xml" title="QukTik Atom Feed" href="https://quktik.com/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="QukTik RSS Feed" href="https://www.quktik.com/feed.xml" />
+        <link rel="alternate" type="application/atom+xml" title="QukTik Atom Feed" href="https://www.quktik.com/feed.xml" />
 
         {/* Google Search Console HTML Verification Tag */}
         <meta name="google-site-verification" content="google-site-verification-quktik" />

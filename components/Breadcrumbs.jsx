@@ -6,7 +6,7 @@ export default function Breadcrumbs({ items = [] }) {
   if (!items || items.length === 0) return null;
 
   // Build full URLs for JSON-LD schema
-  const baseUrl = 'https://quktik.com';
+  const baseUrl = 'https://www.quktik.com';
   const schemaList = [
     {
       '@type': 'ListItem',

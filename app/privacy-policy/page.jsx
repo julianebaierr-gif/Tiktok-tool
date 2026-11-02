@@ -6,12 +6,12 @@ export const metadata = {
   title: 'Privacy Policy',
   description: 'QukTik Privacy Policy detailing our cookie policy, log files, user privacy rights under GDPR and CCPA, and data protection practices.',
   alternates: {
-    canonical: 'https://quktik.com/privacy-policy',
+    canonical: 'https://www.quktik.com/privacy-policy',
   },
   openGraph: {
     title: 'Privacy Policy',
     description: 'QukTik Privacy Policy detailing our cookie policy and user privacy rights under GDPR and CCPA.',
-    url: 'https://quktik.com/privacy-policy',
+    url: 'https://www.quktik.com/privacy-policy',
     type: 'website',
   },
 };
@@ -40,7 +40,7 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-3">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">1. Introduction</h2>
           <p>
-            At <strong>QukTik</strong> (accessible at <Link href="/" className="text-rose-700 font-semibold hover:underline">https://quktik.com</Link>), your privacy is one of our top priorities. Whether using our <Link href="/tiktok-video-downloader" className="text-rose-700 font-semibold hover:underline">video downloader</Link> or <Link href="/tiktok-mp3" className="text-rose-700 font-semibold hover:underline">MP3 converter</Link>, we collect minimal data. This Privacy Policy explains what information we receive when you visit our website and how it is handled.
+            At <strong>QukTik</strong> (accessible at <Link href="/" className="text-rose-700 font-semibold hover:underline">https://www.quktik.com</Link>), your privacy is one of our top priorities. Whether using our <Link href="/tiktok-video-downloader" className="text-rose-700 font-semibold hover:underline">video downloader</Link> or <Link href="/tiktok-mp3" className="text-rose-700 font-semibold hover:underline">MP3 converter</Link>, we collect minimal data. This Privacy Policy explains what information we receive when you visit our website and how it is handled.
           </p>
           <p>
             If you have questions about this policy, feel free to reach out to us at <a href="mailto:privacy@quktik.com" className="text-rose-700 underline">privacy@quktik.com</a>, visit our <Link href="/contact" className="text-rose-700 font-semibold hover:underline">Contact Page</Link>, or read our <Link href="/terms-of-service" className="text-rose-700 font-semibold hover:underline">Terms of Service</Link> and <Link href="/disclaimer" className="text-rose-700 font-semibold hover:underline">DMCA Policy</Link>.

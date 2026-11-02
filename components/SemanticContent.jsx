@@ -151,7 +151,7 @@ export default function SemanticContent() {
       <div className="my-8 rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white">
         <img
           src="/images/watermark-vs-clean-3d.png"
-          alt="Visual 3D claymorphic comparison showing video with distracting bouncing watermark versus pristine unwatermarked Full HD MP4"
+          alt="Comparison of TikTok video with watermark versus clean unwatermarked HD MP4"
           className="w-full h-auto object-cover max-h-[420px]"
           width={1200} height={675} loading="lazy"
         />
@@ -287,7 +287,7 @@ export default function SemanticContent() {
       <div className="my-8 rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white">
         <img
           src="/images/repurpose-reels-shorts-3d.png"
-          alt="Visual 3D claymorphic illustration showing clean video redistribution to YouTube Shorts, Instagram Reels, and Pinterest Pins"
+          alt="Video redistribution to YouTube Shorts, Instagram Reels, and Pinterest"
           className="w-full h-auto object-cover max-h-[420px]"
           width={1200} height={675} loading="lazy"
         />

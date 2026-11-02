@@ -6,21 +6,21 @@ export default function SiteSchema() {
     '@graph': [
       {
         '@type': 'Organization',
-        '@id': 'https://quktik.com/#organization',
+        '@id': 'https://www.quktik.com/#organization',
         'name': 'QukTik',
-        'url': 'https://quktik.com',
+        'url': 'https://www.quktik.com',
         'logo': {
           '@type': 'ImageObject',
-          'url': 'https://quktik.com/logo.png',
+          'url': 'https://www.quktik.com/logo.png',
           'caption': 'QukTik Logo'
         },
-        'image': 'https://quktik.com/og-image.png'
+        'image': 'https://www.quktik.com/og-image.png'
       },
       {
         '@type': 'WebApplication',
-        '@id': 'https://quktik.com/#webapp',
+        '@id': 'https://www.quktik.com/#webapp',
         'name': 'QukTik - TikTok & Douyin Video Downloader',
-        'url': 'https://quktik.com',
+        'url': 'https://www.quktik.com',
         'applicationCategory': 'MultimediaApplication',
         'operatingSystem': 'All',
         'browserRequirements': 'Requires modern web browser with HTML5 and JavaScript support',

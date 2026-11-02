@@ -104,6 +104,8 @@ export default function PwaManager() {
             <img 
               src="/logo-icon.svg" 
               alt="QukTik App Icon" 
+              width={44}
+              height={44}
               className="w-11 h-11 rounded-2xl shadow-md shrink-0 border border-white/20"
             />
             <div className="min-w-0 flex-1">
@@ -151,7 +153,7 @@ export default function PwaManager() {
             </button>
 
             <div className="flex items-center gap-3 mb-4">
-              <img src="/logo-icon.svg" alt="QukTik App Icon" className="w-12 h-12 rounded-2xl shadow-sm" />
+              <img src="/logo-icon.svg" alt="QukTik App Icon" width={48} height={48} className="w-12 h-12 rounded-2xl shadow-sm" />
               <div>
                 <h3 className="font-extrabold text-slate-900 text-lg leading-tight">Install QukTik on Your Device</h3>
                 <p className="text-xs text-slate-500">Run as a standalone app on your home screen</p>

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://quktik.com/sitemap.xml
+Sitemap: https://www.quktik.com/sitemap.xml
