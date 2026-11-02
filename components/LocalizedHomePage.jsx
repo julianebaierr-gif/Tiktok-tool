@@ -9,9 +9,10 @@ import { FormattedCreatorAdvice, FormattedTechnicalAnalysis } from './FormattedE
 import { CONTENT_MAP } from '../lib/content';
 import { ARCHITECTURAL_GUIDE } from '../lib/tools/architecturalGuideData';
 import { LANGUAGES } from '../lib/translations';
+import { TOOL_DEFINITIONS, VALID_TOOLS } from '../lib/tools';
 import { 
   Sparkles, Zap, Music2, DownloadCloud, ChevronDown, CheckCircle2, 
-  HelpCircle, Smartphone, Monitor, ShieldCheck, AlertCircle, FileText, Check, Tag
+  HelpCircle, Smartphone, Monitor, ShieldCheck, AlertCircle, FileText, Check, Tag, ArrowRight
 } from 'lucide-react';
 
 export default function LocalizedHomePage({ langCode = 'es' }) {
@@ -309,6 +310,87 @@ export default function LocalizedHomePage({ langCode = 'es' }) {
           </div>
         </section>
       )}
+
+      
+      {/* Complete Localized Tools Directory */}
+      <section className="py-14 sm:py-16 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <span className="text-xs font-bold uppercase tracking-wider text-rose-700 bg-rose-50 px-3.5 py-1.5 rounded-full border border-rose-200">
+              {currentLang.label} • QukTik Tools
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-3">
+              {langCode === 'ar' ? 'جميع أدوات كويك تيك لتنزيل الوسائط' :
+               langCode === 'es' ? 'Todas las Herramientas Gratuitas de QukTik' :
+               langCode === 'pt' ? 'Todas as Ferramentas Gratuitas do QukTik' :
+               langCode === 'fr' ? 'Toutes les Outils Gratuits de QukTik' :
+               langCode === 'de' ? 'Alle Kostenlosen QukTik Werkzeuge' :
+               langCode === 'it' ? 'Tutti gli Strumenti Gratuiti di QukTik' :
+               langCode === 'id' ? 'Semua Alat Pengunduh Gratis QukTik' :
+               langCode === 'vi' ? 'Tất Cả Công Cụ Tải Xuống QukTik' :
+               langCode === 'tr' ? 'Tüm Ücretsiz QukTik Araçları' :
+               langCode === 'ru' ? 'Все Бесплатные Инструменты QukTik' :
+               langCode === 'ja' ? 'QukTik 無料ツール一覧（全9機能）' :
+               'All 9 Free QukTik Tools'}
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-600">
+              {langCode === 'ar' ? 'استخدم مجموعتنا المتكاملة لتنزيل مقاطع الفيديو، الصوتيات، الصور والقصص بجودة عالية وبدون علامة مائية.' :
+               langCode === 'es' ? 'Utiliza nuestra suite completa para guardar videos, audios, fotos y estados en máxima resolución sin marca de agua.' :
+               langCode === 'pt' ? 'Acesse todas as ferramentas para baixar vídeos, áudios, fotos e stories sem marca d’água em alta definição.' :
+               langCode === 'fr' ? 'Accédez à tous nos outils pour télécharger des vidéos, musiques, photos et stories sans filigrane en HD.' :
+               langCode === 'de' ? 'Nutzen Sie unsere vollständige Suite zum Speichern von Videos, Audios, Fotos und Storys ohne Logo in HD.' :
+               langCode === 'it' ? 'Usa tutti i nostri strumenti gratuiti per scaricare video, musica, foto e storie senza watermark in alta qualità.' :
+               langCode === 'id' ? 'Gunakan rangkaian alat lengkap untuk menyimpan video, audio, foto, dan cerita tanpa watermark kualitas HD.' :
+               langCode === 'vi' ? 'Sử dụng bộ công cụ đầy đủ để tải video, nhạc MP3, ảnh và tin TikTok không logo chất lượng cao.' :
+               langCode === 'tr' ? 'Videoları, müzikleri, fotoğrafları ve hikayeleri filigransız HD kalitede indirmek için tüm araçlarımızı keşfedin.' :
+               langCode === 'ru' ? 'Используйте все наши инструменты для сохранения видео, музыки, фото и историй без водяных знаков в Full HD.' :
+               langCode === 'ja' ? '動画、高音質MP3、写真スライドショー、ストーリーを透かしなし高画質で保存できる全ツールをご利用いただけます。' :
+               'Access our complete suite to save videos, studio audio, photo carousels, and stories without watermarks in maximum quality.'}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {VALID_TOOLS.map((slug) => {
+              const def = TOOL_DEFINITIONS[slug];
+              const tTitle = def?.titles?.[langCode] || def?.titles?.en || slug;
+              const tDesc = def?.descs?.[langCode] || def?.descs?.en || '';
+              const linkHref = '/' + langCode + '/' + slug;
+              return (
+                <Link
+                  key={slug}
+                  href={linkHref}
+                  className="group relative p-6 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-rose-300 transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 group-hover:text-rose-600 transition-colors">
+                      {tTitle.split('|')[0].trim()}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                      {tDesc}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-rose-600 group-hover:underline">
+                    <span>
+                      {langCode === 'ar' ? 'افتح الأداة' :
+                       langCode === 'es' ? 'Abrir Herramienta' :
+                       langCode === 'pt' ? 'Abrir Ferramenta' :
+                       langCode === 'fr' ? 'Ouvrir l’outil' :
+                       langCode === 'de' ? 'Werkzeug öffnen' :
+                       langCode === 'it' ? 'Apri strumento' :
+                       langCode === 'id' ? 'Buka Alat' :
+                       langCode === 'vi' ? 'Mở Công Cụ' :
+                       langCode === 'tr' ? 'Aracı Aç' :
+                       langCode === 'ru' ? 'Открыть' :
+                       langCode === 'ja' ? 'ツールを開く' : 'Open Tool'}
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       {/* 5. EXACTLY 12 FAQs ACCORDION WITH FAQPAGESCHEMA */}
       <FaqSection

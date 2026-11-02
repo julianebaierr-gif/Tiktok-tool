@@ -384,7 +384,26 @@ export default function TikTokPhotoPage() {
           </p>
         </section>
 
-        </article>
+        
+        {/* Section 8: Forensic Image Analysis & EXIF Preservation */}
+        <section className="space-y-6">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            Advanced Photographic Preservation: Dynamic Range, Gamma Curves &amp; EXIF Metadata
+          </h2>
+
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Preserving archival fidelity across social media collections requires robust metadata handling. When content creators assemble photo carousels on TikTok, each slide captures vital cultural commentary, visual memes, and emerging aesthetic design movements. By extracting high-resolution assets with QukTik, digital artists and media historians maintain pristine uncompressed records that will not degrade over time, ensuring timeless visual fidelity for future creative reference and digital exhibitions.
+          </p>
+
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            When still photography is uploaded to TikTok, mobile encoders apply targeted tone mapping to maximize visual punch on small smartphone screens. Standard screen captures discard the underlying color profiles and introduce quantization noise in subtle gradients. QukTik preserves the master bitstream from ByteDance edge clusters, ensuring that subtle highlights in cloud formations, skin-tone micro-textures, and deep nocturnal shadows remain clean and unbanded across professional color grading monitors.
+          </p>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Furthermore, for digital archiving and creative asset management, preserving raw aspect ratios prevents optical distortions. Whether cataloging aesthetic anime backgrounds, architecture portfolios, or culinary recipe steps, QukTik delivers uncompromised visual clarity suitable for high-resolution desktop printing, moodboard curation, and professional design presentation boards.
+          </p>
+        </section>
+
+      </article>
 
       {/* 12 In-Depth Frequently Asked Questions with FAQPage Schema */}
       <FaqSection

@@ -2,7 +2,7 @@ import React from 'react';
 import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
-  title: { absolute: "تحميل فيديو تيك توك بدون علامة مائية QukTik" },
+  title: { absolute: "تنزيل وتثبيت فيديو تيك توك بدون علامة مائية مجاناً | QukTik" },
   description: "تحميل فيديوهات تيك توك بدون علامة مائية بدقة عالية MP4 وموسيقى MP3 مجانا عبر الإنترنت للكمبيوتر والهاتف بدون برامج.",
   alternates: {
     canonical: 'https://www.quktik.com/ar',
@@ -23,7 +23,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "تحميل فيديو تيك توك بدون علامة مائية QukTik",
+    title: "تنزيل وتثبيت فيديو تيك توك بدون علامة مائية مجاناً | QukTik",
     description: "تحميل فيديوهات تيك توك بدون علامة مائية بدقة عالية MP4 وموسيقى MP3 مجانا عبر الإنترنت للكمبيوتر والهاتف بدون برامج.",
     url: 'https://www.quktik.com/ar',
     type: 'website',
@@ -42,4 +42,3 @@ export const metadata = {
 export default function ARPage() {
   return <LocalizedHomePage langCode="ar" />;
 }
-

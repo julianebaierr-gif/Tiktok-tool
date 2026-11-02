@@ -14,7 +14,7 @@ export default function Footer() {
           
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="flex items-center space-x-3 group">
+            <Link href="/" aria-label="QukTik Official Home - TikTok & Douyin Downloader" title="QukTik Official Home" className="flex items-center space-x-3 group">
               <img 
                 src="/logo-icon.svg" 
                 alt="QukTik - TikTok & Douyin Video Downloader" 

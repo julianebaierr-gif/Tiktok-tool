@@ -143,7 +143,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 sm:h-18">
           
           {/* Brand Logo */}
-          <Link href={homeHref} className="flex items-center space-x-2.5 group shrink-0">
+          <Link href={homeHref} aria-label="QukTik Official Home - TikTok & Douyin Downloader" title="QukTik Official Home" className="flex items-center space-x-2.5 group shrink-0">
             <img 
               src="/logo-icon.svg" 
               alt="QukTik - TikTok & Douyin Video Downloader" 
