@@ -38,7 +38,6 @@ export default function GifConverter({
 
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  const abortControllerRef = useRef(null);
 
   const labels = {
     en: {
@@ -47,7 +46,7 @@ export default function GifConverter({
       startAt: 'Start Time',
       length: 'GIF Length',
       seconds: 'sec',
-      convertBtn: '✨ Generate Animated GIF',
+      convertBtn: 'Generate Animated GIF',
       converting: 'Capturing frames & encoding GIF...',
       downloadGif: 'Download Animated GIF (.gif)',
       reset: 'Create Another Clip',
@@ -60,7 +59,7 @@ export default function GifConverter({
       startAt: 'Punto de Inicio',
       length: 'Duración del GIF',
       seconds: 'seg',
-      convertBtn: '✨ Crear GIF Animado',
+      convertBtn: 'Crear GIF Animado',
       converting: 'Capturando cuadros y codificando GIF...',
       downloadGif: 'Descargar GIF Animado (.gif)',
       reset: 'Crear Otro Clip',
@@ -73,7 +72,7 @@ export default function GifConverter({
       startAt: 'Início',
       length: 'Duração',
       seconds: 'seg',
-      convertBtn: '✨ Gerar GIF Animado',
+      convertBtn: 'Gerar GIF Animado',
       converting: 'Capturando frames e gerando GIF...',
       downloadGif: 'Baixar GIF Animado (.gif)',
       reset: 'Fazer Outro GIF',
@@ -86,7 +85,7 @@ export default function GifConverter({
       startAt: 'Début',
       length: 'Durée du GIF',
       seconds: 'sec',
-      convertBtn: '✨ Générer le GIF Animé',
+      convertBtn: 'Générer le GIF Animé',
       converting: 'Capture des images et encodage du GIF...',
       downloadGif: 'Télécharger le GIF (.gif)',
       reset: 'Nouveau GIF',
@@ -99,7 +98,7 @@ export default function GifConverter({
       startAt: 'وقت البدء',
       length: 'مدة الصورة',
       seconds: 'ثوانٍ',
-      convertBtn: '✨ إنشاء صورة متحركة GIF',
+      convertBtn: 'إنشاء صورة متحركة GIF',
       converting: 'جاري التقاط الإطارات وتوليد الصورة...',
       downloadGif: 'تحميل ملف GIF (.gif)',
       reset: 'إنشاء مقطع آخر',
@@ -112,7 +111,7 @@ export default function GifConverter({
       startAt: 'Startzeit',
       length: 'GIF-Dauer',
       seconds: 'Sek.',
-      convertBtn: '✨ Animiertes GIF Erstellen',
+      convertBtn: 'Animiertes GIF Erstellen',
       converting: 'Bilder werden extrahiert und als GIF kodiert...',
       downloadGif: 'Animiertes GIF Herunterladen (.gif)',
       reset: 'Weiteres GIF Erstellen',
@@ -153,19 +152,16 @@ export default function GifConverter({
       const targetFps = 10;
       const totalFrames = Math.max(5, Math.floor(gifDuration * targetFps));
       const frameIntervalSec = gifDuration / totalFrames;
-      const frameDelayHundredths = Math.round((1 / targetFps) * 100); // 10 hundredths = 100ms
+      const frameDelayHundredths = Math.round((1 / targetFps) * 100);
 
-      // Dimensions: scale to 320px width maintaining aspect ratio
       const origWidth = video.videoWidth || 640;
       const origHeight = video.videoHeight || 1136;
       const targetWidth = 320;
       const targetHeight = Math.round((origHeight / origWidth) * targetWidth);
 
-      // Allocate buffer for GIF bytes (approx 10MB capacity)
       const gifBuffer = new Uint8Array(10 * 1024 * 1024);
       const gifWriter = new GifWriter(gifBuffer, targetWidth, targetHeight, { loop: 0 });
 
-      // Create offscreen canvas
       const canvas = document.createElement('canvas');
       canvas.width = targetWidth;
       canvas.height = targetHeight;
@@ -173,11 +169,9 @@ export default function GifConverter({
 
       const indexedPixels = new Uint8Array(targetWidth * targetHeight);
 
-      // Seek and capture frames sequentially
       for (let f = 0; f < totalFrames; f++) {
         const frameTime = startTime + f * frameIntervalSec;
         
-        // Seek video
         await new Promise((resolve) => {
           const onSeeked = () => {
             video.removeEventListener('seeked', onSeeked);
@@ -187,11 +181,9 @@ export default function GifConverter({
           video.currentTime = Math.min(frameTime, (videoDuration || 10) - 0.1);
         });
 
-        // Draw frame onto canvas
         ctx.drawImage(video, 0, 0, targetWidth, targetHeight);
         const imgData = ctx.getImageData(0, 0, targetWidth, targetHeight).data;
 
-        // Map RGB to 256 color palette
         let pixelIdx = 0;
         for (let i = 0; i < imgData.length; i += 4) {
           const r = imgData[i];
@@ -200,7 +192,6 @@ export default function GifConverter({
           indexedPixels[pixelIdx++] = pixelToPaletteIndex(r, g, b);
         }
 
-        // Add frame to GIF writer
         gifWriter.addFrame(0, 0, targetWidth, targetHeight, indexedPixels, {
           palette: PALETTE_256,
           delay: frameDelayHundredths
@@ -210,7 +201,6 @@ export default function GifConverter({
         setProgress(pct);
       }
 
-      // Finalize GIF
       const bytesWritten = gifWriter.end();
       setProgress(98);
 
@@ -246,7 +236,10 @@ export default function GifConverter({
   const maxStart = Math.max(0, videoDuration - gifDuration);
 
   return (
-    <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 text-white border border-rose-500/30 shadow-xl space-y-4 animate-in fade-in duration-200">
+    <div className="relative overflow-hidden p-5 sm:p-6 rounded-3xl bg-slate-900/95 backdrop-blur-2xl text-white border border-slate-800 shadow-2xl space-y-5 animate-in fade-in zoom-in-95 duration-200">
+      {/* Top ambient glow */}
+      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-28 bg-gradient-to-b from-pink-500/15 via-rose-500/10 to-transparent rounded-full blur-3xl" />
+
       {/* Hidden processing video */}
       <video
         ref={videoRef}
@@ -260,66 +253,75 @@ export default function GifConverter({
       />
 
       {/* Header */}
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-pink-600 to-purple-600 flex items-center justify-center shrink-0 shadow-sm">
+      <div className="relative flex items-start justify-between gap-3">
+        <div className="flex items-start gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-rose-500 via-pink-500 to-purple-600 flex items-center justify-center shrink-0 shadow-lg shadow-pink-500/25 ring-1 ring-white/20 mt-0.5">
             <Film className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h4 className="text-sm sm:text-base font-extrabold flex items-center gap-2">
-              <span>{l.title}</span>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-pink-500/20 text-pink-300 border border-pink-500/30 font-bold uppercase tracking-wide">
+            <div className="flex items-center gap-2 flex-wrap">
+              <h4 className="text-sm sm:text-base font-black text-white tracking-tight">
+                {l.title}
+              </h4>
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-pink-500/15 border border-pink-500/30 text-pink-300 text-[10px] font-extrabold uppercase tracking-wider whitespace-nowrap shadow-2xs">
                 GIF Maker
               </span>
-            </h4>
-            <p className="text-xs text-slate-400 mt-0.5">{l.subtitle}</p>
+            </div>
+            <p className="text-xs text-slate-400 mt-1 leading-relaxed max-w-md">
+              {l.subtitle}
+            </p>
           </div>
         </div>
         {onClose && (
           <button
+            type="button"
             onClick={onClose}
-            className="p-1.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 active:scale-95 transition-all shrink-0 cursor-pointer"
             title={l.close}
+            aria-label={l.close}
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         )}
       </div>
 
       {status === 'error' && (
-        <div className="p-3 rounded-xl bg-red-950/50 border border-red-800/60 text-red-300 text-xs">
-          {errorMessage}
+        <div className="p-3.5 rounded-2xl bg-rose-950/60 border border-rose-800/80 text-rose-200 text-xs font-medium flex items-center gap-2">
+          <span>⚠️</span>
+          <span>{errorMessage}</span>
         </div>
       )}
 
       {status === 'ready' && gifBlobUrl ? (
         /* Result Preview */
-        <div className="space-y-3 flex flex-col items-center">
-          <div className="relative rounded-xl overflow-hidden border-2 border-pink-500/40 shadow-xl max-w-[260px] bg-black">
+        <div className="space-y-4 flex flex-col items-center">
+          <div className="relative rounded-2xl overflow-hidden border border-slate-700/80 bg-black/90 shadow-2xl max-w-[280px] sm:max-w-[320px] ring-1 ring-white/10">
             <img 
               src={gifBlobUrl} 
               alt="Generated animated GIF" 
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-contain block"
             />
-            <div className="absolute top-2 right-2 px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-bold text-pink-300">
+            <div className="absolute top-2.5 right-2.5 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-[11px] font-mono font-extrabold text-pink-300 shadow-md">
               {gifSizeMb} MB
             </div>
           </div>
 
-          <div className="w-full flex flex-col sm:flex-row items-center gap-2 pt-1">
+          <div className="w-full flex flex-col sm:flex-row items-center gap-2.5 pt-1">
             <button
+              type="button"
               onClick={handleDownloadGif}
-              className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold text-xs sm:text-sm transition-all shadow-lg active:scale-95"
+              className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 hover:from-rose-400 hover:to-purple-500 text-white font-black text-xs sm:text-sm transition-all shadow-lg shadow-pink-500/25 active:scale-[0.98] cursor-pointer"
             >
               <Download className="w-4 h-4" />
               <span>{l.downloadGif}</span>
             </button>
             <button
+              type="button"
               onClick={() => {
                 setStatus('idle');
                 setProgress(0);
               }}
-              className="w-full sm:w-auto px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold transition-all border border-slate-700"
+              className="w-full sm:w-auto px-5 py-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-700/90 text-slate-200 hover:text-white text-xs sm:text-sm font-bold transition-all border border-slate-700/80 active:scale-[0.98] cursor-pointer shadow-sm"
             >
               {l.reset}
             </button>
@@ -330,10 +332,12 @@ export default function GifConverter({
         <div className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {/* Start Time Slider */}
-            <div className="p-3 rounded-xl bg-slate-800/50 border border-slate-700/60 space-y-1.5">
+            <div className="p-3.5 rounded-2xl bg-slate-800/50 border border-slate-700/60 shadow-inner space-y-2">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-semibold text-slate-300">{l.startAt}</span>
-                <span className="font-mono font-bold text-pink-400">{startTime} {l.seconds}</span>
+                <span className="font-bold text-slate-300 uppercase tracking-wider text-[11px]">{l.startAt}</span>
+                <span className="px-2 py-0.5 rounded-md bg-slate-900 border border-slate-700/70 font-mono font-bold text-pink-400 text-xs shadow-2xs">
+                  {startTime} {l.seconds}
+                </span>
               </div>
               <input
                 type="range"
@@ -343,15 +347,17 @@ export default function GifConverter({
                 value={startTime}
                 disabled={status === 'rendering'}
                 onChange={(e) => setStartTime(Number(e.target.value))}
-                className="w-full accent-pink-500 cursor-pointer disabled:opacity-50"
+                className="w-full h-1.5 rounded-lg appearance-none bg-slate-700 accent-pink-500 cursor-pointer disabled:opacity-50"
               />
             </div>
 
             {/* GIF Length Slider (1s to 5s) */}
-            <div className="p-3 rounded-xl bg-slate-800/50 border border-slate-700/60 space-y-1.5">
+            <div className="p-3.5 rounded-2xl bg-slate-800/50 border border-slate-700/60 shadow-inner space-y-2">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-semibold text-slate-300">{l.length}</span>
-                <span className="font-mono font-bold text-pink-400">{gifDuration} {l.seconds}</span>
+                <span className="font-bold text-slate-300 uppercase tracking-wider text-[11px]">{l.length}</span>
+                <span className="px-2 py-0.5 rounded-md bg-slate-900 border border-slate-700/70 font-mono font-bold text-pink-400 text-xs shadow-2xs">
+                  {gifDuration} {l.seconds}
+                </span>
               </div>
               <input
                 type="range"
@@ -361,14 +367,14 @@ export default function GifConverter({
                 value={gifDuration}
                 disabled={status === 'rendering'}
                 onChange={(e) => setGifDuration(Number(e.target.value))}
-                className="w-full accent-pink-500 cursor-pointer disabled:opacity-50"
+                className="w-full h-1.5 rounded-lg appearance-none bg-slate-700 accent-pink-500 cursor-pointer disabled:opacity-50"
               />
             </div>
           </div>
 
           {/* Progress Indicator */}
           {status === 'rendering' ? (
-            <div className="space-y-2 p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+            <div className="space-y-2.5 p-4 rounded-2xl bg-slate-800/90 border border-slate-700 shadow-inner">
               <div className="flex items-center justify-between text-xs font-semibold text-slate-300">
                 <span className="flex items-center gap-2">
                   <Loader2 className="w-4 h-4 text-pink-500 animate-spin" />
@@ -376,26 +382,28 @@ export default function GifConverter({
                 </span>
                 <span className="font-mono font-bold text-pink-400">{progress}%</span>
               </div>
-              <div className="w-full h-2 rounded-full bg-slate-900 overflow-hidden">
+              <div className="w-full h-2 rounded-full bg-slate-950 overflow-hidden ring-1 ring-white/10">
                 <div 
-                  className="h-full bg-gradient-to-r from-pink-500 to-purple-500 transition-all duration-150"
+                  className="h-full bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 transition-all duration-150"
                   style={{ width: `${progress}%` }}
                 />
               </div>
             </div>
           ) : (
             <button
+              type="button"
               onClick={generateGif}
-              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-pink-600 via-rose-600 to-purple-600 hover:opacity-95 text-white font-bold text-xs sm:text-sm transition-all shadow-lg active:scale-95"
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 hover:from-rose-400 hover:to-purple-500 text-white font-black text-xs sm:text-sm transition-all shadow-lg shadow-pink-500/25 active:scale-[0.98] cursor-pointer"
             >
               <Sparkles className="w-4 h-4 text-yellow-300" />
               <span>{l.convertBtn}</span>
             </button>
           )}
 
-          <p className="text-[11px] text-slate-400 text-center font-medium">
-            💡 {l.tip}
-          </p>
+          <div className="p-3 rounded-xl bg-slate-800/40 border border-slate-700/50 text-slate-400 text-xs flex items-center justify-center gap-2 text-center">
+            <span>💡</span>
+            <span>{l.tip}</span>
+          </div>
         </div>
       )}
     </div>

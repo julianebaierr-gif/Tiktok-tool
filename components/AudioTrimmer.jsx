@@ -30,13 +30,13 @@ function audioBufferToWav(buffer, startSec, durationSec) {
   view.setUint32(4, 36 + dataByteLength, true);
   writeString(8, 'WAVE');
   writeString(12, 'fmt ');
-  view.setUint32(16, 16, true); // SubChunk1Size (16 for PCM)
-  view.setUint16(20, 1, true); // AudioFormat (1 = PCM)
+  view.setUint32(16, 16, true);
+  view.setUint16(20, 1, true);
   view.setUint16(22, channels, true);
   view.setUint32(24, sampleRate, true);
   view.setUint32(28, sampleRate * blockAlign, true);
   view.setUint16(32, blockAlign, true);
-  view.setUint16(34, 16, true); // BitsPerSample
+  view.setUint16(34, 16, true);
   writeString(36, 'data');
   view.setUint32(40, dataByteLength, true);
 
@@ -74,7 +74,7 @@ export default function AudioTrimmer({
   const [error, setError] = useState(null);
   const [duration, setDuration] = useState(0);
   const [startTime, setStartTime] = useState(0);
-  const [clipLength, setClipLength] = useState(20); // 15 to 30 seconds
+  const [clipLength, setClipLength] = useState(20);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playbackPos, setPlaybackPos] = useState(0);
   const [downloading, setDownloading] = useState(false);
@@ -174,7 +174,6 @@ export default function AudioTrimmer({
 
   const l = labels[langCode] || labels.en;
 
-  // Load and decode audio buffer via Web Audio API
   useEffect(() => {
     let isCancelled = false;
 
@@ -183,7 +182,6 @@ export default function AudioTrimmer({
         setLoading(true);
         setError(null);
 
-        // Proxied URL to prevent CORS issues
         const proxyUrl = `/api/proxy?url=${encodeURIComponent(audioUrl)}&filename=trim_${id}.mp3&type=audio`;
         const res = await fetch(proxyUrl);
         if (!res.ok) throw new Error('Could not fetch audio file for trimming.');
@@ -202,7 +200,6 @@ export default function AudioTrimmer({
         const totalSec = Math.floor(decoded.duration);
         setDuration(totalSec);
 
-        // Default: clip starts at 0 or up to 20s
         const defaultLen = Math.min(20, Math.max(5, totalSec));
         setClipLength(defaultLen);
         setStartTime(0);
@@ -316,30 +313,39 @@ export default function AudioTrimmer({
   };
 
   return (
-    <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 text-white border border-rose-500/30 shadow-xl space-y-4 animate-in fade-in duration-200">
+    <div className="relative overflow-hidden p-5 sm:p-6 rounded-3xl bg-slate-900/95 backdrop-blur-2xl text-white border border-slate-800 shadow-2xl space-y-5 animate-in fade-in zoom-in-95 duration-200">
+      {/* Top ambient glow */}
+      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-28 bg-gradient-to-b from-rose-500/15 via-pink-500/10 to-transparent rounded-full blur-3xl" />
+
       {/* Header */}
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-rose-600 to-pink-500 flex items-center justify-center shrink-0 shadow-sm">
+      <div className="relative flex items-start justify-between gap-3">
+        <div className="flex items-start gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-rose-600 via-pink-600 to-rose-500 flex items-center justify-center shrink-0 shadow-lg shadow-rose-600/25 ring-1 ring-white/20 mt-0.5">
             <Scissors className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h4 className="text-sm sm:text-base font-extrabold flex items-center gap-2">
-              <span>{l.title}</span>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 font-bold uppercase tracking-wide">
+            <div className="flex items-center gap-2 flex-wrap">
+              <h4 className="text-sm sm:text-base font-black text-white tracking-tight">
+                {l.title}
+              </h4>
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-300 text-[10px] font-extrabold uppercase tracking-wider whitespace-nowrap shadow-2xs">
                 Live Cutter
               </span>
-            </h4>
-            <p className="text-xs text-slate-400 mt-0.5">{l.subtitle}</p>
+            </div>
+            <p className="text-xs text-slate-400 mt-1 leading-relaxed max-w-md">
+              {l.subtitle}
+            </p>
           </div>
         </div>
         {onClose && (
           <button
+            type="button"
             onClick={onClose}
-            className="p-1.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 active:scale-95 transition-all shrink-0 cursor-pointer"
             title={l.close}
+            aria-label={l.close}
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         )}
       </div>
@@ -350,33 +356,34 @@ export default function AudioTrimmer({
           <span className="text-xs font-medium">{l.loadingAudio}</span>
         </div>
       ) : error ? (
-        <div className="p-3 rounded-xl bg-red-950/50 border border-red-800/60 text-red-300 text-xs">
-          {error}
+        <div className="p-3.5 rounded-2xl bg-rose-950/60 border border-rose-800/80 text-rose-200 text-xs font-medium flex items-center gap-2">
+          <span>⚠️</span>
+          <span>{error}</span>
         </div>
       ) : (
         <div className="space-y-4">
           {/* Waveform / Visual Snippet Tracker */}
-          <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-2">
-            <div className="flex items-center justify-between text-xs font-semibold text-slate-300">
-              <span className="flex items-center gap-1.5">
-                <Music className="w-3.5 h-3.5 text-rose-400" />
-                <span className="truncate max-w-[200px]">{title}</span>
+          <div className="p-4 rounded-2xl bg-slate-800/50 border border-slate-700/60 space-y-2.5 shadow-inner">
+            <div className="flex items-center justify-between text-xs font-semibold text-slate-300 flex-wrap gap-2">
+              <span className="flex items-center gap-2 truncate max-w-[220px] sm:max-w-xs text-slate-200">
+                <Music className="w-3.5 h-3.5 text-rose-400 shrink-0" />
+                <span className="truncate">{title}</span>
               </span>
-              <span className="text-rose-400 font-mono font-bold">
+              <span className="px-2.5 py-0.5 rounded-full bg-slate-900 border border-slate-700/80 text-rose-400 font-mono font-bold text-xs shadow-2xs">
                 {formatSec(startTime)} — {formatSec(effectiveEnd)} ({clipLength}s snippet)
               </span>
             </div>
 
-            {/* Simulated interactive waveform bar */}
-            <div className="relative h-12 bg-slate-900 rounded-lg overflow-hidden flex items-center px-1">
+            {/* Interactive Waveform Visualizer */}
+            <div className="relative h-14 bg-slate-950 rounded-xl overflow-hidden flex items-center px-1 border border-slate-800">
               {/* Pseudo waveform bars */}
-              <div className="absolute inset-0 flex items-center justify-between px-2 opacity-30">
+              <div className="absolute inset-0 flex items-center justify-between px-2.5 opacity-35">
                 {Array.from({ length: 48 }).map((_, i) => {
-                  const height = 20 + ((i * 13) % 75);
+                  const height = 25 + ((i * 17 + 7) % 70);
                   return (
                     <div 
                       key={i} 
-                      className="w-1 bg-slate-400 rounded-full" 
+                      className="w-1 bg-slate-300 rounded-full" 
                       style={{ height: `${height}%` }}
                     />
                   );
@@ -385,7 +392,7 @@ export default function AudioTrimmer({
 
               {/* Active Trim Window Overlay */}
               <div 
-                className="absolute top-0 bottom-0 bg-rose-600/30 border-x-2 border-rose-500 rounded-md pointer-events-none transition-all duration-75"
+                className="absolute top-0 bottom-0 bg-rose-500/25 border-x-2 border-rose-500 rounded-md pointer-events-none transition-all duration-75 shadow-lg shadow-rose-500/20"
                 style={{
                   left: `${(startTime / (duration || 1)) * 100}%`,
                   width: `${(clipLength / (duration || 1)) * 100}%`
@@ -407,10 +414,12 @@ export default function AudioTrimmer({
           {/* Controls: Start Time & Length Sliders */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {/* Start Time Slider */}
-            <div className="p-3 rounded-xl bg-slate-800/50 border border-slate-700/60 space-y-1.5">
+            <div className="p-3.5 rounded-2xl bg-slate-800/50 border border-slate-700/60 shadow-inner space-y-2">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-semibold text-slate-300">{l.startAt}</span>
-                <span className="font-mono font-bold text-rose-400">{formatSec(startTime)}</span>
+                <span className="font-bold text-slate-300 uppercase tracking-wider text-[11px]">{l.startAt}</span>
+                <span className="px-2 py-0.5 rounded-md bg-slate-900 border border-slate-700/70 font-mono font-bold text-rose-400 text-xs shadow-2xs">
+                  {formatSec(startTime)}
+                </span>
               </div>
               <input
                 type="range"
@@ -422,15 +431,17 @@ export default function AudioTrimmer({
                   stopPlayback();
                   setStartTime(Number(e.target.value));
                 }}
-                className="w-full accent-rose-500 cursor-pointer"
+                className="w-full h-1.5 rounded-lg appearance-none bg-slate-700 accent-rose-500 cursor-pointer"
               />
             </div>
 
             {/* Length Slider (15s - 30s) */}
-            <div className="p-3 rounded-xl bg-slate-800/50 border border-slate-700/60 space-y-1.5">
+            <div className="p-3.5 rounded-2xl bg-slate-800/50 border border-slate-700/60 shadow-inner space-y-2">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-semibold text-slate-300">{l.length}</span>
-                <span className="font-mono font-bold text-rose-400">{clipLength} {l.seconds}</span>
+                <span className="font-bold text-slate-300 uppercase tracking-wider text-[11px]">{l.length}</span>
+                <span className="px-2 py-0.5 rounded-md bg-slate-900 border border-slate-700/70 font-mono font-bold text-rose-400 text-xs shadow-2xs">
+                  {clipLength} {l.seconds}
+                </span>
               </div>
               <input
                 type="range"
@@ -442,7 +453,7 @@ export default function AudioTrimmer({
                   stopPlayback();
                   setClipLength(Number(e.target.value));
                 }}
-                className="w-full accent-rose-500 cursor-pointer"
+                className="w-full h-1.5 rounded-lg appearance-none bg-slate-700 accent-rose-500 cursor-pointer"
               />
             </div>
           </div>
@@ -450,11 +461,12 @@ export default function AudioTrimmer({
           {/* Action Buttons: Preview & Download */}
           <div className="flex flex-col sm:flex-row items-center gap-2.5 pt-1">
             <button
+              type="button"
               onClick={isPlaying ? stopPlayback : playSnippet}
-              className={`w-full sm:w-auto flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95 ${
+              className={`w-full sm:w-auto flex-1 flex items-center justify-center gap-2 py-3.5 px-5 rounded-2xl font-black text-xs sm:text-sm transition-all shadow-md active:scale-[0.98] cursor-pointer ${
                 isPlaying 
-                  ? 'bg-amber-500 hover:bg-amber-400 text-slate-950'
-                  : 'bg-slate-800 hover:bg-slate-700 text-white border border-slate-600'
+                  ? 'bg-amber-400 hover:bg-amber-300 text-slate-950 font-black shadow-lg shadow-amber-400/20'
+                  : 'bg-slate-800/90 hover:bg-slate-700/90 text-slate-200 hover:text-white border border-slate-700/80'
               }`}
             >
               {isPlaying ? (
@@ -471,9 +483,10 @@ export default function AudioTrimmer({
             </button>
 
             <button
+              type="button"
               onClick={handleDownloadRingtone}
               disabled={downloading}
-              className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold text-xs sm:text-sm transition-all shadow-lg active:scale-95 disabled:opacity-50"
+              className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-400 hover:to-pink-500 text-white font-black text-xs sm:text-sm transition-all shadow-lg shadow-rose-500/25 active:scale-[0.98] cursor-pointer disabled:opacity-50"
             >
               {downloading ? (
                 <>
@@ -489,10 +502,11 @@ export default function AudioTrimmer({
             </button>
           </div>
 
-          {/* Tip */}
-          <p className="text-[11px] text-slate-400 text-center font-medium">
-            💡 {l.iphoneTip}
-          </p>
+          {/* Tip Box */}
+          <div className="p-3 rounded-xl bg-slate-800/40 border border-slate-700/50 text-slate-400 text-xs flex items-center justify-center gap-2 text-center">
+            <span>💡</span>
+            <span>{l.iphoneTip}</span>
+          </div>
         </div>
       )}
     </div>
