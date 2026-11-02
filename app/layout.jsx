@@ -83,7 +83,7 @@ export const metadata = {
   verification: {
     google: 'google-site-verification-quktik',
     other: {
-      'ahrefs-site-verification': 'NIXg5dEvOn43YTeKNu6i8A',
+      'ahrefs-site-verification': '6280d6ffc889f33450faf4b4e2b42b8f54cb5c65bc96be932da9f4d0d51726d4',
     },
   },
 };
@@ -109,13 +109,15 @@ export default function RootLayout({ children }) {
         {/* Google Search Console HTML Verification Tag */}
         <meta name="google-site-verification" content="google-site-verification-quktik" />
 
-        {/* Ahrefs Webmaster Tools & Analytics Verification */}
+        {/* Ahrefs Webmaster Tools Verification */}
+        <meta name="ahrefs-site-verification" content="6280d6ffc889f33450faf4b4e2b42b8f54cb5c65bc96be932da9f4d0d51726d4" />
+
+        {/* Ahrefs Analytics */}
         <script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="NIXg5dEvOn43YTeKNu6i8A"
           async
         ></script>
-        <meta name="ahrefs-site-verification" content="NIXg5dEvOn43YTeKNu6i8A" />
 
         <meta name="theme-color" content="#0F172A" />
       </head>
