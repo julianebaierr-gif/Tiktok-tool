@@ -6,6 +6,120 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { TRANSLATIONS } from '../lib/translations';
 
+const TRUST_RIBBON = {
+  en: '⚡ 1-Click Fast • 🎬 1080p Full HD • 🎵 320kbps MP3 • 🚫 No Watermark • 🔒 100% Free & Unlimited',
+  es: '⚡ Rápido en 1 Clic • 🎬 1080p Full HD • 🎵 MP3 320kbps • 🚫 Sin Marca de Agua • 🔒 100% Gratis e Ilimitado',
+  pt: '⚡ Rápido em 1 Clique • 🎬 1080p Full HD • 🎵 MP3 320kbps • 🚫 Sem Marca d\'Água • 🔒 100% Grátis e Ilimitado',
+  id: '⚡ Cepat 1-Klik • 🎬 1080p Full HD • 🎵 MP3 320kbps • 🚫 Tanpa Watermark • 🔒 100% Gratis & Tanpa Batas',
+  fr: '⚡ Rapide en 1 Clic • 🎬 1080p Full HD • 🎵 MP3 320kbps • 🚫 Sans Filigrane • 🔒 100% Gratuit et Illimité',
+  ar: '⚡ تحميل بنقرة واحدة • 🎬 جودة 1080p Full HD • 🎵 صوت MP3 320kbps • 🚫 بدون علامة مائية • 🔒 مجاني 100% وغير محدود',
+  de: '⚡ Schnell mit 1-Klick • 🎬 1080p Full HD • 🎵 320kbps MP3 • 🚫 Ohne Wasserzeichen • 🔒 100% Kostenlos & Unbegrenzt',
+  vi: '⚡ Tải Nhanh 1-Chạm • 🎬 Chuẩn 1080p Full HD • 🎵 Nhạc MP3 320kbps • 🚫 Không Logo • 🔒 Miễn Phí 100% Không Giới Hạn',
+  tr: '⚡ 1 Tıkla Hızlı • 🎬 1080p Full HD • 🎵 320kbps MP3 • 🚫 Filigransız • 🔒 %100 Ücretsiz ve Sınırsız',
+  it: '⚡ Veloce in 1 Clic • 🎬 1080p Full HD • 🎵 MP3 a 320kbps • 🚫 Senza Filigrana • 🔒 100% Gratuito e Illimitato',
+  ru: '⚡ Быстро в 1 Клик • 🎬 1080p Full HD • 🎵 MP3 320 кбит/с • 🚫 Без Водяного Знака • 🔒 100% Бесплатно и Без Лимитов',
+  ja: '⚡ 1タップ高速保存 • 🎬 1080p フルHD • 🎵 320kbps MP3 • 🚫 ウォーターマークなし • 🔒 完全無料・無制限',
+};
+
+const FORMAT_PILLS = {
+  en: [
+    { label: '🎬 Video 1080p', href: '/tiktok-video-downloader', title: 'Download TikTok Video in 1080p MP4' },
+    { label: '🎵 Audio MP3', href: '/tiktok-mp3', title: 'Extract TikTok MP3 Audio 320kbps' },
+    { label: '📸 Photo Slides', href: '/tiktok-photo', title: 'Download TikTok Photo Slideshow Images' },
+    { label: '📦 Bulk ZIP', href: '/tiktok-bulk-downloader', title: 'Batch Download Multiple TikTok Links to ZIP' },
+    { label: '🇨🇳 Douyin 抖音', href: '/douyin-downloader', title: 'Download Chinese Douyin Videos Without Watermark' },
+    { label: '🔥 Trending Sounds', href: '/trending-sounds', title: 'Download Viral TikTok Trending Audio' },
+  ],
+  es: [
+    { label: '🎬 Video 1080p', href: '/es/tiktok-video-downloader', title: 'Descargar Video TikTok en 1080p MP4' },
+    { label: '🎵 Audio MP3', href: '/es/tiktok-mp3', title: 'Extraer Audio TikTok MP3 320kbps' },
+    { label: '📸 Fotos Slide', href: '/es/tiktok-photo', title: 'Descargar Fotos de TikTok en HD' },
+    { label: '📦 Descarga ZIP', href: '/es/tiktok-bulk-downloader', title: 'Descargar Múltiples Videos en ZIP' },
+    { label: '🇨🇳 Douyin 抖音', href: '/es/douyin-downloader', title: 'Descargar de Douyin sin Marca de Agua' },
+    { label: '🔥 Sonidos Top', href: '/es/trending-sounds', title: 'Música y Sonidos Virales de TikTok' },
+  ],
+  pt: [
+    { label: '🎬 Vídeo 1080p', href: '/pt/tiktok-video-downloader', title: 'Baixar Vídeo TikTok em 1080p MP4' },
+    { label: '🎵 Áudio MP3', href: '/pt/tiktok-mp3', title: 'Converter TikTok para MP3 320kbps' },
+    { label: '📸 Fotos Slide', href: '/pt/tiktok-photo', title: 'Baixar Fotos do TikTok em HD' },
+    { label: '📦 Lote ZIP', href: '/pt/tiktok-bulk-downloader', title: 'Baixar Múltiplos Links em Arquivo ZIP' },
+    { label: '🇨🇳 Douyin 抖音', href: '/pt/douyin-downloader', title: 'Baixar Vídeos do Douyin sem Marca d\'Água' },
+    { label: '🔥 Músicas Top', href: '/pt/trending-sounds', title: 'Músicas e Sons em Alta do TikTok' },
+  ],
+  id: [
+    { label: '🎬 Video 1080p', href: '/id/tiktok-video-downloader', title: 'Download Video TikTok HD MP4' },
+    { label: '🎵 Audio MP3', href: '/id/tiktok-mp3', title: 'Ekstrak Lagu TikTok MP3 320kbps' },
+    { label: '📸 Foto Slide', href: '/id/tiktok-photo', title: 'Download Foto Slide TikTok HD' },
+    { label: '📦 Unduh Massal', href: '/id/tiktok-bulk-downloader', title: 'Download Banyak Link Sekaligus ke ZIP' },
+    { label: '🇨🇳 Douyin 抖音', href: '/id/douyin-downloader', title: 'Download Video Douyin Tanpa Watermark' },
+    { label: '🔥 Lagu Viral', href: '/id/trending-sounds', title: 'Download Nada Dering & Lagu TikTok Viral' },
+  ],
+  fr: [
+    { label: '🎬 Vidéo 1080p', href: '/fr/tiktok-video-downloader', title: 'Télécharger Vidéo TikTok en 1080p MP4' },
+    { label: '🎵 Audio MP3', href: '/fr/tiktok-mp3', title: 'Extraire Musique TikTok en MP3' },
+    { label: '📸 Photos Slide', href: '/fr/tiktok-photo', title: 'Télécharger Diaporama Photos TikTok' },
+    { label: '📦 Lot ZIP', href: '/fr/tiktok-bulk-downloader', title: 'Télécharger Plusieurs Liens en ZIP' },
+    { label: '🇨🇳 Douyin 抖音', href: '/fr/douyin-downloader', title: 'Télécharger Douyin sans Filigrane' },
+    { label: '🔥 Sons Tendances', href: '/fr/trending-sounds', title: 'Musiques TikTok Tendances MP3' },
+  ],
+  ar: [
+    { label: '🎬 فيديو 1080p', href: '/ar/tiktok-video-downloader', title: 'تحميل فيديو تيك توك بدون علامة مائية' },
+    { label: '🎵 صوت MP3', href: '/ar/tiktok-mp3', title: 'تحويل فيديو تيك توك إلى MP3' },
+    { label: '📸 صور سلايد', href: '/ar/tiktok-photo', title: 'تنزيل ألبومات وصور تيك توك' },
+    { label: '📦 تنزيل جماعي', href: '/ar/tiktok-bulk-downloader', title: 'تحميل روابط متعددة في ملف ZIP' },
+    { label: '🇨🇳 دويين 抖音', href: '/ar/douyin-downloader', title: 'تنزيل فيديوهات دويين الصيني' },
+    { label: '🔥 الأغاني الرائجة', href: '/ar/trending-sounds', title: 'تحميل نغمات وأغاني تيك توك الرائجة' },
+  ],
+  de: [
+    { label: '🎬 Video 1080p', href: '/de/tiktok-video-downloader', title: 'TikTok Video in 1080p MP4 laden' },
+    { label: '🎵 Audio MP3', href: '/de/tiktok-mp3', title: 'TikTok Musik als MP3 konvertieren' },
+    { label: '📸 Foto Slide', href: '/de/tiktok-photo', title: 'TikTok Foto Slideshow Bilder sichern' },
+    { label: '📦 Massen-ZIP', href: '/de/tiktok-bulk-downloader', title: 'Mehrere TikToks gleichzeitig als ZIP laden' },
+    { label: '🇨🇳 Douyin 抖音', href: '/de/douyin-downloader', title: 'Chinesische Douyin Videos ohne Logo laden' },
+    { label: '🔥 Trending Sounds', href: '/de/trending-sounds', title: 'Virale TikTok Sounds als MP3 laden' },
+  ],
+  vi: [
+    { label: '🎬 Video 1080p', href: '/vi/tiktok-video-downloader', title: 'Tải Video TikTok Full HD MP4' },
+    { label: '🎵 Âm Thanh MP3', href: '/vi/tiktok-mp3', title: 'Tách Nhạc TikTok MP3 320kbps' },
+    { label: '📸 Ảnh Slide', href: '/vi/tiktok-photo', title: 'Tải Ảnh Trình Chiếu TikTok' },
+    { label: '📦 Tải Hàng Loạt', href: '/vi/tiktok-bulk-downloader', title: 'Tải Nhiều Video Về File Nén ZIP' },
+    { label: '🇨🇳 Douyin 抖音', href: '/vi/douyin-downloader', title: 'Tải Video Douyin Trung Quốc Không Logo' },
+    { label: '🔥 Nhạc Hot Trend', href: '/vi/trending-sounds', title: 'Tải Nhạc TikTok Hot Nhất Tuần' },
+  ],
+  tr: [
+    { label: '🎬 Video 1080p', href: '/tr/tiktok-video-downloader', title: 'TikTok Videolarını 1080p MP4 İndir' },
+    { label: '🎵 Ses MP3', href: '/tr/tiktok-mp3', title: 'TikTok Müziğini MP3 Olarak Kaydet' },
+    { label: '📸 Fotoğraf Slide', href: '/tr/tiktok-photo', title: 'TikTok Fotoğraf Slaytlarını İndir' },
+    { label: '📦 Toplu ZIP', href: '/tr/tiktok-bulk-downloader', title: 'Birden Fazla TikTok Videosunu ZIP İndir' },
+    { label: '🇨🇳 Douyin 抖音', href: '/tr/douyin-downloader', title: 'Filigransız Douyin Videosu İndir' },
+    { label: '🔥 Trend Müzikler', href: '/tr/trending-sounds', title: 'Viral TikTok Şarkılarını İndir' },
+  ],
+  it: [
+    { label: '🎬 Video 1080p', href: '/it/tiktok-video-downloader', title: 'Scarica Video TikTok in 1080p MP4' },
+    { label: '🎵 Audio MP3', href: '/it/tiktok-mp3', title: 'Estrai Traccia Audio MP3 a 320kbps' },
+    { label: '📸 Foto Slide', href: '/it/tiktok-photo', title: 'Scarica Immagini Slide TikTok' },
+    { label: '📦 Download ZIP', href: '/it/tiktok-bulk-downloader', title: 'Scarica Più Link Contemporaneamente in ZIP' },
+    { label: '🇨🇳 Douyin 抖音', href: '/it/douyin-downloader', title: 'Scarica Video da Douyin Senza Logo' },
+    { label: '🔥 Suoni Trend', href: '/it/trending-sounds', title: 'Scarica Canzoni e Suoni Virali TikTok' },
+  ],
+  ru: [
+    { label: '🎬 Видео 1080p', href: '/ru/tiktok-video-downloader', title: 'Скачать Видео TikTok в Full HD MP4' },
+    { label: '🎵 Аудио MP3', href: '/ru/tiktok-mp3', title: 'Скачать Музыку из TikTok в MP3' },
+    { label: '📸 Фото Слайды', href: '/ru/tiktok-photo', title: 'Скачать Фото Слайдшоу из TikTok' },
+    { label: '📦 Пакетный ZIP', href: '/ru/tiktok-bulk-downloader', title: 'Скачать Несколько Ссылок Одним ZIP Архивом' },
+    { label: '🇨🇳 Douyin 抖音', href: '/ru/douyin-downloader', title: 'Скачать Видео из Китайского Douyin' },
+    { label: '🔥 Тренды Музыки', href: '/ru/trending-sounds', title: 'Скачать Популярные Треки TikTok' },
+  ],
+  ja: [
+    { label: '🎬 動画 1080p', href: '/ja/tiktok-video-downloader', title: 'TikTok動画を高画質1080p MP4で保存' },
+    { label: '🎵 音声 MP3', href: '/ja/tiktok-mp3', title: 'TikTok音源を320kbps MP3で抽出保存' },
+    { label: '📸 写真スライド', href: '/ja/tiktok-photo', title: 'TikTok写真スライドショー画像をダウンロード' },
+    { label: '📦 一括 ZIP', href: '/ja/tiktok-bulk-downloader', title: '複数リンクをまとめてZIP保存' },
+    { label: '🇨🇳 抖音 Douyin', href: '/ja/douyin-downloader', title: '中国版TikTok抖音Douyinをロゴなし保存' },
+    { label: '🔥 トレンド音源', href: '/ja/trending-sounds', title: '週間バイラルTikTokトレンド音源をダウンロード' },
+  ],
+};
+
 export default function DownloaderForm({ 
   onResult, 
   title = "Download TikTok Videos Without Watermark in HD",
@@ -320,9 +434,14 @@ export default function DownloaderForm({
       </h1>
 
       {/* Subtitle */}
-      <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
+      <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-6 font-normal leading-relaxed">
         {subtitle}
       </p>
+
+      {/* High-CTR Trust & Speed Ribbon */}
+      <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-rose-50 border border-rose-200/80 text-rose-700 text-xs sm:text-sm font-bold mb-6 shadow-2xs">
+        <span>{TRUST_RIBBON[activeLang] || TRUST_RIBBON.en}</span>
+      </div>
 
       {/* Clean, Modern Search / Input Box */}
       <form onSubmit={handleSubmit} className="relative max-w-3xl mx-auto group">
@@ -496,6 +615,20 @@ export default function DownloaderForm({
           </div>
         )}
       </form>
+
+      {/* High-CTR Format Switcher Pills & Cross-Links */}
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-2 pt-1 max-w-3xl mx-auto">
+        {(FORMAT_PILLS[activeLang] || FORMAT_PILLS.en).map((pill) => (
+          <Link
+            key={pill.href}
+            href={pill.href}
+            title={pill.title}
+            className="px-3 sm:px-3.5 py-1.5 rounded-xl bg-white hover:bg-rose-50 text-slate-700 hover:text-rose-600 font-bold text-xs border border-slate-200/90 hover:border-rose-300 shadow-2xs hover:shadow-xs transition-all active:scale-95"
+          >
+            {pill.label}
+          </Link>
+        ))}
+      </div>
 
       {/* Error Notice with Smart Platform Switcher */}
       {error && (

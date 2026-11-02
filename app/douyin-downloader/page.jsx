@@ -375,6 +375,19 @@ export default function DouyinDownloaderPage() {
           </p>
         </section>
 
+        {/* Section 10: Technical Specifications & Bitrate Benchmarks */}
+        <section className="space-y-6">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            Douyin Media Specifications: Bitrates, Color Gamuts, and Audio Sampling Profiles
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Every Douyin video stream extracted via QukTik preserves original ByteDance encoding standards. While standard international TikTok caps default bitrates between 2.5 Mbps and 4 Mbps, domestic Douyin frequently streams high-tier creator content at bitrates exceeding 6 Mbps to 12 Mbps in full 1080x1920 vertical resolution at 60 progressive frames per second. Our direct stream extractor avoids re-encoding, preserving native BT.709 color profiles and deep dynamic range.
+          </p>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            For audio extraction, QukTik isolates the uncompressed AAC audio track directly from the video container and packages it into a studio-grade 320kbps stereo MP3 file at 48kHz sampling rate. This ensures that traditional Chinese instruments like the Guqin, Pipa, and Erhu retain their acoustic resonance, and high-frequency electronic beats reproduce without loss of punch or clarity.
+          </p>
+        </section>
+
       </article>
 
       {/* 12 In-Depth Frequently Asked Questions with FAQPage Schema */}

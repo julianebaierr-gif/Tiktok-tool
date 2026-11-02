@@ -478,6 +478,7 @@ export default function TrendingSoundsClient({ langCode = "en" }) {
                     <a
                       href={downloadUrl}
                       download={safeDownloadFilename}
+                      rel="nofollow"
                       className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-bold transition-all shadow-xs active:scale-95 flex items-center gap-1.5 shrink-0"
                     >
                       <Download className="w-3.5 h-3.5" />
@@ -572,6 +573,7 @@ export default function TrendingSoundsClient({ langCode = "en" }) {
                         <a
                           href={downloadUrl}
                           download={`quktik_${track.title.toLowerCase().replace(/[^a-z0-9]+/g, '_')}_ringtone_${trimDuration}s.mp3`}
+                          rel="nofollow"
                           className="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-xs"
                         >
                           <Download className="w-3.5 h-3.5" />

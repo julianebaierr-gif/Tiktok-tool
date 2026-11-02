@@ -14,7 +14,6 @@ User-agent: *
 Allow: /
 Allow: /feed.xml
 Allow: /rss.xml
-Allow: /api/audio-download
 Disallow: /api/
 
 Sitemap: https://www.quktik.com/sitemap.xml
