@@ -71,13 +71,13 @@ export default function Navbar() {
     { href: `${prefix}/tiktok-mp3`, label: navT.mp3, icon: Music },
     { href: `${prefix}/tiktok-photo`, label: navT.photos, icon: ImageIcon },
     { href: `${prefix}/douyin-downloader`, label: navT.douyin, icon: Globe2 },
-    { href: '/tiktok-bulk-downloader', label: navT.bulk, icon: FolderArchive, badge: navT.batchBadge },
+    { href: `${prefix}/tiktok-bulk-downloader`, label: navT.bulk, icon: FolderArchive, badge: navT.batchBadge },
   ];
 
   // Secondary tools in More dropdown
   const secondaryLinks = [
     { 
-      href: '/trending-sounds', 
+      href: `${prefix}/trending-sounds`, 
       label: navT.trending, 
       desc: navT.trendingDesc, 
       icon: Flame, 
@@ -103,7 +103,7 @@ export default function Navbar() {
   // All links combined for mobile drawer
   const allNavLinks = [
     ...primaryLinks,
-    { href: '/trending-sounds', label: navT.trending, icon: Flame, badge: navT.viralBadge },
+    { href: `${prefix}/trending-sounds`, label: navT.trending, icon: Flame, badge: navT.viralBadge },
     { href: `${prefix}/tiktok-ringtone`, label: navT.ringtone, icon: Bell },
     { href: `${prefix}/tiktok-avatar`, label: navT.avatar, icon: UserCheck },
   ];

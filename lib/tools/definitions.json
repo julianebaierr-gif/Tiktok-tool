@@ -825,5 +825,243 @@
         "badge": "流行の音源を着信音に変換"
       }
     }
+  },
+  "tiktok-bulk-downloader": {
+    "mode": "bulk",
+    "sampleUrl": "https://www.tiktok.com/@scout2015/video/6718335390845095173",
+    "badgeEn": "Batch Multi-Link ZIP Downloader",
+    "titles": {
+      "en": "TikTok Bulk Downloader ZIP | QukTik",
+      "es": "Descargar TikTok en Lote ZIP | QukTik",
+      "pt": "Baixar TikTok em Lote ZIP | QukTik",
+      "id": "Unduh TikTok Massal ZIP | QukTik",
+      "fr": "Télécharger TikTok en Lot ZIP | QukTik",
+      "ar": "تحميل تيك توك جماعي ZIP | QukTik",
+      "de": "TikTok Bulk Downloader ZIP | QukTik",
+      "vi": "Tải TikTok Hàng Loạt ZIP | QukTik",
+      "tr": "Toplu TikTok İndirici ZIP | QukTik",
+      "it": "Scarica TikTok in Blocco ZIP | QukTik",
+      "ru": "Массовый TikTok ZIP | QukTik",
+      "ja": "TikTok一括ダウンロード ZIP | QukTik"
+    },
+    "descs": {
+      "en": "Download multiple TikTok videos in 1 single ZIP archive. Paste up to 10 links, fetch HD MP4s without watermarks, and save all at once for free.",
+      "es": "Descarga múltiples videos de TikTok en un archivo ZIP. Pega hasta 10 enlaces, obtén MP4 HD sin marca de agua y guarda todo gratis en un clic.",
+      "pt": "Baixe vários vídeos do TikTok em um arquivo ZIP. Cole até 10 links, obtenha MP4 em HD sem marca d'água e salve tudo de uma vez grátis online.",
+      "id": "Unduh banyak video TikTok sekaligus dalam 1 file ZIP. Tempel hingga 10 link, dapatkan MP4 HD tanpa watermark gratis cepat tanpa login.",
+      "fr": "Téléchargez plusieurs vidéos TikTok dans un ZIP. Collez jusqu'à 10 liens, obtenez des MP4 HD sans filigrane et enregistrez tout sans frais.",
+      "ar": "تحميل عدة فيديوهات تيك توك في ملف ZIP واحد. الصق حتى 10 روابط واحصل على MP4 بدقة عالية وبدون علامة مائية مجانا وبسرعة فائقة.",
+      "de": "Lade mehrere TikTok-Videos im ZIP-Archiv herunter. Bis zu 10 Links einfügen, saubere HD-MP4s ohne Wasserzeichen schnell & kostenlos speichern.",
+      "vi": "Tải nhiều video TikTok cùng lúc trong 1 tệp ZIP. Dán tối đa 10 liên kết, tải MP4 HD không logo bản quyền miễn phí siêu nhanh không cần cài app.",
+      "tr": "Tek bir ZIP arşivinde birden fazla TikTok videosu indirin. 10 link yapıştırın, filigransız HD MP4 videoları tek tıkla ücretsiz kaydedin.",
+      "it": "Scarica più video TikTok in un unico archivio ZIP. Incolla fino a 10 link, ottieni MP4 HD senza filigrana e salva tutto insieme gratis online.",
+      "ru": "Скачивайте несколько видео TikTok в одном ZIP-архиве. Вставьте до 10 ссылок, получите чистые HD MP4 без водяных знаков бесплатно за секунды.",
+      "ja": "複数のTikTok動画を1つのZIPで一括保存。最大10件のURLを貼り付け、透かしなし高画質HD MP4を完全無料でまとめてダウンロード。"
+    },
+    "hero": {
+      "en": {
+        "badge": "Batch Multi-Link Downloader",
+        "title": "Download Multiple TikTok Videos in 1 Single ZIP Archive",
+        "subtitle": "Paste up to 10 TikTok or Douyin links, extract clean 1080p MP4 videos or 320kbps MP3s, and package into a single instant ZIP download.",
+        "placeholder": "Paste 5 to 10 TikTok links (one per line)...",
+        "button": "Process Batch Queue"
+      },
+      "es": {
+        "badge": "Descargador en Lote Múltiple",
+        "title": "Descarga Múltiples Videos de TikTok en un Solo Archivo ZIP",
+        "subtitle": "Pega hasta 10 enlaces de TikTok o Douyin, extrae videos MP4 en 1080p sin marca o MP3 a 320kbps y descarga todo en un archivo ZIP.",
+        "placeholder": "Pega de 5 a 10 enlaces de TikTok (uno por línea)...",
+        "button": "Procesar Lote"
+      },
+      "pt": {
+        "badge": "Download em Lote Múltiplo",
+        "title": "Baixe Múltiplos Vídeos do TikTok em um Único Arquivo ZIP",
+        "subtitle": "Cole até 10 links do TikTok ou Douyin, extraia MP4 em 1080p sem marca d'água ou MP3 320kbps e baixe tudo em um único arquivo ZIP.",
+        "placeholder": "Cole de 5 a 10 links do TikTok (um por linha)...",
+        "button": "Processar Lote"
+      },
+      "id": {
+        "badge": "Pengunduh Massal Multi-Link",
+        "title": "Unduh Banyak Video TikTok Sekaligus dalam 1 File ZIP",
+        "subtitle": "Tempel hingga 10 tautan TikTok atau Douyin, ekstrak video MP4 1080p tanpa watermark atau MP3 320kbps dalam satu unduhan ZIP instan.",
+        "placeholder": "Tempel 5 hingga 10 link TikTok (satu per baris)...",
+        "button": "Proses Unduhan Massal"
+      },
+      "fr": {
+        "badge": "Téléchargement Multiple en Lot",
+        "title": "Téléchargez Plusieurs Vidéos TikTok dans un Seul Fichier ZIP",
+        "subtitle": "Collez jusqu'à 10 liens TikTok ou Douyin, extrayez des vidéos MP4 1080p propres ou MP3 320kbps et enregistrez tout en un seul ZIP.",
+        "placeholder": "Collez 5 à 10 liens TikTok (un par ligne)...",
+        "button": "Lancer le Traitement"
+      },
+      "ar": {
+        "badge": "أداة التحميل المتعدد الجماعي",
+        "title": "تحميل عدة فيديوهات تيك توك في ملف ZIP واحد ومباشر",
+        "subtitle": "الصق حتى 10 روابط تيك توك أو دوين واستخرج فيديوهات MP4 بدقة 1080p بدون علامة مائية أو ملفات MP3 دفعة واحدة في أرشيف ZIP مضغوط.",
+        "placeholder": "الصق من 5 إلى 10 روابط تيك توك (رابط في كل سطر)...",
+        "button": "معالجة الروابط دفعة واحدة"
+      },
+      "de": {
+        "badge": "Multi-Link Stapel-Downloader",
+        "title": "Lade Mehrere TikTok-Videos in Einem Einzigen ZIP-Archiv Herunter",
+        "subtitle": "Füge bis zu 10 TikTok- oder Douyin-Links ein, extrahiere saubere 1080p MP4s ohne Wasserzeichen oder 320kbps MP3s als sofortigen ZIP-Download.",
+        "placeholder": "5 bis 10 TikTok-Links einfügen (ein Link pro Zeile)...",
+        "button": "Stapel Verarbeiten"
+      },
+      "vi": {
+        "badge": "Tải Hàng Loạt Nhiều Link",
+        "title": "Tải Nhiều Video TikTok Cùng Lúc Trong 1 Tệp Nén ZIP",
+        "subtitle": "Dán tối đa 10 link TikTok hoặc Douyin, trích xuất video MP4 1080p không logo hoặc MP3 320kbps và tải về toàn bộ trong 1 file ZIP siêu tốc.",
+        "placeholder": "Dán 5 đến 10 liên kết TikTok (mỗi dòng một link)...",
+        "button": "Xử Lý Hàng Loạt"
+      },
+      "tr": {
+        "badge": "Çoklu Bağlantı İndirici",
+        "title": "Birden Fazla TikTok Videosunu Tek Bir ZIP Dosyasında İndirin",
+        "subtitle": "10 adede kadar TikTok veya Douyin bağlantısı yapıştırın, filigransız 1080p MP4 veya 320kbps MP3 çıkarıp tek bir ZIP arşivi olarak indirin.",
+        "placeholder": "5 ila 10 TikTok bağlantısı yapıştırın (her satıra bir link)...",
+        "button": "Toplu İndirmeyi Başlat"
+      },
+      "it": {
+        "badge": "Scaricatore Multiplo in Blocco",
+        "title": "Scarica Più Video TikTok Insieme in un Singolo Archivio ZIP",
+        "subtitle": "Incolla fino a 10 link di TikTok o Douyin, estrai video MP4 1080p senza filigrana o MP3 320kbps e scarica tutto in un comodo pacchetto ZIP.",
+        "placeholder": "Incolla da 5 a 10 link TikTok (uno per riga)...",
+        "button": "Elabora Coda Multipla"
+      },
+      "ru": {
+        "badge": "Массовая Загрузка Ссылок",
+        "title": "Скачивайте Несколько Видео TikTok в Одном ZIP-Архиве",
+        "subtitle": "Вставьте до 10 ссылок TikTok или Douyin, извлеките чистые 1080p MP4 без водяных знаков или 320kbps MP3 и сохраните всё в одном ZIP.",
+        "placeholder": "Вставьте от 5 до 10 ссылок TikTok (по одной на строку)...",
+        "button": "Обработать Все Ссылки"
+      },
+      "ja": {
+        "badge": "一括複数URLダウンロード",
+        "title": "複数のTikTok動画を1つのZIPファイルでまとめて一括保存",
+        "subtitle": "最大10件のTikTokまたはDouyinリンクを貼り付け、透かしなし1080p MP4動画や320kbps MP3音源を1つのZIPファイルで即時ダウンロード。",
+        "placeholder": "TikTokのURLを5〜10件貼り付け（1行に1つ）...",
+        "button": "一括キューを処理する"
+      }
+    }
+  },
+  "trending-sounds": {
+    "mode": "sounds",
+    "sampleUrl": "https://www.tiktok.com/@tiktok/video/7106594312292453678",
+    "badgeEn": "Weekly Viral TikTok Sounds & Music Chart",
+    "titles": {
+      "en": "Trending TikTok Sounds MP3 | QukTik",
+      "es": "Sonidos Virales TikTok MP3 | QukTik",
+      "pt": "Sons Virais do TikTok MP3 | QukTik",
+      "id": "Lagu Viral TikTok MP3 | QukTik",
+      "fr": "Sons Tendances TikTok MP3 | QukTik",
+      "ar": "أصوات تيك توك الرائجة MP3 | QukTik",
+      "de": "TikTok Trend Sounds MP3 | QukTik",
+      "vi": "Âm Thanh TikTok Hot MP3 | QukTik",
+      "tr": "Viral TikTok Sesleri MP3 | QukTik",
+      "it": "Suoni Virali TikTok MP3 | QukTik",
+      "ru": "Трендовые звуки TikTok MP3 | QukTik",
+      "ja": "TikTok人気音源 MP3保存 | QukTik"
+    },
+    "descs": {
+      "en": "Listen and download trending TikTok sounds and viral songs in 320kbps MP3 for free. Weekly updated chart of top viral TikTok music with no login.",
+      "es": "Escucha y descarga los sonidos virales de TikTok en MP3 a 320kbps gratis. Lista actualizada semanalmente con las mejores canciones de tendencia.",
+      "pt": "Ouça e baixe os sons virais do TikTok em MP3 320kbps grátis. Parada semanal atualizada com as melhores músicas do momento sem instalar nada.",
+      "id": "Dengarkan dan unduh lagu viral TikTok terbaru kualitas MP3 320kbps gratis. Tangga lagu viral mingguan terpopuler tanpa registrasi.",
+      "fr": "Écoutez et téléchargez les sons viraux de TikTok en MP3 320kbps gratuitement. Classement hebdomadaire des musiques tendance sans inscription.",
+      "ar": "استمع وحمّل أشهر أصوات وأغاني تيك توك الرائجة بصيغة MP3 بجودة 320kbps مجانا. تحديث أسبوعي لقائمة الصوتيات الأكثر انتشارا بدون برامج.",
+      "de": "Höre und lade virale TikTok Sounds & Songs in bester 320kbps MP3-Qualität kostenlos herunter. Wöchentlich aktualisierte Charts ohne Anmeldung.",
+      "vi": "Nghe và tải nhạc TikTok hot thịnh hành chất lượng cao MP3 320kbps miễn phí. Bảng xếp hạng âm thanh xu hướng cập nhật hàng tuần cực nhanh.",
+      "tr": "En popüler viral TikTok seslerini ve şarkılarını 320kbps MP3 olarak ücretsiz dinleyin ve indirin. Haftalık güncel trend müzik listesi.",
+      "it": "Ascolta e scarica i suoni virali di TikTok in MP3 a 320kbps gratis. Classifica musicale aggiornata settimanalmente senza registrazione.",
+      "ru": "Слушайте и скачивайте вирусные звуки и треки TikTok в 320kbps MP3 бесплатно. Еженедельно обновляемый чарт популярных хитов без регистрации.",
+      "ja": "TikTokでバズっている流行りの人気音源を320kbps高音質MP3で無料ダウンロード。毎週更新のトレンドランキングからワンクリック保存。"
+    },
+    "hero": {
+      "en": {
+        "badge": "Weekly Viral Audio Charts",
+        "title": "Top 20 Trending TikTok Sounds & Viral Music MP3",
+        "subtitle": "Listen, preview, and download the hottest viral TikTok songs, speed-up remixes, and trending audio clips in pristine 320kbps MP3.",
+        "placeholder": "Paste TikTok video or sound URL to extract MP3...",
+        "button": "Extract Sound"
+      },
+      "es": {
+        "badge": "Lista Semanal de Audios Virales",
+        "title": "Top 20 Canciones y Sonidos Virales de TikTok en MP3",
+        "subtitle": "Escucha, previsualiza y descarga las canciones más populares de TikTok, remixes acelerados y audios en tendencia en MP3 a 320kbps.",
+        "placeholder": "Pega la URL del video o sonido de TikTok para extraer MP3...",
+        "button": "Extraer Audio"
+      },
+      "pt": {
+        "badge": "Top Semanal de Áudios Virais",
+        "title": "Top 20 Músicas e Sons Virais do TikTok em MP3 320kbps",
+        "subtitle": "Ouça, visualize e baixe as músicas mais quentes do TikTok, remixes acelerados e áudios em alta qualidade de som estéreo 320kbps.",
+        "placeholder": "Cole a URL do vídeo ou som do TikTok para extrair MP3...",
+        "button": "Extrair Áudio"
+      },
+      "id": {
+        "badge": "Tangga Lagu Viral Mingguan",
+        "title": "Top 20 Musik dan Suara Viral TikTok Kualitas MP3 320kbps",
+        "subtitle": "Dengarkan, putar cuplikan, dan unduh lagu TikTok paling populer, remix speed-up, dan klip audio viral dalam kualitas audio studio MP3.",
+        "placeholder": "Tempel link video atau suara TikTok untuk unduh MP3...",
+        "button": "Ekstrak Audio"
+      },
+      "fr": {
+        "badge": "Classement Hebdomadaire des Sons Viraux",
+        "title": "Top 20 des Musiques et Sons Tendances TikTok en MP3",
+        "subtitle": "Écoutez, prévisualisez et téléchargez les morceaux les plus viraux de TikTok, les remixes accélérés et les sons cultes en MP3 320kbps.",
+        "placeholder": "Collez l'URL d'une vidéo ou d'un son TikTok pour extraire le MP3...",
+        "button": "Extraire le Son"
+      },
+      "ar": {
+        "badge": "قائمة الصوتيات الأكثر انتشارا أسبوعيا",
+        "title": "أفضل 20 صوت وأغنية رائجة على تيك توك بصيغة MP3",
+        "subtitle": "استمع وعاين وحمّل أشهر أغاني تيك توك المنتشرة والريمكسات السريعة والمقاطع الصوتية الترند بأعلى جودة صوتية 320kbps بدون برامج.",
+        "placeholder": "الصق رابط فيديو أو صوت تيك توك لاستخراج MP3...",
+        "button": "استخراج الصوت"
+      },
+      "de": {
+        "badge": "Wöchentliche Virale Sound-Charts",
+        "title": "Top 20 Virale TikTok Sounds & Songs als 320kbps MP3",
+        "subtitle": "Höre, teste und lade die beliebtesten viralen TikTok-Hits, Speed-Up-Remixes und Trend-Sounds in kristallklarer 320kbps MP3-Qualität herunter.",
+        "placeholder": "TikTok Video- oder Sound-URL einfügen, um MP3 zu extrahieren...",
+        "button": "Audio Extrahieren"
+      },
+      "vi": {
+        "badge": "Bảng Xếp Hạng Âm Thanh Thịnh Hành",
+        "title": "Top 20 Bài Hát & Âm Thanh TikTok Hot Nhất Bản MP3",
+        "subtitle": "Nghe thử và tải về những bản nhạc TikTok gây sốt, các bản remix speed up và âm thanh bắt tai với chất lượng phòng thu MP3 320kbps.",
+        "placeholder": "Dán URL video hoặc âm thanh TikTok để tách MP3...",
+        "button": "Tách Nhạc MP3"
+      },
+      "tr": {
+        "badge": "Haftalık Viral Ses Listesi",
+        "title": "En Popüler 20 Viral TikTok Şarkısı ve Sesi MP3 İndir",
+        "subtitle": "TikTok'ta trend olan en popüler müzikleri, hızlandırılmış remixleri ve viral sesleri kristal netliğinde 320kbps MP3 olarak indirin.",
+        "placeholder": "MP3 çıkarmak için TikTok video veya ses linkini yapıştırın...",
+        "button": "Sesi İndir"
+      },
+      "it": {
+        "badge": "Classifica Settimanale Brani Virali",
+        "title": "Top 20 Canzoni e Suoni Virali di TikTok in MP3 320kbps",
+        "subtitle": "Ascolta, prova in anteprima e scarica le tracce più famose di TikTok, remix velocizzati e suoni di tendenza con audio master a 320kbps.",
+        "placeholder": "Incolla l'URL del video o suono TikTok per estrarre l'MP3...",
+        "button": "Estrai Traccia Audio"
+      },
+      "ru": {
+        "badge": "Еженедельный Чарт Вирусных Звуков",
+        "title": "Топ-20 Популярных Треков и Звуков TikTok в MP3 320kbps",
+        "subtitle": "Слушайте, тестируйте и скачивайте самые вирусные песни TikTok, ускоренные ремиксы и трендовые аудиодорожки в идеальном качестве 320kbps.",
+        "placeholder": "Вставьте ссылку на видео или звук TikTok для извлечения MP3...",
+        "button": "Извлечь Звук"
+      },
+      "ja": {
+        "badge": "週間バイラル音源ランキング",
+        "title": "今週のTikTokバズり人気音源＆トレンド楽曲TOP20 MP3保存",
+        "subtitle": "TikTokで最もバズっている人気楽曲や倍速リミックス、ミーム音源をブラウザ上で試聴し、320kbpsの最高音質MP3でワンクリック保存。",
+        "placeholder": "MP3を抽出したいTikTokの動画または音源URLを貼り付け...",
+        "button": "音声を抽出する"
+      }
+    }
   }
 }

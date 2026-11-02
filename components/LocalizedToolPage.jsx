@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import ToolHero from './ToolHero';
+import BulkDownloader from './BulkDownloader';
+import TrendingSoundsClient from './TrendingSoundsClient';
 import Breadcrumbs from './Breadcrumbs';
 import SiteSchema from './SiteSchema';
 import { FormattedCreatorAdvice, FormattedCompetitorGap } from './FormattedEditorial';
@@ -10,23 +12,34 @@ import { TOOL_DEFINITIONS, VALID_TOOLS } from '../lib/tools';
 import { LANGUAGES } from '../lib/translations';
 import { DEVICE_STEPS, TOOL_FAQS, UI_STRINGS } from '../lib/tools/localizedContent';
 import { TOOL_EDITORIAL } from '../lib/tools/toolEditorial';
+import { BULK_EDITORIAL } from '../lib/tools/bulkEditorialData';
+import { SOUNDS_EDITORIAL } from '../lib/tools/soundsEditorialData';
 import { 
   Sparkles, Zap, Music2, DownloadCloud, ChevronDown, CheckCircle2, 
   HelpCircle, Smartphone, Monitor, ShieldCheck, AlertCircle, ArrowRight, Check, Image as ImageIcon,
-  History, Globe2, Bell, UserCheck, Video, FileText, Layers, RefreshCw
+  History, Globe2, Bell, UserCheck, Video, FileText, Layers, RefreshCw, FolderArchive, Flame, Scissors
 } from 'lucide-react';
 
 export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-avatar' }) {
   const toolData = TOOL_DEFINITIONS[toolSlug] || TOOL_DEFINITIONS['tiktok-video-downloader'];
   const currentLang = LANGUAGES.find(l => l.code === langCode) || LANGUAGES[1];
   const isRtl = currentLang.dir === 'rtl';
-  const hero = toolData.hero[langCode] || toolData.hero.en;
+  const hero = toolData?.hero?.[langCode] || toolData?.hero?.en || {};
+
+  const isBulk = toolSlug === 'tiktok-bulk-downloader';
+  const isSounds = toolSlug === 'trending-sounds';
 
   // Localized UI strings, FAQs, Device Steps, and Editorial Content
   const ui = UI_STRINGS[langCode] || UI_STRINGS.en;
   const toolFaqs = TOOL_FAQS[langCode] || TOOL_FAQS.en;
   const devSteps = DEVICE_STEPS[langCode] || DEVICE_STEPS.en;
-  const edit = TOOL_EDITORIAL[langCode] || TOOL_EDITORIAL.en;
+  
+  // Choose correct editorial dataset
+  const edit = isBulk 
+    ? (BULK_EDITORIAL[langCode] || BULK_EDITORIAL.en)
+    : isSounds
+    ? (SOUNDS_EDITORIAL[langCode] || SOUNDS_EDITORIAL.en)
+    : (TOOL_EDITORIAL[langCode] || TOOL_EDITORIAL.en);
 
   // FAQ accordion state
   const [openFaq, setOpenFaq] = useState(0);
@@ -54,6 +67,8 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
       case 'douyin-downloader': return Globe2;
       case 'tiktok-ringtone': return Bell;
       case 'tiktok-avatar': return UserCheck;
+      case 'tiktok-bulk-downloader': return FolderArchive;
+      case 'trending-sounds': return Flame;
       default: return Video;
     }
   };
@@ -67,22 +82,32 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
         <Breadcrumbs 
           items={[
             { name: currentLang.label, url: homeHref },
-            { name: hero.badge, url: `${homeHref}/${toolSlug}` }
+            { name: hero.badge || toolSlug, url: `${homeHref}/${toolSlug}` }
           ]} 
         />
       </div>
 
-      {/* 1. Downloader Hero */}
-      <ToolHero
-        title={hero.title}
-        subtitle={hero.subtitle}
-        placeholder={hero.placeholder}
-        buttonText={hero.button}
-        badge={hero.badge}
-        mode={toolData.mode}
-        sampleUrl={toolData.sampleUrl}
-        langCode={langCode}
-      />
+      {/* 1. Main Interactive Tool Header / Component */}
+      {isBulk ? (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
+          <BulkDownloader langCode={langCode} />
+        </div>
+      ) : isSounds ? (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
+          <TrendingSoundsClient langCode={langCode} />
+        </div>
+      ) : (
+        <ToolHero
+          title={hero.title}
+          subtitle={hero.subtitle}
+          placeholder={hero.placeholder}
+          buttonText={hero.button}
+          badge={hero.badge}
+          mode={toolData.mode}
+          sampleUrl={toolData.sampleUrl}
+          langCode={langCode}
+        />
+      )}
 
       {/* 2. Trust Highlights Banner (100% Localized) */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
@@ -113,13 +138,18 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
           {/* Header & Comprehensive Introduction */}
           <div className="space-y-4">
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
-              {currentLang.label} • {hero.badge} • Editorial Masterclass
+              {currentLang.label} • {hero.badge || toolSlug} • Editorial Masterclass
             </span>
             <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              {edit.introHeading}
+              {edit.mainHeading || edit.introHeading}
             </h2>
+            {edit.introLead && (
+              <p className="text-sm sm:text-base leading-relaxed text-slate-700 font-medium">
+                {edit.introLead}
+              </p>
+            )}
             <div className="prose prose-slate max-w-none text-sm sm:text-base leading-relaxed text-slate-700 whitespace-pre-line">
-              {edit.introText}
+              {edit.introBody || edit.introText}
             </div>
           </div>
 
@@ -127,10 +157,10 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
           <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
             <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
               <Zap className="w-5 h-5 text-rose-600 shrink-0" />
-              <span>{edit.techHeading}</span>
+              <span>{edit.sec1Heading || edit.techHeading}</span>
             </h3>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
-              {edit.techText}
+              {edit.sec1Text || edit.techText}
             </p>
           </div>
 
@@ -219,73 +249,166 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
           </div>
 
           {/* Section 3: Technical Comparison Table */}
-          <div className="space-y-4">
-            <h3 className="text-xl sm:text-2xl font-black text-slate-900">
-              {langCode === 'es' ? 'Comparativa Técnica: QukTik vs Descargadores Tradicionales' :
-               langCode === 'pt' ? 'Comparativo Técnico: QukTik vs Métodos Tradicionais' :
-               langCode === 'fr' ? 'Comparatif Technique : QukTik face aux Outils Traditionnels' :
-               langCode === 'de' ? 'Technischer Vergleich: QukTik vs. Herkömmliche Downloader' :
-               langCode === 'ar' ? 'المقارنة الفنية: موقع QukTik في مواجهة أدوات التحميل التقليدية' :
-               langCode === 'ja' ? '技術性能比較：QukTikと従来ツールの機能比較表' :
-               'Technical Comparison: QukTik vs Traditional Downloaders'}
-            </h3>
-            <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-xs">
-              <table className="w-full text-left text-xs sm:text-sm">
-                <thead className="bg-slate-50 border-b border-slate-200 text-slate-700 font-bold uppercase text-[11px] tracking-wider">
-                  <tr>
-                    {edit.tableHeaders.map((head, idx) => (
-                      <th key={idx} className="p-3 sm:p-4">{head}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  {edit.tableRows.map((row, rIdx) => (
-                    <tr key={rIdx} className={rIdx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
-                      {row.map((cell, cIdx) => (
-                        <td key={cIdx} className={`p-3 sm:p-4 ${cIdx === 1 ? 'font-bold text-rose-600' : 'text-slate-600'}`}>
-                          {cell}
-                        </td>
+          {edit.tableHeaders && edit.tableRows && (
+            <div className="space-y-4">
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+                {langCode === 'es' ? 'Comparativa Técnica: QukTik vs Descargadores Tradicionales' :
+                 langCode === 'pt' ? 'Comparativo Técnico: QukTik vs Métodos Tradicionais' :
+                 langCode === 'fr' ? 'Comparatif Technique : QukTik face aux Outils Traditionnels' :
+                 langCode === 'de' ? 'Technischer Vergleich: QukTik vs. Herkömmliche Downloader' :
+                 langCode === 'ar' ? 'المقارنة الفنية: موقع QukTik في مواجهة أدوات التحميل التقليدية' :
+                 langCode === 'ja' ? '技術性能比較：QukTikと従来ツールの機能比較表' :
+                 'Technical Comparison: QukTik vs Traditional Downloaders'}
+              </h3>
+              <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-xs">
+                <table className="w-full text-left text-xs sm:text-sm">
+                  <thead className="bg-slate-50 border-b border-slate-200 text-slate-700 font-bold uppercase text-[11px] tracking-wider">
+                    <tr>
+                      {edit.tableHeaders.map((head, idx) => (
+                        <th key={idx} className="p-3 sm:p-4">{head}</th>
                       ))}
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100">
+                    {edit.tableRows.map((row, rIdx) => (
+                      <tr key={rIdx} className={rIdx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
+                        {row.map((cell, cIdx) => (
+                          <td key={cIdx} className={`p-3 sm:p-4 ${cIdx === 1 ? 'font-bold text-rose-600' : 'text-slate-600'}`}>
+                            {cell}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
+          )}
 
-          {/* Section 4: Content Creator Workflow & Fair Use */}
-          <FormattedCreatorAdvice 
-            title={edit.creatorHeading} 
-            text={edit.creatorText} 
-          />
+          {/* Section 4: Additional In-Depth Content Sections */}
+          {edit.sec2Heading && (
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <Layers className="w-5 h-5 text-rose-600 shrink-0" />
+                <span>{edit.sec2Heading}</span>
+              </h3>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
+                {edit.sec2Text}
+              </p>
+            </div>
+          )}
 
-          {/* Section 5: Troubleshooting 4 Issues */}
-          <div className="space-y-4">
-            <h3 className="text-xl sm:text-2xl font-black text-slate-900">
-              {edit.troubleHeading}
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {edit.troubleItems.map((item, idx) => (
-                <div key={idx} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-2">
-                  <div className="flex items-start gap-2">
-                    <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
-                      {item.problem}
-                    </h4>
+          {edit.sec3Heading && (
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-rose-600 shrink-0" />
+                <span>{edit.sec3Heading}</span>
+              </h3>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
+                {edit.sec3Text}
+              </p>
+            </div>
+          )}
+
+          {edit.sec4Heading && (
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <Video className="w-5 h-5 text-rose-600 shrink-0" />
+                <span>{edit.sec4Heading}</span>
+              </h3>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
+                {edit.sec4Text}
+              </p>
+            </div>
+          )}
+
+          {edit.sec5Heading && (
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <Scissors className="w-5 h-5 text-rose-600 shrink-0" />
+                <span>{edit.sec5Heading}</span>
+              </h3>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
+                {edit.sec5Text}
+              </p>
+            </div>
+          )}
+
+          {edit.sec6Heading && (
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <Smartphone className="w-5 h-5 text-rose-600 shrink-0" />
+                <span>{edit.sec6Heading}</span>
+              </h3>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
+                {edit.sec6Text}
+              </p>
+            </div>
+          )}
+
+          {edit.sec7Heading && (
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-rose-600 shrink-0" />
+                <span>{edit.sec7Heading}</span>
+              </h3>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
+                {edit.sec7Text}
+              </p>
+            </div>
+          )}
+
+          {edit.sec8Heading && (
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <AlertCircle className="w-5 h-5 text-rose-600 shrink-0" />
+                <span>{edit.sec8Heading}</span>
+              </h3>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
+                {edit.sec8Text}
+              </p>
+            </div>
+          )}
+
+          {/* Creator Advice */}
+          {edit.creatorHeading && (
+            <FormattedCreatorAdvice 
+              title={edit.creatorHeading} 
+              text={edit.creatorText} 
+            />
+          )}
+
+          {/* Troubleshooting 4 Issues */}
+          {edit.troubleHeading && edit.troubleItems && (
+            <div className="space-y-4">
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+                {edit.troubleHeading}
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {edit.troubleItems.map((item, idx) => (
+                  <div key={idx} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-2">
+                    <div className="flex items-start gap-2">
+                      <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                      <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                        {item.problem}
+                      </h4>
+                    </div>
+                    <p className="text-xs text-slate-600 leading-relaxed pl-6">
+                      {item.solution}
+                    </p>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed pl-6">
-                    {item.solution}
-                  </p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
-          {/* Section 6: Competitor Gap Analysis vs Top 20 Global Competitors */}
-          <FormattedCompetitorGap 
-            heading={edit.competitorGapHeading} 
-            text={edit.competitorGapText} 
-          />
+          {/* Competitor Gap Analysis vs Top 20 Global Competitors */}
+          {edit.competitorGapHeading && (
+            <FormattedCompetitorGap 
+              heading={edit.competitorGapHeading} 
+              text={edit.competitorGapText} 
+            />
+          )}
 
         </div>
       </section>
@@ -339,7 +462,7 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
             {relatedToolsList.map((slug) => {
               const Icon = getToolIcon(slug);
               const def = TOOL_DEFINITIONS[slug];
-              const tTitle = def?.titles[langCode] || def?.titles.en;
+              const tTitle = def?.titles?.[langCode] || def?.titles?.en || slug;
               const linkHref = langCode === 'en' ? `/${slug}` : `/${langCode}/${slug}`;
               return (
                 <Link
@@ -352,7 +475,7 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
                       <Icon className="w-5 h-5" />
                     </div>
                     <h4 className="text-sm font-bold text-slate-900 group-hover:text-rose-600 transition-colors">
-                      {tTitle?.split('|')[0]?.trim()}
+                      {tTitle?.split('|')?.[0]?.trim()}
                     </h4>
                   </div>
                   <div className="mt-4 flex items-center gap-1 text-xs font-bold text-rose-600">

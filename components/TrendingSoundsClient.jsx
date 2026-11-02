@@ -1,4 +1,5 @@
 'use client';
+import { SOUNDS_UI_TRANSLATIONS } from '../lib/tools/soundsUiTranslations';
 
 import React, { useState, useRef } from 'react';
 import { 
@@ -225,7 +226,8 @@ const TRENDING_TRACKS = [
 
 const GENRES = ['All Trends', 'Dance & Hype', 'Pop / Hype', 'Aesthetic & Chill', 'Remixes & Speed Up'];
 
-export default function TrendingSoundsClient() {
+export default function TrendingSoundsClient({ langCode = "en" }) {
+  const ui = SOUNDS_UI_TRANSLATIONS[langCode] || SOUNDS_UI_TRANSLATIONS.en;
   const [activeGenre, setActiveGenre] = useState('All Trends');
   const [searchQuery, setSearchQuery] = useState('');
   const [playingId, setPlayingId] = useState(null);
@@ -487,7 +489,7 @@ export default function TrendingSoundsClient() {
                     className="px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold transition-all shadow-xs active:scale-95 flex items-center gap-1.5 shrink-0"
                   >
                     <Download className="w-3.5 h-3.5" />
-                    <span>Download MP3</span>
+                    <span>{ui.downloadMp3}</span>
                   </a>
                 </div>
               </div>

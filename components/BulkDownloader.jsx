@@ -1,4 +1,5 @@
 'use client';
+import { BULK_UI_TRANSLATIONS } from '../lib/tools/bulkUiTranslations';
 
 import React, { useState } from 'react';
 import JSZip from 'jszip';
@@ -30,7 +31,8 @@ const SAMPLE_BULK_URLS = [
   'https://www.douyin.com/video/7330964478051257627'
 ];
 
-export default function BulkDownloader() {
+export default function BulkDownloader({ langCode = "en" }) {
+  const ui = BULK_UI_TRANSLATIONS[langCode] || BULK_UI_TRANSLATIONS.en;
   const [inputUrls, setInputUrls] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [progressMsg, setProgressMsg] = useState('');
@@ -65,11 +67,11 @@ export default function BulkDownloader() {
 
   const handleProcessBatch = async () => {
     if (lines.length === 0) {
-      setErrorBanner('Please paste at least one valid TikTok or Douyin link.');
+      setErrorBanner(ui.emptyWarning);
       return;
     }
     if (lines.length > 10) {
-      setErrorBanner('Bulk downloader accepts a maximum of 10 links per batch to prevent browser memory issues.');
+      setErrorBanner(ui.maxWarning);
       return;
     }
 
@@ -137,7 +139,7 @@ export default function BulkDownloader() {
   const fetchMediaBlob = async (rawUrl, filename, type) => {
     const proxyUrl = `/api/proxy?url=${encodeURIComponent(rawUrl)}&filename=${encodeURIComponent(filename)}&type=${type}`;
     const res = await fetch(proxyUrl);
-    if (!res.ok) throw new Error(`Failed to fetch media: ${filename}`);
+    if (!res.ok) throw new Error(`{ui.errorCount} to fetch media: ${filename}`);
     return await res.blob();
   };
 
@@ -273,7 +275,7 @@ export default function BulkDownloader() {
               Paste 5 to 10 TikTok &amp; Douyin Links Below
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              One URL per line. All videos and audio stems are processed and packaged into a single ZIP archive.
+              {ui.subtitle}
             </p>
           </div>
 
@@ -305,7 +307,7 @@ export default function BulkDownloader() {
             value={inputUrls}
             onChange={(e) => setInputUrls(e.target.value)}
             disabled={isProcessing}
-            placeholder={`https://www.tiktok.com/@creator/video/1234567890\nhttps://vm.tiktok.com/ZM8abcde/\nhttps://www.douyin.com/video/7330964478051257627`}
+            placeholder={ui.placeholder}
             className="w-full p-4 rounded-2xl bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:bg-white focus:outline-hidden text-slate-900 font-mono text-xs sm:text-sm leading-relaxed transition-all resize-y placeholder:text-slate-400 disabled:opacity-50"
           />
           <div className="absolute bottom-3 right-3 text-[11px] font-bold px-2 py-0.5 rounded-md bg-white border border-slate-200 text-slate-500 shadow-2xs">
