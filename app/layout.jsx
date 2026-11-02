@@ -157,13 +157,6 @@ export default function RootLayout({ children }) {
         {/* Ahrefs Webmaster Tools Verification */}
         <meta name="ahrefs-site-verification" content="6280d6ffc889f33450faf4b4e2b42b8f54cb5c65bc96be932da9f4d0d51726d4" />
 
-        {/* Ahrefs Analytics */}
-        <script
-          src="https://analytics.ahrefs.com/analytics.js"
-          data-key="NIXg5dEvOn43YTeKNu6i8A"
-          async
-        ></script>
-
         <meta name="theme-color" content="#0F172A" />
       </head>
       <body className="bg-[#fcfcfd] text-slate-900 flex flex-col min-h-screen antialiased selection:bg-rose-500 selection:text-white">
