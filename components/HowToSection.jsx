@@ -136,7 +136,7 @@ export default function HowToSection() {
           </h4>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             {activeTab === 'mobile' 
-              ? 'On iOS devices, downloaded videos can be moved from the Safari Downloads manager into your Photos camera roll by tapping the Share button and selecting "Save Video". On Android, files appear immediately inside your Gallery app.'
+              ? 'Discover how to download tiktok videos on iphone and Android: Open the official tik tok application, copy your link, and paste into QukTik. When saving tiktok videos to phone, Safari stores the MP4 in Files. To save tiktok to camera roll, open the file, tap Share, and select Save Video. This is the cleanest method for how to save tiktok video without watermark iphone.'
               : 'On desktop browsers, press Ctrl+J (Windows) or Cmd+Option+L (Mac) to open your recent downloads log. Videos download directly in universally playable progressive MP4 format.'}
           </p>
         </div>
