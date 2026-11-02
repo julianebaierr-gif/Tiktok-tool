@@ -1,20 +1,39 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Music, Image as ImageIcon, Video, History, Menu, X, Globe2, Bell, UserCheck, Smartphone, Globe, Check, FolderArchive, Flame } from 'lucide-react';
+import { 
+  Home, 
+  Music, 
+  Image as ImageIcon, 
+  Video, 
+  Menu, 
+  X, 
+  Globe2, 
+  Bell, 
+  UserCheck, 
+  Smartphone, 
+  Globe, 
+  Check, 
+  FolderArchive, 
+  Flame, 
+  ChevronDown 
+} from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
-import { LANGUAGES, TRANSLATIONS } from '../lib/translations';
+import { LANGUAGES, TRANSLATIONS, NAV_TRANSLATIONS } from '../lib/translations';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const moreRef = useRef(null);
   const pathname = usePathname();
 
   const segments = (pathname || '').split('/').filter(Boolean);
   const firstSegment = segments[0] || '';
   const currentLang = LANGUAGES.find(l => l.code === firstSegment) || LANGUAGES[0];
   const t = TRANSLATIONS[currentLang.code] || TRANSLATIONS.en;
+  const navT = NAV_TRANSLATIONS[currentLang.code] || NAV_TRANSLATIONS.en;
 
   const prefix = currentLang.code === 'en' ? '' : `/${currentLang.code}`;
   const homeHref = currentLang.code === 'en' ? '/' : `/${currentLang.code}`;
@@ -25,17 +44,71 @@ export default function Navbar() {
     }
   };
 
-  const navLinks = [
-    { href: homeHref, label: 'Home', icon: Home },
-    { href: `${prefix}/tiktok-video-downloader`, label: 'Video', icon: Video },
-    { href: `${prefix}/tiktok-mp3`, label: 'MP3', icon: Music },
-    { href: `${prefix}/tiktok-photo`, label: 'Photos', icon: ImageIcon },
-    { href: `${prefix}/douyin-downloader`, label: 'Douyin', icon: Globe2 },
-    { href: '/tiktok-bulk-downloader', label: 'Bulk ZIP', icon: FolderArchive, badge: 'Batch' },
-    { href: '/trending-sounds', label: 'Trending', icon: Flame, badge: 'Viral' },
-    { href: `${prefix}/tiktok-ringtone`, label: 'Ringtones', icon: Bell },
-    { href: `${prefix}/tiktok-avatar`, label: 'Avatar', icon: UserCheck },
+  // Close "More" dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (moreRef.current && !moreRef.current.contains(event.target)) {
+        setIsMoreOpen(false);
+      }
+    }
+    document.addEventListener('pointerdown', handleClickOutside);
+    return () => document.removeEventListener('pointerdown', handleClickOutside);
+  }, []);
+
+  // Close "More" on Escape key
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') setIsMoreOpen(false);
+    }
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Primary links in main bar
+  const primaryLinks = [
+    { href: homeHref, label: navT.home, icon: Home },
+    { href: `${prefix}/tiktok-video-downloader`, label: navT.video, icon: Video },
+    { href: `${prefix}/tiktok-mp3`, label: navT.mp3, icon: Music },
+    { href: `${prefix}/tiktok-photo`, label: navT.photos, icon: ImageIcon },
+    { href: `${prefix}/douyin-downloader`, label: navT.douyin, icon: Globe2 },
+    { href: '/tiktok-bulk-downloader', label: navT.bulk, icon: FolderArchive, badge: navT.batchBadge },
   ];
+
+  // Secondary tools in More dropdown
+  const secondaryLinks = [
+    { 
+      href: '/trending-sounds', 
+      label: navT.trending, 
+      desc: navT.trendingDesc, 
+      icon: Flame, 
+      badge: navT.viralBadge,
+      iconColor: 'text-amber-500' 
+    },
+    { 
+      href: `${prefix}/tiktok-ringtone`, 
+      label: navT.ringtone, 
+      desc: navT.ringtoneDesc, 
+      icon: Bell,
+      iconColor: 'text-rose-500' 
+    },
+    { 
+      href: `${prefix}/tiktok-avatar`, 
+      label: navT.avatar, 
+      desc: navT.avatarDesc, 
+      icon: UserCheck,
+      iconColor: 'text-indigo-500' 
+    },
+  ];
+
+  // All links combined for mobile drawer
+  const allNavLinks = [
+    ...primaryLinks,
+    { href: '/trending-sounds', label: navT.trending, icon: Flame, badge: navT.viralBadge },
+    { href: `${prefix}/tiktok-ringtone`, label: navT.ringtone, icon: Bell },
+    { href: `${prefix}/tiktok-avatar`, label: navT.avatar, icon: UserCheck },
+  ];
+
+  const isMoreActive = secondaryLinks.some(l => pathname === l.href);
 
   // Calculate destination URL while preserving tool slug for mobile menu
   const getMobileTargetUrl = (targetLangCode) => {
@@ -66,21 +139,21 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-white/95 border-b border-slate-200/80 transition-all">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-5 lg:px-6">
         <div className="flex items-center justify-between h-16 sm:h-18">
           
           {/* Brand Logo */}
-          <Link href={homeHref} className="flex items-center space-x-3 group shrink-0">
+          <Link href={homeHref} className="flex items-center space-x-2.5 group shrink-0">
             <img 
               src="/logo-icon.svg" 
               alt="QukTik - TikTok & Douyin Video Downloader" 
-              width={38} height={38} className="w-9 h-9 rounded-xl shadow-xs group-hover:scale-105 transition-transform"
+              width={38} height={38} className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl shadow-xs group-hover:scale-105 transition-transform shrink-0"
             />
             <div className="flex flex-col">
               <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 flex items-center leading-none">
                 Quk<span className="text-rose-600">Tik</span>
               </span>
-              <span className="text-[10px] text-slate-500 font-medium tracking-wider uppercase mt-1 hidden sm:block whitespace-nowrap">
+              <span className="text-[10px] text-slate-500 font-medium tracking-wider uppercase mt-1 hidden xl:block whitespace-nowrap">
                 TikTok &amp; Douyin Downloader
               </span>
             </div>
@@ -88,23 +161,23 @@ export default function Navbar() {
 
           {/* Desktop Navigation (lg:flex) */}
           <nav className="hidden lg:flex items-center space-x-1 shrink-0">
-            {navLinks.map((link) => {
+            {primaryLinks.map((link) => {
               const Icon = link.icon;
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs xl:text-sm font-semibold whitespace-nowrap transition-all ${
+                  className={`flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-semibold whitespace-nowrap transition-all ${
                     isActive
                       ? 'bg-slate-100 text-slate-900 font-bold border border-slate-200'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70'
                   }`}
                 >
-                  <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-rose-600' : 'text-slate-400'}`} />
+                  <Icon className={`w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0 ${isActive ? 'text-rose-600' : 'text-slate-400'}`} />
                   <span>{link.label}</span>
                   {link.badge && (
-                    <span className="text-[9px] px-1.5 py-0.2 rounded-md bg-rose-100 text-rose-700 font-extrabold uppercase">
+                    <span className="text-[9px] px-1.5 py-0.2 rounded-md bg-rose-100 text-rose-700 font-extrabold uppercase shrink-0">
                       {link.badge}
                     </span>
                   )}
@@ -112,25 +185,90 @@ export default function Navbar() {
               );
             })}
 
+            {/* More Tools Dropdown */}
+            <div className="relative inline-block" ref={moreRef}>
+              <button
+                type="button"
+                onClick={() => setIsMoreOpen(!isMoreOpen)}
+                className={`flex items-center gap-1 px-2.5 xl:px-3 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                  isMoreActive || isMoreOpen
+                    ? 'bg-slate-100 text-slate-900 font-bold border border-slate-200'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70'
+                }`}
+                aria-expanded={isMoreOpen}
+                aria-haspopup="true"
+              >
+                <span>{navT.more || 'More'}</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isMoreOpen ? 'rotate-180 text-rose-600' : 'text-slate-400'}`} />
+              </button>
+
+              {isMoreOpen && (
+                <div className="absolute right-0 mt-2 w-72 rounded-2xl bg-white shadow-2xl shadow-slate-900/15 border border-slate-200 p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                  <div className="px-3 py-1.5 border-b border-slate-100 mb-1 flex items-center justify-between">
+                    <span className="text-[11px] font-black uppercase tracking-wider text-slate-400">
+                      {navT.moreDesc || 'Specialized Tools'}
+                    </span>
+                    <span className="text-[9px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full border border-rose-100 uppercase">
+                      Pro
+                    </span>
+                  </div>
+
+                  <div className="space-y-1">
+                    {secondaryLinks.map((item) => {
+                      const Icon = item.icon;
+                      const isActive = pathname === item.href;
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setIsMoreOpen(false)}
+                          className={`flex items-start gap-3 p-2.5 rounded-xl transition-all ${
+                            isActive
+                              ? 'bg-rose-50 border border-rose-200'
+                              : 'hover:bg-slate-50 text-slate-700 hover:text-slate-900'
+                          }`}
+                        >
+                          <div className={`p-1.5 rounded-lg bg-slate-100 shrink-0 mt-0.5 ${item.iconColor}`}>
+                            <Icon className="w-4 h-4" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-1.5">
+                              <span className="text-xs font-bold text-slate-900 truncate">{item.label}</span>
+                              {item.badge && (
+                                <span className="text-[9px] px-1.5 py-0.2 rounded-md bg-rose-100 text-rose-700 font-extrabold uppercase">
+                                  {item.badge}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-[10px] text-slate-500 leading-tight mt-0.5 truncate">{item.desc}</p>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+
             {/* Language Switcher in Header */}
-            <div className="ml-1.5">
+            <div className="pl-1">
               <LanguageSwitcher />
             </div>
 
             {/* Install PWA App Button */}
             <button
               onClick={triggerInstall}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold border border-rose-200 transition-all cursor-pointer active:scale-95 shadow-2xs ml-1"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold border border-rose-200 transition-all cursor-pointer active:scale-95 shadow-2xs ml-1 shrink-0 whitespace-nowrap"
               title="Install QukTik App on Phone or PC"
             >
-              <Smartphone className="w-3.5 h-3.5 text-rose-600" />
+              <Smartphone className="w-3.5 h-3.5 text-rose-600 shrink-0" />
               <span>{t.installApp || 'Install App'}</span>
             </button>
           </nav>
 
           {/* Tablet screen navigation fallback (md:flex lg:hidden) */}
           <nav className="hidden md:flex lg:hidden items-center space-x-1 shrink-0">
-            {navLinks.slice(0, 5).map((link) => {
+            {primaryLinks.slice(0, 4).map((link) => {
               const Icon = link.icon;
               const isActive = pathname === link.href;
               return (
@@ -149,6 +287,13 @@ export default function Navbar() {
               );
             })}
             <LanguageSwitcher />
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-1.5 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none"
+              aria-label="Toggle navigation menu"
+            >
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </nav>
 
           {/* Mobile menu button & quick install */}
@@ -156,14 +301,14 @@ export default function Navbar() {
             <LanguageSwitcher />
             <button
               onClick={triggerInstall}
-              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-rose-50 text-rose-700 text-xs font-bold border border-rose-200 shadow-2xs active:scale-95"
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-rose-50 text-rose-700 text-xs font-bold border border-rose-200 shadow-2xs active:scale-95 shrink-0"
             >
               <Smartphone className="w-3.5 h-3.5 text-rose-600" />
               <span>App</span>
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none"
+              className="p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none shrink-0"
               aria-label="Toggle navigation menu"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -176,7 +321,7 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-6 space-y-3 max-h-[85vh] overflow-y-auto">
           <div className="space-y-1">
-            {navLinks.map((link) => {
+            {allNavLinks.map((link) => {
               const Icon = link.icon;
               const isActive = pathname === link.href;
               return (
@@ -193,7 +338,7 @@ export default function Navbar() {
                   <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-rose-600' : 'text-slate-400'}`} />
                   <span>{link.label}</span>
                   {link.badge && (
-                    <span className="text-[9px] px-1.5 py-0.2 rounded-md bg-rose-100 text-rose-700 font-extrabold uppercase">
+                    <span className="text-[9px] px-1.5 py-0.2 rounded-md bg-rose-100 text-rose-700 font-extrabold uppercase shrink-0 ml-auto">
                       {link.badge}
                     </span>
                   )}

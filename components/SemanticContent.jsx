@@ -339,7 +339,7 @@ export default function SemanticContent() {
         <ul className="list-disc list-inside space-y-3 pl-2 text-slate-600">
           <li><strong>Avoiding Destructive Cropping:</strong> In the past, editors had to scale up 1080x1920 footage by 125% to push bouncing watermark badges beyond the action-safe broadcast margins. This reduced visual clarity by 35% and created noticeable softness on 4K monitors.</li>
           <li><strong>Timeline Frame Rate Conformity:</strong> QukTik downloads files in standard 30fps or 60fps progressive scan streams, preventing dropped frames or stuttering playback when dropped into a 24fps cinema timeline or 29.97fps broadcast sequence.</li>
-          <li><strong>Color Grading Cleanliness:</strong> Because the clean MP4 contains virgin pixels untouched by translucent white watermark overlays, color grading tools like DaVinci Resolve can apply LUTs, contrast curves, and skin tone adjustments without creating halos around branding logos.</li>
+          <li><strong>Color Grading Cleanliness:</strong> Because the clean MP4 contains pristine original pixels untouched by translucent white watermark overlays, color grading tools like DaVinci Resolve can apply LUTs, contrast curves, and skin tone adjustments without creating halos around branding logos.</li>
         </ul>
       </section>
 

@@ -355,7 +355,7 @@ export default function TikTokPhotoPage() {
             Modern flagship smartphones feature ultra-high pixel density displays (often exceeding 460 pixels per inch) equipped with HDR10+ and OLED technology. When users attempt to set mobile screenshots as wallpapers, the digital zoom required to hide phone UI icons introduces noticeable blurring around text, anime character line art, and architectural geometry.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            By extracting virgin 1080p and 4K still files through QukTik, wallpaper enthusiasts preserve pixel-perfect clarity. True blacks remain deep on OLED panels without glowing artifacts, and high-contrast highlights shine with full HDR dynamic range, making TikTok carousels one of the richest sources for bespoke modern lock screens.
+            By extracting pristine 1080p and 4K still files through QukTik, wallpaper enthusiasts preserve pixel-perfect clarity. True blacks remain deep on OLED panels without glowing artifacts, and high-contrast highlights shine with full HDR dynamic range, making TikTok carousels one of the richest sources for bespoke modern lock screens.
           </p>
         </section>
 
