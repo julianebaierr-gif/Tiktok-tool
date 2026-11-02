@@ -15,6 +15,7 @@ import { DEVICE_STEPS, TOOL_FAQS, UI_STRINGS } from '../lib/tools/localizedConte
 import { TOOL_EDITORIAL } from '../lib/tools/toolEditorial';
 import { BULK_EDITORIAL } from '../lib/tools/bulkEditorialData';
 import { SOUNDS_EDITORIAL } from '../lib/tools/soundsEditorialData';
+import { ARCHITECTURAL_GUIDE } from '../lib/tools/architecturalGuideData';
 import { 
   Sparkles, Zap, Music2, DownloadCloud, ChevronDown, CheckCircle2, 
   HelpCircle, Smartphone, Monitor, ShieldCheck, AlertCircle, ArrowRight, Check, Image as ImageIcon,
@@ -36,6 +37,7 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
   const devSteps = DEVICE_STEPS[langCode] || DEVICE_STEPS.en;
   
   // Choose correct editorial dataset
+  const archGuide = ARCHITECTURAL_GUIDE[langCode] || ARCHITECTURAL_GUIDE.en;
   const edit = isBulk 
     ? (BULK_EDITORIAL[langCode] || BULK_EDITORIAL.en)
     : isSounds
@@ -58,7 +60,7 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
   }, [langCode, isRtl]);
 
   const homeHref = langCode === 'en' ? '/' : `/${langCode}`;
-  const relatedToolsList = VALID_TOOLS.filter(t => t !== toolSlug).slice(0, 4);
+  const relatedToolsList = VALID_TOOLS.filter(t => t !== toolSlug);
 
   const getToolIcon = (slug) => {
     switch (slug) {
@@ -435,6 +437,42 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
 
         </div>
       </section>
+
+      
+      {/* 3.5. Comprehensive Architectural & Technical Deep Dive (Ensures High E-E-A-T and 15%+ Text Ratio) */}
+      {archGuide && (
+        <section className="py-14 bg-white border-t border-slate-200">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-10">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-rose-700 bg-rose-50 px-3.5 py-1.5 rounded-full border border-rose-200 inline-block mb-3">
+                {archGuide.badge}
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+                {archGuide.heading}
+              </h2>
+              <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+                {archGuide.subtitle}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {archGuide.topics.map((topic, idx) => (
+                <div key={idx} className="p-6 sm:p-7 rounded-3xl bg-slate-50 border border-slate-200/90 shadow-2xs space-y-3">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                    {topic.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm font-semibold text-rose-700 leading-relaxed">
+                    {topic.lead}
+                  </p>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed whitespace-pre-line">
+                    {topic.content}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 4. EXACTLY 12 FAQs ACCORDION WITH FAQPAGESCHEMA (100% Localized) */}
       <FaqSection

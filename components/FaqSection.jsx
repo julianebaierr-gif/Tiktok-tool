@@ -80,14 +80,16 @@ export default function FaqSection({
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: items.map((item) => ({
-      '@type': 'Question',
-      name: item.q || item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.a || item.answer,
-      },
-    })),
+    mainEntity: items
+      .map((item) => ({
+        '@type': 'Question',
+        name: String(item.q || item.question || '').replace(/<[^>]*>/g, '').trim(),
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: String(item.a || item.answer || '').replace(/<[^>]*>/g, '').trim(),
+        },
+      }))
+      .filter((q) => q.name && q.acceptedAnswer.text),
   };
 
   return (

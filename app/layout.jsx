@@ -128,12 +128,20 @@ export default function RootLayout({ children }) {
         {/* Ahrefs Webmaster Tools Verification */}
         <meta name="ahrefs-site-verification" content="6280d6ffc889f33450faf4b4e2b42b8f54cb5c65bc96be932da9f4d0d51726d4" />
 
-        {/* Ahrefs Analytics */}
+        {/* Ahrefs Analytics (Dynamic client-side asynchronous insertion) */}
         <script
-          src="https://analytics.ahrefs.com/analytics.js"
-          data-key="NIXg5dEvOn43YTeKNu6i8A"
-          async
-        ></script>
+          dangerouslySetInnerHTML={{
+            __html: `(function(){
+              if(typeof window !== 'undefined'){
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = 'https://analytics.ahrefs.com/analytics.js';
+                s.setAttribute('data-key', 'NIXg5dEvOn43YTeKNu6i8A');
+                document.head.appendChild(s);
+              }
+            })();`,
+          }}
+        />
 
         <meta name="theme-color" content="#0F172A" />
       </head>

@@ -4,7 +4,7 @@ import { Home, ArrowLeft } from 'lucide-react';
 
 export const metadata = {
   title: 'Page Not Found (404)',
-  description: 'The requested page could not be found on QukTik.',
+  description: 'The requested page could not be found on QukTik. Explore our free TikTok video, MP3, and photo download tools on the homepage.',
   robots: {
     index: false,
     follow: false,

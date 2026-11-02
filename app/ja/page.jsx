@@ -3,7 +3,7 @@ import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
   title: { absolute: "TikTok動画保存 透かしなし 無料ツール | QukTik" },
-  description: "TikTokの動画を透かし・ロゴなしで高画質MP4やMP3として無料ダウンロード保存。スマホやPCでアプリ不要ですぐ使えます。",
+  description: "TikTokの動画を透かし・ロゴなしの最高画質1080p MP4や高音質320kbps MP3として完全無料でダウンロード保存。iPhone、Android、PC対応でアプリや会員登録不要ですぐに使えます。",
   alternates: {
     canonical: 'https://www.quktik.com/ja',
     languages: {
@@ -24,7 +24,7 @@ export const metadata = {
   },
   openGraph: {
     title: "TikTok動画保存 透かしなし 無料ツール | QukTik",
-    description: "TikTokの動画を透かし・ロゴなしで高画質MP4やMP3として無料ダウンロード保存。スマホやPCでアプリ不要ですぐ使えます。",
+    description: "TikTokの動画を透かし・ロゴなしの最高画質1080p MP4や高音質320kbps MP3として完全無料でダウンロード保存。iPhone、Android、PC対応でアプリや会員登録不要ですぐに使えます。",
     url: 'https://www.quktik.com/ja',
     type: 'website',
     images: [

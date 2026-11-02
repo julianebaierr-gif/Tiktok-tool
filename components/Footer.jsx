@@ -106,6 +106,51 @@ export default function Footer() {
 
 
 
+        {/* Global Editions & Language Hub */}
+        <div className="mt-10 pt-8 border-t border-slate-200">
+          <h3 className="text-slate-900 font-bold mb-3 text-xs tracking-wider uppercase">
+            Global Editions &amp; Languages (12)
+          </h3>
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs">
+            <Link href="/" className="text-slate-600 hover:text-rose-700 font-medium transition-colors">
+              🇺🇸 English
+            </Link>
+            <Link href="/es" className="text-slate-600 hover:text-rose-700 font-medium transition-colors">
+              🇪🇸 Español
+            </Link>
+            <Link href="/pt" className="text-slate-600 hover:text-rose-700 font-medium transition-colors">
+              🇧🇷 Português
+            </Link>
+            <Link href="/id" className="text-slate-600 hover:text-rose-700 font-medium transition-colors">
+              🇮🇩 Bahasa Indonesia
+            </Link>
+            <Link href="/fr" className="text-slate-600 hover:text-rose-700 font-medium transition-colors">
+              🇫🇷 Français
+            </Link>
+            <Link href="/ar" className="text-slate-600 hover:text-rose-700 font-medium transition-colors">
+              🇸🇦 العربية
+            </Link>
+            <Link href="/de" className="text-slate-600 hover:text-rose-700 font-medium transition-colors">
+              🇩🇪 Deutsch
+            </Link>
+            <Link href="/vi" className="text-slate-600 hover:text-rose-700 font-medium transition-colors">
+              🇻🇳 Tiếng Việt
+            </Link>
+            <Link href="/tr" className="text-slate-600 hover:text-rose-700 font-medium transition-colors">
+              🇹🇷 Türkçe
+            </Link>
+            <Link href="/it" className="text-slate-600 hover:text-rose-700 font-medium transition-colors">
+              🇮🇹 Italiano
+            </Link>
+            <Link href="/ru" className="text-slate-600 hover:text-rose-700 font-medium transition-colors">
+              🇷🇺 Русский
+            </Link>
+            <Link href="/ja" className="text-slate-600 hover:text-rose-700 font-medium transition-colors">
+              🇯🇵 日本語
+            </Link>
+          </div>
+        </div>
+
         {/* Official DMCA Disclaimer */}
         <div className="mt-8 p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-500 leading-relaxed shadow-sm">
           <p>

@@ -9,7 +9,9 @@ import {
   BellRing, 
   UserCircle, 
   ArrowRight,
-  Sparkles
+  Sparkles,
+  FolderArchive,
+  Flame
 } from 'lucide-react';
 
 const ALL_TOOLS = [
@@ -61,6 +63,20 @@ const ALL_TOOLS = [
     badge: 'Full Resolution',
     description: 'View and download full-resolution TikTok profile pictures and avatars in uncropped HD.',
     icon: UserCircle,
+  },
+  {
+    slug: '/tiktok-bulk-downloader',
+    title: 'TikTok Bulk Downloader ZIP',
+    badge: 'Batch Multi-URL',
+    description: 'Download multiple TikTok videos in one click and save them as a single ZIP archive.',
+    icon: FolderArchive,
+  },
+  {
+    slug: '/trending-sounds',
+    title: 'Trending TikTok Sounds MP3',
+    badge: 'Viral Audio',
+    description: 'Discover and download current viral TikTok audio clips and background music in 320kbps MP3.',
+    icon: Flame,
   }
 ];
 
