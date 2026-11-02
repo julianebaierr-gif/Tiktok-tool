@@ -24,7 +24,7 @@ import ContactForm from '../../components/ContactForm';
 
 export const metadata = {
   title: 'Contact Support & Help Center | QukTik',
-  description: 'Connect with QukTik support for technical assistance, bug reports, DMCA copyright takedown requests, partnership inquiries, and self-service diagnostics.',
+  description: 'Connect with QukTik support for technical assistance, bug reports, DMCA copyright takedown requests, and self-service diagnostics.',
   alternates: {
     canonical: 'https://www.quktik.com/contact',
   },
@@ -33,6 +33,15 @@ export const metadata = {
     description: 'Get in touch with the QukTik support team for technical assistance, copyright notices, or platform diagnostics.',
     url: 'https://www.quktik.com/contact',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.quktik.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'QukTik - TikTok & Douyin Video Downloader',
+      },
+    ],
+    siteName: 'QukTik',
   },
 };
 
@@ -215,7 +224,7 @@ export default function ContactPage() {
                   <span>Photo Slideshows &amp; Image ZIP Bundles</span>
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  For photo carousel posts, QukTik extracts every individual slide at its maximum native JPEG resolution (up to 1080x1920). You can choose to download images one by one or save the whole gallery packaged with its background audio stem through our dedicated <Link href="/photo-downloader" className="text-rose-700 font-semibold hover:underline">Photo Downloader</Link>.
+                  For photo carousel posts, QukTik extracts every individual slide at its maximum native JPEG resolution (up to 1080x1920). You can choose to download images one by one or save the whole gallery packaged with its background audio stem through our dedicated <Link href="/tiktok-photo" className="text-rose-700 font-semibold hover:underline">Photo Downloader</Link>.
                 </p>
               </div>
 

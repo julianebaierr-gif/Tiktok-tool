@@ -45,10 +45,25 @@ export const metadata = {
     }
   },
   openGraph: {
-    title: 'Trending TikTok Sounds MP3 | QukTik',
-    description: 'Listen and download trending TikTok sounds and viral songs in 320kbps MP3 for free. Weekly updated chart of top viral TikTok music with no login.',
+    title: 'Trending TikTok Sounds & Viral Music Chart 2026 | QukTik',
+    description: 'Explore the hottest viral TikTok songs, challenge tracks, and speed-up remixes across 12 countries. Download 320kbps MP3s or create ringtones online for free.',
     url: 'https://www.quktik.com/trending-sounds',
     type: 'website',
+    siteName: 'QukTik',
+    images: [
+      {
+        url: 'https://www.quktik.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'QukTik - Trending TikTok Sounds & Viral Music',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Trending TikTok Sounds & Viral Music Chart 2026 | QukTik',
+    description: 'Explore the hottest viral TikTok songs and download 320kbps MP3s.',
+    images: ['https://www.quktik.com/og-image.png'],
   }
 };
 

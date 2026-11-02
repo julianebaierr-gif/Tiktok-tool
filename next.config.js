@@ -13,6 +13,15 @@ const nextConfig = {
       { protocol: 'https', hostname: '**.tiktokv.us' },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/photo-downloader',
+        destination: '/tiktok-photo',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

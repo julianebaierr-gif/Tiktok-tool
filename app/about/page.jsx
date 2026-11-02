@@ -21,7 +21,7 @@ import {
 
 export const metadata = {
   title: 'About QukTik | Mission, Technology & Creator Transparency',
-  description: 'Discover QukTik: our engineering philosophy, direct CDN manifest extraction technology, commitment to user privacy, and ethical short-form media archiving guidelines.',
+  description: 'Learn about QukTik: direct CDN manifest extraction technology, stateless zero-storage privacy, and our mission for ethical media archiving.',
   alternates: {
     canonical: 'https://www.quktik.com/about',
   },
@@ -30,6 +30,15 @@ export const metadata = {
     description: 'Learn about QukTik, our engineering philosophy, direct CDN extraction technology, and ethical short-form media archiving.',
     url: 'https://www.quktik.com/about',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.quktik.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'QukTik - TikTok & Douyin Video Downloader',
+      },
+    ],
+    siteName: 'QukTik',
   },
 };
 

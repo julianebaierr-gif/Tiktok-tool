@@ -52,6 +52,21 @@ export const metadata = {
     description: 'Download multiple TikTok videos in 1 single ZIP archive. Paste up to 10 links, fetch HD MP4s without watermarks, and save all at once for free.',
     url: 'https://www.quktik.com/tiktok-bulk-downloader',
     type: 'website',
+    siteName: 'QukTik',
+    images: [
+      {
+        url: 'https://www.quktik.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'QukTik - TikTok Bulk Downloader ZIP',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'TikTok Bulk Downloader ZIP | QukTik',
+    description: 'Download multiple TikTok videos in 1 single ZIP archive for free.',
+    images: ['https://www.quktik.com/og-image.png'],
   }
 };
 

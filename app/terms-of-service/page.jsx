@@ -27,6 +27,15 @@ export const metadata = {
     description: 'Understand the terms governing your use of QukTik media downloader, acceptable use rules, and legal liabilities.',
     url: 'https://www.quktik.com/terms-of-service',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.quktik.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'QukTik - TikTok & Douyin Video Downloader',
+      },
+    ],
+    siteName: 'QukTik',
   },
 };
 
@@ -74,7 +83,7 @@ export default function TermsOfServicePage() {
               These Terms of Service constitute a legally binding agreement between you (whether individually or as an authorized representative of an entity, referred to herein as &quot;User&quot;, &quot;you&quot;, or &quot;your&quot;) and QukTik (&quot;Service&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), accessible at <Link href="/" className="text-rose-700 font-semibold hover:underline">https://www.quktik.com</Link>.
             </p>
             <p>
-              By accessing, browsing, copying links into, or otherwise using any feature of QukTik (including our <Link href="/tiktok-video-downloader" className="text-rose-700 font-semibold hover:underline">TikTok Video Downloader</Link>, <Link href="/tiktok-mp3" className="text-rose-700 font-semibold hover:underline">TikTok MP3 Converter</Link>, <Link href="/photo-downloader" className="text-rose-700 font-semibold hover:underline">Photo Slideshow Downloader</Link>, and <Link href="/douyin-downloader" className="text-rose-700 font-semibold hover:underline">Douyin Downloader</Link>), you affirm that:
+              By accessing, browsing, copying links into, or otherwise using any feature of QukTik (including our <Link href="/tiktok-video-downloader" className="text-rose-700 font-semibold hover:underline">TikTok Video Downloader</Link>, <Link href="/tiktok-mp3" className="text-rose-700 font-semibold hover:underline">TikTok MP3 Converter</Link>, <Link href="/tiktok-photo" className="text-rose-700 font-semibold hover:underline">Photo Slideshow Downloader</Link>, and <Link href="/douyin-downloader" className="text-rose-700 font-semibold hover:underline">Douyin Downloader</Link>), you affirm that:
             </p>
             <ul className="list-disc list-inside space-y-2 text-slate-600 pl-2 text-xs sm:text-sm">
               <li>You are at least thirteen (13) years of age (or the minimum age of digital consent required in your country of residence). If you are between 13 and 18 years old, you have reviewed these terms with a parent or legal guardian who accepts them on your behalf.</li>

@@ -27,6 +27,15 @@ export const metadata = {
     description: "Téléchargez des vidéos TikTok sans filigrane en HD MP4 et MP3 gratuitement en ligne. Rapide et simple sur mobile et ordinateur.",
     url: 'https://www.quktik.com/fr',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.quktik.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'QukTik - TikTok & Douyin Video Downloader',
+      },
+    ],
+    siteName: 'QukTik',
   },
 };
 

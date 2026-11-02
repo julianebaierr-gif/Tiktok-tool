@@ -27,6 +27,15 @@ export const metadata = {
     description: "Baixe vídeos do TikTok sem marca d'água em HD MP4 e MP3 online. Rápido, gratuito e seguro para celular e PC sem instalar nada.",
     url: 'https://www.quktik.com/pt',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.quktik.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'QukTik - TikTok & Douyin Video Downloader',
+      },
+    ],
+    siteName: 'QukTik',
   },
 };
 

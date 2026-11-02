@@ -27,6 +27,15 @@ export const metadata = {
     description: "Tải video TikTok không logo, không watermark chuẩn HD MP4 và MP3 miễn phí. Tải nhanh cho điện thoại và máy tính không cần cài app.",
     url: 'https://www.quktik.com/vi',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.quktik.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'QukTik - TikTok & Douyin Video Downloader',
+      },
+    ],
+    siteName: 'QukTik',
   },
 };
 

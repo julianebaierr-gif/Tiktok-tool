@@ -27,6 +27,15 @@ export const metadata = {
     description: 'Statutory DMCA Copyright Compliance, Trademark Non-Affiliation Disclaimers, and Safe Harbor Protections.',
     url: 'https://www.quktik.com/disclaimer',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.quktik.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'QukTik - TikTok & Douyin Video Downloader',
+      },
+    ],
+    siteName: 'QukTik',
   },
 };
 
@@ -297,7 +306,7 @@ export default function DisclaimerPage() {
               </h2>
             </div>
             <p>
-              By accessing and utilizing QukTik&apos;s tools (including our <Link href="/tiktok-video-downloader" className="text-rose-700 font-semibold hover:underline">TikTok Video Downloader</Link>, <Link href="/tiktok-mp3" className="text-rose-700 font-semibold hover:underline">TikTok MP3 Audio Converter</Link>, <Link href="/photo-downloader" className="text-rose-700 font-semibold hover:underline">Photo Slideshow Downloader</Link>, and <Link href="/douyin-downloader" className="text-rose-700 font-semibold hover:underline">Douyin Downloader</Link>), you expressly represent and warrant that:
+              By accessing and utilizing QukTik&apos;s tools (including our <Link href="/tiktok-video-downloader" className="text-rose-700 font-semibold hover:underline">TikTok Video Downloader</Link>, <Link href="/tiktok-mp3" className="text-rose-700 font-semibold hover:underline">TikTok MP3 Audio Converter</Link>, <Link href="/tiktok-photo" className="text-rose-700 font-semibold hover:underline">Photo Slideshow Downloader</Link>, and <Link href="/douyin-downloader" className="text-rose-700 font-semibold hover:underline">Douyin Downloader</Link>), you expressly represent and warrant that:
             </p>
             <ul className="list-disc list-inside space-y-2 text-slate-600 pl-2 text-xs sm:text-sm">
               <li>You will use downloaded content exclusively for personal, private, non-commercial offline archiving, scholarly commentary, or educational study.</li>

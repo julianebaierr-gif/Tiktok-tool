@@ -90,11 +90,33 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
 
       {/* 1. Main Interactive Tool Header / Component */}
       {isBulk ? (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-rose-700 bg-rose-50 px-4 py-1.5 rounded-full border border-rose-200 inline-block mb-3">
+              {hero.badge || 'Batch Downloader ZIP'}
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+              {hero.title || toolData?.titles?.[langCode] || 'TikTok Bulk Downloader ZIP'}
+            </h1>
+            <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              {hero.subtitle || 'Download up to 10 TikTok videos or audios simultaneously in a clean ZIP bundle.'}
+            </p>
+          </div>
           <BulkDownloader langCode={langCode} />
         </div>
       ) : isSounds ? (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-rose-700 bg-rose-50 px-4 py-1.5 rounded-full border border-rose-200 inline-block mb-3">
+              {hero.badge || 'Trending Sounds & Music'}
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+              {hero.title || toolData?.titles?.[langCode] || 'Trending TikTok Sounds & Viral Songs'}
+            </h1>
+            <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              {hero.subtitle || 'Discover weekly trending songs, speed-up remixes, and challenge audios across 12 countries.'}
+            </p>
+          </div>
           <TrendingSoundsClient langCode={langCode} />
         </div>
       ) : (

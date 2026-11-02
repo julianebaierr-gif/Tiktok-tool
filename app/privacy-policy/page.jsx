@@ -18,7 +18,7 @@ import {
 
 export const metadata = {
   title: 'Privacy Policy & Data Protection Declaration | QukTik',
-  description: 'Official QukTik Privacy Policy detailing our zero-PII data minimization philosophy, Google AdSense cookie compliance, GDPR, CCPA/CPRA rights, and server security.',
+  description: 'Official QukTik Privacy Policy: zero-PII data minimization, Google AdSense cookie compliance, GDPR, CCPA/CPRA rights, and security standards.',
   alternates: {
     canonical: 'https://www.quktik.com/privacy-policy',
   },
@@ -27,6 +27,15 @@ export const metadata = {
     description: 'Learn how QukTik safeguards your privacy with stateless stream forwarding, zero account requirements, and global privacy compliance.',
     url: 'https://www.quktik.com/privacy-policy',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.quktik.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'QukTik - TikTok & Douyin Video Downloader',
+      },
+    ],
+    siteName: 'QukTik',
   },
 };
 
@@ -71,7 +80,7 @@ export default function PrivacyPolicyPage() {
               </h2>
             </div>
             <p>
-              This Privacy Policy governs the operations of <strong>QukTik</strong> (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;, or the &quot;Service&quot;), accessible via <Link href="/" className="text-rose-700 font-semibold hover:underline">https://www.quktik.com</Link>, along with our specialized tools including the <Link href="/tiktok-video-downloader" className="text-rose-700 font-semibold hover:underline">TikTok Video Downloader</Link>, <Link href="/tiktok-mp3" className="text-rose-700 font-semibold hover:underline">TikTok MP3 Audio Converter</Link>, <Link href="/photo-downloader" className="text-rose-700 font-semibold hover:underline">Photo Slideshow Downloader</Link>, and <Link href="/douyin-downloader" className="text-rose-700 font-semibold hover:underline">Douyin Downloader</Link>.
+              This Privacy Policy governs the operations of <strong>QukTik</strong> (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;, or the &quot;Service&quot;), accessible via <Link href="/" className="text-rose-700 font-semibold hover:underline">https://www.quktik.com</Link>, along with our specialized tools including the <Link href="/tiktok-video-downloader" className="text-rose-700 font-semibold hover:underline">TikTok Video Downloader</Link>, <Link href="/tiktok-mp3" className="text-rose-700 font-semibold hover:underline">TikTok MP3 Audio Converter</Link>, <Link href="/tiktok-photo" className="text-rose-700 font-semibold hover:underline">Photo Slideshow Downloader</Link>, and <Link href="/douyin-downloader" className="text-rose-700 font-semibold hover:underline">Douyin Downloader</Link>.
             </p>
             <p>
               For the purposes of the General Data Protection Regulation (Regulation (EU) 2016/679 - &quot;GDPR&quot;) and the UK Data Protection Act 2018, QukTik serves as the <strong>Data Controller</strong> with respect to the limited technical telemetry generated when you navigate our web properties. Our foundational philosophy is grounded in <em>Privacy by Design and by Default</em> (GDPR Article 25): we collect only the absolute minimum information required to deliver high-performance stream parsing safely and reliably.

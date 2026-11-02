@@ -27,6 +27,15 @@ export const metadata = {
     description: "Скачать видео с Тик Тока без водяного знака в HD MP4 и MP3 бесплатно. Быстрое сохранение на телефон и ПК без установки программ.",
     url: 'https://www.quktik.com/ru',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.quktik.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'QukTik - TikTok & Douyin Video Downloader',
+      },
+    ],
+    siteName: 'QukTik',
   },
 };
 

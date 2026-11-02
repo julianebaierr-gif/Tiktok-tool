@@ -27,6 +27,15 @@ export const metadata = {
     description: "Download video TikTok tanpa watermark kualitas HD MP4 dan MP3 gratis. Cepat, mudah, dan aman untuk HP atau laptop tanpa aplikasi.",
     url: 'https://www.quktik.com/id',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.quktik.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'QukTik - TikTok & Douyin Video Downloader',
+      },
+    ],
+    siteName: 'QukTik',
   },
 };
 

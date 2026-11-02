@@ -27,6 +27,15 @@ export const metadata = {
     description: "Scarica video TikTok senza watermark in alta definizione MP4 e audio MP3 online gratis. Veloce e sicuro per cellulare e computer.",
     url: 'https://www.quktik.com/it',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.quktik.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'QukTik - TikTok & Douyin Video Downloader',
+      },
+    ],
+    siteName: 'QukTik',
   },
 };
 

@@ -27,6 +27,15 @@ export const metadata = {
     description: "TikTokの動画を透かし・ロゴなしで高画質MP4やMP3として無料ダウンロード保存。スマホやPCでアプリ不要ですぐ使えます。",
     url: 'https://www.quktik.com/ja',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.quktik.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'QukTik - TikTok & Douyin Video Downloader',
+      },
+    ],
+    siteName: 'QukTik',
   },
 };
 

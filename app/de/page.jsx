@@ -27,6 +27,15 @@ export const metadata = {
     description: "TikTok Videos ohne Wasserzeichen in HD MP4 oder MP3 kostenlos online herunterladen. Schnell und sicher für Handy und PC.",
     url: 'https://www.quktik.com/de',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.quktik.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'QukTik - TikTok & Douyin Video Downloader',
+      },
+    ],
+    siteName: 'QukTik',
   },
 };
 
