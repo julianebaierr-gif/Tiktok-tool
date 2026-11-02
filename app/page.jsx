@@ -8,11 +8,10 @@ import SiteSchema from '../components/SiteSchema';
 
 export const metadata = {
   title: { absolute: 'Download TikTok Video No Watermark | QukTik' },
-  description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for mobile and PC with no app needed.',
+  description: "Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for iPhone, Android, and PC with no app or registration needed.",
   alternates: {
     canonical: 'https://www.quktik.com',
     languages: {
-      'x-default': 'https://www.quktik.com',
       'en': 'https://www.quktik.com',
       'es': 'https://www.quktik.com/es',
       'pt': 'https://www.quktik.com/pt',
@@ -25,11 +24,12 @@ export const metadata = {
       'it': 'https://www.quktik.com/it',
       'ru': 'https://www.quktik.com/ru',
       'ja': 'https://www.quktik.com/ja',
+      'x-default': 'https://www.quktik.com',
     },
   },
   openGraph: {
     title: { absolute: 'Download TikTok Video No Watermark | QukTik' },
-    description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for mobile and PC with no app needed.',
+    description: "Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for iPhone, Android, and PC with no app or registration needed.",
     url: 'https://www.quktik.com',
     type: 'website',
     images: [

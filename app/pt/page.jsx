@@ -3,11 +3,10 @@ import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
   title: { absolute: "Baixar Vídeo do TikTok Sem Marca | QukTik" },
-  description: "Baixe vídeos do TikTok sem marca d'água em HD MP4 e MP3 online. Rápido, gratuito e seguro para celular e PC sem instalar nada.",
+  description: "Baixe vídeos do TikTok sem marca d'água em HD MP4 e MP3 online. Rápido, gratuito e seguro para celular e computador sem precisar instalar nada nem registrar.",
   alternates: {
     canonical: 'https://www.quktik.com/pt',
     languages: {
-      'x-default': 'https://www.quktik.com',
       'en': 'https://www.quktik.com',
       'es': 'https://www.quktik.com/es',
       'pt': 'https://www.quktik.com/pt',
@@ -20,11 +19,12 @@ export const metadata = {
       'it': 'https://www.quktik.com/it',
       'ru': 'https://www.quktik.com/ru',
       'ja': 'https://www.quktik.com/ja',
+      'x-default': 'https://www.quktik.com',
     },
   },
   openGraph: {
     title: "Baixar Vídeo do TikTok Sem Marca | QukTik",
-    description: "Baixe vídeos do TikTok sem marca d'água em HD MP4 e MP3 online. Rápido, gratuito e seguro para celular e PC sem instalar nada.",
+    description: "Baixe vídeos do TikTok sem marca d'água em HD MP4 e MP3 online. Rápido, gratuito e seguro para celular e computador sem precisar instalar nada nem registrar.",
     url: 'https://www.quktik.com/pt',
     type: 'website',
     images: [
@@ -35,11 +35,9 @@ export const metadata = {
         alt: 'QukTik - TikTok & Douyin Video Downloader',
       },
     ],
-    siteName: 'QukTik',
   },
 };
 
-export default function PTPage() {
+export default function PortuguesePage() {
   return <LocalizedHomePage langCode="pt" />;
 }
-

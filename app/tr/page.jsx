@@ -3,11 +3,10 @@ import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
   title: { absolute: "Filigransız TikTok Video İndir | QukTik" },
-  description: "TikTok videolarını filigransız ve logosuz HD MP4 veya MP3 olarak ücretsiz indirin. Telefon ve bilgisayar için hızlı online araç.",
+  description: "TikTok videolarını filigransız ve logosuz HD MP4 veya MP3 olarak ücretsiz indirin. Telefon ve bilgisayar için hızlı, güvenli online araç hiçbir kayıt gerektirmez.",
   alternates: {
     canonical: 'https://www.quktik.com/tr',
     languages: {
-      'x-default': 'https://www.quktik.com',
       'en': 'https://www.quktik.com',
       'es': 'https://www.quktik.com/es',
       'pt': 'https://www.quktik.com/pt',
@@ -20,11 +19,12 @@ export const metadata = {
       'it': 'https://www.quktik.com/it',
       'ru': 'https://www.quktik.com/ru',
       'ja': 'https://www.quktik.com/ja',
+      'x-default': 'https://www.quktik.com',
     },
   },
   openGraph: {
     title: "Filigransız TikTok Video İndir | QukTik",
-    description: "TikTok videolarını filigransız ve logosuz HD MP4 veya MP3 olarak ücretsiz indirin. Telefon ve bilgisayar için hızlı online araç.",
+    description: "TikTok videolarını filigransız ve logosuz HD MP4 veya MP3 olarak ücretsiz indirin. Telefon ve bilgisayar için hızlı, güvenli online araç hiçbir kayıt gerektirmez.",
     url: 'https://www.quktik.com/tr',
     type: 'website',
     images: [

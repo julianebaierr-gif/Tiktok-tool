@@ -32,7 +32,6 @@ export const metadata = {
   alternates: {
     canonical: 'https://www.quktik.com/tiktok-bulk-downloader',
     languages: {
-      'x-default': 'https://www.quktik.com/tiktok-bulk-downloader',
       'en': 'https://www.quktik.com/tiktok-bulk-downloader',
       'es': 'https://www.quktik.com/es/tiktok-bulk-downloader',
       'pt': 'https://www.quktik.com/pt/tiktok-bulk-downloader',
@@ -45,6 +44,7 @@ export const metadata = {
       'it': 'https://www.quktik.com/it/tiktok-bulk-downloader',
       'ru': 'https://www.quktik.com/ru/tiktok-bulk-downloader',
       'ja': 'https://www.quktik.com/ja/tiktok-bulk-downloader',
+      'x-default': 'https://www.quktik.com/tiktok-bulk-downloader',
     }
   },
   openGraph: {

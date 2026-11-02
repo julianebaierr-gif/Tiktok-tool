@@ -3,11 +3,10 @@ import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
   title: { absolute: "Tải Video TikTok Không Logo Mới Nhất | QukTik" },
-  description: "Tải video TikTok không logo, không watermark chuẩn HD MP4 và MP3 miễn phí. Tải nhanh cho điện thoại và máy tính không cần cài app.",
+  description: "Tải video TikTok không logo, không watermark chuẩn HD MP4 và MP3 miễn phí. Tải nhanh chóng cho điện thoại và máy tính không cần cài app hay đăng ký.",
   alternates: {
     canonical: 'https://www.quktik.com/vi',
     languages: {
-      'x-default': 'https://www.quktik.com',
       'en': 'https://www.quktik.com',
       'es': 'https://www.quktik.com/es',
       'pt': 'https://www.quktik.com/pt',
@@ -20,11 +19,12 @@ export const metadata = {
       'it': 'https://www.quktik.com/it',
       'ru': 'https://www.quktik.com/ru',
       'ja': 'https://www.quktik.com/ja',
+      'x-default': 'https://www.quktik.com',
     },
   },
   openGraph: {
     title: "Tải Video TikTok Không Logo Mới Nhất | QukTik",
-    description: "Tải video TikTok không logo, không watermark chuẩn HD MP4 và MP3 miễn phí. Tải nhanh cho điện thoại và máy tính không cần cài app.",
+    description: "Tải video TikTok không logo, không watermark chuẩn HD MP4 và MP3 miễn phí. Tải nhanh chóng cho điện thoại và máy tính không cần cài app hay đăng ký.",
     url: 'https://www.quktik.com/vi',
     type: 'website',
     images: [

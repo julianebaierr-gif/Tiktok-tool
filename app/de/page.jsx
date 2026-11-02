@@ -3,11 +3,10 @@ import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
   title: { absolute: "TikTok Video Ohne Wasserzeichen | QukTik" },
-  description: "TikTok Videos ohne Wasserzeichen in HD MP4 oder MP3 kostenlos online herunterladen. Schnell und sicher für Handy und PC.",
+  description: "TikTok Videos ohne Wasserzeichen in HD MP4 oder MP3 kostenlos online herunterladen. Schnell, sicher und unbegrenzt für Handy und PC ohne Installation.",
   alternates: {
     canonical: 'https://www.quktik.com/de',
     languages: {
-      'x-default': 'https://www.quktik.com',
       'en': 'https://www.quktik.com',
       'es': 'https://www.quktik.com/es',
       'pt': 'https://www.quktik.com/pt',
@@ -20,11 +19,12 @@ export const metadata = {
       'it': 'https://www.quktik.com/it',
       'ru': 'https://www.quktik.com/ru',
       'ja': 'https://www.quktik.com/ja',
+      'x-default': 'https://www.quktik.com',
     },
   },
   openGraph: {
     title: "TikTok Video Ohne Wasserzeichen | QukTik",
-    description: "TikTok Videos ohne Wasserzeichen in HD MP4 oder MP3 kostenlos online herunterladen. Schnell und sicher für Handy und PC.",
+    description: "TikTok Videos ohne Wasserzeichen in HD MP4 oder MP3 kostenlos online herunterladen. Schnell, sicher und unbegrenzt für Handy und PC ohne Installation.",
     url: 'https://www.quktik.com/de',
     type: 'website',
     images: [

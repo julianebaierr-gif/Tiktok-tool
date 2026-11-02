@@ -3,11 +3,10 @@ import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
   title: { absolute: "Scaricare Video TikTok Senza Watermark QukTik" },
-  description: "Scarica video TikTok senza watermark in alta definizione MP4 e audio MP3 online gratis. Veloce e sicuro per cellulare e computer.",
+  description: "Scarica video TikTok senza watermark in alta definizione MP4 e audio MP3 online gratis. Veloce, sicuro e senza limiti per cellulare e computer senza account.",
   alternates: {
     canonical: 'https://www.quktik.com/it',
     languages: {
-      'x-default': 'https://www.quktik.com',
       'en': 'https://www.quktik.com',
       'es': 'https://www.quktik.com/es',
       'pt': 'https://www.quktik.com/pt',
@@ -20,11 +19,12 @@ export const metadata = {
       'it': 'https://www.quktik.com/it',
       'ru': 'https://www.quktik.com/ru',
       'ja': 'https://www.quktik.com/ja',
+      'x-default': 'https://www.quktik.com',
     },
   },
   openGraph: {
     title: "Scaricare Video TikTok Senza Watermark QukTik",
-    description: "Scarica video TikTok senza watermark in alta definizione MP4 e audio MP3 online gratis. Veloce e sicuro per cellulare e computer.",
+    description: "Scarica video TikTok senza watermark in alta definizione MP4 e audio MP3 online gratis. Veloce, sicuro e senza limiti per cellulare e computer senza account.",
     url: 'https://www.quktik.com/it',
     type: 'website',
     images: [

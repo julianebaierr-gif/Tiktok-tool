@@ -29,7 +29,6 @@ export const metadata = {
   alternates: {
     canonical: 'https://www.quktik.com/trending-sounds',
     languages: {
-      'x-default': 'https://www.quktik.com/trending-sounds',
       'en': 'https://www.quktik.com/trending-sounds',
       'es': 'https://www.quktik.com/es/trending-sounds',
       'pt': 'https://www.quktik.com/pt/trending-sounds',
@@ -42,6 +41,7 @@ export const metadata = {
       'it': 'https://www.quktik.com/it/trending-sounds',
       'ru': 'https://www.quktik.com/ru/trending-sounds',
       'ja': 'https://www.quktik.com/ja/trending-sounds',
+      'x-default': 'https://www.quktik.com/trending-sounds',
     }
   },
   openGraph: {

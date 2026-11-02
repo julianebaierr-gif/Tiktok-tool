@@ -3,11 +3,10 @@ import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
   title: { absolute: "Download TikTok Tanpa Watermark | QukTik" },
-  description: "Download video TikTok tanpa watermark kualitas HD MP4 dan MP3 gratis. Cepat, mudah, dan aman untuk HP atau laptop tanpa aplikasi.",
+  description: "Download video TikTok tanpa watermark kualitas HD MP4 dan MP3 gratis. Cepat, mudah, dan aman untuk HP Android, iPhone, atau laptop tanpa aplikasi apa pun.",
   alternates: {
     canonical: 'https://www.quktik.com/id',
     languages: {
-      'x-default': 'https://www.quktik.com',
       'en': 'https://www.quktik.com',
       'es': 'https://www.quktik.com/es',
       'pt': 'https://www.quktik.com/pt',
@@ -20,11 +19,12 @@ export const metadata = {
       'it': 'https://www.quktik.com/it',
       'ru': 'https://www.quktik.com/ru',
       'ja': 'https://www.quktik.com/ja',
+      'x-default': 'https://www.quktik.com',
     },
   },
   openGraph: {
     title: "Download TikTok Tanpa Watermark | QukTik",
-    description: "Download video TikTok tanpa watermark kualitas HD MP4 dan MP3 gratis. Cepat, mudah, dan aman untuk HP atau laptop tanpa aplikasi.",
+    description: "Download video TikTok tanpa watermark kualitas HD MP4 dan MP3 gratis. Cepat, mudah, dan aman untuk HP Android, iPhone, atau laptop tanpa aplikasi apa pun.",
     url: 'https://www.quktik.com/id',
     type: 'website',
     images: [

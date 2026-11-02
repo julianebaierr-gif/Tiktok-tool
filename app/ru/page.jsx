@@ -3,11 +3,10 @@ import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
   title: { absolute: "Скачать видео с Тик Тока без водяного знака" },
-  description: "Скачать видео с Тик Тока без водяного знака в HD MP4 и MP3 бесплатно. Быстрое сохранение на телефон и ПК без установки программ.",
+  description: "Скачать видео с Тик Тока без водяного знака в HD MP4 и MP3 бесплатно. Быстрое и безопасное сохранение на телефон и ПК без установки программ и регистрации.",
   alternates: {
     canonical: 'https://www.quktik.com/ru',
     languages: {
-      'x-default': 'https://www.quktik.com',
       'en': 'https://www.quktik.com',
       'es': 'https://www.quktik.com/es',
       'pt': 'https://www.quktik.com/pt',
@@ -20,11 +19,12 @@ export const metadata = {
       'it': 'https://www.quktik.com/it',
       'ru': 'https://www.quktik.com/ru',
       'ja': 'https://www.quktik.com/ja',
+      'x-default': 'https://www.quktik.com',
     },
   },
   openGraph: {
     title: "Скачать видео с Тик Тока без водяного знака",
-    description: "Скачать видео с Тик Тока без водяного знака в HD MP4 и MP3 бесплатно. Быстрое сохранение на телефон и ПК без установки программ.",
+    description: "Скачать видео с Тик Тока без водяного знака в HD MP4 и MP3 бесплатно. Быстрое и безопасное сохранение на телефон и ПК без установки программ и регистрации.",
     url: 'https://www.quktik.com/ru',
     type: 'website',
     images: [

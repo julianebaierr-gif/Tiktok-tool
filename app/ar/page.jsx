@@ -3,11 +3,10 @@ import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
   title: { absolute: "تنزيل وتثبيت فيديو تيك توك بدون علامة مائية مجاناً | QukTik" },
-  description: "تحميل فيديوهات تيك توك بدون علامة مائية بدقة عالية MP4 وموسيقى MP3 مجانا عبر الإنترنت للكمبيوتر والهاتف بدون برامج.",
+  description: "تحميل فيديوهات تيك توك بدون علامة مائية بدقة عالية MP4 وموسيقى MP3 مجاناً عبر الإنترنت للهاتف والكمبيوتر بدون برامج أو تسجيل وبسرعة فائقة.",
   alternates: {
     canonical: 'https://www.quktik.com/ar',
     languages: {
-      'x-default': 'https://www.quktik.com',
       'en': 'https://www.quktik.com',
       'es': 'https://www.quktik.com/es',
       'pt': 'https://www.quktik.com/pt',
@@ -20,11 +19,12 @@ export const metadata = {
       'it': 'https://www.quktik.com/it',
       'ru': 'https://www.quktik.com/ru',
       'ja': 'https://www.quktik.com/ja',
+      'x-default': 'https://www.quktik.com',
     },
   },
   openGraph: {
     title: "تنزيل وتثبيت فيديو تيك توك بدون علامة مائية مجاناً | QukTik",
-    description: "تحميل فيديوهات تيك توك بدون علامة مائية بدقة عالية MP4 وموسيقى MP3 مجانا عبر الإنترنت للكمبيوتر والهاتف بدون برامج.",
+    description: "تحميل فيديوهات تيك توك بدون علامة مائية بدقة عالية MP4 وموسيقى MP3 مجاناً عبر الإنترنت للهاتف والكمبيوتر بدون برامج أو تسجيل وبسرعة فائقة.",
     url: 'https://www.quktik.com/ar',
     type: 'website',
     images: [

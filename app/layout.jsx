@@ -9,7 +9,7 @@ export const metadata = {
     default: 'Download TikTok Video No Watermark | QukTik',
     template: '%s | QukTik'
   },
-  description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for mobile and PC with no app needed.',
+  description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for iPhone, Android, and PC with no app or registration needed.',
   keywords: [
     'download tiktok video',
     'tiktok without watermark',
@@ -29,7 +29,6 @@ export const metadata = {
   alternates: {
     canonical: 'https://www.quktik.com',
     languages: {
-      'x-default': 'https://www.quktik.com',
       'en': 'https://www.quktik.com',
       'es': 'https://www.quktik.com/es',
       'pt': 'https://www.quktik.com/pt',
@@ -42,6 +41,7 @@ export const metadata = {
       'it': 'https://www.quktik.com/it',
       'ru': 'https://www.quktik.com/ru',
       'ja': 'https://www.quktik.com/ja',
+      'x-default': 'https://www.quktik.com',
     },
     types: {
       'application/rss+xml': 'https://www.quktik.com/feed.xml',
@@ -64,7 +64,7 @@ export const metadata = {
     url: 'https://www.quktik.com',
     siteName: 'QukTik',
     title: 'Download TikTok Video No Watermark | QukTik',
-    description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for mobile and PC with no app needed.',
+    description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for iPhone, Android, and PC with no app or registration needed.',
     images: [
       {
         url: 'https://www.quktik.com/og-image.png',
@@ -77,7 +77,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Download TikTok Video No Watermark | QukTik',
-    description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for mobile and PC with no app needed.',
+    description: 'Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for iPhone, Android, and PC with no app or registration needed.',
     images: ['https://www.quktik.com/og-image.png'],
   },
   verification: {
@@ -90,20 +90,49 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Google tag (gtag.js) */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-6YFPXZPPT0"
-        />
+        
+        {/* Dynamic HTML lang attribute sync for client-side routing & headless crawlers */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-6YFPXZPPT0');
+              (function() {
+                try {
+                  var p = window.location.pathname.split('/')[1];
+                  var valid = ['es','pt','id','fr','ar','de','vi','tr','it','ru','ja'];
+                  if (valid.indexOf(p) !== -1) {
+                    document.documentElement.lang = p;
+                    if (p === 'ar') document.documentElement.dir = 'rtl';
+                  } else {
+                    document.documentElement.lang = 'en';
+                    document.documentElement.dir = 'ltr';
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
+
+        {/* Google Analytics (gtag.js) - dynamically loaded for real users; bot-safe */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var ua = (navigator.userAgent || '').toLowerCase();
+                  if (ua.indexOf('bot') !== -1 || ua.indexOf('crawl') !== -1 || ua.indexOf('spider') !== -1 || ua.indexOf('ahrefs') !== -1 || ua.indexOf('semrush') !== -1) return;
+                  var s = document.createElement('script');
+                  s.async = true;
+                  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6YFPXZPPT0';
+                  document.head.appendChild(s);
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  window.gtag = gtag;
+                  gtag('js', new Date());
+                  gtag('config', 'G-6YFPXZPPT0');
+                } catch(e) {}
+              })();
             `,
           }}
         />

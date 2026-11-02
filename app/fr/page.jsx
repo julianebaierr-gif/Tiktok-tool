@@ -3,11 +3,10 @@ import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
   title: { absolute: "Télécharger TikTok Sans Filigrane QukTik" },
-  description: "Téléchargez des vidéos TikTok sans filigrane en HD MP4 et MP3 gratuitement en ligne. Rapide et simple sur mobile et ordinateur.",
+  description: "Téléchargez des vidéos TikTok sans filigrane en HD MP4 et MP3 gratuitement en ligne. Rapide, fluide et sécurisé sur mobile et ordinateur sans inscription.",
   alternates: {
     canonical: 'https://www.quktik.com/fr',
     languages: {
-      'x-default': 'https://www.quktik.com',
       'en': 'https://www.quktik.com',
       'es': 'https://www.quktik.com/es',
       'pt': 'https://www.quktik.com/pt',
@@ -20,11 +19,12 @@ export const metadata = {
       'it': 'https://www.quktik.com/it',
       'ru': 'https://www.quktik.com/ru',
       'ja': 'https://www.quktik.com/ja',
+      'x-default': 'https://www.quktik.com',
     },
   },
   openGraph: {
     title: "Télécharger TikTok Sans Filigrane QukTik",
-    description: "Téléchargez des vidéos TikTok sans filigrane en HD MP4 et MP3 gratuitement en ligne. Rapide et simple sur mobile et ordinateur.",
+    description: "Téléchargez des vidéos TikTok sans filigrane en HD MP4 et MP3 gratuitement en ligne. Rapide, fluide et sécurisé sur mobile et ordinateur sans inscription.",
     url: 'https://www.quktik.com/fr',
     type: 'website',
     images: [

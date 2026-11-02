@@ -20,6 +20,7 @@ VALID_LANGS.forEach((lang) => {
   if (fs.existsSync(langLanding)) {
     let html = fs.readFileSync(langLanding, 'utf8');
     if (html.includes('<html lang="en"')) {
+      html = html.replace(/<html lang="en" suppressHydrationWarning/g, `${langTag} suppressHydrationWarning`);
       html = html.replace(/<html lang="en"/g, langTag);
       fs.writeFileSync(langLanding, html, 'utf8');
       modifiedCount++;
@@ -35,6 +36,7 @@ VALID_LANGS.forEach((lang) => {
         const fullPath = path.join(langDir, f);
         let html = fs.readFileSync(fullPath, 'utf8');
         if (html.includes('<html lang="en"')) {
+          html = html.replace(/<html lang="en" suppressHydrationWarning/g, `${langTag} suppressHydrationWarning`);
           html = html.replace(/<html lang="en"/g, langTag);
           fs.writeFileSync(fullPath, html, 'utf8');
           modifiedCount++;

@@ -201,6 +201,30 @@ export default function TrendingSoundsClient({ langCode = "en" }) {
     return matchesGenre && matchesSearch;
   });
 
+  const handleDownload = (track) => {
+    if (typeof window === 'undefined') return;
+    const downloadUrl = `/api/audio-download?file=${encodeURIComponent(track.audioFile || 'track-1.mp3')}&title=${encodeURIComponent(track.title)}&artist=${encodeURIComponent(track.artist)}`;
+    const safeDownloadFilename = `quktik_${track.title.toLowerCase().replace(/[^a-z0-9]+/g, '_')}_320kbps.mp3`;
+    const link = document.createElement('a');
+    link.href = downloadUrl;
+    link.download = safeDownloadFilename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleRingtoneDownload = (track, duration) => {
+    if (typeof window === 'undefined') return;
+    const downloadUrl = `/api/audio-download?file=${encodeURIComponent(track.audioFile || 'track-1.mp3')}&title=${encodeURIComponent(track.title)}&artist=${encodeURIComponent(track.artist)}`;
+    const safeDownloadFilename = `quktik_${track.title.toLowerCase().replace(/[^a-z0-9]+/g, '_')}_ringtone_${duration}s.mp3`;
+    const link = document.createElement('a');
+    link.href = downloadUrl;
+    link.download = safeDownloadFilename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="space-y-8">
       {/* Hidden Master Audio Player */}
@@ -383,8 +407,6 @@ export default function TrendingSoundsClient({ langCode = "en" }) {
               'bg-slate-100 text-slate-600 font-bold';
 
             const isTrimmingThis = trimmingTrack?.id === track.id;
-            const downloadUrl = `/api/audio-download?file=${encodeURIComponent(track.audioFile || 'track-1.mp3')}&title=${encodeURIComponent(track.title)}&artist=${encodeURIComponent(track.artist)}`;
-            const safeDownloadFilename = `quktik_${track.title.toLowerCase().replace(/[^a-z0-9]+/g, '_')}_320kbps.mp3`;
 
             return (
               <div 
@@ -475,15 +497,15 @@ export default function TrendingSoundsClient({ langCode = "en" }) {
                     </button>
 
                     {/* Reliable Same-Origin Native MP3 Download */}
-                    <a
-                      href={downloadUrl}
-                      download={safeDownloadFilename}
-                      rel="nofollow"
-                      className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-bold transition-all shadow-xs active:scale-95 flex items-center gap-1.5 shrink-0"
+                    <button
+                      type="button"
+                      onClick={() => handleDownload(track)}
+                      className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-bold transition-all shadow-xs active:scale-95 flex items-center gap-1.5 shrink-0 cursor-pointer"
+                      aria-label={`Download ${track.title} 320kbps MP3`}
                     >
                       <Download className="w-3.5 h-3.5" />
                       <span>{ui.downloadMp3 || 'Download MP3'}</span>
-                    </a>
+                    </button>
                   </div>
                 </div>
 
@@ -570,15 +592,15 @@ export default function TrendingSoundsClient({ langCode = "en" }) {
                           )}
                         </button>
 
-                        <a
-                          href={downloadUrl}
-                          download={`quktik_${track.title.toLowerCase().replace(/[^a-z0-9]+/g, '_')}_ringtone_${trimDuration}s.mp3`}
-                          rel="nofollow"
-                          className="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-xs"
+                        <button
+                          type="button"
+                          onClick={() => handleRingtoneDownload(track, trimDuration)}
+                          className="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"
+                          aria-label={`Save ${track.title} ringtone MP3`}
                         >
                           <Download className="w-3.5 h-3.5" />
                           <span>Save Ringtone MP3</span>
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>
