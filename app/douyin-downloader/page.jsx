@@ -3,6 +3,7 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
 import SiteSchema from '../../components/SiteSchema';
+import FaqSection from '../../components/FaqSection';
 
 import React from 'react';
 import { 
@@ -70,30 +71,19 @@ export default function DouyinDownloaderPage() {
     {
       q: "Why do standard western downloaders fail on Douyin links?",
       a: "Most western download sites hard-code regular expressions strictly for tiktok.com. They fail to parse Chinese character sets and cannot navigate ByteDance's domestic Chinese redirection chains. QukTik is specifically optimized for Chinese CDN routing."
+    },
+    {
+      q: "Is Douyin downloader available in other languages like Spanish, French, and Japanese?",
+      a: "Yes! You can access QukTik's Douyin downloader across all 12 supported languages, including Spanish (/es/douyin-downloader), French (/fr/douyin-downloader), German (/de/douyin-downloader), and Japanese (/ja/douyin-downloader)."
+    },
+    {
+      q: "Can I download Douyin live stream replays or long-form videos?",
+      a: "You can download any publicly shared post or replay video link generated from Douyin's official share menu directly through QukTik with no restrictions."
     }
   ];
 
   return (
     <div className="relative overflow-hidden">
-
-      {/* Structured Data FAQ Schema for SEO Rich Results */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqData.map(item => ({
-              "@type": "Question",
-              "name": item.q,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": item.a
-              }
-            }))
-          })
-        }}
-      />
 
       {/* Top Downloader Hero */}
       <SiteSchema />
@@ -371,38 +361,16 @@ export default function DouyinDownloaderPage() {
           </p>
         </section>
 
-        {/* Section 6: FAQ Accordion */}
-        <section className="space-y-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Frequently Asked Questions About Douyin Downloading
-            </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate-600">
-              Clear answers regarding Chinese share formats, video codecs, and regional accessibility.
-            </p>
-          </div>
+        </article>
 
-          <div className="space-y-4">
-            {faqData.map((item, idx) => (
-              <details
-                key={idx}
-                className="group p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm transition-all open:ring-2 open:ring-rose-500/20"
-              >
-                <summary className="font-bold text-base sm:text-lg text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
-                  <span>{item.q}</span>
-                  <span className="text-rose-700 group-open:rotate-180 transition-transform text-xl font-black">
-                    &darr;
-                  </span>
-                </summary>
-                <p className="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
-                  {item.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-      </article>
+      {/* 12 In-Depth Frequently Asked Questions with FAQPage Schema */}
+      <FaqSection
+        faqs={faqData}
+        langCode="en"
+        title="Frequently Asked Questions About Douyin Downloading"
+        badge="12 In-Depth FAQs • Douyin Downloader"
+        subtitle="Clear answers regarding Chinese share formats, video codecs, and regional accessibility."
+      />
 
       <RelatedTools currentSlug="/douyin-downloader" />
 

@@ -3,6 +3,7 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
 import SiteSchema from '../../components/SiteSchema';
+import FaqSection from '../../components/FaqSection';
 
 import React from 'react';
 import { 
@@ -71,30 +72,19 @@ export default function TikTokPhotoPage() {
     {
       q: "Is there any limit to the number of photo carousels I can save per day?",
       a: "None. QukTik provides unlimited photo downloads completely free of charge with zero watermarks or subscription paywalls."
+    },
+    {
+      q: "Can I download all images from a TikTok carousel in a single batch?",
+      a: "Yes, you can click each image button sequentially or use our Bulk Downloader tool to archive multi-image assets without manual hassle."
+    },
+    {
+      q: "Does saving TikTok slideshow photos notify the creator?",
+      a: "No. Downloads are 100% anonymous, processed through public server endpoints without alerting the creator or leaving traces on your TikTok account."
     }
   ];
 
   return (
     <div className="relative overflow-hidden">
-
-      {/* Structured Data FAQ Schema for SEO Rich Results */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqData.map(item => ({
-              "@type": "Question",
-              "name": item.q,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": item.a
-              }
-            }))
-          })
-        }}
-      />
 
       {/* Top Downloader Hero */}
       <SiteSchema />
@@ -394,38 +384,16 @@ export default function TikTokPhotoPage() {
           </p>
         </section>
 
-        {/* Section 6: FAQ Accordion */}
-        <section className="space-y-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Frequently Asked Questions About TikTok Photo Slideshows
-            </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate-600">
-              Clear answers regarding carousel sizes, photo formats, and music downloads.
-            </p>
-          </div>
+        </article>
 
-          <div className="space-y-4">
-            {faqData.map((item, idx) => (
-              <details
-                key={idx}
-                className="group p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm transition-all open:ring-2 open:ring-rose-500/20"
-              >
-                <summary className="font-bold text-base sm:text-lg text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
-                  <span>{item.q}</span>
-                  <span className="text-rose-700 group-open:rotate-180 transition-transform text-xl font-black">
-                    &darr;
-                  </span>
-                </summary>
-                <p className="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
-                  {item.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-      </article>
+      {/* 12 In-Depth Frequently Asked Questions with FAQPage Schema */}
+      <FaqSection
+        faqs={faqData}
+        langCode="en"
+        title="Frequently Asked Questions About TikTok Photo Slideshows"
+        badge="12 In-Depth FAQs • Photo Slideshows"
+        subtitle="Clear answers regarding carousel sizes, photo formats, and music downloads."
+      />
 
       <RelatedTools currentSlug="/tiktok-photo" />
 

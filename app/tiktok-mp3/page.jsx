@@ -3,6 +3,7 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
 import SiteSchema from '../../components/SiteSchema';
+import FaqSection from '../../components/FaqSection';
 
 import React from 'react';
 import { 
@@ -72,30 +73,19 @@ export default function TikTokMp3Page() {
     {
       q: "Can I convert Douyin (Chinese TikTok) audio tracks to MP3 as well?",
       a: "Yes! QukTik fully supports Chinese Douyin (抖音) links. You can extract high-bitrate oriental instrumental BGM, traditional Guzheng melodies, and viral Chinese pop directly using our dedicated audio extraction pipeline."
+    },
+    {
+      q: "How do I cut or trim a specific 15-30 second portion of the downloaded MP3?",
+      a: "Once the MP3 is downloaded, you can use our built-in ringtone trimmer or free mobile tools like GarageBand (iOS) or AudioLab (Android) to select your favorite 15-30 second loop point and export as a custom tone."
+    },
+    {
+      q: "Is there any download limit or daily restriction on TikTok MP3 conversions?",
+      a: "No. QukTik offers completely unlimited MP3 conversions with zero subscriptions, waiting queues, or daily throttles. You can convert as many viral soundtracks and audio clips as you wish."
     }
   ];
 
   return (
     <div className="relative overflow-hidden">
-
-      {/* Structured Data FAQ Schema for SEO Rich Results */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqData.map(item => ({
-              "@type": "Question",
-              "name": item.q,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": item.a
-              }
-            }))
-          })
-        }}
-      />
 
       <SiteSchema />
       <Breadcrumbs items={[{ name: 'TikTok to MP3 Converter', url: '/tiktok-mp3' }]} />
@@ -380,38 +370,16 @@ export default function TikTokMp3Page() {
           </p>
         </section>
 
-        {/* Section 7: FAQ Accordion */}
-        <section className="space-y-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Frequently Asked Questions About TikTok to MP3 Conversion
-            </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate-600">
-              Clear answers regarding sound bitrates, iPhone compatibility, and file formats.
-            </p>
-          </div>
+        </article>
 
-          <div className="space-y-4">
-            {faqData.map((item, idx) => (
-              <details
-                key={idx}
-                className="group p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm transition-all open:ring-2 open:ring-rose-500/20"
-              >
-                <summary className="font-bold text-base sm:text-lg text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
-                  <span>{item.q}</span>
-                  <span className="text-rose-700 group-open:rotate-180 transition-transform text-xl font-black">
-                    &darr;
-                  </span>
-                </summary>
-                <p className="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
-                  {item.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-      </article>
+      {/* 12 In-Depth Frequently Asked Questions with FAQPage Schema */}
+      <FaqSection
+        faqs={faqData}
+        langCode="en"
+        title="Frequently Asked Questions About TikTok to MP3 Conversion"
+        badge="12 In-Depth FAQs • TikTok MP3"
+        subtitle="Clear answers regarding sound bitrates, iPhone compatibility, and file formats."
+      />
 
       <RelatedTools currentSlug="/tiktok-mp3" />
 

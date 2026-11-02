@@ -3,6 +3,7 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
 import SiteSchema from '../../components/SiteSchema';
+import FaqSection from '../../components/FaqSection';
 
 import React from 'react';
 import HowToSection from '../../components/HowToSection';
@@ -77,30 +78,19 @@ export default function TikTokVideoDownloaderPage() {
     {
       q: "How does QukTik handle shortened TikTok URLs like vt.tiktok.com?",
       a: "QukTik features an automated HTTP redirection engine that unwraps mobile short links (vt.tiktok.com, vm.tiktok.com, m.tiktok.com) to locate the canonical video ID and its associated CDN media endpoints in milliseconds."
+    },
+    {
+      q: "Will the TikTok creator be notified if I download their video?",
+      a: "No. All downloads processed through QukTik are completely anonymous. TikTok's native algorithms and creator analytics do not register or notify authors when public videos are accessed or downloaded through third-party web browsers."
+    },
+    {
+      q: "How do I install QukTik on my mobile home screen for fast 1-tap downloads?",
+      a: "On Safari (iOS), tap the Share button and choose 'Add to Home Screen'. On Chrome (Android), tap the three vertical dots and select 'Install app' or 'Add to Home screen'. QukTik operates as a lightning-fast Progressive Web App (PWA) with zero App Store downloads required."
     }
   ];
 
   return (
     <div className="relative overflow-hidden">
-
-      {/* Structured Data FAQ Schema for SEO Rich Results */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqData.map(item => ({
-              "@type": "Question",
-              "name": item.q,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": item.a
-              }
-            }))
-          })
-        }}
-      />
 
       {/* Top Downloader Hero */}
       <SiteSchema />
@@ -433,38 +423,16 @@ export default function TikTokVideoDownloaderPage() {
           </p>
         </section>
 
-        {/* Section 8: Comprehensive FAQ Accordion */}
-        <section className="space-y-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Frequently Asked Questions About TikTok Video Downloading
-            </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate-600">
-              Clear, definitive answers regarding video resolutions, device security, formats, and download speeds.
-            </p>
-          </div>
+        </article>
 
-          <div className="space-y-4">
-            {faqData.map((item, idx) => (
-              <details
-                key={idx}
-                className="group p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm transition-all open:ring-2 open:ring-rose-500/20"
-              >
-                <summary className="font-bold text-base sm:text-lg text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
-                  <span>{item.q}</span>
-                  <span className="text-rose-700 group-open:rotate-180 transition-transform text-xl font-black">
-                    &darr;
-                  </span>
-                </summary>
-                <p className="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
-                  {item.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-      </article>
+      {/* 12 In-Depth Frequently Asked Questions with FAQPage Schema */}
+      <FaqSection
+        faqs={faqData}
+        langCode="en"
+        title="Frequently Asked Questions About TikTok Video Downloading"
+        badge="12 In-Depth FAQs • Video Downloader"
+        subtitle="Clear, definitive answers regarding video resolutions, device security, formats, and download speeds."
+      />
 
       <RelatedTools currentSlug="/tiktok-video-downloader" />
 

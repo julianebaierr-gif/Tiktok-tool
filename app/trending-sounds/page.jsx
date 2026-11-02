@@ -1,6 +1,7 @@
 import React from 'react';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import SiteSchema from '../../components/SiteSchema';
+import FaqSection from '../../components/FaqSection';
 import TrendingSoundsClient from '../../components/TrendingSoundsClient';
 import { SOUNDS_EDITORIAL, SOUNDS_FAQS_EN } from '../../lib/tools/soundsEditorialData';
 import { 
@@ -55,26 +56,9 @@ export default function TrendingSoundsPage() {
   const edit = SOUNDS_EDITORIAL.en;
   const faqs = SOUNDS_FAQS_EN;
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map(f => ({
-      "@type": "Question",
-      "name": f.q,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": f.a
-      }
-    }))
-  };
-
   return (
     <div className="min-h-screen bg-slate-50/50 pb-20">
       <SiteSchema />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
 
       {/* Breadcrumbs Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
@@ -281,35 +265,14 @@ export default function TrendingSoundsPage() {
         </div>
       </section>
 
-      {/* 12 In-Depth Frequently Asked Questions */}
-      <section className="py-14 sm:py-18 max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold mb-2">
-            <HelpCircle className="w-3.5 h-3.5 text-rose-600" />
-            <span>12 In-Depth FAQs</span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900">
-            Frequently Asked Questions ({faqs.length})
-          </h2>
-        </div>
-
-        <div className="space-y-4">
-          {faqs.map((faq, idx) => (
-            <div 
-              key={idx}
-              className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-2xs space-y-2"
-            >
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-start gap-2">
-                <span className="text-rose-600 font-extrabold">{idx + 1}.</span>
-                <span>{faq.q}</span>
-              </h3>
-              <p className="text-sm text-slate-600 leading-relaxed pl-6">
-                {faq.a}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* 12 In-Depth Frequently Asked Questions with FAQPage Schema */}
+      <FaqSection
+        faqs={faqs}
+        langCode="en"
+        title="Frequently Asked Questions"
+        badge="12 In-Depth FAQs • Trending Sounds"
+        subtitle="Everything you need to know about discovering, converting, and saving trending TikTok sounds."
+      />
     </div>
   );
 }

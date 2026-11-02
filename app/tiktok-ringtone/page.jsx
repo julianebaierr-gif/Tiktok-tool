@@ -3,6 +3,7 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
 import SiteSchema from '../../components/SiteSchema';
+import FaqSection from '../../components/FaqSection';
 
 import React from 'react';
 import { 
@@ -71,30 +72,19 @@ export default function TikTokRingtonePage() {
     {
       q: "Does QukTik support ringtones from Douyin (Chinese TikTok)?",
       a: "Yes! You can paste any Douyin video or audio link into QukTik Ringtone Maker to extract viral oriental BGM and sound effects."
+    },
+    {
+      q: "What audio format is best for Android and iPhone custom ringtones?",
+      a: "Android natively plays standard MP3 (.mp3) audio directly from your device's Ringtones folder. iPhone uses AAC (.m4r), which the free Apple GarageBand app automatically generates in one tap when you export your downloaded audio as Ringtone."
+    },
+    {
+      q: "Can I use viral TikTok meme sounds as alarm and timer sounds?",
+      a: "Yes! Any audio downloaded from QukTik can be chosen in your phone's default Clock app for alarms, timers, and countdown reminders."
     }
   ];
 
   return (
     <div className="relative overflow-hidden">
-
-      {/* Structured Data FAQ Schema for SEO Rich Results */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqData.map(item => ({
-              "@type": "Question",
-              "name": item.q,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": item.a
-              }
-            }))
-          })
-        }}
-      />
 
       {/* Top Downloader Hero */}
       <SiteSchema />
@@ -387,38 +377,16 @@ export default function TikTokRingtonePage() {
           </p>
         </section>
 
-        {/* Section 6: FAQ Accordion */}
-        <section className="space-y-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Frequently Asked Questions About TikTok Ringtones
-            </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate-600">
-              Clear answers regarding Apple iOS limitations, Android settings, and sound clipping.
-            </p>
-          </div>
+        </article>
 
-          <div className="space-y-4">
-            {faqData.map((item, idx) => (
-              <details
-                key={idx}
-                className="group p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm transition-all open:ring-2 open:ring-rose-500/20"
-              >
-                <summary className="font-bold text-base sm:text-lg text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
-                  <span>{item.q}</span>
-                  <span className="text-rose-700 group-open:rotate-180 transition-transform text-xl font-black">
-                    &darr;
-                  </span>
-                </summary>
-                <p className="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
-                  {item.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-      </article>
+      {/* 12 In-Depth Frequently Asked Questions with FAQPage Schema */}
+      <FaqSection
+        faqs={faqData}
+        langCode="en"
+        title="Frequently Asked Questions About TikTok Ringtones"
+        badge="12 In-Depth FAQs • Ringtone Maker"
+        subtitle="Clear answers regarding Apple iOS limitations, Android settings, and sound clipping."
+      />
 
       <RelatedTools currentSlug="/tiktok-ringtone" />
 

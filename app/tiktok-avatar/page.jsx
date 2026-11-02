@@ -4,6 +4,7 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
 import SiteSchema from '../../components/SiteSchema';
+import FaqSection from '../../components/FaqSection';
 
 import React from 'react';
 import { 
@@ -72,30 +73,19 @@ export default function TikTokAvatarPage() {
     {
       q: "Is QukTik Avatar HD Downloader completely free with unlimited searches?",
       a: "Yes. QukTik is 100% free with no monthly subscription fees, credit card requirements, software installations, or daily download quotas. You can verify usernames, inspect creative avatars, and archive public profile photos across desktop and mobile browsers at zero cost."
+    },
+    {
+      q: "How do I download TikTok animated or dynamic video avatars?",
+      a: "When a creator uploads an animated or video profile avatar, QukTik identifies the primary static keyframe in maximum HD clarity alongside available MP4 motion formats where supported."
+    },
+    {
+      q: "Where are downloaded TikTok profile pictures saved on iPhone and Android?",
+      a: "On iPhone, images open in Safari where you can tap Share > 'Save Image' into Apple Photos. On Android, the image downloads straight into your device's /Download directory and appears in Google Photos or Gallery."
     }
   ];
 
   return (
     <div className="relative overflow-hidden">
-
-      {/* Structured Data FAQ Schema for Google Search Rich Snippets */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqData.map(item => ({
-              "@type": "Question",
-              "name": item.q,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": item.a
-              }
-            }))
-          })
-        }}
-      />
 
       {/* Top Downloader Hero Section */}
       <SiteSchema />
@@ -469,41 +459,16 @@ export default function TikTokAvatarPage() {
           </ul>
         </section>
 
-        {/* Section 8: FAQ Accordion Section */}
-        <section className="space-y-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest text-teal-700 bg-teal-50 px-3.5 py-1 rounded-full border border-teal-200">
-              Clear Technical Answers
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
-              Frequently Asked Questions About TikTok Avatar Downloading
-            </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate-600">
-              Clear technical answers regarding profile picture resolutions, privacy rules, device compatibility, and username handle lookups.
-            </p>
-          </div>
+        </article>
 
-          <div className="space-y-4">
-            {faqData.map((item, idx) => (
-              <details
-                key={idx}
-                className="group p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm transition-all open:ring-2 open:ring-teal-500/20"
-              >
-                <summary className="font-bold text-base sm:text-lg text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
-                  <span>{item.q}</span>
-                  <span className="text-teal-700 group-open:rotate-180 transition-transform text-xl font-black">
-                    ↓
-                  </span>
-                </summary>
-                <p className="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
-                  {item.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-      </article>
+      {/* 12 In-Depth Frequently Asked Questions with FAQPage Schema */}
+      <FaqSection
+        faqs={faqData}
+        langCode="en"
+        title="Frequently Asked Questions About TikTok Avatar Downloading"
+        badge="12 In-Depth FAQs • Profile Avatar"
+        subtitle="Clear technical answers regarding profile picture resolutions, privacy rules, device compatibility, and username handle lookups."
+      />
 
       <RelatedTools currentSlug="/tiktok-avatar" />
 

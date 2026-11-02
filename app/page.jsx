@@ -79,7 +79,11 @@ export default function HomePage() {
       <SemanticContent />
 
       {/* FAQ Accordion */}
-      <FaqSection />
+      <FaqSection 
+        badge="12 FAQs • English"
+        title="Frequently Asked Questions"
+        subtitle="Everything you need to know about downloading videos, audio, and photos with QukTik."
+      />
     </div>
   );
 }

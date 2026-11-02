@@ -3,6 +3,7 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
 import SiteSchema from '../../components/SiteSchema';
+import FaqSection from '../../components/FaqSection';
 
 import React from 'react';
 import { 
@@ -72,30 +73,19 @@ export default function TikTokStoryPage() {
     {
       q: "Do I need to install any app or browser extension?",
       a: "No. QukTik works entirely in your web browser (Safari, Chrome, Edge, Firefox) across iOS, Android, macOS, and Windows."
+    },
+    {
+      q: "Will the creator know that I viewed or saved their TikTok story?",
+      a: "No. In the official TikTok app, the creator sees a list of viewers who opened their story. But when you view or download a story via QukTik, it is retrieved through an anonymous server stream, so your view never registers on their viewer list."
+    },
+    {
+      q: "Where are saved TikTok stories stored on iPhone and Android?",
+      a: "On iPhone, Safari downloads the video into Apple's Files app where you can tap Share > 'Save Video' to add it to your Photos Camera Roll. On Android, the MP4 saves directly into your device's /Download directory and appears in your Gallery."
     }
   ];
 
   return (
     <div className="relative overflow-hidden">
-
-      {/* Structured Data FAQ Schema for SEO Rich Results */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqData.map(item => ({
-              "@type": "Question",
-              "name": item.q,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": item.a
-              }
-            }))
-          })
-        }}
-      />
 
       {/* Top Downloader Hero */}
       <SiteSchema />
@@ -407,38 +397,16 @@ export default function TikTokStoryPage() {
           </p>
         </section>
 
-        {/* Section 6: FAQ Accordion */}
-        <section className="space-y-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Frequently Asked Questions About TikTok Story Downloading
-            </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate-600">
-              Clear answers regarding story expiration, privacy, and device compatibility.
-            </p>
-          </div>
+        </article>
 
-          <div className="space-y-4">
-            {faqData.map((item, idx) => (
-              <details
-                key={idx}
-                className="group p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm transition-all open:ring-2 open:ring-purple-500/20"
-              >
-                <summary className="font-bold text-base sm:text-lg text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
-                  <span>{item.q}</span>
-                  <span className="text-purple-600 group-open:rotate-180 transition-transform text-xl font-black">
-                    &darr;
-                  </span>
-                </summary>
-                <p className="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
-                  {item.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-      </article>
+      {/* 12 In-Depth Frequently Asked Questions with FAQPage Schema */}
+      <FaqSection
+        faqs={faqData}
+        langCode="en"
+        title="Frequently Asked Questions About TikTok Story Downloading"
+        badge="12 In-Depth FAQs • Story Saver"
+        subtitle="Clear answers regarding story expiration, privacy, and device compatibility."
+      />
 
       <RelatedTools currentSlug="/tiktok-story" />
 
