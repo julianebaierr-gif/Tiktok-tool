@@ -56,10 +56,8 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-# Sitemaps & Feeds
+# Sitemap
 Sitemap: https://www.quktik.com/sitemap.xml
-Sitemap: https://www.quktik.com/feed.xml
-Sitemap: https://www.quktik.com/rss.xml
 `;
 
   return new Response(robotsTxt, {
