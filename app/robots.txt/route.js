@@ -1,23 +1,65 @@
 export async function GET() {
-  const robotsTxt = `User-agent: Mediapartners-Google
+  const robotsTxt = `User-agent: *
 Allow: /
+Allow: /feed.xml
+Allow: /rss.xml
+Allow: /sitemap.xml
+Disallow: /api/
+Disallow: /watch
+Disallow: /4/
+Disallow: /?s=
+Disallow: /*?*s=
+Disallow: /*?*q=
+Disallow: /*?*ref=
+Disallow: /*?*utm_*
+Disallow: /*?*fbclid=*
+Disallow: /*?*gclid=*
 
+# Search Engine Crawlers
 User-agent: Googlebot
 Allow: /
 Allow: /feed.xml
 Allow: /rss.xml
 Allow: /sitemap.xml
 
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: Google-InspectionTool
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 
-User-agent: *
+User-agent: AhrefsBot
 Allow: /
-Allow: /feed.xml
-Allow: /rss.xml
-Disallow: /api/
 
+# AI Search & Answer Engines (LLM Discoverability)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemaps & Feeds
 Sitemap: https://www.quktik.com/sitemap.xml
+Sitemap: https://www.quktik.com/feed.xml
+Sitemap: https://www.quktik.com/rss.xml
 `;
 
   return new Response(robotsTxt, {
