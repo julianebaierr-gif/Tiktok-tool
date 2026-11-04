@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import Tiktok from '@tobyg74/tiktok-api-dl';
+import { sendTelegramAlert } from '../../../lib/telegram';
 
 export const dynamic = 'force-dynamic';
 
@@ -323,9 +324,18 @@ function fetchProviderWithTimeout(version, url, options = {}, timeoutMs = 7000) 
 }
 
 export async function POST(request) {
+  let rawUrl = '';
+  let cleanUrl = '';
+  let clientIp = 'Unknown';
+  let clientUserAgent = 'Unknown';
+
   try {
+    clientIp = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || request.headers.get('x-real-ip') || 'Unknown';
+    clientUserAgent = request.headers.get('user-agent') || 'Unknown';
+
     const body = await request.json();
     const { url, platform } = body;
+    rawUrl = url || '';
 
     if (!url) {
       return NextResponse.json(
@@ -334,7 +344,7 @@ export async function POST(request) {
       );
     }
 
-    const cleanUrl = cleanTikTokUrl(url);
+    cleanUrl = cleanTikTokUrl(url);
     if (!cleanUrl) {
       return NextResponse.json(
         { success: false, error: 'Invalid URL format. Please paste a standard TikTok or Douyin video link.' },
@@ -380,6 +390,16 @@ export async function POST(request) {
         setCachedResult(cleanUrl, douyinResult);
         return NextResponse.json(douyinResult);
       } else {
+        sendTelegramAlert({
+          type: 'Douyin Extraction Failure',
+          url: cleanUrl || rawUrl,
+          error: douyinResult?.error || 'Douyin API could not retrieve video detail',
+          provider: 'douyin-rapidapi',
+          ip: clientIp,
+          userAgent: clientUserAgent,
+          statusCode: 404,
+        }).catch(() => {});
+
         return NextResponse.json(
           {
             success: false,
@@ -434,6 +454,16 @@ export async function POST(request) {
     }
 
     if (!downloadResult) {
+      sendTelegramAlert({
+        type: 'TikTok Download Failure (All Tiers Exhausted)',
+        url: cleanUrl || rawUrl,
+        error: 'Unable to retrieve media from this link. All fallback tiers (Tikwm, SSSTik, Webshare Proxy, MusicalDown) failed.',
+        provider: 'all-tiers-exhausted',
+        ip: clientIp,
+        userAgent: clientUserAgent,
+        statusCode: 404,
+      }).catch(() => {});
+
       return NextResponse.json(
         {
           success: false,
@@ -505,6 +535,16 @@ export async function POST(request) {
     return NextResponse.json(responsePayload);
   } catch (error) {
     console.error('API Error in /api/download:', error);
+    sendTelegramAlert({
+      type: 'Download API Server Exception',
+      url: cleanUrl || rawUrl || 'N/A',
+      error: error.message || 'Unexpected server error',
+      provider: 'server-exception',
+      ip: clientIp,
+      userAgent: clientUserAgent,
+      statusCode: 500,
+    }).catch(() => {});
+
     return NextResponse.json(
       {
         success: false,

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { sendTelegramAlert } from '../../../lib/telegram';
 
 export const dynamic = 'force-dynamic';
 
@@ -67,6 +68,19 @@ export async function GET(request) {
     return new Response(webStream, { headers });
   } catch (error) {
     console.error('Proxy download stream error:', error.message);
+    const clientIp = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || request.headers.get('x-real-ip') || 'Unknown';
+    const clientUserAgent = request.headers.get('user-agent') || 'Unknown';
+    sendTelegramAlert({
+      type: 'Media Proxy Stream Error',
+      url: mediaUrl || 'N/A',
+      error: error.message,
+      provider: 'cdn-proxy',
+      ip: clientIp,
+      userAgent: clientUserAgent,
+      statusCode: 502,
+      extra: `filename: ${rawFilename}, type: ${type}`,
+    }).catch(() => {});
+
     return new Response(`Failed to proxy media stream: ${error.message}`, { status: 502 });
   }
 }

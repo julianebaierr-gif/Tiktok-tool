@@ -1,12 +1,15 @@
 import fs from 'fs';
 import path from 'path';
+import { sendTelegramAlert } from '../../../lib/telegram';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET(request) {
+  let fileParam = 'track-1.mp3';
+
   try {
     const { searchParams } = new URL(request.url);
-    const fileParam = searchParams.get('file') || 'track-1.mp3';
+    fileParam = searchParams.get('file') || 'track-1.mp3';
     const title = searchParams.get('title') || 'tiktok_trending_sound';
     const artist = searchParams.get('artist') || 'quktik';
 
@@ -94,6 +97,16 @@ export async function GET(request) {
     });
   } catch (error) {
     console.error('Audio download error:', error);
+    const clientIp = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || request.headers.get('x-real-ip') || 'Unknown';
+    sendTelegramAlert({
+      type: 'Audio Download Server Error',
+      url: fileParam || 'N/A',
+      error: error.message,
+      provider: 'audio-download',
+      ip: clientIp,
+      statusCode: 500,
+    }).catch(() => {});
+
     return new Response('Error retrieving audio stream', { status: 500 });
   }
 }
