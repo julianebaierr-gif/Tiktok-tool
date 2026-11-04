@@ -1,62 +1,16 @@
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   const robotsTxt = `User-agent: *
 Allow: /
-Allow: /feed.xml
-Allow: /rss.xml
-Allow: /sitemap.xml
 Disallow: /api/
-Disallow: /watch
-Disallow: /4/
-Disallow: /?s=
-Disallow: /*?*s=
-Disallow: /*?*q=
-Disallow: /*?*ref=
-Disallow: /*?*utm_*
-Disallow: /*?*fbclid=*
-Disallow: /*?*gclid=*
+Disallow: /*?s=
+Disallow: /*?q=
+Disallow: /*?ref=
+Disallow: /*?utm_*
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
 
-# Search Engine Crawlers
-User-agent: Googlebot
-Allow: /
-Allow: /feed.xml
-Allow: /rss.xml
-Allow: /sitemap.xml
-
-User-agent: Mediapartners-Google
-Allow: /
-
-User-agent: Google-InspectionTool
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: AhrefsBot
-Allow: /
-
-# AI Search & Answer Engines (LLM Discoverability)
-User-agent: GPTBot
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-# Sitemap
 Sitemap: https://www.quktik.com/sitemap.xml
 `;
 
