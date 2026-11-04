@@ -125,7 +125,7 @@
                   <td style="text-align: center;">
                     <xsl:choose>
                       <xsl:when test="count(xhtml:link) &gt; 0">
-                        <span class="badge"><xsl:value-of select="count(xhtml:link)"/> Languages</span>
+                        <span class="badge"><xsl:value-of select="count(xhtml:link[@hreflang != 'x-default'])"/> Languages (+ Default)</span>
                       </xsl:when>
                       <xsl:otherwise>
                         <span style="color: #94a3b8; font-size: 12px;">Canonical</span>
