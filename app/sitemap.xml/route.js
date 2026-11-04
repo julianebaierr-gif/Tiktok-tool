@@ -7,30 +7,30 @@ export async function GET() {
   const currentDate = new Date().toISOString();
 
   const routes = [
-    { path: '', changeFreq: 'daily', priority: '1.0' },
+    { path: '', changeFreq: 'hourly', priority: '1.0' },
     // 11 International Localized Landing Pages
-    { path: '/es', changeFreq: 'daily', priority: '0.95' },
-    { path: '/pt', changeFreq: 'daily', priority: '0.95' },
-    { path: '/id', changeFreq: 'daily', priority: '0.95' },
-    { path: '/fr', changeFreq: 'daily', priority: '0.95' },
-    { path: '/ar', changeFreq: 'daily', priority: '0.95' },
-    { path: '/de', changeFreq: 'daily', priority: '0.95' },
-    { path: '/vi', changeFreq: 'daily', priority: '0.95' },
-    { path: '/tr', changeFreq: 'daily', priority: '0.95' },
-    { path: '/it', changeFreq: 'daily', priority: '0.95' },
-    { path: '/ru', changeFreq: 'daily', priority: '0.95' },
-    { path: '/ja', changeFreq: 'daily', priority: '0.95' },
+    { path: '/es', changeFreq: 'hourly', priority: '0.95' },
+    { path: '/pt', changeFreq: 'hourly', priority: '0.95' },
+    { path: '/id', changeFreq: 'hourly', priority: '0.95' },
+    { path: '/fr', changeFreq: 'hourly', priority: '0.95' },
+    { path: '/ar', changeFreq: 'hourly', priority: '0.95' },
+    { path: '/de', changeFreq: 'hourly', priority: '0.95' },
+    { path: '/vi', changeFreq: 'hourly', priority: '0.95' },
+    { path: '/tr', changeFreq: 'hourly', priority: '0.95' },
+    { path: '/it', changeFreq: 'hourly', priority: '0.95' },
+    { path: '/ru', changeFreq: 'hourly', priority: '0.95' },
+    { path: '/ja', changeFreq: 'hourly', priority: '0.95' },
 
     // Core English Tools
-    { path: '/tiktok-video-downloader', changeFreq: 'daily', priority: '1.0' },
-    { path: '/tiktok-mp3', changeFreq: 'daily', priority: '0.9' },
-    { path: '/tiktok-photo', changeFreq: 'daily', priority: '0.9' },
-    { path: '/tiktok-story', changeFreq: 'daily', priority: '0.8' },
-    { path: '/douyin-downloader', changeFreq: 'daily', priority: '0.9' },
-    { path: '/tiktok-bulk-downloader', changeFreq: 'daily', priority: '0.95' },
-    { path: '/trending-sounds', changeFreq: 'daily', priority: '0.95' },
-    { path: '/tiktok-ringtone', changeFreq: 'weekly', priority: '0.8' },
-    { path: '/tiktok-avatar', changeFreq: 'weekly', priority: '0.8' },
+    { path: '/tiktok-video-downloader', changeFreq: 'hourly', priority: '1.0' },
+    { path: '/tiktok-mp3', changeFreq: 'hourly', priority: '0.95' },
+    { path: '/tiktok-photo', changeFreq: 'hourly', priority: '0.95' },
+    { path: '/tiktok-story', changeFreq: 'hourly', priority: '0.90' },
+    { path: '/douyin-downloader', changeFreq: 'hourly', priority: '0.95' },
+    { path: '/tiktok-bulk-downloader', changeFreq: 'hourly', priority: '0.95' },
+    { path: '/trending-sounds', changeFreq: 'hourly', priority: '1.0' },
+    { path: '/tiktok-ringtone', changeFreq: 'hourly', priority: '0.90' },
+    { path: '/tiktok-avatar', changeFreq: 'hourly', priority: '0.90' },
   ];
 
   // 11 Languages x 9 Tools = 99 Localized Routes
@@ -38,19 +38,19 @@ export async function GET() {
     for (const tool of VALID_TOOLS) {
       routes.push({
         path: `/${lang}/${tool}`,
-        changeFreq: 'daily',
-        priority: '0.85',
+        changeFreq: 'hourly',
+        priority: '0.90',
       });
     }
   }
 
   // Legal & Info Pages
   routes.push(
-    { path: '/about', changeFreq: 'monthly', priority: '0.5' },
-    { path: '/contact', changeFreq: 'monthly', priority: '0.5' },
-    { path: '/privacy-policy', changeFreq: 'monthly', priority: '0.4' },
-    { path: '/terms-of-service', changeFreq: 'monthly', priority: '0.4' },
-    { path: '/disclaimer', changeFreq: 'monthly', priority: '0.4' }
+    { path: '/about', changeFreq: 'hourly', priority: '0.70' },
+    { path: '/contact', changeFreq: 'hourly', priority: '0.70' },
+    { path: '/privacy-policy', changeFreq: 'hourly', priority: '0.60' },
+    { path: '/terms-of-service', changeFreq: 'hourly', priority: '0.60' },
+    { path: '/disclaimer', changeFreq: 'hourly', priority: '0.60' }
   );
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -71,7 +71,7 @@ export async function GET() {
   return new Response(sitemapXml.trim(), {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+      'Cache-Control': 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
     },
   });
 }
