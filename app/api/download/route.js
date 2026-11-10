@@ -1,3 +1,4 @@
+import { ProxyAgent } from 'undici';
 import { NextResponse } from 'next/server';
 import Tiktok from '@tobyg74/tiktok-api-dl';
 import { sendTelegramAlert } from '../../../lib/telegram';
@@ -255,6 +256,103 @@ function isProfileUrl(url) {
   }
 }
 
+
+function extractTikTokUsername(input) {
+  if (!input || typeof input !== 'string') return null;
+  const match = input.match(/(?:tiktok\.com\/@|^@)([a-zA-Z0-9_.-]+)/i);
+  if (match) return match[1].replace(/[.,;:!?)\\/]+$/, '');
+  if (!input.includes('/') && /^[a-zA-Z0-9_.-]{2,30}$/.test(input.trim())) {
+    return input.trim();
+  }
+  return null;
+}
+
+async function fetchTikTokProfile(username) {
+  const cleanUsername = username.replace(/^@/, '').trim();
+  if (!cleanUsername) return { success: false, error: 'Invalid username' };
+
+  for (let i = 0; i < WEBSHARE_PROXIES.length; i++) {
+    const proxy = WEBSHARE_PROXIES[i];
+    try {
+      const dispatcher = new ProxyAgent(proxy);
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 6500);
+
+      const res = await fetch(`https://www.tiktok.com/@${cleanUsername}`, {
+        dispatcher,
+        signal: controller.signal,
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+          'Accept-Language': 'en-US,en;q=0.9',
+        }
+      });
+      clearTimeout(timeout);
+
+      if (!res.ok) continue;
+
+      const text = await res.text();
+      const scripts = [...text.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
+
+      for (const match of scripts) {
+        const content = match[1].trim();
+        if (content.startsWith('{"__DEFAULT_SCOPE__":')) {
+          const data = JSON.parse(content);
+          const userDetail = data['__DEFAULT_SCOPE__']?.['webapp.user-detail'];
+          
+          if (userDetail?.statusCode === 10221 || (!userDetail?.userInfo && userDetail?.statusCode !== 0)) {
+            return {
+              success: false,
+              error: `This TikTok account (@${cleanUsername}) does not exist, has been deleted, or is private. Please check the username spelling and try again.`,
+              accountNotFound: true,
+            };
+          }
+
+          if (userDetail?.userInfo?.user) {
+            const u = userDetail.userInfo.user;
+            const s = userDetail.userInfo.stats || {};
+            const avatarHD = u.avatarLarger || u.avatarMedium || u.avatarThumb || '';
+
+            return {
+              success: true,
+              type: 'avatar',
+              provider: 'tiktok-profile-hd',
+              id: u.id || cleanUsername,
+              title: `${u.nickname || cleanUsername} (@${u.uniqueId || cleanUsername}) - Profile Avatar HD`,
+              duration: 0,
+              durationFormatted: '00:00',
+              author: {
+                username: u.uniqueId || cleanUsername,
+                nickname: u.nickname || cleanUsername,
+                avatar: avatarHD,
+                bio: u.signature || '',
+                verified: !!u.verified,
+              },
+              stats: {
+                followers: s.followerCount || 0,
+                following: s.followingCount || 0,
+                likes: s.heartCount || 0,
+                videos: s.videoCount || 0,
+              },
+              cover: avatarHD,
+              video: null,
+              music: null,
+              images: [],
+            };
+          }
+        }
+      }
+    } catch (err) {
+      console.warn(`[Profile Fetch] Proxy ${i} error for @${cleanUsername}:`, err.message);
+    }
+  }
+
+  return {
+    success: false,
+    error: `Could not retrieve profile information for @${cleanUsername}. Please ensure the profile is public and try again.`,
+  };
+}
+
 // Direct Tikwm Cloud API (High-speed metadata, cover image, and video stream)
 async function fetchTikwmDirect(url) {
   try {
@@ -367,17 +465,28 @@ export async function POST(request) {
       );
     }
 
-    // Guard: Profile URL detected (not a video/media post)
-    if (isProfileUrl(cleanUrl) || isProfileUrl(rawUrl)) {
-      return NextResponse.json(
-        {
-          success: false,
-          isProfile: true,
-          error: 'This is a TikTok profile link, not a video. To download videos, please copy a specific video link from this creator. To download their full HD avatar, use our TikTok Avatar Downloader.',
-        },
-        { status: 400 }
-      );
+    // Profile URL or Username Handle processing (Downloads Full HD Avatar & Bio)
+    const detectedUsername = extractTikTokUsername(cleanUrl || rawUrl || url);
+    const isProfileRequest = isProfileUrl(cleanUrl || rawUrl || url) || 
+                             (typeof url === 'string' && (url.trim().startsWith('@') || (!url.includes('/') && /^[a-zA-Z0-9_.-]{2,30}$/.test(url.trim()))));
+
+    if (isProfileRequest && detectedUsername) {
+      const profileResult = await fetchTikTokProfile(detectedUsername);
+      if (profileResult && profileResult.success) {
+        setCachedResult(cleanUrl || rawUrl || url, profileResult);
+        return NextResponse.json(profileResult);
+      } else {
+        return NextResponse.json(
+          {
+            success: false,
+            error: profileResult?.error || `This TikTok account (@${detectedUsername}) does not exist, has been deleted, or is private.`,
+            accountNotFound: true,
+          },
+          { status: 404 }
+        );
+      }
     }
+
 
     const isDouyinLink = cleanUrl.includes('douyin.com') || (typeof url === 'string' && (url.includes('douyin.com') || /[\u4e00-\u9fa5]/.test(url)));
 

@@ -952,7 +952,7 @@ export default function ResultCard({ result, onReset, mode = "all", langCode: pr
             <div className="md:col-span-5 space-y-4">
               
               {/* If mode === 'avatar', highlight the Full HD Uncropped Avatar in the Preview Box */}
-              {mode === 'avatar' ? (
+              {mode === 'avatar' || result?.type === 'avatar' ? (
                 <div className="relative aspect-square max-h-[380px] w-full mx-auto rounded-2xl overflow-hidden bg-slate-950 border-2 border-teal-200 shadow-md group">
                   {author?.avatar ? (
                     <img
@@ -1706,7 +1706,7 @@ export default function ResultCard({ result, onReset, mode = "all", langCode: pr
               {/* #1 Primary: {t.downloadOptions.primaryAvatar}        */}
               {/* #2 Secondary: MP4 Video & MP3 Audio                       */}
               {/* ========================================================= */}
-              {mode === 'avatar' && (
+              {(mode === 'avatar' || result?.type === 'avatar') && (
                 <div className="space-y-3.5 pt-1">
                   <div className="flex items-center justify-between">
                     <h4 className="text-xs font-black text-teal-700 uppercase tracking-wider">1. Primary Profile Avatar Download:</h4>
@@ -1791,7 +1791,7 @@ export default function ResultCard({ result, onReset, mode = "all", langCode: pr
               {/* MODE 7: HOMEPAGE ONLY ('all') - ALL-IN-ONE MASTER SUITE   */}
               {/* (Shows Video Server 1 & 2, MP3, Ringtone, Photos, Cover)  */}
               {/* ========================================================= */}
-              {!['video', 'mp3', 'ringtone', 'photo', 'story', 'avatar'].includes(mode) && (
+              {!['video', 'mp3', 'ringtone', 'photo', 'story', 'avatar'].includes(mode) && result?.type !== 'avatar' && (
                 <div className="space-y-3 pt-1">
                   <div className="flex items-center justify-between">
                     <h4 className="text-xs font-black text-slate-500 uppercase tracking-wider">{t.downloadOptions.heading}</h4>

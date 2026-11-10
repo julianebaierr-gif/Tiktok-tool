@@ -253,45 +253,13 @@ export default function DownloaderForm({
       }
     }
 
-    if (!trimmed.includes('tiktok.com') && !trimmed.includes('douyin.com') && !/^\d{18,20}$/.test(trimmed)) {
+    const isHandle = trimmed.startsWith('@') || (mode === 'avatar' && /^[a-zA-Z0-9_.-]{2,30}$/.test(trimmed));
+    if (!trimmed.includes('tiktok.com') && !trimmed.includes('douyin.com') && !/^\d{18,20}$/.test(trimmed) && !isHandle) {
       setError({ message: getInvalidPrompt() });
       return;
     }
 
-    const isProfileLink = (u) => {
-      try {
-        let testUrl = (u || '').trim();
-        if (!/^https?:\/\//i.test(testUrl)) testUrl = 'https://' + testUrl;
-        const parsed = new URL(testUrl);
-        if (parsed.hostname.includes('tiktok.com')) {
-          return /^\/@[a-zA-Z0-9_.-]+\/?$/.test(parsed.pathname);
-        }
-      } catch {}
-      return false;
-    };
-
-    if (isProfileLink(trimmed)) {
-      const profilePrompt = {
-        en: 'This is a TikTok profile link, not a video. To download videos, open any video and copy its share link. If you want to download this profile picture, click below to open our Avatar Downloader.',
-        es: 'Has ingresado el enlace de un perfil de TikTok, no de un video. Para descargar videos, abre un video y copia su enlace. Para descargar la foto de perfil, pulsa abajo para abrir el Descargador de Avatares.',
-        pt: 'Você inseriu o link de um perfil do TikTok, não de um vídeo. Para baixar vídeos, abra um vídeo e copie o link. Para baixar a foto de perfil, clique abaixo para abrir o Baixador de Avatares.',
-        id: 'Anda memasukkan tautan profil TikTok, bukan video. Untuk mengunduh video, buka video dan salin tautannya. Jika ingin mengunduh foto profil, klik di bawah untuk membuka Pengunduh Avatar.',
-        fr: 'Vous avez entré un lien de profil TikTok, pas une vidéo. Pour télécharger des vidéos, ouvrez une vidéo et copiez son lien. Pour télécharger la photo de profil, cliquez ci-dessous pour ouvrir le Téléchargeur d\'Avatars.',
-        ar: 'لقد أدخلت رابط ملف شخصي (حساب) على تيك توك وليس رابط فيديو. لتحميل الفيديو، افتح أي فيديو وانسخ رابطه. لتحميل الصورة الشخصية، اضغط بالأسفل لفتح أداة تنزيل صور الحسابات.',
-        de: 'Sie haben einen TikTok-Profillink eingegeben, kein Video. Um Videos herunterzuladen, öffnen Sie ein Video und kopieren Sie den Link. Um das Profilbild herunterzuladen, klicken Sie unten auf Avatar-Downloader.',
-        vi: 'Bạn đã nhập liên kết hồ sơ TikTok chứ không phải video. Để tải video, hãy mở video và sao chép liên kết. Nếu muốn tải ảnh đại diện, hãy nhấn bên dưới để mở Trình tải ảnh đại diện.',
-        tr: 'Video yerine bir TikTok profil bağlantısı girdiniz. Video indirmek için herhangi bir videoyu açıp bağlantısını kopyalayın. Profil resmini indirmek için aşağıdaki Avatar İndiriciyi açın.',
-        it: 'Hai inserito il link di un profilo TikTok, non di un video. Per scaricare i video, apri un video e copia il link. Se vuoi scaricare l\'immagine del profilo, clicca sotto per aprire il Downloader di Avatar.',
-        ru: 'Вы ввели ссылку на профиль TikTok, а не на видео. Чтобы скачать видео, откройте любое видео и скопируйте его ссылку. Чтобы скачать фото профиля, нажмите ниже для перехода в Загрузчик Аватарок.',
-        ja: '動画ではなくTikTokプロフィールリンクが入力されました。動画を保存するには動画を開いてリンクをコピーしてください。プロフィール画像を保存する場合は下のボタンをクリックしてください。',
-      };
-
-      setError({
-        isProfile: true,
-        message: profilePrompt[activeLang] || profilePrompt.en,
-      });
-      return;
-    }
+    // Profile URLs are processed directly by /api/download
 
     setLoading(true);
     setError(null);
