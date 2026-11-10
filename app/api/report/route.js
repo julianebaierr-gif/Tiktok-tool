@@ -32,7 +32,7 @@ export async function POST(req) {
     const headerUa = req.headers.get('user-agent') || userAgent || 'N/A';
 
     // Must AWAIT to ensure serverless containers (like Vercel) complete the Telegram API call before termination
-    const sent = await sendTelegramReport({
+    const telegramResult = await sendTelegramReport({
       url: url.trim(),
       issueCategory: issueLabel || issueType,
       description: description.trim(),
@@ -45,7 +45,8 @@ export async function POST(req) {
 
     return NextResponse.json({
       success: true,
-      delivered: sent,
+      delivered: telegramResult?.ok || false,
+      telegramResult,
       message: 'Report received successfully and dispatched to admin.',
     });
   } catch (err) {
