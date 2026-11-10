@@ -240,6 +240,21 @@ function cleanTikTokUrl(rawUrl) {
 }
 
 
+
+function isProfileUrl(url) {
+  if (!url || typeof url !== 'string') return false;
+  try {
+    let testUrl = url.trim();
+    if (!/^https?:\/\//i.test(testUrl)) testUrl = 'https://' + testUrl;
+    const parsed = new URL(testUrl);
+    if (!parsed.hostname.includes('tiktok.com')) return false;
+    const pathname = parsed.pathname;
+    return /^\/@[a-zA-Z0-9_.-]+\/?$/.test(pathname);
+  } catch {
+    return false;
+  }
+}
+
 // Direct Tikwm Cloud API (High-speed metadata, cover image, and video stream)
 async function fetchTikwmDirect(url) {
   try {
@@ -352,6 +367,18 @@ export async function POST(request) {
       );
     }
 
+    // Guard: Profile URL detected (not a video/media post)
+    if (isProfileUrl(cleanUrl) || isProfileUrl(rawUrl)) {
+      return NextResponse.json(
+        {
+          success: false,
+          isProfile: true,
+          error: 'This is a TikTok profile link, not a video. To download videos, please copy a specific video link from this creator. To download their full HD avatar, use our TikTok Avatar Downloader.',
+        },
+        { status: 400 }
+      );
+    }
+
     const isDouyinLink = cleanUrl.includes('douyin.com') || (typeof url === 'string' && (url.includes('douyin.com') || /[\u4e00-\u9fa5]/.test(url)));
 
     // Strict Platform Separation Check
@@ -454,15 +481,20 @@ export async function POST(request) {
     }
 
     if (!downloadResult) {
-      await sendTelegramAlert({
-        type: 'TikTok Download Failure (All Tiers Exhausted)',
-        url: cleanUrl || rawUrl,
-        error: 'Unable to retrieve media from this link. All fallback tiers (Tikwm, SSSTik, Webshare Proxy, MusicalDown) failed.',
-        provider: 'all-tiers-exhausted',
-        ip: clientIp,
-        userAgent: clientUserAgent,
-        statusCode: 404,
-      });
+      // Only alert if it's a genuine video/media link that failed (avoid alert spam from profile links or malformed URLs)
+      const isMediaCandidate = /\/video\/\d+|\/photo\/\d+|vt\.tiktok\.com|vm\.tiktok\.com|v\.douyin\.com|douyin\.com\/video/i.test(cleanUrl || rawUrl);
+
+      if (isMediaCandidate) {
+        await sendTelegramAlert({
+          type: 'TikTok Download Failure (All Tiers Exhausted)',
+          url: cleanUrl || rawUrl,
+          error: 'Unable to retrieve media from this link. All fallback tiers (Tikwm, SSSTik, Webshare Proxy, MusicalDown) failed.',
+          provider: 'all-tiers-exhausted',
+          ip: clientIp,
+          userAgent: clientUserAgent,
+          statusCode: 404,
+        });
+      }
 
       return NextResponse.json(
         {

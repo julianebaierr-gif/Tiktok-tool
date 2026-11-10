@@ -258,6 +258,41 @@ export default function DownloaderForm({
       return;
     }
 
+    const isProfileLink = (u) => {
+      try {
+        let testUrl = (u || '').trim();
+        if (!/^https?:\/\//i.test(testUrl)) testUrl = 'https://' + testUrl;
+        const parsed = new URL(testUrl);
+        if (parsed.hostname.includes('tiktok.com')) {
+          return /^\/@[a-zA-Z0-9_.-]+\/?$/.test(parsed.pathname);
+        }
+      } catch {}
+      return false;
+    };
+
+    if (isProfileLink(trimmed)) {
+      const profilePrompt = {
+        en: 'This is a TikTok profile link, not a video. To download videos, open any video and copy its share link. If you want to download this profile picture, click below to open our Avatar Downloader.',
+        es: 'Has ingresado el enlace de un perfil de TikTok, no de un video. Para descargar videos, abre un video y copia su enlace. Para descargar la foto de perfil, pulsa abajo para abrir el Descargador de Avatares.',
+        pt: 'Você inseriu o link de um perfil do TikTok, não de um vídeo. Para baixar vídeos, abra um vídeo e copie o link. Para baixar a foto de perfil, clique abaixo para abrir o Baixador de Avatares.',
+        id: 'Anda memasukkan tautan profil TikTok, bukan video. Untuk mengunduh video, buka video dan salin tautannya. Jika ingin mengunduh foto profil, klik di bawah untuk membuka Pengunduh Avatar.',
+        fr: 'Vous avez entré un lien de profil TikTok, pas une vidéo. Pour télécharger des vidéos, ouvrez une vidéo et copiez son lien. Pour télécharger la photo de profil, cliquez ci-dessous pour ouvrir le Téléchargeur d\'Avatars.',
+        ar: 'لقد أدخلت رابط ملف شخصي (حساب) على تيك توك وليس رابط فيديو. لتحميل الفيديو، افتح أي فيديو وانسخ رابطه. لتحميل الصورة الشخصية، اضغط بالأسفل لفتح أداة تنزيل صور الحسابات.',
+        de: 'Sie haben einen TikTok-Profillink eingegeben, kein Video. Um Videos herunterzuladen, öffnen Sie ein Video und kopieren Sie den Link. Um das Profilbild herunterzuladen, klicken Sie unten auf Avatar-Downloader.',
+        vi: 'Bạn đã nhập liên kết hồ sơ TikTok chứ không phải video. Để tải video, hãy mở video và sao chép liên kết. Nếu muốn tải ảnh đại diện, hãy nhấn bên dưới để mở Trình tải ảnh đại diện.',
+        tr: 'Video yerine bir TikTok profil bağlantısı girdiniz. Video indirmek için herhangi bir videoyu açıp bağlantısını kopyalayın. Profil resmini indirmek için aşağıdaki Avatar İndiriciyi açın.',
+        it: 'Hai inserito il link di un profilo TikTok, non di un video. Per scaricare i video, apri un video e copia il link. Se vuoi scaricare l\'immagine del profilo, clicca sotto per aprire il Downloader di Avatar.',
+        ru: 'Вы ввели ссылку на профиль TikTok, а не на видео. Чтобы скачать видео, откройте любое видео и скопируйте его ссылку. Чтобы скачать фото профиля, нажмите ниже для перехода в Загрузчик Аватарок.',
+        ja: '動画ではなくTikTokプロフィールリンクが入力されました。動画を保存するには動画を開いてリンクをコピーしてください。プロフィール画像を保存する場合は下のボタンをクリックしてください。',
+      };
+
+      setError({
+        isProfile: true,
+        message: profilePrompt[activeLang] || profilePrompt.en,
+      });
+      return;
+    }
+
     setLoading(true);
     setError(null);
 
@@ -276,6 +311,8 @@ export default function DownloaderForm({
       if (!res.ok || !data.success) {
         if (data.wrongPlatform) {
           setError({ wrongPlatform: data.wrongPlatform, message: data.error });
+        } else if (data.isProfile) {
+          setError({ isProfile: true, message: data.error });
         } else {
           setError({ message: data.error || 'Could not fetch this media. Please ensure the link is public and try again.' });
         }
@@ -655,7 +692,7 @@ export default function DownloaderForm({
             <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
             <div>
               <p className="font-semibold text-rose-800">
-                {error.wrongPlatform ? 'Wrong Platform Link Detected' : 'Unable to Download'}
+                {error.wrongPlatform ? 'Wrong Platform Link Detected' : error.isProfile ? (activeLang === 'es' ? 'Enlace de perfil detectado' : activeLang === 'tr' ? 'Profil Bağlantısı Algılandı' : activeLang === 'ar' ? 'تم اكتشاف رابط ملف شخصي' : 'Profile Link Detected (Not a Video)') : 'Unable to Download'}
               </p>
               <p className="text-xs text-rose-700 mt-0.5">{error.message || error}</p>
             </div>
@@ -677,6 +714,16 @@ export default function DownloaderForm({
               className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shrink-0 inline-flex items-center gap-1.5 shadow-xs transition-all"
             >
               <span>Open Douyin Downloader</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          )}
+
+          {error.isProfile && (
+            <Link 
+              href={activeLang === 'en' ? '/tiktok-avatar' : `/${activeLang}/tiktok-avatar`}
+              className="px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shrink-0 inline-flex items-center gap-1.5 shadow-xs transition-all"
+            >
+              <span>{activeLang === 'es' ? 'Descargar Avatar HD' : activeLang === 'tr' ? 'Avatar İndiriciyi Aç' : activeLang === 'ar' ? 'فتح أداة تنزيل الصور' : 'Open Avatar Downloader'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           )}
