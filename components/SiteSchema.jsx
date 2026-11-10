@@ -1,6 +1,10 @@
 import React from 'react';
 
-export default function SiteSchema() {
+export default function SiteSchema({ toolName, toolDesc, toolUrl }) {
+  const name = toolName || 'QukTik TikTok & Douyin Downloader';
+  const description = toolDesc || 'Free online TikTok and Douyin downloader to save watermark-free HD MP4 videos and 320kbps MP3 audio.';
+  const pageUrl = toolUrl || 'https://www.quktik.com';
+
   const schemaGraph = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -25,6 +29,39 @@ export default function SiteSchema() {
         'description': 'Free online TikTok and Douyin downloader to save watermark-free HD MP4 videos and 320kbps MP3 audio.',
         'publisher': {
           '@id': 'https://www.quktik.com/#organization'
+        }
+      },
+      {
+        '@type': 'Product',
+        '@id': `${pageUrl}#product`,
+        'name': name,
+        'description': description,
+        'image': 'https://www.quktik.com/og-image.png',
+        'brand': {
+          '@type': 'Brand',
+          'name': 'QukTik'
+        },
+        'offers': {
+          '@type': 'Offer',
+          'url': pageUrl,
+          'price': '0',
+          'priceCurrency': 'USD',
+          'availability': 'https://schema.org/InStock',
+          'priceValidUntil': '2030-12-31'
+        }
+      },
+      {
+        '@type': 'SoftwareApplication',
+        '@id': `${pageUrl}#software`,
+        'name': name,
+        'description': description,
+        'applicationCategory': 'MultimediaApplication',
+        'operatingSystem': 'Windows, macOS, Android, iOS, Linux, Web',
+        'offers': {
+          '@type': 'Offer',
+          'url': pageUrl,
+          'price': '0',
+          'priceCurrency': 'USD'
         }
       }
     ]

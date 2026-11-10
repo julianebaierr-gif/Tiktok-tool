@@ -87,7 +87,7 @@ export default function TikTokPhotoPage() {
     <div className="relative overflow-hidden">
 
       {/* Top Downloader Hero */}
-      <SiteSchema />
+      <SiteSchema toolName="TikTok Photo Slide Downloader HD | QukTik" toolDesc="Download full-resolution TikTok photo slideshows, image carousels, and graphic albums in original quality." toolUrl="https://www.quktik.com/tiktok-photo" />
       <Breadcrumbs items={[{ name: 'TikTok Photo Downloader', url: '/tiktok-photo' }]} />
       <ToolHero 
         title="TikTok Photo Slideshow Downloader (Save All Pictures in HD)"

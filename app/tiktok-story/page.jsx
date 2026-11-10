@@ -88,7 +88,7 @@ export default function TikTokStoryPage() {
     <div className="relative overflow-hidden">
 
       {/* Top Downloader Hero */}
-      <SiteSchema />
+      <SiteSchema toolName="TikTok Story Saver and Downloader | QukTik" toolDesc="Save temporary TikTok stories and disappearing clips in full quality before they expire after 24 hours." toolUrl="https://www.quktik.com/tiktok-story" />
       <Breadcrumbs items={[{ name: 'TikTok Story Saver', url: '/tiktok-story' }]} />
       <ToolHero 
         title="TikTok Story Saver & Downloader (Save 24h Stories in HD)"

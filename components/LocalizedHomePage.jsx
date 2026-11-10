@@ -38,7 +38,7 @@ export default function LocalizedHomePage({ langCode = 'es' }) {
 
   return (
     <div className={`relative overflow-hidden ${isRtl ? 'rtl' : 'ltr'}`} dir={currentLang.dir}>
-      <SiteSchema />
+      <SiteSchema toolName={`QukTik - ${currentLang?.label || ''} TikTok Downloader`} toolDesc={data?.hero?.subtitle || 'Free online TikTok and Douyin downloader to save watermark-free HD MP4 videos and 320kbps MP3 audio.'} toolUrl={`https://www.quktik.com/${langCode}`} />
 
       {/* 1. Downloader Hero */}
       <ToolHero

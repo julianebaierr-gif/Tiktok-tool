@@ -76,7 +76,7 @@ export default function BulkDownloaderPage() {
 
   return (
     <div className="min-h-screen bg-slate-50/50 pb-20">
-      <SiteSchema />
+      <SiteSchema toolName="TikTok Bulk Downloader ZIP | QukTik" toolDesc="Download multiple TikTok videos simultaneously in bulk and package them into a single high-speed ZIP archive." toolUrl="https://www.quktik.com/tiktok-bulk-downloader" />
 
       {/* Breadcrumbs Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
