@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Clipboard, X, Loader2, AlertCircle, ArrowRight, Globe2, Zap, History, Trash2, Clock, Play } from 'lucide-react';
+import { Clipboard, X, Loader2, AlertCircle, ArrowRight, Globe2, Zap, History, Trash2, Clock, Play, Flag } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { TRANSLATIONS } from '../lib/translations';
+import ReportModal from './ReportModal';
 
 const TRUST_RIBBON = {
   en: '⚡ 1-Click Fast • 🎬 1080p Full HD • 🎵 320kbps MP3 • 🚫 No Watermark • 🔒 100% Free & Unlimited',
@@ -136,6 +137,8 @@ export default function DownloaderForm({
   const [error, setError] = useState(null);
   const [history, setHistory] = useState([]);
   const [showHistory, setShowHistory] = useState(false);
+  const [showReportModal, setShowReportModal] = useState(false);
+  const [reportInitialUrl, setReportInitialUrl] = useState('');
 
   const pathname = usePathname();
   const pathSegment = pathname?.split('/')[1] || '';
@@ -517,18 +520,33 @@ export default function DownloaderForm({
           </button>
         </div>
 
-        {/* Helpers: Sample Link, Paste & Go (Mobile), Recent History */}
+        {/* Helpers: Sample Link, Report Issue to Admin, Paste & Go (Mobile), Recent History */}
         <div className="mt-3.5 flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-slate-500">
           <div className="flex items-center gap-1.5">
-            <span>Need an example?</span>
+            <span>{t.needExample || 'Need an example?'}</span>
             <button
               type="button"
               onClick={loadSampleUrl}
               className="text-slate-700 hover:text-rose-600 font-semibold underline underline-offset-4 cursor-pointer"
             >
-              Try sample link
+              {t.trySampleLink || 'Try sample link'}
             </button>
           </div>
+
+          <span className="text-slate-300 hidden sm:inline">•</span>
+
+          <button
+            type="button"
+            onClick={() => {
+              setReportInitialUrl(url || '');
+              setShowReportModal(true);
+            }}
+            className="inline-flex items-center gap-1.5 text-slate-500 hover:text-rose-600 font-semibold cursor-pointer transition-colors"
+            title={t.reportIssueTooltip || t.reportIssue || 'Report an issue to admin'}
+          >
+            <Flag className="w-3.5 h-3.5 text-rose-500" />
+            <span>{t.reportIssue || 'Report Issue'}</span>
+          </button>
 
           <span className="text-slate-300 hidden sm:inline">•</span>
 
@@ -664,15 +682,40 @@ export default function DownloaderForm({
           )}
 
           {!error.wrongPlatform && (
-            <button
-              onClick={() => setError(null)}
-              className="text-rose-400 hover:text-rose-700 p-1 self-start sm:self-auto"
-            >
-              <X className="w-4 h-4" />
-            </button>
+            <div className="flex items-center gap-2 self-start sm:self-auto shrink-0">
+              <button
+                type="button"
+                onClick={() => {
+                  setReportInitialUrl(url || '');
+                  setShowReportModal(true);
+                }}
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white hover:bg-rose-100 text-rose-700 font-bold text-xs border border-rose-200 shadow-2xs transition-colors cursor-pointer"
+                title={t.reportIssueTooltip || t.reportIssue || 'Report problem'}
+              >
+                <Flag className="w-3 h-3 text-rose-600" />
+                <span>{t.reportIssue || 'Report'}</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setError(null)}
+                className="text-rose-400 hover:text-rose-700 p-1 cursor-pointer"
+                aria-label="Dismiss error"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
           )}
         </div>
       )}
+
+      {/* 📢 User Issue Report to Admin Modal */}
+      <ReportModal
+        isOpen={showReportModal}
+        onClose={() => setShowReportModal(false)}
+        initialUrl={reportInitialUrl}
+        activeLang={activeLang}
+        t={t}
+      />
 
     </div>
   );
