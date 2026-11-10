@@ -31,8 +31,8 @@ export async function POST(req) {
 
     const headerUa = req.headers.get('user-agent') || userAgent || 'N/A';
 
-    // Dispatch to Telegram Admin Bot (non-blocking / asynchronous)
-    sendTelegramReport({
+    // Must AWAIT to ensure serverless containers (like Vercel) complete the Telegram API call before termination
+    const sent = await sendTelegramReport({
       url: url.trim(),
       issueCategory: issueLabel || issueType,
       description: description.trim(),
@@ -41,12 +41,11 @@ export async function POST(req) {
       pageUrl: pageUrl.trim(),
       ip: clientIp,
       userAgent: headerUa,
-    }).catch(err => {
-      console.warn('[Report Telegram Delivery Warning]:', err.message);
     });
 
     return NextResponse.json({
       success: true,
+      delivered: sent,
       message: 'Report received successfully and dispatched to admin.',
     });
   } catch (err) {
