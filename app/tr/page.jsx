@@ -3,7 +3,7 @@ import LocalizedHomePage from '../../components/LocalizedHomePage';
 
 export const metadata = {
   title: { absolute: "Filigransız TikTok Video İndir | QukTik" },
-  description: "TikTok videolarını filigransız ve logosuz HD MP4 veya MP3 olarak ücretsiz indirin. Telefon ve bilgisayar için hızlı, güvenli online araç hiçbir kayıt gerektirmez.",
+  description: 'TikTok videolarını filigransız ve logosuz HD MP4 veya MP3 olarak ücretsiz indirin. Telefon ve PC için hızlı, güvenli online araç hiçbir kayıt gerektirmez.',
   alternates: {
     canonical: 'https://www.quktik.com/tr',
     languages: {

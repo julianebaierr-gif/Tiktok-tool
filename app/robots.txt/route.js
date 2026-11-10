@@ -3,6 +3,8 @@ export const dynamic = 'force-dynamic';
 export async function GET() {
   const robotsTxt = `User-agent: *
 Allow: /
+Allow: /_next/
+Allow: /_next/static/
 Disallow: /api/
 Disallow: /*?s=
 Disallow: /*?q=

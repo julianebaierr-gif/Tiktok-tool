@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Allow: /_next/
+Allow: /_next/static/
 Disallow: /api/
 Disallow: /*?s=
 Disallow: /*?q=
