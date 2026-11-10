@@ -390,7 +390,7 @@ export async function POST(request) {
         setCachedResult(cleanUrl, douyinResult);
         return NextResponse.json(douyinResult);
       } else {
-        sendTelegramAlert({
+        await sendTelegramAlert({
           type: 'Douyin Extraction Failure',
           url: cleanUrl || rawUrl,
           error: douyinResult?.error || 'Douyin API could not retrieve video detail',
@@ -398,7 +398,7 @@ export async function POST(request) {
           ip: clientIp,
           userAgent: clientUserAgent,
           statusCode: 404,
-        }).catch(() => {});
+        });
 
         return NextResponse.json(
           {
@@ -454,7 +454,7 @@ export async function POST(request) {
     }
 
     if (!downloadResult) {
-      sendTelegramAlert({
+      await sendTelegramAlert({
         type: 'TikTok Download Failure (All Tiers Exhausted)',
         url: cleanUrl || rawUrl,
         error: 'Unable to retrieve media from this link. All fallback tiers (Tikwm, SSSTik, Webshare Proxy, MusicalDown) failed.',
@@ -462,7 +462,7 @@ export async function POST(request) {
         ip: clientIp,
         userAgent: clientUserAgent,
         statusCode: 404,
-      }).catch(() => {});
+      });
 
       return NextResponse.json(
         {
@@ -535,7 +535,7 @@ export async function POST(request) {
     return NextResponse.json(responsePayload);
   } catch (error) {
     console.error('API Error in /api/download:', error);
-    sendTelegramAlert({
+    await sendTelegramAlert({
       type: 'Download API Server Exception',
       url: cleanUrl || rawUrl || 'N/A',
       error: error.message || 'Unexpected server error',
@@ -543,7 +543,7 @@ export async function POST(request) {
       ip: clientIp,
       userAgent: clientUserAgent,
       statusCode: 500,
-    }).catch(() => {});
+    });
 
     return NextResponse.json(
       {

@@ -70,7 +70,7 @@ export async function GET(request) {
     console.error('Proxy download stream error:', error.message);
     const clientIp = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || request.headers.get('x-real-ip') || 'Unknown';
     const clientUserAgent = request.headers.get('user-agent') || 'Unknown';
-    sendTelegramAlert({
+    await sendTelegramAlert({
       type: 'Media Proxy Stream Error',
       url: mediaUrl || 'N/A',
       error: error.message,
@@ -79,7 +79,7 @@ export async function GET(request) {
       userAgent: clientUserAgent,
       statusCode: 502,
       extra: `filename: ${rawFilename}, type: ${type}`,
-    }).catch(() => {});
+    });
 
     return new Response(`Failed to proxy media stream: ${error.message}`, { status: 502 });
   }

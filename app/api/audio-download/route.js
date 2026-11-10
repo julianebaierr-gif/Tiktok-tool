@@ -98,14 +98,14 @@ export async function GET(request) {
   } catch (error) {
     console.error('Audio download error:', error);
     const clientIp = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || request.headers.get('x-real-ip') || 'Unknown';
-    sendTelegramAlert({
+    await sendTelegramAlert({
       type: 'Audio Download Server Error',
       url: fileParam || 'N/A',
       error: error.message,
       provider: 'audio-download',
       ip: clientIp,
       statusCode: 500,
-    }).catch(() => {});
+    });
 
     return new Response('Error retrieving audio stream', { status: 500 });
   }
