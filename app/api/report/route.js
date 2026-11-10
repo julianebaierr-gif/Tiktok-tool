@@ -46,7 +46,6 @@ export async function POST(req) {
     return NextResponse.json({
       success: true,
       delivered: telegramResult?.ok || false,
-      telegramResult,
       message: 'Report received successfully and dispatched to admin.',
     });
   } catch (err) {
