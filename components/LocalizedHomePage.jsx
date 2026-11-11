@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import ToolHero from './ToolHero';
-import SiteSchema from './SiteSchema';
 import FaqSection from './FaqSection';
+import ItemListSchema from './ItemListSchema';
 import { FormattedCreatorAdvice, FormattedTechnicalAnalysis } from './FormattedEditorial';
 import { CONTENT_MAP } from '../lib/content';
 import { ARCHITECTURAL_GUIDE } from '../lib/tools/architecturalGuideData';
@@ -38,8 +38,8 @@ export default function LocalizedHomePage({ langCode = 'es' }) {
 
   return (
     <div className={`relative overflow-hidden ${isRtl ? 'rtl' : 'ltr'}`} dir={currentLang.dir}>
-      <SiteSchema />
-
+      <ItemListSchema langCode={langCode} />
+      
       {/* 1. Downloader Hero */}
       <ToolHero
         title={data.hero.title}

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
+import ArticleSchema from '../../components/ArticleSchema';
 import React from 'react';
 import { 
   ShieldCheck, 
@@ -44,6 +45,11 @@ export default function PrivacyPolicyPage() {
 
   return (
     <div className="min-h-screen bg-slate-50/50 pb-20 text-slate-700">
+      <ArticleSchema 
+        title="Privacy Policy & Data Protection Declaration | QukTik"
+        description="Official QukTik Privacy Policy: zero-PII data minimization, Google AdSense cookie compliance, GDPR, CCPA/CPRA rights, and security standards."
+        url="https://www.quktik.com/privacy-policy"
+      />
       {/* Breadcrumbs Navigation */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <Breadcrumbs items={[{ name: 'Privacy Policy', url: '/privacy-policy' }]} />

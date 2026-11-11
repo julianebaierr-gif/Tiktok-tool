@@ -9,11 +9,19 @@ export default function SiteSchema() {
         '@id': 'https://www.quktik.com/#organization',
         'name': 'QukTik',
         'url': 'https://www.quktik.com',
-        'logo': 'https://www.quktik.com/logo.png',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': 'https://www.quktik.com/logo.png',
+          'width': 512,
+          'height': 512
+        },
         'image': 'https://www.quktik.com/og-image.png',
+        'description': 'Free online TikTok and Douyin downloader to save watermark-free HD MP4 videos and 320kbps MP3 audio.',
+        'foundingDate': '2026',
         'contactPoint': {
           '@type': 'ContactPoint',
           'contactType': 'Customer Support',
+          'email': 'support@quktik.com',
           'url': 'https://www.quktik.com/contact'
         }
       },

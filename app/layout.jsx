@@ -2,6 +2,7 @@ import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PwaManager from '../components/PwaManager';
+import SiteSchema from '../components/SiteSchema';
 
 export const metadata = {
   metadataBase: new URL('https://www.quktik.com'),
@@ -150,6 +151,9 @@ export default function RootLayout({ children }) {
         {/* RSS 2.0 & Atom Feed Auto-Discovery for Googlebot & Aggregators */}
         <link rel="alternate" type="application/rss+xml" title="QukTik RSS Feed" href="https://www.quktik.com/feed.xml" />
         <link rel="alternate" type="application/atom+xml" title="QukTik Atom Feed" href="https://www.quktik.com/feed.xml" />
+
+        {/* Global Organization & WebSite Structured Data */}
+        <SiteSchema />
 
         <meta name="theme-color" content="#0F172A" />
       </head>

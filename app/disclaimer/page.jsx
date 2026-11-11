@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
+import ArticleSchema from '../../components/ArticleSchema';
 import React from 'react';
 import { 
   ShieldAlert, 
@@ -44,6 +45,11 @@ export default function DisclaimerPage() {
 
   return (
     <div className="min-h-screen bg-slate-50/50 pb-20 text-slate-700">
+      <ArticleSchema 
+        title="DMCA Policy & Copyright Disclaimer | QukTik"
+        description="Official DMCA Takedown Policy, Copyright Disclaimer, Safe Harbor Protections under 17 U.S.C. § 512, and Trademark Non-Affiliation Notice for QukTik."
+        url="https://www.quktik.com/disclaimer"
+      />
       {/* Breadcrumbs Navigation */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <Breadcrumbs items={[{ name: 'DMCA & Copyright Disclaimer', url: '/disclaimer' }]} />

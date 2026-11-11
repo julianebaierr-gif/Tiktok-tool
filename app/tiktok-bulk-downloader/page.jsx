@@ -1,7 +1,6 @@
 import React from 'react';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import BulkDownloader from '../../components/BulkDownloader';
-import SiteSchema from '../../components/SiteSchema';
 import FaqSection from '../../components/FaqSection';
 import { BULK_EDITORIAL, BULK_FAQS_EN } from '../../lib/tools/bulkEditorialData';
 import { 
@@ -76,8 +75,7 @@ export default function BulkDownloaderPage() {
 
   return (
     <div className="min-h-screen bg-slate-50/50 pb-20">
-      <SiteSchema />
-
+      
       {/* Breadcrumbs Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <Breadcrumbs 

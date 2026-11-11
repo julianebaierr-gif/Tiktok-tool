@@ -1,8 +1,8 @@
 import React from 'react';
 import Breadcrumbs from '../../components/Breadcrumbs';
-import SiteSchema from '../../components/SiteSchema';
 import FaqSection from '../../components/FaqSection';
 import TrendingSoundsClient from '../../components/TrendingSoundsClient';
+import ItemListSchema from '../../components/ItemListSchema';
 import { SOUNDS_EDITORIAL, SOUNDS_FAQS_EN } from '../../lib/tools/soundsEditorialData';
 import { 
   Music, 
@@ -73,8 +73,8 @@ export default function TrendingSoundsPage() {
 
   return (
     <div className="min-h-screen bg-slate-50/50 pb-20">
-      <SiteSchema />
-
+      <ItemListSchema langCode="en" />
+      
       {/* Breadcrumbs Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <Breadcrumbs 

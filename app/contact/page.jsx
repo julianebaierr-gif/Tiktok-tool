@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
+import ArticleSchema from '../../components/ArticleSchema';
 import React from 'react';
 import { 
   Mail, 
@@ -46,8 +47,56 @@ export const metadata = {
 };
 
 export default function ContactPage() {
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+      {
+        '@type': 'Question',
+        'name': 'Why is my downloaded video saved as an MP4 rather than a MOV or WebM?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'MP4 (MPEG-4 Part 14) formatted with H.264 video compression and AAC audio encoding is the universally recognized multimedia container, guaranteeing seamless playback across all platforms.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'Can QukTik download deleted TikTok videos if I have the URL saved?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'No. Because QukTik operates strictly as a real-time, stateless proxy and does not maintain internal video archives, when a creator or TikTok moderator deletes a video, the content is permanently purged from ByteDance origin servers.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'Does QukTik compress video bitrate or reduce audio clarity during processing?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Zero compression is applied. QukTik locates the pristine, uncompressed master stream that ByteDance stores for high-definition playback, passing the exact bitstream directly to your browser for preservation.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'Is there any subscription fee, credit card requirement, or usage quota?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'QukTik is 100% free with unlimited daily downloads. There is no subscription, credit card requirement, or usage quota.'
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-slate-50/50 pb-20 text-slate-700">
+      <ArticleSchema 
+        title="Contact Support & Help Center | QukTik"
+        description="Connect with QukTik support for technical assistance, bug reports, DMCA copyright takedown requests, and self-service diagnostics."
+        url="https://www.quktik.com/contact"
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Breadcrumbs Navigation */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <Breadcrumbs items={[{ name: 'Contact Support', url: '/contact' }]} />

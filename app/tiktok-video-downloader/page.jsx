@@ -2,7 +2,6 @@ import { getToolSeoMetadata } from '../../lib/tools';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
-import SiteSchema from '../../components/SiteSchema';
 import FaqSection from '../../components/FaqSection';
 
 import React from 'react';
@@ -93,8 +92,7 @@ export default function TikTokVideoDownloaderPage() {
     <div className="relative overflow-hidden">
 
       {/* Top Downloader Hero */}
-      <SiteSchema />
-      <Breadcrumbs items={[{ name: 'TikTok Video Downloader', url: '/tiktok-video-downloader' }]} />
+            <Breadcrumbs items={[{ name: 'TikTok Video Downloader', url: '/tiktok-video-downloader' }]} />
       <ToolHero 
         title="TikTok Video Downloader Without Watermark HD"
         subtitle="Save original 1080p MP4 videos from TikTok without logos, stamps, or usernames. Fast, free, and unlimited for all devices."

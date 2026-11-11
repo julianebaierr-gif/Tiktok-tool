@@ -4,7 +4,7 @@ import FeatureGrid from '../components/FeatureGrid';
 import HowToSection from '../components/HowToSection';
 import FaqSection from '../components/FaqSection';
 import SemanticContent from '../components/SemanticContent';
-import SiteSchema from '../components/SiteSchema';
+import ItemListSchema from '../components/ItemListSchema';
 
 export const metadata = {
   title: { absolute: 'Download TikTok Video No Watermark | QukTik' },
@@ -47,7 +47,7 @@ export const metadata = {
 export default function HomePage() {
   return (
     <div className="relative overflow-hidden">
-      <SiteSchema />
+      <ItemListSchema langCode="en" />
       
       {/* Downloader Hero */}
       <ToolHero 

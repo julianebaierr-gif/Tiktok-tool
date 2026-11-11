@@ -6,7 +6,6 @@ import ToolHero from './ToolHero';
 import BulkDownloader from './BulkDownloader';
 import TrendingSoundsClient from './TrendingSoundsClient';
 import Breadcrumbs from './Breadcrumbs';
-import SiteSchema from './SiteSchema';
 import FaqSection from './FaqSection';
 import { FormattedCreatorAdvice, FormattedCompetitorGap } from './FormattedEditorial';
 import { TOOL_DEFINITIONS, VALID_TOOLS } from '../lib/tools';
@@ -78,8 +77,7 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
 
   return (
     <div className={`relative overflow-hidden ${isRtl ? 'rtl' : 'ltr'}`} dir={currentLang.dir}>
-      <SiteSchema />
-
+      
       {/* Breadcrumbs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <Breadcrumbs 

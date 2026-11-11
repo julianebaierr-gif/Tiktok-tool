@@ -2,7 +2,6 @@ import { getToolSeoMetadata } from '../../lib/tools';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
-import SiteSchema from '../../components/SiteSchema';
 import FaqSection from '../../components/FaqSection';
 
 import React from 'react';
@@ -88,8 +87,7 @@ export default function TikTokStoryPage() {
     <div className="relative overflow-hidden">
 
       {/* Top Downloader Hero */}
-      <SiteSchema />
-      <Breadcrumbs items={[{ name: 'TikTok Story Saver', url: '/tiktok-story' }]} />
+            <Breadcrumbs items={[{ name: 'TikTok Story Saver', url: '/tiktok-story' }]} />
       <ToolHero 
         title="TikTok Story Saver & Downloader (Save 24h Stories in HD)"
         subtitle="Save disappearing TikTok stories before they vanish forever. Download clean, watermark-free 1080p MP4 videos with no login required."

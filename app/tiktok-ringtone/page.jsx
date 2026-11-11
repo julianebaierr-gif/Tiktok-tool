@@ -2,7 +2,6 @@ import { getToolSeoMetadata } from '../../lib/tools';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
-import SiteSchema from '../../components/SiteSchema';
 import FaqSection from '../../components/FaqSection';
 
 import React from 'react';
@@ -87,8 +86,7 @@ export default function TikTokRingtonePage() {
     <div className="relative overflow-hidden">
 
       {/* Top Downloader Hero */}
-      <SiteSchema />
-      <Breadcrumbs items={[{ name: 'TikTok Ringtone Maker', url: '/tiktok-ringtone' }]} />
+            <Breadcrumbs items={[{ name: 'TikTok Ringtone Maker', url: '/tiktok-ringtone' }]} />
       <ToolHero 
         title="TikTok Ringtone Maker (Custom iPhone & Android Tones)"
         subtitle="Turn viral TikTok audio clips and music hooks into custom ringtones, text alerts, and morning alarms in studio 320kbps quality."

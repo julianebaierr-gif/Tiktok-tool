@@ -2,7 +2,6 @@ import { getToolSeoMetadata } from '../../lib/tools';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
-import SiteSchema from '../../components/SiteSchema';
 import FaqSection from '../../components/FaqSection';
 
 import React from 'react';
@@ -87,8 +86,7 @@ export default function TikTokPhotoPage() {
     <div className="relative overflow-hidden">
 
       {/* Top Downloader Hero */}
-      <SiteSchema />
-      <Breadcrumbs items={[{ name: 'TikTok Photo Downloader', url: '/tiktok-photo' }]} />
+            <Breadcrumbs items={[{ name: 'TikTok Photo Downloader', url: '/tiktok-photo' }]} />
       <ToolHero 
         title="TikTok Photo Slideshow Downloader (Save All Pictures in HD)"
         subtitle="Download every high-resolution photo from TikTok carousels and slideshows without watermarks, compression, or black bars."

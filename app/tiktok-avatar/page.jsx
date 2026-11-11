@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedTools from '../../components/RelatedTools';
 import ToolHero from '../../components/ToolHero';
-import SiteSchema from '../../components/SiteSchema';
 import FaqSection from '../../components/FaqSection';
 
 import React from 'react';
@@ -88,8 +87,7 @@ export default function TikTokAvatarPage() {
     <div className="relative overflow-hidden">
 
       {/* Top Downloader Hero Section */}
-      <SiteSchema />
-      <Breadcrumbs items={[{ name: 'TikTok Avatar Downloader', url: '/tiktok-avatar' }]} />
+            <Breadcrumbs items={[{ name: 'TikTok Avatar Downloader', url: '/tiktok-avatar' }]} />
       <ToolHero 
         title="TikTok Avatar HD Downloader (Full Size PFP Viewer)"
         subtitle="View, zoom, and download uncropped high-resolution profile pictures from any TikTok user in 1080p Full HD for free."

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
+import ArticleSchema from '../../components/ArticleSchema';
 import React from 'react';
 import { 
   Shield, 
@@ -45,6 +46,11 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-slate-50/50 pb-20 text-slate-700">
+      <ArticleSchema 
+        title="About QukTik - Engineering, Mission & Creator Transparency"
+        description="Learn about QukTik: direct CDN manifest extraction technology, stateless zero-storage privacy, and our mission for ethical media archiving."
+        url="https://www.quktik.com/about"
+      />
       {/* Breadcrumbs Navigation */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <Breadcrumbs items={[{ name: 'About Us', url: '/about' }]} />

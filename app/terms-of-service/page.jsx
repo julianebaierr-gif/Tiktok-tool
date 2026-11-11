@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
+import ArticleSchema from '../../components/ArticleSchema';
 import React from 'react';
 import { 
   FileText, 
@@ -44,6 +45,11 @@ export default function TermsOfServicePage() {
 
   return (
     <div className="min-h-screen bg-slate-50/50 pb-20 text-slate-700">
+      <ArticleSchema 
+        title="Terms of Service & User Agreement | QukTik"
+        description="Official Terms of Service, Acceptable Use Policy, and Legal User Agreement for QukTik online video and audio downloader."
+        url="https://www.quktik.com/terms-of-service"
+      />
       {/* Breadcrumbs Navigation */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <Breadcrumbs items={[{ name: 'Terms of Service', url: '/terms-of-service' }]} />
