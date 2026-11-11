@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export const metadata = {
-  title: { absolute: 'DMCA Policy & Copyright Disclaimer | QukTik' },
+  title: 'DMCA Policy & Copyright Disclaimer',
   description: 'Official DMCA Takedown Policy, Copyright Disclaimer, Safe Harbor Protections under 17 U.S.C. § 512, and Trademark Non-Affiliation Notice for QukTik.',
   alternates: {
     canonical: 'https://www.quktik.com/disclaimer',

@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export const metadata = {
-  title: { absolute: 'Terms of Service & User Agreement | QukTik' },
+  title: 'Terms of Service & User Agreement',
   description: 'Official Terms of Service, Acceptable Use Policy, and Legal User Agreement for QukTik online video and audio downloader.',
   alternates: {
     canonical: 'https://www.quktik.com/terms-of-service',

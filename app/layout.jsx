@@ -151,12 +151,6 @@ export default function RootLayout({ children }) {
         <link rel="alternate" type="application/rss+xml" title="QukTik RSS Feed" href="https://www.quktik.com/feed.xml" />
         <link rel="alternate" type="application/atom+xml" title="QukTik Atom Feed" href="https://www.quktik.com/feed.xml" />
 
-        {/* Google Search Console HTML Verification Tag */}
-        <meta name="google-site-verification" content="WpOnaC_Bx-CQQ4GgBUBm45-uWHXJSNeU-m90IRFWv-I" />
-
-        {/* Ahrefs Webmaster Tools Verification */}
-        <meta name="ahrefs-site-verification" content="6280d6ffc889f33450faf4b4e2b42b8f54cb5c65bc96be932da9f4d0d51726d4" />
-
         <meta name="theme-color" content="#0F172A" />
       </head>
       <body className="bg-[#fcfcfd] text-slate-900 flex flex-col min-h-screen antialiased selection:bg-rose-500 selection:text-white">

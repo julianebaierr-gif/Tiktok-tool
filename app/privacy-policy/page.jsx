@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export const metadata = {
-  title: { absolute: 'Privacy Policy & Data Protection Declaration | QukTik' },
+  title: 'Privacy Policy & Data Protection Declaration',
   description: 'Official QukTik Privacy Policy: zero-PII data minimization, Google AdSense cookie compliance, GDPR, CCPA/CPRA rights, and security standards.',
   alternates: {
     canonical: 'https://www.quktik.com/privacy-policy',

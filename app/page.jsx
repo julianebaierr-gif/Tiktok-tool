@@ -42,12 +42,6 @@ export const metadata = {
     ],
     siteName: 'QukTik',
   },
-  verification: {
-    google: 'google-site-verification-quktik',
-    other: {
-      'ahrefs-site-verification': '6280d6ffc889f33450faf4b4e2b42b8f54cb5c65bc96be932da9f4d0d51726d4',
-    },
-  },
 };
 
 export default function HomePage() {
