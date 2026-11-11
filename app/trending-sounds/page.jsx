@@ -73,7 +73,7 @@ export default function TrendingSoundsPage() {
 
   return (
     <div className="min-h-screen bg-slate-50/50 pb-20">
-      <SiteSchema toolName="Trending TikTok Sounds and Viral Audio Charts | QukTik" toolDesc="Explore real-time trending TikTok songs, viral audio snippets, and hot background music with direct MP3 previews." toolUrl="https://www.quktik.com/trending-sounds" />
+      <SiteSchema />
 
       {/* Breadcrumbs Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">

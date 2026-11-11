@@ -87,7 +87,7 @@ export default function TikTokMp3Page() {
   return (
     <div className="relative overflow-hidden">
 
-      <SiteSchema toolName="TikTok to MP3 Converter 320kbps | QukTik" toolDesc="Extract crystal-clear 320kbps MP3 audio and original sound tracks directly from any TikTok video." toolUrl="https://www.quktik.com/tiktok-mp3" />
+      <SiteSchema />
       <Breadcrumbs items={[{ name: 'TikTok to MP3 Converter', url: '/tiktok-mp3' }]} />
       <ToolHero 
         title="TikTok to MP3 Audio Converter (320kbps HD)"

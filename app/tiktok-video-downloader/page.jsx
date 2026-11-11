@@ -93,7 +93,7 @@ export default function TikTokVideoDownloaderPage() {
     <div className="relative overflow-hidden">
 
       {/* Top Downloader Hero */}
-      <SiteSchema toolName="TikTok Video Downloader Without Watermark HD | QukTik" toolDesc="Save original 1080p MP4 videos from TikTok without logos, stamps, or usernames. Fast, free, and unlimited for all devices." toolUrl="https://www.quktik.com/tiktok-video-downloader" />
+      <SiteSchema />
       <Breadcrumbs items={[{ name: 'TikTok Video Downloader', url: '/tiktok-video-downloader' }]} />
       <ToolHero 
         title="TikTok Video Downloader Without Watermark HD"

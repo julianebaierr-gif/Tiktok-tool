@@ -88,7 +88,7 @@ export default function TikTokAvatarPage() {
     <div className="relative overflow-hidden">
 
       {/* Top Downloader Hero Section */}
-      <SiteSchema toolName="TikTok Profile Picture Avatar Downloader | QukTik" toolDesc="View and download high-resolution uncropped profile pictures and avatars from any TikTok account in 1080p Full HD." toolUrl="https://www.quktik.com/tiktok-avatar" />
+      <SiteSchema />
       <Breadcrumbs items={[{ name: 'TikTok Avatar Downloader', url: '/tiktok-avatar' }]} />
       <ToolHero 
         title="TikTok Avatar HD Downloader (Full Size PFP Viewer)"

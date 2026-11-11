@@ -47,7 +47,7 @@ export const metadata = {
 export default function HomePage() {
   return (
     <div className="relative overflow-hidden">
-      <SiteSchema toolName="QukTik - TikTok and Douyin Downloader Without Watermark" toolDesc="Download TikTok videos without watermark in HD MP4 or MP3. Free online TikTok downloader for iPhone, Android, and PC." toolUrl="https://www.quktik.com" />
+      <SiteSchema />
       
       {/* Downloader Hero */}
       <ToolHero 

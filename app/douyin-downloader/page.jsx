@@ -86,7 +86,7 @@ export default function DouyinDownloaderPage() {
     <div className="relative overflow-hidden">
 
       {/* Top Downloader Hero */}
-      <SiteSchema toolName="Douyin Downloader No Watermark | QukTik" toolDesc="Download Chinese TikTok (Douyin) videos and audio without watermark in 1080p Full HD." toolUrl="https://www.quktik.com/douyin-downloader" />
+      <SiteSchema />
       <Breadcrumbs items={[{ name: 'Douyin Downloader', url: '/douyin-downloader' }]} />
       <ToolHero 
         title="Douyin Downloader (抖音视频无水印下载 - Chinese TikTok HD)"

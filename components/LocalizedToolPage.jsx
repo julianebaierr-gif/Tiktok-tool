@@ -78,7 +78,7 @@ export default function LocalizedToolPage({ langCode = 'de', toolSlug = 'tiktok-
 
   return (
     <div className={`relative overflow-hidden ${isRtl ? 'rtl' : 'ltr'}`} dir={currentLang.dir}>
-      <SiteSchema toolName={hero.title || toolData?.title || 'QukTik Downloader'} toolDesc={hero.subtitle || toolData?.description} toolUrl={`https://www.quktik.com/${langCode}/${toolSlug}`} />
+      <SiteSchema />
 
       {/* Breadcrumbs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">

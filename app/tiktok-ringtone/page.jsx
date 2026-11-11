@@ -87,7 +87,7 @@ export default function TikTokRingtonePage() {
     <div className="relative overflow-hidden">
 
       {/* Top Downloader Hero */}
-      <SiteSchema toolName="TikTok Ringtone Maker | QukTik" toolDesc="Convert TikTok audio and viral sounds into custom ringtones and notification alerts for iPhone and Android." toolUrl="https://www.quktik.com/tiktok-ringtone" />
+      <SiteSchema />
       <Breadcrumbs items={[{ name: 'TikTok Ringtone Maker', url: '/tiktok-ringtone' }]} />
       <ToolHero 
         title="TikTok Ringtone Maker (Custom iPhone & Android Tones)"
