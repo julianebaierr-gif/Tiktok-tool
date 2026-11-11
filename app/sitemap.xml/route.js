@@ -4,6 +4,7 @@ export const dynamic = 'force-dynamic';
 
 export async function GET() {
   const baseUrl = 'https://www.quktik.com';
+  const lastmod = '2026-11-11';
 
   function getHubHreflangs() {
     const links = [];
@@ -30,6 +31,7 @@ export async function GET() {
   // 1. Homepage (1)
   entries.push(`  <url>
     <loc>${baseUrl}</loc>
+    <lastmod>${lastmod}</lastmod>
 ${getHubHreflangs()}
   </url>`);
 
@@ -37,6 +39,7 @@ ${getHubHreflangs()}
   for (const lang of VALID_LANGS) {
     entries.push(`  <url>
     <loc>${baseUrl}/${lang}</loc>
+    <lastmod>${lastmod}</lastmod>
 ${getHubHreflangs()}
   </url>`);
   }
@@ -45,6 +48,7 @@ ${getHubHreflangs()}
   for (const tool of VALID_TOOLS) {
     entries.push(`  <url>
     <loc>${baseUrl}/${tool}</loc>
+    <lastmod>${lastmod}</lastmod>
 ${getToolHreflangs(tool)}
   </url>`);
   }
@@ -54,6 +58,7 @@ ${getToolHreflangs(tool)}
     for (const tool of VALID_TOOLS) {
       entries.push(`  <url>
     <loc>${baseUrl}/${lang}/${tool}</loc>
+    <lastmod>${lastmod}</lastmod>
 ${getToolHreflangs(tool)}
   </url>`);
     }
@@ -64,6 +69,7 @@ ${getToolHreflangs(tool)}
   for (const page of legalPages) {
     entries.push(`  <url>
     <loc>${baseUrl}/${page}</loc>
+    <lastmod>${lastmod}</lastmod>
   </url>`);
   }
 
